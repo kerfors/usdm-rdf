@@ -56,6 +56,13 @@ Four attributes in DDF-RA v4.0.0 have multi-element `Type` lists, mapped to
 - `ProductOrganizationRole.appliesToIds` → 2-class union
 - `StudyRole.appliesToIds` → 2-class union
 
+These aren't just an emission detail. Two of them —
+`Condition.appliesToIds` and `StudyRole.appliesToIds` — are polymorphic
+associations: reference attributes whose target class varies by usage. UML
+expresses this awkwardly (or not at all); `owl:unionOf` captures the
+structure honestly, so the RDF rendering exposes a semantic feature of
+USDM v4 that the source UML hides.
+
 The `owl:Class` triple count over the whole graph is 90 (86 named + 4 union
 blank nodes). Validation queries filter on `isIRI(?c)` to count only named
 classes.

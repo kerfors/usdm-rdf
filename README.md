@@ -33,6 +33,9 @@ not semantic. This repo closes that gap with a small, reproducible pipeline
   CDISC Library RDF uses).
 - Inheritance, cardinality (`owl:Restriction`), Value/Ref distinction
   (annotation property), Model Name (annotation property).
+- Polymorphic associations (multi-`$ref` `Type` attributes) rendered as
+  `owl:unionOf` ranges — a USDM v4 modelling feature the source UML
+  expresses less directly.
 - Validation pipeline: `rdflib` parse + SPARQL sanity queries + a CSV report
   in `reports/`.
 
