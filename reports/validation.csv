@@ -1,0 +1,2 @@
+timestamp_utc,ddf_ra_tag,source_sha256,triples,classes_total,classes_nci_anchored,properties_total,properties_nci_anchored,value_props,ref_props,concrete_classes,abstract_classes,class_mismatches,attr_mismatches
+2026-04-26T07:33:36.500555+00:00,v4.0.0,6f49a407aef41a66dd40a82ad3348672a22cd8874849254d7e4f27d6275daca6,8069,86,84,693,312,630,63,80,6,0,0
