@@ -18,6 +18,8 @@ usdm:modifier a owl:AnnotationProperty .
 usdm:relationshipType a owl:AnnotationProperty .
 usdm:modelName a owl:AnnotationProperty .
 usdm:modelRepresentation a owl:AnnotationProperty .
+usdm:boundCodelist a owl:AnnotationProperty .
+usdm:boundCodelistNote a owl:AnnotationProperty .
 
 # class Abbreviation
 usdm:Abbreviation
@@ -367,7 +369,8 @@ usdm:Address-country
     skos:definition "A sovereign nation occupying a distinct territory and ruled by an autonomous government." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "country" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to ISO 3166-1 Alpha-3 Country code)" .
 
 usdm:Address-extensionAttributes
     a owl:ObjectProperty ;
@@ -456,7 +459,9 @@ usdm:AdministrableProduct-administrableDoseForm
     skos:definition "The physical form in which formulated ingredient(s) are presented in the administrable product." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "administrableDoseForm" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66726 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66726)" .
 
 usdm:AdministrableProduct-sourcing
     a owl:ObjectProperty ;
@@ -468,7 +473,9 @@ usdm:AdministrableProduct-sourcing
     skos:definition "An indication as to whether the administrable product is obtained from a local or central source." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "sourcing" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215483 ;
+    usdm:boundCodelistNote "Y (C215483)" .
 
 usdm:AdministrableProduct-productDesignation
     a owl:ObjectProperty ;
@@ -480,7 +487,9 @@ usdm:AdministrableProduct-productDesignation
     skos:definition "An indication as to whether the administrable product is an investigational medicinal product or an auxiliary medicinal product." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "productDesignation" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C207418 ;
+    usdm:boundCodelistNote "Y (C207418)" .
 
 usdm:AdministrableProduct-pharmacologicClass
     a owl:ObjectProperty ;
@@ -492,7 +501,8 @@ usdm:AdministrableProduct-pharmacologicClass
     skos:definition "The pharmacological class of the administrable product." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "pharmacologicClass" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Points to external codelists such as UNII, MED-RT)" .
 
 usdm:AdministrableProduct-notes
     a owl:ObjectProperty ;
@@ -621,7 +631,9 @@ usdm:AdministrableProductProperty-type
     skos:definition "A characterization or classification of the administrable product property." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215479 ;
+    usdm:boundCodelistNote "Y (C215479)" .
 
 usdm:AdministrableProductProperty-text
     a owl:DatatypeProperty ;
@@ -748,7 +760,9 @@ usdm:Administration-frequency
     skos:definition "The number of doses administered per a specific interval." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "frequency" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C71113 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C71113)" .
 
 usdm:Administration-route
     a owl:ObjectProperty ;
@@ -760,7 +774,9 @@ usdm:Administration-route
     skos:definition "The pathway by which a substance is administered in order to reach the site of action in the body." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "route" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66729 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66729)" .
 
 usdm:Administration-duration
     a owl:ObjectProperty ;
@@ -2182,7 +2198,9 @@ usdm:EligibilityCriterion-category
     skos:definition "A classification of the inclusion exclusion criterion." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "category" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66797 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66797)" .
 
 usdm:EligibilityCriterion-notes
     a owl:ObjectProperty ;
@@ -2340,7 +2358,9 @@ usdm:Encounter-type
     skos:definition "A characterization or classification of the study encounter." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C188728 ;
+    usdm:boundCodelistNote "Y (C188728)" .
 
 usdm:Encounter-environmentalSettings
     a owl:ObjectProperty ;
@@ -2352,7 +2372,9 @@ usdm:Encounter-environmentalSettings
     skos:definition "The environment/setting where the event, intervention, or finding occurred." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "environmentalSettings" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C127262 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127262)" .
 
 usdm:Encounter-contactModes
     a owl:ObjectProperty ;
@@ -2364,7 +2386,9 @@ usdm:Encounter-contactModes
     skos:definition "The means by which an interaction occurs between the subject/participant and person or entity (e.g., a device)." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "contactModes" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C171445 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C171445)" .
 
 usdm:Encounter-notes
     a owl:ObjectProperty ;
@@ -2465,7 +2489,9 @@ usdm:Endpoint-level
     skos:definition "A characterization or classification of the study endpoint that determines its category of importance relative to other study endpoints." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "level" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C188726 ;
+    usdm:boundCodelistNote "Y (C188726)" .
 
 usdm:Endpoint-purpose
     a owl:DatatypeProperty ;
@@ -2814,7 +2840,9 @@ usdm:GeographicScope-type
     skos:definition "A characterization or classification of the geographic scope." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C207412 ;
+    usdm:boundCodelistNote "Y (C207412)" .
 
 usdm:GeographicScope-code
     a owl:ObjectProperty ;
@@ -2826,7 +2854,8 @@ usdm:GeographicScope-code
     skos:definition "A symbol or combination of symbols which is assigned to the geographic scope." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to external dictionaries: Standard code is ISO-3166; Alias codes drawn from GENC, UN Region Codes, etc.)" .
 
 usdm:GeographicScope-extensionAttributes
     a owl:ObjectProperty ;
@@ -2914,7 +2943,9 @@ usdm:GovernanceDate-type
     skos:definition "A characterization or classification of the study governance date." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C207413 ;
+    usdm:boundCodelistNote "Y (C207413)" .
 
 usdm:GovernanceDate-dateValue
     a owl:DatatypeProperty ;
@@ -3077,7 +3108,8 @@ usdm:Indication-codes
     skos:definition "A short sequence of characters that represents the disease/condition indication." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "codes" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to multiple Biomedical coding dictionaries such as SNOMEDCT (for FDA), MedDRA, NCIt, ICD's, etc.)" .
 
 usdm:Indication-notes
     a owl:ObjectProperty ;
@@ -3137,7 +3169,8 @@ usdm:Ingredient-role
     skos:definition "The intended use of the ingredient within the context of the compounded substance or mixture." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "role" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point to FHIR value set: Ingredient Role)" .
 
 usdm:Ingredient-substance
     a owl:ObjectProperty ;
@@ -3224,7 +3257,9 @@ usdm:InterventionalStudyDesign-model
     skos:definition "The general design of the strategy for assigning interventions to subjects in a clinical study. (clinicaltrials.gov)" ;
     usdm:relationshipType "Value" ;
     usdm:modelName "model" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C99076 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99076)" .
 
 usdm:InterventionalStudyDesign-subTypes
     a owl:ObjectProperty ;
@@ -3236,7 +3271,9 @@ usdm:InterventionalStudyDesign-subTypes
     skos:definition "The nature of the interventional study for which information is being collected." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "subTypes" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66739 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66739)" .
 
 usdm:InterventionalStudyDesign-blindingSchema
     a owl:ObjectProperty ;
@@ -3248,7 +3285,9 @@ usdm:InterventionalStudyDesign-blindingSchema
     skos:definition "The type of experimental design used to describe the level of awareness of the study subjects and/ or study personnel as it relates to the respective intervention(s) or assessments being observed, received or administered." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "blindingSchema" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66735 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66735)" .
 
 usdm:InterventionalStudyDesign-intentTypes
     a owl:ObjectProperty ;
@@ -3260,7 +3299,9 @@ usdm:InterventionalStudyDesign-intentTypes
     skos:definition "The planned purpose of the therapy, device, or agent under study in the clinical trial." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "intentTypes" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66736 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66736)" .
 
 usdm:InterventionalStudyDesign-extensionAttributes
     a owl:ObjectProperty ;
@@ -3440,7 +3481,9 @@ usdm:MedicalDevice-sourcing
     skos:definition "An indication as to whether the medical device is obtained from a local or central source." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "sourcing" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215482 ;
+    usdm:boundCodelistNote "Y (C215482)" .
 
 usdm:MedicalDevice-notes
     a owl:ObjectProperty ;
@@ -3510,7 +3553,9 @@ usdm:MedicalDeviceIdentifier-type
     skos:definition "A characterization or classification of the medical device identifier." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215484 ;
+    usdm:boundCodelistNote "Y (C215484)" .
 
 usdm:MedicalDeviceIdentifier-extensionAttributes
     a owl:ObjectProperty ;
@@ -3750,7 +3795,9 @@ usdm:Objective-level
     skos:definition "A characterization or classification of the study objective that determines its category of importance relative to other study objectives." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "level" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C188725 ;
+    usdm:boundCodelistNote "Y (C188725)" .
 
 usdm:Objective-endpoints
     a owl:ObjectProperty ;
@@ -3800,7 +3847,9 @@ usdm:ObservationalStudyDesign-model
     skos:definition "The general design of the strategy for identifying and following up with participants during observational studies. (clinicaltrials.gov)" ;
     usdm:relationshipType "Value" ;
     usdm:modelName "model" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C127259 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127259)" .
 
 usdm:ObservationalStudyDesign-subTypes
     a owl:ObjectProperty ;
@@ -3812,7 +3861,9 @@ usdm:ObservationalStudyDesign-subTypes
     skos:definition "The nature of the observational study for which information is being collected." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "subTypes" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215486 ;
+    usdm:boundCodelistNote "Y (C215486)" .
 
 usdm:ObservationalStudyDesign-timePerspective
     a owl:ObjectProperty ;
@@ -3824,7 +3875,9 @@ usdm:ObservationalStudyDesign-timePerspective
     skos:definition "The temporal relationship between the observation period and time of subject enrollment. (ClinicalTrials.gov)" ;
     usdm:relationshipType "Value" ;
     usdm:modelName "timePerspective" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C127261 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127261)" .
 
 usdm:ObservationalStudyDesign-samplingMethod
     a owl:ObjectProperty ;
@@ -3836,7 +3889,9 @@ usdm:ObservationalStudyDesign-samplingMethod
     skos:definition "The sampling method used to assign study participants into groups or cohorts within an observational study." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "samplingMethod" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C127260 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127260)" .
 
 usdm:ObservationalStudyDesign-extensionAttributes
     a owl:ObjectProperty ;
@@ -3943,7 +3998,9 @@ usdm:Organization-type
     skos:definition "A characterization or classification of the formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C188724 ;
+    usdm:boundCodelistNote "Y (C188724)" .
 
 usdm:Organization-legalAddress
     a owl:ObjectProperty ;
@@ -4208,7 +4265,9 @@ usdm:PopulationDefinition-plannedSex
     skos:definition "The protocol-defined sex within the study cohort." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "plannedSex" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66732 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66732)" .
 
 usdm:PopulationDefinition-includesHealthySubjects
     a owl:DatatypeProperty ;
@@ -4364,7 +4423,8 @@ usdm:Procedure-code
     skos:definition "A symbol or combination of symbols which is assigned to medical procedure." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to external dictionary like CPT, MedDRA, SNOMEDCT, etc.)" .
 
 usdm:Procedure-notes
     a owl:ObjectProperty ;
@@ -4473,7 +4533,9 @@ usdm:ProductOrganizationRole-code
     skos:definition "A symbol or combination of symbols which is assigned to the product organization role." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215485 ;
+    usdm:boundCodelistNote "Y (C215485)" .
 
 usdm:ProductOrganizationRole-appliesToIds
     a owl:ObjectProperty ;
@@ -4544,7 +4606,9 @@ usdm:Quantity-unit
     skos:definition "The type of unit of measure being used to express a quantity." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "unit" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C71620 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C71620)" .
 
 usdm:Quantity-extensionAttributes
     a owl:ObjectProperty ;
@@ -4665,7 +4729,9 @@ usdm:ReferenceIdentifier-type
     skos:definition "A characterization or classification of the reference identifier." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215478 ;
+    usdm:boundCodelistNote "Y (C215478)" .
 
 usdm:ReferenceIdentifier-extensionAttributes
     a owl:ObjectProperty ;
@@ -5582,7 +5648,9 @@ usdm:StudyAmendmentImpact-type
     skos:definition "A characterization or classification of the study amendment impact." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215481 ;
+    usdm:boundCodelistNote "Y (C215481)" .
 
 usdm:StudyAmendmentImpact-notes
     a owl:ObjectProperty ;
@@ -5654,7 +5722,9 @@ usdm:StudyAmendmentReason-code
     skos:definition "A symbol or combination of symbols which is assigned to the study amendment reason." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C207415 ;
+    usdm:boundCodelistNote "Y (C207415)" .
 
 usdm:StudyAmendmentReason-extensionAttributes
     a owl:ObjectProperty ;
@@ -5742,7 +5812,9 @@ usdm:StudyArm-type
     skos:definition "A characterization or classification of the study arm." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C174222 ;
+    usdm:boundCodelistNote "Y (Protocol Terminology Codelist C174222)" .
 
 usdm:StudyArm-dataOriginType
     a owl:ObjectProperty ;
@@ -5754,7 +5826,9 @@ usdm:StudyArm-dataOriginType
     skos:definition "A characterization or classification of the study arm with respect to where the study arm data originates." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "dataOriginType" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C188727 ;
+    usdm:boundCodelistNote "Y (C188727)" .
 
 usdm:StudyArm-dataOriginDescription
     a owl:DatatypeProperty ;
@@ -6098,7 +6172,9 @@ usdm:StudyDefinitionDocument-type
     skos:definition "A characterization or classification of the study definition document." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215477 ;
+    usdm:boundCodelistNote "Y (C215477)" .
 
 usdm:StudyDefinitionDocument-templateName
     a owl:DatatypeProperty ;
@@ -6122,7 +6198,8 @@ usdm:StudyDefinitionDocument-language
     skos:definition "The language in which the study definition document is written." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "language" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to ISO 639 language value list)" .
 
 usdm:StudyDefinitionDocument-notes
     a owl:ObjectProperty ;
@@ -6202,7 +6279,9 @@ usdm:StudyDefinitionDocumentVersion-status
     skos:definition "A condition of the study definition document at a point in time with respect to its state of readiness for implementation." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "status" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C188723 ;
+    usdm:boundCodelistNote "Y (C188723)" .
 
 usdm:StudyDefinitionDocumentVersion-version
     a owl:DatatypeProperty ;
@@ -6350,7 +6429,8 @@ usdm:StudyDesign-therapeuticAreas
     skos:definition "A categorization of a disease, disorder, or other condition based on common characteristics and often associated with a medical specialty focusing on research and development of specific therapeutic interventions for the purpose of treatment and prevention, which is associated with the interventional study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "therapeuticAreas" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to external dictionaries)" .
 
 usdm:StudyDesign-studyType
     a owl:ObjectProperty ;
@@ -6362,7 +6442,9 @@ usdm:StudyDesign-studyType
     skos:definition "The study type associated with the interventional study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "studyType" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C99077 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99077)" .
 
 usdm:StudyDesign-characteristics
     a owl:ObjectProperty ;
@@ -6374,7 +6456,9 @@ usdm:StudyDesign-characteristics
     skos:definition "The distinguishing qualities or prominent aspects of an interventional study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "characteristics" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C207416 ;
+    usdm:boundCodelistNote "Y (C207416)" .
 
 usdm:StudyDesign-studyPhase
     a owl:ObjectProperty ;
@@ -6386,7 +6470,9 @@ usdm:StudyDesign-studyPhase
     skos:definition "The study phase associated with the interventional study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "studyPhase" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C66737 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66737)" .
 
 usdm:StudyDesign-notes
     a owl:ObjectProperty ;
@@ -6781,7 +6867,9 @@ usdm:StudyEpoch-type
     skos:definition "A characterization or classification of the study epoch, i.e., the named time period defined in the protocol, wherein a study activity is specified and unchanging throughout the interval, to support a study-specific purpose." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C99079 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99079)" .
 
 usdm:StudyEpoch-notes
     a owl:ObjectProperty ;
@@ -6926,7 +7014,9 @@ usdm:StudyIntervention-role
     skos:definition "The intended use of the trial intervention within the context of the study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "role" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C207417 ;
+    usdm:boundCodelistNote "Y (C207417)" .
 
 usdm:StudyIntervention-type
     a owl:ObjectProperty ;
@@ -6938,7 +7028,9 @@ usdm:StudyIntervention-type
     skos:definition "The kind of product or procedure studied in a trial." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C99078 ;
+    usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99078)" .
 
 usdm:StudyIntervention-codes
     a owl:ObjectProperty ;
@@ -6950,7 +7042,8 @@ usdm:StudyIntervention-codes
     skos:definition "A symbol or combination of symbols which is assigned to the study intervention." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "codes" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to multiple Biomedical coding dictionaries such as WHODrug, ATC, UNII, etc.)" .
 
 usdm:StudyIntervention-minimumResponseDuration
     a owl:ObjectProperty ;
@@ -7071,7 +7164,9 @@ usdm:StudyRole-code
     skos:definition "A symbol or combination of symbols which is assigned to the study role." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C215480 ;
+    usdm:boundCodelistNote "Y (C215480)" .
 
 usdm:StudyRole-notes
     a owl:ObjectProperty ;
@@ -7209,7 +7304,8 @@ usdm:StudySite-country
     skos:definition "The country in which the study site is located." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "country" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to ISO 3166-1 Alpha-3 Country code)" .
 
 usdm:StudySite-extensionAttributes
     a owl:ObjectProperty ;
@@ -7257,7 +7353,9 @@ usdm:StudyTitle-type
     skos:definition "A characterization or classification of the study title." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C207419 ;
+    usdm:boundCodelistNote "Y (C207419)" .
 
 usdm:StudyTitle-text
     a owl:DatatypeProperty ;
@@ -7331,7 +7429,8 @@ usdm:StudyVersion-businessTherapeuticAreas
     skos:definition "A therapeutic area classification based on the structure and operations of the business unit." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "businessTherapeuticAreas" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to external dictionaries)" .
 
 usdm:StudyVersion-rationale
     a owl:DatatypeProperty ;
@@ -7732,7 +7831,8 @@ usdm:Substance-codes
     skos:definition "A symbol or combination of symbols which is assigned to the substance." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "codes" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelistNote "Y (Point out to multiple Biomedical coding dictionaries such as WHODrug, ATC, UNII, etc.)" .
 
 usdm:Substance-strengths
     a owl:ObjectProperty ;
@@ -8024,7 +8124,9 @@ usdm:Timing-type
     skos:definition "A characterization or classification of the chronological relationship between temporal events." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C201264 ;
+    usdm:boundCodelistNote "Y (C201264)" .
 
 usdm:Timing-relativeToFrom
     a owl:ObjectProperty ;
@@ -8036,7 +8138,9 @@ usdm:Timing-relativeToFrom
     skos:definition "The name of the reference event used to define the temporal relationship with another event." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "relativeToFrom" ;
-    usdm:modelRepresentation "Attribute" .
+    usdm:modelRepresentation "Attribute" ;
+    usdm:boundCodelist ncit:C201265 ;
+    usdm:boundCodelistNote "Y (C201265)" .
 
 usdm:Timing-value
     a owl:DatatypeProperty ;

@@ -1,21 +1,70 @@
-# Known gaps and v0 scope exclusions
+# Known gaps and v0.1 scope exclusions
 
-## v0 exclusions (deliberate, documented in README.md)
+## v0.1 exclusions (deliberate, documented in README.md)
 
 - SULO or other upper-ontology alignment.
-- `USDM_CT.xlsx` enumerated codelist value binding (only the class- and
-  attribute-level C-Codes already in the YAML are emitted).
+- `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
+  permitted Code values per codelist). Codelist-level anchoring is in v0.1;
+  per-value binding is out.
 - Alignment to the existing CDISC Library RDF (Administered Item vocabulary).
 - SHACL shapes for instance validation.
 - Multiple format publication. Turtle only — no RDF/XML, JSON-LD, or
   NTriples.
 
-## Triple-count residual vs prototype baseline (DDF-RA v4.0.0)
+## v0.1 — codelist binding annotations
 
-Prototype baseline: 8,215 triples.
-Current generator output: 8,069 triples (delta: −146).
+Two new annotation properties bind `Code`-typed property IRIs to their
+permitted codelist:
 
-All structural counts match exactly:
+- `usdm:boundCodelist` — `owl:AnnotationProperty`, NCIt IRI value. Anchors the
+  codelist by C-code (consistent with `skos:exactMatch` style).
+- `usdm:boundCodelistNote` — `owl:AnnotationProperty`, string literal value.
+  Lossless preservation of the raw `Has Value List` cell text from
+  `USDM_CT.xlsx`, including the free-text references that have no
+  extractable C-code.
+
+Source-of-truth split: model structure (classes, properties, cardinality,
+hierarchy) comes from `dataStructure.yml`; codelist bindings come from
+`USDM_CT.xlsx`. Both files co-pinned at the same DDF-RA release tag.
+
+### Counts (DDF-RA v4.0.0)
+
+USDM_CT lists 67 Y-rows (rows where `Has Value List` starts with `Y`):
+
+- 53 with structured C-code (`Y (Cxxxxxx)`, `Y (SDTM Terminology Codelist Cxxxxxx)`,
+  or `Y (Protocol Terminology Codelist Cxxxxxx)`)
+- 14 free-text references to external dictionaries (ISO 3166, ISO 639,
+  MedDRA, SNOMEDCT, FHIR, etc.)
+
+Of the 67, **10 are inherited duplicates** of a parent's binding (e.g.
+`InterventionalStudyDesign.studyType` is an inherited row that duplicates
+`StudyDesign.studyType`). v0.1 emits one annotation pair per *declaring*
+property, mirroring how `dataStructure.yml` declares attributes. The graph
+therefore holds:
+
+- **57** `usdm:boundCodelistNote` triples (declaring class only)
+- **45** `usdm:boundCodelist` triples (subset with structured C-code)
+- 12 free-text-only bindings (45 + 12 = 57)
+
+### Free-text bindings preserved verbatim
+
+The 12 declaring-class free-text bindings are preserved as
+`usdm:boundCodelistNote` strings only (no `usdm:boundCodelist`). They
+cover: ISO 3166 country codes, ISO 639 language codes, MedDRA, SNOMEDCT,
+WHODrug, ATC, UNII, MED-RT, CPT, NCIt, ICD-class dictionaries, and a
+FHIR value set. These are candidates for future external-vocabulary
+alignment when CDISC Library RDF alignment lands.
+
+## Triple-count history (DDF-RA v4.0.0)
+
+| Version  | Triples | Delta  | Notes                                                                |
+|----------|---------|--------|----------------------------------------------------------------------|
+| Prototype baseline | 8,215 | —      | Earlier generator we cannot fully reconstruct.                       |
+| v0       | 8,069   | −146   | Mechanical YAML → Turtle.                                            |
+| v0.1     | 8,173   | +104 vs v0 (−42 vs prototype) | Adds 45 boundCodelist + 57 boundCodelistNote + 2 annotation property declarations. |
+
+All structural counts match exactly across v0/v0.1 (the new layer is purely
+additive on property IRIs):
 
 - 86 named `owl:Class` IRIs (84 NCIt-anchored + 2 Extension classes by design)
 - 693 properties (datatype + object combined)
@@ -24,13 +73,16 @@ All structural counts match exactly:
 - 630 Value + 63 Ref properties
 - 0 NCIt cross-check mismatches (every source `NCI C-Code` resolves to a
   matching `skos:exactMatch` triple in the graph)
+- 0 binding cross-check mismatches (every non-inherited Y-row in `USDM_CT.xlsx`
+  resolves to the expected `usdm:boundCodelist` and `usdm:boundCodelistNote`
+  triples)
 
-The −146 residual is attributable to differences between this generator and
-the unseen prototype that produced the 8,215 number — likely candidates:
-language tags on labels, alternate restriction encoding, or additional
-ontology header triples we don't emit. We chose to keep the prototype
-number as the baseline so source drift remains visible in
-`reports/validation.csv` on every run.
+The remaining −42 residual vs the prototype baseline is attributable to
+differences between this generator and the unseen prototype that produced
+the 8,215 number — likely candidates: language tags on labels, alternate
+restriction encoding, or additional ontology header triples we don't emit.
+The prototype number is retained in this table as historical context; the
+operational baseline used by `30_validate.ipynb` is 8,173.
 
 ## Standalone definitions
 

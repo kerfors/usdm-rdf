@@ -25,7 +25,7 @@ So the gap between published USDM and a queryable RDF/OWL view is mechanical,
 not semantic. This repo closes that gap with a small, reproducible pipeline
 (three notebooks + a single Turtle deliverable).
 
-## What's in v0
+## What's in v0.1
 
 - `usdm_v4.ttl` at repo root — the deliverable, ontology-repo convention.
 - Mechanical conversion `dataStructure.yml → usdm_v4.ttl`.
@@ -36,19 +36,27 @@ not semantic. This repo closes that gap with a small, reproducible pipeline
 - Polymorphic associations (multi-`$ref` `Type` attributes) rendered as
   `owl:unionOf` ranges — a USDM v4 modelling feature the source UML
   expresses less directly.
+- Codelist binding annotations on `Code`-typed property IRIs — `usdm:boundCodelist`
+  (NCIt IRI for the codelist) plus `usdm:boundCodelistNote` (raw `Has Value List`
+  cell text, lossless). Source: `USDM_CT.xlsx`. 57 declaring-class bindings; 45
+  with structured C-code; 12 free-text references to external dictionaries
+  (ISO 3166, ISO 639, MedDRA, SNOMEDCT, FHIR, etc.) preserved verbatim.
+- Two-source pipeline: model from `dataStructure.yml`; bindings from
+  `USDM_CT.xlsx`. Both source files co-pinned at the same DDF-RA release tag.
 - Validation pipeline: `rdflib` parse + SPARQL sanity queries + a CSV report
   in `reports/`.
 
-## What's explicitly **out** of v0
+## What's explicitly **out** of v0.1
 
 These are known gaps, not oversights. Do not infer that they are coming soon.
 
 - SULO or other upper-ontology alignment.
-- `USDM_CT.xlsx` enumerated codelist value binding (only the class- and
-  attribute-level C-Codes already in the YAML are emitted).
+- `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
+  permitted Code values per codelist). Only codelist-level anchors are emitted
+  in v0.1.
 - Alignment to the existing CDISC Library RDF (Administered Item vocabulary).
 - SHACL shapes for instance validation.
-- Multiple format publication. Turtle only for v0 — no RDF/XML, JSON-LD, or
+- Multiple format publication. Turtle only for v0.1 — no RDF/XML, JSON-LD, or
   NTriples.
 
 ## Mechanical mapping (summary)
@@ -68,6 +76,8 @@ These are known gaps, not oversights. Do not infer that they are coming soon.
 | `Model Representation`          | `usdm:modelRepresentation` (`Attribute` or `Relationship`; absent on ~27% of attrs)                  |
 | `Type` with multiple `$ref`     | `rdfs:range` as `owl:unionOf (Class1 Class2 …)` — 4 attrs in DDF-RA v4.0.0                           |
 | Primitives                      | `string→xsd:string`, `boolean→xsd:boolean`, `date→xsd:date`, `float→xsd:float`, `integer→xsd:integer` |
+| `USDM_CT.xlsx` `Has Value List` matches `Y (...Cxxxxxx...)` (any prefix variant), declaring class only | `usdm:boundCodelist <ncit:Cxxxxxx>` (annotation on property IRI) |
+| `USDM_CT.xlsx` `Has Value List` raw cell text, declaring class only (any "Y..." form) | `usdm:boundCodelistNote "<raw text>"` (annotation on property IRI)         |
 
 Property naming is class-scoped (`{ClassName}-{attributeName}`) because
 attribute-level NCI C-Codes differ per class — collapsing across classes would
@@ -82,11 +92,11 @@ usdm-rdf/
 ├── LICENSE                          # MIT for code; content under CC-BY-4.0 (mirrors DDF-RA)
 ├── .gitignore
 ├── usdm_v4.ttl                      # the deliverable
-├── downloads/                       # gitignored — dataStructure.yml fetched here
+├── downloads/                       # gitignored — dataStructure.yml + USDM_CT.xlsx fetched here
 ├── notebooks/
-│   ├── 10_fetch_yaml.ipynb          # pin DDF-RA release tag, fetch dataStructure.yml
-│   ├── 20_generate_turtle.ipynb     # YAML → Turtle conversion
-│   └── 30_validate.ipynb            # rdflib parse + SPARQL sanity + report
+│   ├── 10_fetch_yaml.ipynb          # pin DDF-RA release tag, fetch dataStructure.yml + USDM_CT.xlsx
+│   ├── 20_generate_turtle.ipynb     # YAML + USDM_CT → Turtle conversion
+│   └── 30_validate.ipynb            # rdflib parse + SPARQL sanity + binding cross-check + report
 ├── reports/                         # CSV reports from validation runs
 ├── docs/                            # design decisions, IRI scheme, future work
 ├── queries/                         # example SPARQL queries demonstrating use
@@ -96,31 +106,34 @@ usdm-rdf/
 ## Reproduce
 
 1. Open `notebooks/10_fetch_yaml.ipynb`. The DDF-RA release tag is pinned at the
-   top of the notebook. Run all cells. `dataStructure.yml` lands in `downloads/`.
+   top of the notebook. Run all cells. `dataStructure.yml` and `USDM_CT.xlsx`
+   land in `downloads/`.
 2. Open `notebooks/20_generate_turtle.ipynb`. Run all cells. `usdm_v4.ttl`
    appears at the repo root.
 3. Open `notebooks/30_validate.ipynb`. Run all cells. A CSV report is written
    to `reports/`. Compare against the baseline numbers below.
 
 Bumping the DDF-RA tag is a deliberate action, not a default — edit the pinned
-tag in `10_fetch_yaml.ipynb` and re-run all three notebooks.
+tag in `10_fetch_yaml.ipynb` and re-run all three notebooks. Both source files
+live at the same tag, so a bump refreshes them in lockstep.
 
-## Expected baselines (current DDF-RA `dataStructure.yml`)
+## Expected baselines (current DDF-RA tag `v4.0.0`)
 
-- 8,215 triples
+- 8,173 triples (v0 was 8,069; +104 = 45 `usdm:boundCodelist` + 57 `usdm:boundCodelistNote` + 2 annotation property declarations)
 - 86 `owl:Class` (84 NCIt-anchored; 2 Extension classes by design)
 - 693 properties (datatype + object combined)
 - 312 properties NCIt-anchored
+- 57 properties with `usdm:boundCodelistNote`; 45 of those also with `usdm:boundCodelist`
 
 Deviation from a fresh DDF-RA release indicates either a source change (likely
 benign — document the delta in `docs/`) or a generation bug (investigate).
 
-## IRI scheme (v0)
+## IRI scheme (v0.1)
 
 - Ontology IRI: `https://example.org/cdisc/usdm/v4/` — explicit draft placeholder.
 - NCIt namespace: `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`.
 - Standard prefixes: `owl`, `rdf`, `rdfs`, `skos`, `xsd`, `dcterms`.
-- Project annotation namespace: `usdm:` for `modifier`, `relationshipType`, `modelName`, `modelRepresentation`.
+- Project annotation namespace: `usdm:` for `modifier`, `relationshipType`, `modelName`, `modelRepresentation`, `boundCodelist`, `boundCodelistNote`.
 
 ## License
 

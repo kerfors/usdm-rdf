@@ -29,8 +29,10 @@ implementing.
 ## Data integrity
 
 - Never fabricate, simulate, or generate example data.
-- Never invent C-Codes, definitions, preferred terms, or class names. The
-  YAML is the only source of truth.
+- Never invent C-Codes, definitions, preferred terms, or class names.
+  `dataStructure.yml` is the only source of truth for model structure
+  (classes, properties, cardinality, hierarchy). `USDM_CT.xlsx` is the
+  only source of truth for codelist bindings.
 - If real data is unavailable, state clearly and stop. Do not fall back to
   plausible-looking placeholders.
 
@@ -49,6 +51,9 @@ implementing.
 
 - The DDF-RA release tag is pinned explicitly at the top of
   `10_fetch_yaml.ipynb`. Bumping it is a deliberate action.
+- Both source files (`dataStructure.yml` and `USDM_CT.xlsx`) live at the
+  same tag — bumping refreshes them in lockstep. Each gets its own SHA-256
+  sidecar (`.fetch_meta.json` and `.fetch_meta_ct.json`).
 - When the tag is bumped, re-run all three notebooks and update the
   baseline numbers in `30_validate.ipynb` and `README.md` if they drift —
   document the delta in `docs/`.
@@ -68,12 +73,14 @@ The pipeline was built in this order, with explicit review at each step:
 
 Future structural changes follow the same pattern: propose → review → generate.
 
-## What v0 is **not** for
+## What v0.1 is **not** for
 
 Do not, in this iteration:
 
 - Propose SULO or upper-ontology alignment.
-- Propose binding `USDM_CT.xlsx` enumerated codelist values.
+- Propose binding `USDM_CT.xlsx` enumerated codelist *values* (sheet 2 of
+  USDM_CT — permitted Code values per codelist). Codelist-level anchoring
+  is in scope; per-value binding is not.
 - Propose alignment to the CDISC Library RDF Administered Item vocabulary.
 - Propose SHACL shapes.
 - Propose RDF/XML, JSON-LD, or NTriples publication.
@@ -89,7 +96,7 @@ unless the user explicitly opens that scope.
 - Property naming: `{ClassName}-{attributeName}` (class-scoped — attribute
   C-Codes differ per class).
 - Project annotation namespace `usdm:` covers `modifier`, `relationshipType`,
-  `modelName`, `modelRepresentation`.
+  `modelName`, `modelRepresentation`, `boundCodelist`, `boundCodelistNote`.
 
 ## When in doubt
 
@@ -98,4 +105,7 @@ Ask. Especially:
 - Before changing the IRI scheme.
 - Before changing the property-naming convention.
 - Before deviating from the mechanical mapping in `README.md`.
-- Before adding a dependency beyond `pyyaml` + `rdflib` + standard library.
+- Before adding a dependency beyond `pyyaml` + `rdflib` + `openpyxl` +
+  standard library.
+- Before adding a third source file beyond `dataStructure.yml` and
+  `USDM_CT.xlsx`.
