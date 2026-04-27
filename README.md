@@ -97,10 +97,12 @@ usdm-rdf/
 │   ├── 10_fetch_yaml.ipynb          # pin DDF-RA release tag, fetch dataStructure.yml + USDM_CT.xlsx
 │   ├── 20_generate_turtle.ipynb     # YAML + USDM_CT → Turtle conversion
 │   └── 30_validate.ipynb            # rdflib parse + SPARQL sanity + binding cross-check + report
-├── examples/                        # pure-RDF demo notebooks (no external dependencies)
+├── examples/                        # demo notebooks — see examples/README.md
+│   ├── README.md
 │   ├── 01_model_navigation.ipynb    # USDM v4 as a queryable data dictionary
 │   ├── 02_codelist_bindings.ipynb   # binding inventory + inheritance-aware reverse lookup
-│   └── 03_coverage_gap_analysis.ipynb  # Code-typed property coverage + gap report
+│   ├── 03_coverage_gap_analysis.ipynb  # Code-typed property coverage + gap report
+│   └── 04_resolve_permitted_terms.ipynb  # resolve permitted Code values via NCI EVS
 ├── reports/                         # CSV reports from validation runs
 ├── docs/                            # design decisions, IRI scheme, future work
 ├── queries/                         # reusable standalone SPARQL files (empty in v0.1)
