@@ -1,0 +1,73 @@
+concrete_class,declaring_class,prop,attr,range,bucket,boundCodelist,boundCodelistNote
+Address,Address,Address-country,country,Code,free_text,,Y (Point out to ISO 3166-1 Alpha-3 Country code)
+AdministrableProduct,AdministrableProduct,AdministrableProduct-administrableDoseForm,administrableDoseForm,AliasCode,structured,C66726,Y (SDTM Terminology Codelist C66726)
+AdministrableProduct,AdministrableProduct,AdministrableProduct-pharmacologicClass,pharmacologicClass,Code,free_text,,"Y (Points to external codelists such as UNII, MED-RT)"
+AdministrableProduct,AdministrableProduct,AdministrableProduct-productDesignation,productDesignation,Code,structured,C207418,Y (C207418)
+AdministrableProduct,AdministrableProduct,AdministrableProduct-sourcing,sourcing,Code,structured,C215483,Y (C215483)
+AdministrableProductProperty,AdministrableProductProperty,AdministrableProductProperty-type,type,Code,structured,C215479,Y (C215479)
+Administration,Administration,Administration-frequency,frequency,AliasCode,structured,C71113,Y (SDTM Terminology Codelist C71113)
+Administration,Administration,Administration-route,route,AliasCode,structured,C66729,Y (SDTM Terminology Codelist C66729)
+AliasCode,AliasCode,AliasCode-standardCode,standardCode,Code,unbound,,
+AliasCode,AliasCode,AliasCode-standardCodeAliases,standardCodeAliases,Code,unbound,,
+BiomedicalConcept,BiomedicalConcept,BiomedicalConcept-code,code,AliasCode,unbound,,
+BiomedicalConceptCategory,BiomedicalConceptCategory,BiomedicalConceptCategory-code,code,AliasCode,unbound,,
+BiomedicalConceptProperty,BiomedicalConceptProperty,BiomedicalConceptProperty-code,code,AliasCode,unbound,,
+BiomedicalConceptProperty,BiomedicalConceptProperty,BiomedicalConceptProperty-responseCodes,responseCodes,ResponseCode,unbound,,
+CommentAnnotation,CommentAnnotation,CommentAnnotation-codes,codes,Code,unbound,,
+EligibilityCriterion,EligibilityCriterion,EligibilityCriterion-category,category,Code,structured,C66797,Y (SDTM Terminology Codelist C66797)
+Encounter,Encounter,Encounter-contactModes,contactModes,Code,structured,C171445,Y (SDTM Terminology Codelist C171445)
+Encounter,Encounter,Encounter-environmentalSettings,environmentalSettings,Code,structured,C127262,Y (SDTM Terminology Codelist C127262)
+Encounter,Encounter,Encounter-type,type,Code,structured,C188728,Y (C188728)
+Endpoint,Endpoint,Endpoint-level,level,Code,structured,C188726,Y (C188726)
+ExtensionAttribute,ExtensionAttribute,ExtensionAttribute-valueAliasCode,valueAliasCode,AliasCode,unbound,,
+ExtensionAttribute,ExtensionAttribute,ExtensionAttribute-valueCode,valueCode,Code,unbound,,
+GeographicScope,GeographicScope,GeographicScope-code,code,AliasCode,free_text,,"Y (Point out to external dictionaries: Standard code is ISO-3166; Alias codes drawn from GENC, UN Region Codes, etc.)"
+GeographicScope,GeographicScope,GeographicScope-type,type,Code,structured,C207412,Y (C207412)
+GovernanceDate,GovernanceDate,GovernanceDate-type,type,Code,structured,C207413,Y (C207413)
+Indication,Indication,Indication-codes,codes,Code,free_text,,"Y (Point out to multiple Biomedical coding dictionaries such as SNOMEDCT (for FDA), MedDRA, NCIt, ICD's, etc.)"
+Ingredient,Ingredient,Ingredient-role,role,Code,free_text,,Y (Point to FHIR value set: Ingredient Role)
+InterventionalStudyDesign,InterventionalStudyDesign,InterventionalStudyDesign-blindingSchema,blindingSchema,AliasCode,structured,C66735,Y (SDTM Terminology Codelist C66735)
+InterventionalStudyDesign,InterventionalStudyDesign,InterventionalStudyDesign-intentTypes,intentTypes,Code,structured,C66736,Y (SDTM Terminology Codelist C66736)
+InterventionalStudyDesign,InterventionalStudyDesign,InterventionalStudyDesign-model,model,Code,structured,C99076,Y (SDTM Terminology Codelist C99076)
+InterventionalStudyDesign,InterventionalStudyDesign,InterventionalStudyDesign-subTypes,subTypes,Code,structured,C66739,Y (SDTM Terminology Codelist C66739)
+InterventionalStudyDesign,StudyDesign,StudyDesign-characteristics,characteristics,Code,structured,C207416,Y (C207416)
+InterventionalStudyDesign,StudyDesign,StudyDesign-studyPhase,studyPhase,AliasCode,structured,C66737,Y (SDTM Terminology Codelist C66737)
+InterventionalStudyDesign,StudyDesign,StudyDesign-studyType,studyType,Code,structured,C99077,Y (SDTM Terminology Codelist C99077)
+InterventionalStudyDesign,StudyDesign,StudyDesign-therapeuticAreas,therapeuticAreas,Code,free_text,,Y (Point out to external dictionaries)
+MedicalDevice,MedicalDevice,MedicalDevice-sourcing,sourcing,Code,structured,C215482,Y (C215482)
+MedicalDeviceIdentifier,MedicalDeviceIdentifier,MedicalDeviceIdentifier-type,type,Code,structured,C215484,Y (C215484)
+Objective,Objective,Objective-level,level,Code,structured,C188725,Y (C188725)
+ObservationalStudyDesign,ObservationalStudyDesign,ObservationalStudyDesign-model,model,Code,structured,C127259,Y (SDTM Terminology Codelist C127259)
+ObservationalStudyDesign,ObservationalStudyDesign,ObservationalStudyDesign-samplingMethod,samplingMethod,Code,structured,C127260,Y (SDTM Terminology Codelist C127260)
+ObservationalStudyDesign,ObservationalStudyDesign,ObservationalStudyDesign-subTypes,subTypes,Code,structured,C215486,Y (C215486)
+ObservationalStudyDesign,ObservationalStudyDesign,ObservationalStudyDesign-timePerspective,timePerspective,Code,structured,C127261,Y (SDTM Terminology Codelist C127261)
+ObservationalStudyDesign,StudyDesign,StudyDesign-characteristics,characteristics,Code,structured,C207416,Y (C207416)
+ObservationalStudyDesign,StudyDesign,StudyDesign-studyPhase,studyPhase,AliasCode,structured,C66737,Y (SDTM Terminology Codelist C66737)
+ObservationalStudyDesign,StudyDesign,StudyDesign-studyType,studyType,Code,structured,C99077,Y (SDTM Terminology Codelist C99077)
+ObservationalStudyDesign,StudyDesign,StudyDesign-therapeuticAreas,therapeuticAreas,Code,free_text,,Y (Point out to external dictionaries)
+Organization,Organization,Organization-type,type,Code,structured,C188724,Y (C188724)
+Procedure,Procedure,Procedure-code,code,Code,free_text,,"Y (Point out to external dictionary like CPT, MedDRA, SNOMEDCT, etc.)"
+ProductOrganizationRole,ProductOrganizationRole,ProductOrganizationRole-code,code,Code,structured,C215485,Y (C215485)
+Quantity,Quantity,Quantity-unit,unit,AliasCode,structured,C71620,Y (SDTM Terminology Codelist C71620)
+ReferenceIdentifier,ReferenceIdentifier,ReferenceIdentifier-type,type,Code,structured,C215478,Y (C215478)
+ResponseCode,ResponseCode,ResponseCode-code,code,Code,unbound,,
+StudyAmendmentImpact,StudyAmendmentImpact,StudyAmendmentImpact-type,type,Code,structured,C215481,Y (C215481)
+StudyAmendmentReason,StudyAmendmentReason,StudyAmendmentReason-code,code,Code,structured,C207415,Y (C207415)
+StudyArm,StudyArm,StudyArm-dataOriginType,dataOriginType,Code,structured,C188727,Y (C188727)
+StudyArm,StudyArm,StudyArm-type,type,Code,structured,C174222,Y (Protocol Terminology Codelist C174222)
+StudyCohort,PopulationDefinition,PopulationDefinition-plannedSex,plannedSex,Code,structured,C66732,Y (SDTM Terminology Codelist C66732)
+StudyDefinitionDocument,StudyDefinitionDocument,StudyDefinitionDocument-language,language,Code,free_text,,Y (Point out to ISO 639 language value list)
+StudyDefinitionDocument,StudyDefinitionDocument,StudyDefinitionDocument-type,type,Code,structured,C215477,Y (C215477)
+StudyDefinitionDocumentVersion,StudyDefinitionDocumentVersion,StudyDefinitionDocumentVersion-status,status,Code,structured,C188723,Y (C188723)
+StudyDesignPopulation,PopulationDefinition,PopulationDefinition-plannedSex,plannedSex,Code,structured,C66732,Y (SDTM Terminology Codelist C66732)
+StudyEpoch,StudyEpoch,StudyEpoch-type,type,Code,structured,C99079,Y (SDTM Terminology Codelist C99079)
+StudyIntervention,StudyIntervention,StudyIntervention-codes,codes,Code,free_text,,"Y (Point out to multiple Biomedical coding dictionaries such as WHODrug, ATC, UNII, etc.)"
+StudyIntervention,StudyIntervention,StudyIntervention-role,role,Code,structured,C207417,Y (C207417)
+StudyIntervention,StudyIntervention,StudyIntervention-type,type,Code,structured,C99078,Y (SDTM Terminology Codelist C99078)
+StudyRole,StudyRole,StudyRole-code,code,Code,structured,C215480,Y (C215480)
+StudySite,StudySite,StudySite-country,country,Code,free_text,,Y (Point out to ISO 3166-1 Alpha-3 Country code)
+StudyTitle,StudyTitle,StudyTitle-type,type,Code,structured,C207419,Y (C207419)
+StudyVersion,StudyVersion,StudyVersion-businessTherapeuticAreas,businessTherapeuticAreas,Code,free_text,,Y (Point out to external dictionaries)
+Substance,Substance,Substance-codes,codes,Code,free_text,,"Y (Point out to multiple Biomedical coding dictionaries such as WHODrug, ATC, UNII, etc.)"
+Timing,Timing,Timing-relativeToFrom,relativeToFrom,Code,structured,C201265,Y (C201265)
+Timing,Timing,Timing-type,type,Code,structured,C201264,Y (C201264)
