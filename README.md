@@ -3,9 +3,11 @@
 A Turtle (RDF/OWL) rendering of CDISC USDM v4, generated mechanically from the
 YAML source CDISC publishes in [cdisc-org/DDF-RA](https://github.com/cdisc-org/DDF-RA).
 
-**Status:** draft. Not a normative CDISC artifact. The ontology IRI is a
-placeholder (`https://example.org/cdisc/usdm/v4/`) until either CDISC governance
-or a `w3id.org` registration provides a stable namespace.
+**Status:** draft. Not a normative CDISC artifact. The ontology IRI is
+`https://w3id.org/cdisc/usdm/v4#`; w3id registration is in progress, so the
+IRI may not yet dereference at the time of reading this. See
+[docs/iri-and-governance.md](docs/iri-and-governance.md) for the IRI scheme
+rationale and the CDISC governance handoff plan.
 
 ## Why this repo exists
 
@@ -134,9 +136,9 @@ live at the same tag, so a bump refreshes them in lockstep.
 Deviation from a fresh DDF-RA release indicates either a source change (likely
 benign — document the delta in `docs/`) or a generation bug (investigate).
 
-## IRI scheme (v0.1)
+## IRI scheme
 
-- Ontology IRI: `https://example.org/cdisc/usdm/v4/` — explicit draft placeholder.
+- Ontology IRI: `https://w3id.org/cdisc/usdm/v4#` — hash semantics. Rationale in [docs/iri-and-governance.md](docs/iri-and-governance.md).
 - NCIt namespace: `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`.
 - Standard prefixes: `owl`, `rdf`, `rdfs`, `skos`, `xsd`, `dcterms`.
 - Project annotation namespace: `usdm:` for `modifier`, `relationshipType`, `modelName`, `modelRepresentation`, `boundCodelist`, `boundCodelistNote`.

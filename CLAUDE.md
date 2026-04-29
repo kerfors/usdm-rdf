@@ -90,11 +90,12 @@ unless the user explicitly opens that scope.
 
 ## IRI scheme
 
-- Ontology IRI: `https://example.org/cdisc/usdm/v4/` — placeholder. Do not
-  silently change it.
+- Ontology IRI: `https://w3id.org/cdisc/usdm/v4#` — hash semantics. Do not
+  silently change it. Rationale in `docs/iri-and-governance.md`.
 - NCIt namespace: `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`.
 - Property naming: `{ClassName}-{attributeName}` (class-scoped — attribute
-  C-Codes differ per class).
+  C-Codes differ per class; hyphen separator un-validated against CDISC
+  Library RDF due to API access limitations).
 - Project annotation namespace `usdm:` covers `modifier`, `relationshipType`,
   `modelName`, `modelRepresentation`, `boundCodelist`, `boundCodelistNote`.
 
