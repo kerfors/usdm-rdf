@@ -4,14 +4,27 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix widoco: <https://w3id.org/widoco/vocab#> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
-@prefix usdm: <https://w3id.org/cdisc/usdm/v4#> .
-@base <https://w3id.org/cdisc/usdm/v4> .
+@prefix usdm: <https://w3id.org/cdisc/usdm/v4/> .
+@base <https://w3id.org/cdisc/usdm/v4/> .
 
-<https://w3id.org/cdisc/usdm/v4>
+<https://w3id.org/cdisc/usdm/v4/>
     a owl:Ontology ;
+    dcterms:title "CDISC USDM v4 (RDF/OWL rendering)" ;
+    dcterms:abstract "A Turtle/OWL rendering of the CDISC Unified Study Definitions Model (USDM) v4, generated mechanically from the YAML source CDISC publishes at cdisc-org/DDF-RA. Provides class- and attribute-level NCI Thesaurus anchoring via skos:exactMatch, codelist binding annotations, and OWL cardinality restrictions, suitable for SPARQL navigation of the USDM v4 model." ;
+    dcterms:description "USDM v4 is published by CDISC as a self-describing YAML at Deliverables/UML/dataStructure.yml in the cdisc-org/DDF-RA repository. The YAML carries class- and attribute-level NCI C-Codes, preferred terms, definitions, cardinality, the composition-vs-reference (Value/Ref) distinction, inheritance, and the model-name-vs-serialization-key separation. This RDF/OWL view exposes those facts mechanically, anchored to NCI EVS Thesaurus IRIs. Codelist bindings come from sheet 1 of USDM_CT.xlsx and are rendered as usdm:boundCodelist annotations on Code-typed properties." ;
     dcterms:source <https://raw.githubusercontent.com/cdisc-org/DDF-RA/v4.0.0/Deliverables/UML/dataStructure.yml> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:creator "Kerstin Forsberg" ;
+    dcterms:bibliographicCitation "Forsberg, K. (2026). usdm-rdf: A Turtle/OWL rendering of CDISC USDM v4. https://w3id.org/cdisc/usdm/v4/" ;
+    dcterms:created "2026-04-27"^^xsd:date ;
+    dcterms:modified "2026-05-03"^^xsd:date ;
+    vann:preferredNamespacePrefix "usdm" ;
+    vann:preferredNamespaceUri "https://w3id.org/cdisc/usdm/v4/" ;
     owl:versionInfo "v4.0.0" ;
+    widoco:introduction "CDISC publishes USDM v4 as a self-describing YAML at Deliverables/UML/dataStructure.yml in cdisc-org/DDF-RA. That YAML already carries class- and attribute-level NCI C-Codes, preferred terms, definitions, cardinality, the composition-vs-reference distinction, inheritance, and a separation between the model name and the serialization key. The gap between published USDM and a queryable RDF/OWL view is therefore mechanical, not semantic. This ontology closes that gap with a small reproducible pipeline producing a single Turtle deliverable." ;
     rdfs:comment "Mechanical conversion of CDISC USDM v4 dataStructure.yml. Draft — not normative." .
 
 usdm:modifier a owl:AnnotationProperty .

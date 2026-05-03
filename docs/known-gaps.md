@@ -62,6 +62,8 @@ alignment when CDISC Library RDF alignment lands.
 | Prototype baseline | 8,215 | —      | Earlier generator we cannot fully reconstruct.                       |
 | v0       | 8,069   | −146   | Mechanical YAML → Turtle.                                            |
 | v0.1     | 8,173   | +104 vs v0 (−42 vs prototype) | Adds 45 boundCodelist + 57 boundCodelistNote + 2 annotation property declarations. |
+| v0.2     | 8,173   | 0      | w3id namespace adopted (hash semantics); structural counts unchanged. |
+| v0.3     | 8,184   | +11 vs v0.2 | Slash IRI semantics (breaking) + ontology-header metadata (title, abstract, description, license, creator, citation, created, modified, vann namespace prefix/URI, widoco:introduction). |
 
 All structural counts match exactly across v0/v0.1 (the new layer is purely
 additive on property IRIs):
@@ -82,7 +84,7 @@ differences between this generator and the unseen prototype that produced
 the 8,215 number — likely candidates: language tags on labels, alternate
 restriction encoding, or additional ontology header triples we don't emit.
 The prototype number is retained in this table as historical context; the
-operational baseline used by `30_validate.ipynb` is 8,173.
+operational baseline used by `30_validate.ipynb` is 8,184.
 
 ## Standalone definitions
 

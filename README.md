@@ -4,10 +4,13 @@ A Turtle (RDF/OWL) rendering of CDISC USDM v4, generated mechanically from the
 YAML source CDISC publishes in [cdisc-org/DDF-RA](https://github.com/cdisc-org/DDF-RA).
 
 **Status:** draft. Not a normative CDISC artifact. The ontology IRI is
-`https://w3id.org/cdisc/usdm/v4#`; w3id registration is in progress, so the
-IRI may not yet dereference at the time of reading this. See
-[docs/iri-and-governance.md](docs/iri-and-governance.md) for the IRI scheme
-rationale and the CDISC governance handoff plan.
+`https://w3id.org/cdisc/usdm/v4/` (slash semantics, adopted in v0.3 —
+the v0.2 hash form is superseded; see
+[docs/v0.2-to-v0.3-migration.md](docs/v0.2-to-v0.3-migration.md)).
+The v0.3 w3id `.htaccess` is pending registration, so the IRI may not
+dereference at the time of reading this. See
+[docs/iri-and-governance.md](docs/iri-and-governance.md) for the IRI
+scheme rationale and the CDISC governance handoff plan.
 
 ## Why this repo exists
 
@@ -127,7 +130,7 @@ live at the same tag, so a bump refreshes them in lockstep.
 
 ## Expected baselines (current DDF-RA tag `v4.0.0`)
 
-- 8,173 triples (v0 was 8,069; +104 = 45 `usdm:boundCodelist` + 57 `usdm:boundCodelistNote` + 2 annotation property declarations)
+- 8,184 triples in v0.3 (v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples — `dcterms:title`/`abstract`/`description`/`license`/`creator`/`bibliographicCitation`/`created`/`modified`, `vann:preferredNamespacePrefix`/`Uri`, `widoco:introduction`)
 - 86 `owl:Class` (84 NCIt-anchored; 2 Extension classes by design)
 - 693 properties (datatype + object combined)
 - 312 properties NCIt-anchored
@@ -138,7 +141,7 @@ benign — document the delta in `docs/`) or a generation bug (investigate).
 
 ## IRI scheme
 
-- Ontology IRI: `https://w3id.org/cdisc/usdm/v4#` — hash semantics. Rationale in [docs/iri-and-governance.md](docs/iri-and-governance.md).
+- Ontology IRI: `https://w3id.org/cdisc/usdm/v4/` — slash semantics (v0.3). Rationale in [docs/iri-and-governance.md](docs/iri-and-governance.md).
 - NCIt namespace: `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`.
 - Standard prefixes: `owl`, `rdf`, `rdfs`, `skos`, `xsd`, `dcterms`.
 - Project annotation namespace: `usdm:` for `modifier`, `relationshipType`, `modelName`, `modelRepresentation`, `boundCodelist`, `boundCodelistNote`.

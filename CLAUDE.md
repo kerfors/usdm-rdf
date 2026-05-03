@@ -90,8 +90,8 @@ unless the user explicitly opens that scope.
 
 ## IRI scheme
 
-- Ontology IRI: `https://w3id.org/cdisc/usdm/v4#` — hash semantics. Do not
-  silently change it. Rationale in `docs/iri-and-governance.md`.
+- Ontology IRI: `https://w3id.org/cdisc/usdm/v4/` — slash semantics (v0.3).
+  Do not silently change it. Rationale in `docs/iri-and-governance.md`.
 - NCIt namespace: `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`.
 - Property naming: `{ClassName}-{attributeName}` (class-scoped — attribute
   C-Codes differ per class; hyphen separator un-validated against CDISC
