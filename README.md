@@ -130,7 +130,7 @@ live at the same tag, so a bump refreshes them in lockstep.
 
 ## Expected baselines (current DDF-RA tag `v4.0.0`)
 
-- 8,173 triples (v0 was 8,069; +104 = 45 `usdm:boundCodelist` + 57 `usdm:boundCodelistNote` + 2 annotation property declarations)
+- 8,184 triples in v0.3 (v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples — `dcterms:title`/`abstract`/`description`/`license`/`creator`/`bibliographicCitation`/`created`/`modified`, `vann:preferredNamespacePrefix`/`Uri`, `widoco:introduction`)
 - 86 `owl:Class` (84 NCIt-anchored; 2 Extension classes by design)
 - 693 properties (datatype + object combined)
 - 312 properties NCIt-anchored
