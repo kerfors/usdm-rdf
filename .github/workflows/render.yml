@@ -1,0 +1,77 @@
+name: Render ontology HTML
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install rdflib
+        run: pip install rdflib
+
+      - name: Download WIDOCO 1.4.25 JAR
+        run: |
+          curl -sLo widoco.jar \
+            https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
+
+      - name: Render with WIDOCO
+        run: |
+          java -jar widoco.jar \
+            -ontFile usdm_v4.ttl \
+            -outFolder site \
+            -getOntologyMetadata \
+            -includeAnnotationProperties \
+            -uniteSections \
+            -rewriteAll
+
+      - name: Inject NCIt and usdm:* metadata
+        run: python scripts/postprocess_widoco.py site/ usdm_v4.ttl
+
+      - name: Provide root index for Pages
+        run: cp site/doc/index-en.html site/doc/index.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/doc
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
