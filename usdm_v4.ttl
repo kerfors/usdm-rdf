@@ -5,10 +5,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
-@prefix usdm: <https://w3id.org/cdisc/usdm/v4#> .
-@base <https://w3id.org/cdisc/usdm/v4> .
+@prefix usdm: <https://w3id.org/cdisc/usdm/v4/> .
+@base <https://w3id.org/cdisc/usdm/v4/> .
 
-<https://w3id.org/cdisc/usdm/v4>
+<https://w3id.org/cdisc/usdm/v4/>
     a owl:Ontology ;
     dcterms:source <https://raw.githubusercontent.com/cdisc-org/DDF-RA/v4.0.0/Deliverables/UML/dataStructure.yml> ;
     owl:versionInfo "v4.0.0" ;
