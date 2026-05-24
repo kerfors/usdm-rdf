@@ -7,8 +7,8 @@ YAML source CDISC publishes in [cdisc-org/DDF-RA](https://github.com/cdisc-org/D
 `https://w3id.org/cdisc/usdm/v4/` (slash semantics, adopted in v0.3 —
 the v0.2 hash form is superseded; see
 [docs/v0.2-to-v0.3-migration.md](docs/v0.2-to-v0.3-migration.md)).
-The v0.3 w3id `.htaccess` is pending registration, so the IRI may not
-dereference at the time of reading this. See
+The v0.3 w3id `.htaccess` is live (PR perma-id/w3id.org#6012 merged
+2026-05-04), so IRIs in this namespace dereference via content negotiation. See
 [docs/iri-and-governance.md](docs/iri-and-governance.md) for the IRI
 scheme rationale and the CDISC governance handoff plan.
 

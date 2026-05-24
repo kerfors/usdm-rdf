@@ -42,6 +42,35 @@ to anchored HTML, namespace and Turtle requests to the whole TTL)
 where hash semantics needed one. The redirect complexity is bounded;
 the per-IRI dereferencing benefit is recurrent.
 
+### What dereferencing returns — whole-graph by design
+
+Slash semantics enables per-IRI dereferencing at the redirect layer.
+The redirect *target* is a separate question: per-IRI requests can
+return either a concept-scoped slice of the graph (Wikidata/DBpedia
+pattern) or the whole ontology document (FOAF/schema.org/PROV-O
+pattern). This repo serves the whole ontology, deliberately.
+
+USDM v4 is a vocabulary ontology — 86 classes and 693 properties,
+totalling roughly 370 KB of Turtle. It sits in the FOAF/schema.org/
+PROV-O/Dublin Core/SKOS size and shape class: small, stable,
+schema-shaped. Consumers reasoning over the vocabulary want the whole
+graph; cache-once-then-everything is the appropriate access pattern.
+Concept-scoped slicing is the right answer when the graph is too
+large to ship whole (Wikidata, DBpedia, NCIt-as-thesaurus with
+~190k concepts) — that pressure does not apply at this scale.
+
+Per-IRI HTML, on the other hand, *is* per-resource: WIDOCO renders
+one page per class and per property, and the slash IRIs anchor to
+those pages with fragments. That is the right pattern for human
+consumption, where a single 370 KB document with 779 entities is not
+navigable. The asymmetry is intentional: HTML serves humans one
+entity at a time, RDF serves machines the whole vocabulary at once.
+
+The slice-spec contract a slicing resolver would require — what
+triples scope to a class IRI, a property IRI, the ontology IRI — is
+therefore not written, and v0.3's resolver is complete as shipped,
+not partial.
+
 ### Why per-version path (`/v4/`)
 
 USDM v3 and v4 are not the same vocabulary. Encoding the major version
@@ -94,9 +123,15 @@ point, CDISC can take over by:
 
 No minted IRI changes. No consumer needs to refetch.
 
-This handoff is offered explicitly, not implicitly. The DDF-RA
-discussion forum on GitHub is the venue for raising it once v0.2.0 is
-tagged and the w3id `.htaccess` PR is merged.
+This handoff is offered explicitly, not implicitly. The venue for
+raising it is the **USDM Governance Group (UGG)**, the CDISC body that
+provides oversight, decisionmaking, and strategic direction for USDM.
+Introductory contact is via the DDF feedback form at
+<https://www.cdisc.org/ddf> (categories *Suggestions for improvements
+to USDM* or *Model extensions*); UGG membership itself is by annual
+nomination. The DDF-RA GitHub repo is for technical feedback on the
+published artefacts (UML, CT, API, IG, Conformance Rules) and is not
+the governance venue.
 
 ## Project annotation namespace
 
