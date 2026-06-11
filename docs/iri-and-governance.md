@@ -26,10 +26,12 @@ changes; no minted IRI moves.
 
 Slash semantics gives every minted IRI its own server-side
 dereferenceable form. From a deployment standpoint this means w3id
-can redirect a class IRI like `…/v4/Activity` to a per-class HTML page
-(`Activity.html`) and a property IRI like `…/v4/Activity-name` to the
-same page anchored at the property fragment (`Activity.html#Activity-name`)
-— matching the pattern used by schema.org and PROV-O. Hash semantics
+can redirect a class IRI like `…/v4/Activity` to its own HTML anchor
+(`index.html#Activity`) and a property IRI like `…/v4/Activity-name` to
+the property anchor (`index.html#Activity-name`) — per-IRI dereference
+at the redirect layer, as in schema.org and PROV-O. (Per-class HTML
+*pages* would be a further refinement; the deployed rendering is a
+single WIDOCO page with per-entity anchors.) Hash semantics
 forces every IRI to share a single document, which works for raw Turtle
 but fails for per-class HTML rendering: a single rendered page would
 have to host all 86 classes and 693 properties, and the renderer's
@@ -59,9 +61,9 @@ Concept-scoped slicing is the right answer when the graph is too
 large to ship whole (Wikidata, DBpedia, NCIt-as-thesaurus with
 ~190k concepts) — that pressure does not apply at this scale.
 
-Per-IRI HTML, on the other hand, *is* per-resource: WIDOCO renders
-one page per class and per property, and the slash IRIs anchor to
-those pages with fragments. That is the right pattern for human
+Per-IRI HTML, on the other hand, *is* per-resource: WIDOCO renders one
+documentation page with one block per class and per property, and the
+slash IRIs anchor to those blocks with fragments. That is the right pattern for human
 consumption, where a single 370 KB document with 779 entities is not
 navigable. The asymmetry is intentional: HTML serves humans one
 entity at a time, RDF serves machines the whole vocabulary at once.
@@ -80,6 +82,31 @@ to share the namespace `…/cdisc/usdm/v4/`; the per-tag content is
 recorded in `owl:versionInfo` on the ontology resource and the source
 SHA-256 in the fetch metadata sidecars (`downloads/.fetch_meta.json`,
 `downloads/.fetch_meta_ct.json`).
+
+### Version identity (v0.3.1, decisions D1–D3)
+
+Three conventions adopted in v0.3.1, recorded here because the
+generator comments reference them:
+
+- **D1 — `dcterms:created` is fixed at 2026-04-27** (first publication,
+  v0.1.0) and never advances. It dates the ontology resource, not the
+  release; `dcterms:modified` tracks the release date. Per-release
+  identity lives in `owl:versionIRI`/`owl:versionInfo`. Known cosmetic
+  mismatch: WIDOCO labels `dcterms:created` "Release date" in the HTML
+  rendering.
+- **D2 — the canonical Turtle is a superset of the WIDOCO render.**
+  Every non-built-in annotation predicate the ontology uses (dcterms,
+  vann, skos, widoco) is declared `owl:AnnotationProperty` in the
+  generator, so derived serializations add no declarations the
+  canonical graph lacks. This is also OWL 2 DL hygiene.
+- **D3 — `owl:versionIRI` is bare-numeric in-namespace:**
+  `https://w3id.org/cdisc/usdm/v4/0.3.1`. A leading digit cannot
+  collide with entity IRIs (classes are CamelCase, properties
+  `{ClassName}-{attributeName}` — both start uppercase). One generic
+  w3id rewrite rule (`^([0-9]+\.[0-9]+\.[0-9]+)$` → the tag-pinned raw
+  Turtle) makes every versionIRI dereference to its own release with
+  no per-release w3id PR. Version-pinned dereference is therefore a
+  standing capability, including for already-released versions.
 
 ## Property naming
 

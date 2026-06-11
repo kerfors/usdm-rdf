@@ -110,8 +110,8 @@ usdm-rdf/
 │   └── 04_resolve_permitted_terms.ipynb  # resolve permitted Code values via NCI EVS
 ├── reports/                         # CSV reports from validation runs
 ├── docs/                            # design decisions, IRI scheme, future work
-├── queries/                         # reusable standalone SPARQL files (empty in v0.1)
-└── versions/                        # historical usdm_v4.ttl snapshots, one per DDF-RA tag
+├── queries/                         # reusable standalone SPARQL files (none yet)
+└── versions/                        # usdm_v4.ttl snapshots per DDF-RA tag bump (none yet — single source tag v4.0.0 so far)
 ```
 
 ## Reproduce
@@ -130,7 +130,7 @@ live at the same tag, so a bump refreshes them in lockstep.
 
 ## Expected baselines (current DDF-RA tag `v4.0.0`)
 
-- 8,184 triples in v0.3 (v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples — `dcterms:title`/`abstract`/`description`/`license`/`creator`/`bibliographicCitation`/`created`/`modified`, `vann:preferredNamespacePrefix`/`Uri`, `widoco:introduction`)
+- 8,200 triples in v0.3.1 (v0.3: 8,184; v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples — `dcterms:title`/`abstract`/`description`/`license`/`creator`/`bibliographicCitation`/`created`/`modified`, `vann:preferredNamespacePrefix`/`Uri`, `widoco:introduction`; v0.3.1 adds `owl:versionIRI` + 15 `owl:AnnotationProperty` declarations for the dcterms/vann/skos/widoco predicates used)
 - 86 `owl:Class` (84 NCIt-anchored; 2 Extension classes by design)
 - 693 properties (datatype + object combined)
 - 312 properties NCIt-anchored

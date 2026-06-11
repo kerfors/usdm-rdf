@@ -2,6 +2,10 @@
 
 ## v0.1 exclusions (deliberate, documented in README.md)
 
+Status as of v0.3.1: multiple-format publication shipped in v0.3 (five
+formats via w3id content negotiation). The remaining four items are
+still out of scope.
+
 - SULO or other upper-ontology alignment.
 - `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
   permitted Code values per codelist). Codelist-level anchoring is in v0.1;
@@ -64,6 +68,7 @@ alignment when CDISC Library RDF alignment lands.
 | v0.1     | 8,173   | +104 vs v0 (−42 vs prototype) | Adds 45 boundCodelist + 57 boundCodelistNote + 2 annotation property declarations. |
 | v0.2     | 8,173   | 0      | w3id namespace adopted (hash semantics); structural counts unchanged. |
 | v0.3     | 8,184   | +11 vs v0.2 | Slash IRI semantics (breaking) + ontology-header metadata (title, abstract, description, license, creator, citation, created, modified, vann namespace prefix/URI, widoco:introduction). |
+| v0.3.1   | 8,200   | +16 vs v0.3 | owl:versionIRI + 15 owl:AnnotationProperty declarations for dcterms/vann/skos/widoco predicates (decisions D1–D3; header fix — created reverted to 2026-04-27). |
 
 All structural counts match exactly across v0/v0.1 (the new layer is purely
 additive on property IRIs):
@@ -84,7 +89,7 @@ differences between this generator and the unseen prototype that produced
 the 8,215 number — likely candidates: language tags on labels, alternate
 restriction encoding, or additional ontology header triples we don't emit.
 The prototype number is retained in this table as historical context; the
-operational baseline used by `30_validate.ipynb` is 8,184.
+operational baseline used by `30_validate.ipynb` is 8,200 (v0.3.1).
 
 ## Standalone definitions
 
