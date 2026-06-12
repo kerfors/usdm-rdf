@@ -69,7 +69,7 @@ These are known gaps, not oversights. Do not infer that they are coming soon.
 | Source (YAML)                   | Target (RDF/OWL)                                                                                     |
 |---------------------------------|------------------------------------------------------------------------------------------------------|
 | Top-level entry (non-primitive) | `owl:Class` with `rdfs:label`                                                                        |
-| `NCI C-Code` (class or attr)    | `skos:exactMatch <NCIt#Cxxxxx>`, `skos:prefLabel` (from `Preferred Term`)                            |
+| `NCI C-Code` (class or attr)    | `skos:exactMatch <NCIt#Cxxxxx>` + `skos:exactMatch <obo:NCIT_Cxxxxx>` (dual anchor, D4), `skos:prefLabel` (from `Preferred Term`) |
 | `Definition` (class or attr)    | `skos:definition` (emitted whether or not the entity is NCIt-anchored)                               |
 | `Super Classes`                 | `rdfs:subClassOf`                                                                                    |
 | `Modifier` (Concrete/Abstract)  | `usdm:modifier`                                                                                      |
@@ -81,7 +81,7 @@ These are known gaps, not oversights. Do not infer that they are coming soon.
 | `Model Representation`          | `usdm:modelRepresentation` (`Attribute` or `Relationship`; absent on ~27% of attrs)                  |
 | `Type` with multiple `$ref`     | `rdfs:range` as `owl:unionOf (Class1 Class2 …)` — 4 attrs in DDF-RA v4.0.0                           |
 | Primitives                      | `string→xsd:string`, `boolean→xsd:boolean`, `date→xsd:date`, `float→xsd:float`, `integer→xsd:integer` |
-| `USDM_CT.xlsx` `Has Value List` matches `Y (...Cxxxxxx...)` (any prefix variant), declaring class only | `usdm:boundCodelist <ncit:Cxxxxxx>` (annotation on property IRI) |
+| `USDM_CT.xlsx` `Has Value List` matches `Y (...Cxxxxxx...)` (any prefix variant), declaring class only | `usdm:boundCodelist <ncit:Cxxxxxx>` + `usdm:boundCodelist <obo:NCIT_Cxxxxxx>` (dual anchor, D4; annotations on property IRI) |
 | `USDM_CT.xlsx` `Has Value List` raw cell text, declaring class only (any "Y..." form) | `usdm:boundCodelistNote "<raw text>"` (annotation on property IRI)         |
 
 Property naming is class-scoped (`{ClassName}-{attributeName}`) because
@@ -130,7 +130,7 @@ live at the same tag, so a bump refreshes them in lockstep.
 
 ## Expected baselines (current DDF-RA tag `v4.0.0`)
 
-- 8,200 triples in v0.3.1 (v0.3: 8,184; v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples — `dcterms:title`/`abstract`/`description`/`license`/`creator`/`bibliographicCitation`/`created`/`modified`, `vann:preferredNamespacePrefix`/`Uri`, `widoco:introduction`; v0.3.1 adds `owl:versionIRI` + 15 `owl:AnnotationProperty` declarations for the dcterms/vann/skos/widoco predicates used)
+- 8,641 triples in v0.4.0 (v0.3.1: 8,200; v0.3: 8,184; v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples; v0.3.1 adds `owl:versionIRI` + 15 `owl:AnnotationProperty` declarations; v0.4.0 adds 441 OBO PURL twins — 396 `skos:exactMatch` + 45 `usdm:boundCodelist` — dual NCIt anchoring per decision D4)
 - 86 `owl:Class` (84 NCIt-anchored; 2 Extension classes by design)
 - 693 properties (datatype + object combined)
 - 312 properties NCIt-anchored
@@ -142,7 +142,7 @@ benign — document the delta in `docs/`) or a generation bug (investigate).
 ## IRI scheme
 
 - Ontology IRI: `https://w3id.org/cdisc/usdm/v4/` — slash semantics (v0.3). Rationale in [docs/iri-and-governance.md](docs/iri-and-governance.md).
-- NCIt namespace: `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`.
+- NCIt namespaces (dual anchor since v0.4.0, decision D4): EVS identifier `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#` (still declared by NCI Thesaurus itself; host no longer resolves) + OBO PURL `http://purl.obolibrary.org/obo/NCIT_` (resolvable).
 - Standard prefixes: `owl`, `rdf`, `rdfs`, `skos`, `xsd`, `dcterms`.
 - Project annotation namespace: `usdm:` for `modifier`, `relationshipType`, `modelName`, `modelRepresentation`, `boundCodelist`, `boundCodelistNote`.
 

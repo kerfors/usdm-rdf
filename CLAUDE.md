@@ -92,7 +92,12 @@ unless the user explicitly opens that scope.
 
 - Ontology IRI: `https://w3id.org/cdisc/usdm/v4/` — slash semantics (v0.3).
   Do not silently change it. Rationale in `docs/iri-and-governance.md`.
-- NCIt namespace: `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#`.
+- NCIt namespaces (dual anchor since v0.4.0, decision D4 in
+  `docs/iri-and-governance.md`): every NCIt reference carries both the EVS
+  identifier `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#` (kept —
+  NCI Thesaurus still declares it; host is NXDOMAIN) and the resolvable OBO
+  PURL `http://purl.obolibrary.org/obo/NCIT_`. Do not emit one without the
+  other.
 - Property naming: `{ClassName}-{attributeName}` (class-scoped — attribute
   C-Codes differ per class; hyphen separator un-validated against CDISC
   Library RDF due to API access limitations).

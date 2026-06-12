@@ -108,6 +108,38 @@ generator comments reference them:
   no per-release w3id PR. Version-pinned dereference is therefore a
   standing capability, including for already-released versions.
 
+### NCIt anchoring (v0.4.0, decision D4)
+
+Every NCIt reference in the graph — 396 `skos:exactMatch` (84 classes,
+312 properties) and 45 `usdm:boundCodelist` — carries exactly two
+IRIs for the same concept:
+
+- the EVS identifier, `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#Cxxxxx`
+- the OBO PURL, `http://purl.obolibrary.org/obo/NCIT_Cxxxxx`
+
+One rule, no exceptions: an NCIt reference is never emitted in one
+form without the other. The generator enforces this structurally; the
+validation notebook cross-checks both forms; the WIDOCO post-processor
+fails on any entity where the pair is malformed.
+
+Evidence behind the decision (observed 2026-06-12):
+
+- `ncicb.nci.nih.gov` is NXDOMAIN — the EVS namespace host no longer
+  exists in DNS.
+- NCI Thesaurus 26.05d (dated 2026-05-26, fetched from the official
+  EVS download) still declares that namespace as its own — so the EVS
+  form remains the correct *identifier*, published by the authority
+  itself. Dropping it would break identity joins with NCI's own OWL
+  and with CDISC Library RDF usage.
+- The OBO PURL form resolves (HTTP 303 → Ontobee, 200) — so it is the
+  correct *locator*.
+
+The dual anchor keeps both roles: EVS for identity, OBO PURL for
+dereference. HTML rendering hyperlinks the PURL and preserves the EVS
+IRI as a tooltip. `usdm:boundCodelist` is consequently multi-valued
+(two IRIs per bound property) from v0.4.0 — consumers joining on a
+single value should filter by namespace prefix.
+
 ## Property naming
 
 Class-scoped: `{ClassName}-{attributeName}`, hyphen-separated.

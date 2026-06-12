@@ -2,9 +2,20 @@
 
 ## v0.1 exclusions (deliberate, documented in README.md)
 
-Status as of v0.3.1: multiple-format publication shipped in v0.3 (five
+Status as of v0.4.0: multiple-format publication shipped in v0.3 (five
 formats via w3id content negotiation). The remaining four items are
 still out of scope.
+
+Closed in v0.4.0 (was parked, not on the original exclusion list): the
+NCIt anchor prefix question. Resolution is dual anchoring (decision D4
+in iri-and-governance.md) rather than a switch — every NCIt reference
+carries both the EVS identifier and the resolvable OBO PURL.
+
+Deferred from the v0.4.0 release: re-running the `examples/` notebooks.
+The forward binding inventory (notebook 02) returns two rows per bound
+property under dual anchoring, and the committed example CSVs predate
+it. The notebooks are pinned warn-not-fail on drift, so nothing breaks;
+refresh is a follow-up task.
 
 - SULO or other upper-ontology alignment.
 - `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
@@ -69,6 +80,7 @@ alignment when CDISC Library RDF alignment lands.
 | v0.2     | 8,173   | 0      | w3id namespace adopted (hash semantics); structural counts unchanged. |
 | v0.3     | 8,184   | +11 vs v0.2 | Slash IRI semantics (breaking) + ontology-header metadata (title, abstract, description, license, creator, citation, created, modified, vann namespace prefix/URI, widoco:introduction). |
 | v0.3.1   | 8,200   | +16 vs v0.3 | owl:versionIRI + 15 owl:AnnotationProperty declarations for dcterms/vann/skos/widoco predicates (decisions D1–D3; header fix — created reverted to 2026-04-27). |
+| v0.4.0   | 8,641   | +441 vs v0.3.1 | Dual NCIt anchoring (decision D4): OBO PURL twin on every NCIt reference — 396 skos:exactMatch + 45 usdm:boundCodelist. EVS host found NXDOMAIN 2026-06-12; EVS form kept as identifier (NCI Thesaurus 26.05d still declares it). |
 
 All structural counts match exactly across v0/v0.1 (the new layer is purely
 additive on property IRIs):
