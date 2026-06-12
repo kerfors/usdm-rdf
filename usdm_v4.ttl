@@ -7,6 +7,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix widoco: <https://w3id.org/widoco/vocab#> .
 @prefix ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix usdm: <https://w3id.org/cdisc/usdm/v4/> .
 @base <https://w3id.org/cdisc/usdm/v4/> .
 
@@ -20,11 +21,11 @@
     dcterms:creator "Kerstin Forsberg" ;
     dcterms:bibliographicCitation "Forsberg, K. (2026). usdm-rdf: A Turtle/OWL rendering of CDISC USDM v4. https://w3id.org/cdisc/usdm/v4/" ;
     dcterms:created "2026-04-27"^^xsd:date ;
-    dcterms:modified "2026-06-10"^^xsd:date ;
+    dcterms:modified "2026-06-12"^^xsd:date ;
     vann:preferredNamespacePrefix "usdm" ;
     vann:preferredNamespaceUri "https://w3id.org/cdisc/usdm/v4/" ;
-    owl:versionInfo "v0.3.1" ;
-    owl:versionIRI <https://w3id.org/cdisc/usdm/v4/0.3.1> ;
+    owl:versionInfo "v0.4.0" ;
+    owl:versionIRI <https://w3id.org/cdisc/usdm/v4/0.4.0> ;
     widoco:introduction "CDISC publishes USDM v4 as a self-describing YAML at Deliverables/UML/dataStructure.yml in cdisc-org/DDF-RA. That YAML already carries class- and attribute-level NCI C-Codes, preferred terms, definitions, cardinality, the composition-vs-reference distinction, inheritance, and a separation between the model name and the serialization key. The gap between published USDM and a queryable RDF/OWL view is therefore mechanical, not semantic. This ontology closes that gap with a small reproducible pipeline producing a single Turtle deliverable." ;
     rdfs:comment "Mechanical conversion of CDISC USDM v4 dataStructure.yml. Draft — not normative." .
 
@@ -56,6 +57,7 @@ usdm:Abbreviation
     a owl:Class ;
     rdfs:label "Abbreviation" ;
     skos:exactMatch ncit:C42610 ;
+    skos:exactMatch obo:NCIT_C42610 ;
     skos:prefLabel "Abbreviation" ;
     skos:definition "A set of letters that are drawn from a word or from a sequence of words and that are used for brevity in place of the full word or phrase. (CDISC Glossary)" ;
     usdm:modifier "Concrete" ;
@@ -79,6 +81,7 @@ usdm:Abbreviation-abbreviatedText
     rdfs:domain usdm:Abbreviation ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215487 ;
+    skos:exactMatch obo:NCIT_C215487 ;
     skos:prefLabel "Text Abbreviation Value" ;
     skos:definition "The literal value of an instance of unstructured text that is used as the abbreviation." ;
     usdm:relationshipType "Value" ;
@@ -91,6 +94,7 @@ usdm:Abbreviation-expandedText
     rdfs:domain usdm:Abbreviation ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215569 ;
+    skos:exactMatch obo:NCIT_C215569 ;
     skos:prefLabel "Abbreviation Long Name" ;
     skos:definition "The full literal representation of the abbreviation." ;
     usdm:relationshipType "Value" ;
@@ -103,6 +107,7 @@ usdm:Abbreviation-notes
     rdfs:domain usdm:Abbreviation ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215570 ;
+    skos:exactMatch obo:NCIT_C215570 ;
     skos:prefLabel "Abbreviation Notes" ;
     skos:definition "A brief written record relevant to the abbreviation." ;
     usdm:relationshipType "Value" ;
@@ -128,6 +133,7 @@ usdm:Activity
     a owl:Class ;
     rdfs:label "Activity" ;
     skos:exactMatch ncit:C71473 ;
+    skos:exactMatch obo:NCIT_C71473 ;
     skos:prefLabel "Study Activity" ;
     skos:definition "An action, undertaking, or event, which is anticipated to be performed or observed, or was performed or observed, according to the study protocol during the execution of the study." ;
     usdm:modifier "Concrete" ;
@@ -155,6 +161,7 @@ usdm:Activity-name
     rdfs:domain usdm:Activity ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188842 ;
+    skos:exactMatch obo:NCIT_C188842 ;
     skos:prefLabel "Study Activity Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study activity." ;
     usdm:relationshipType "Value" ;
@@ -167,6 +174,7 @@ usdm:Activity-label
     rdfs:domain usdm:Activity ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207458 ;
+    skos:exactMatch obo:NCIT_C207458 ;
     skos:prefLabel "Study Activity Label" ;
     skos:definition "The short descriptive designation for the study activity." ;
     usdm:relationshipType "Value" ;
@@ -179,6 +187,7 @@ usdm:Activity-description
     rdfs:domain usdm:Activity ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C70960 ;
+    skos:exactMatch obo:NCIT_C70960 ;
     skos:prefLabel "Study Activity Description" ;
     skos:definition "A narrative representation of the study activity." ;
     usdm:relationshipType "Value" ;
@@ -191,6 +200,7 @@ usdm:Activity-notes
     rdfs:domain usdm:Activity ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215519 ;
+    skos:exactMatch obo:NCIT_C215519 ;
     skos:prefLabel "Activity Notes" ;
     skos:definition "A brief written record relevant to the activity." ;
     usdm:relationshipType "Value" ;
@@ -296,6 +306,7 @@ usdm:Address
     a owl:Class ;
     rdfs:label "Address" ;
     skos:exactMatch ncit:C25407 ;
+    skos:exactMatch obo:NCIT_C25407 ;
     skos:prefLabel "Address" ;
     skos:definition "A standardized representation of the location of a person, business, building, or organization. (NCI)" ;
     usdm:modifier "Concrete" ;
@@ -323,6 +334,7 @@ usdm:Address-text
     rdfs:domain usdm:Address ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201311 ;
+    skos:exactMatch obo:NCIT_C201311 ;
     skos:prefLabel "Address Full Text" ;
     skos:definition "A standardized representation of the complete set of components denoting the physical address of the person, business, building, or organization." ;
     usdm:relationshipType "Value" ;
@@ -335,6 +347,7 @@ usdm:Address-lines
     rdfs:domain usdm:Address ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C25690 ;
+    skos:exactMatch obo:NCIT_C25690 ;
     skos:prefLabel "Address Line" ;
     skos:definition "The street name and number, building number, apartment or unit number, or post office box number where an entity is physically located." ;
     usdm:relationshipType "Value" ;
@@ -347,6 +360,7 @@ usdm:Address-district
     rdfs:domain usdm:Address ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C176229 ;
+    skos:exactMatch obo:NCIT_C176229 ;
     skos:prefLabel "District" ;
     skos:definition "An administrative or territorial division of a city, town, county, parish, state, country, or other locality based on a shared characteristic." ;
     usdm:relationshipType "Value" ;
@@ -359,6 +373,7 @@ usdm:Address-city
     rdfs:domain usdm:Address ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C25160 ;
+    skos:exactMatch obo:NCIT_C25160 ;
     skos:prefLabel "City" ;
     skos:definition "A relatively large and/or densely populated area of human habitation with administrative or legal status that may be specified as a component of a postal address." ;
     usdm:relationshipType "Value" ;
@@ -371,6 +386,7 @@ usdm:Address-postalCode
     rdfs:domain usdm:Address ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C25621 ;
+    skos:exactMatch obo:NCIT_C25621 ;
     skos:prefLabel "Postal Code" ;
     skos:definition "An alphanumeric code assigned to a mail delivery area." ;
     usdm:relationshipType "Value" ;
@@ -383,6 +399,7 @@ usdm:Address-state
     rdfs:domain usdm:Address ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C87194 ;
+    skos:exactMatch obo:NCIT_C87194 ;
     skos:prefLabel "State" ;
     skos:definition "A sub-division of a country that forms part of a federal union. States are usually, but not always, more autonomous than provinces and may have different laws from the central government." ;
     usdm:relationshipType "Value" ;
@@ -395,6 +412,7 @@ usdm:Address-country
     rdfs:domain usdm:Address ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C25464 ;
+    skos:exactMatch obo:NCIT_C25464 ;
     skos:prefLabel "Country" ;
     skos:definition "A sovereign nation occupying a distinct territory and ruled by an autonomous government." ;
     usdm:relationshipType "Value" ;
@@ -421,6 +439,7 @@ usdm:AdministrableProduct
     a owl:Class ;
     rdfs:label "AdministrableProduct" ;
     skos:exactMatch ncit:C215492 ;
+    skos:exactMatch obo:NCIT_C215492 ;
     skos:prefLabel "Administrable Product" ;
     skos:definition "Any study product that is formulated and presented in the form that is suitable for administration to a study participant." ;
     usdm:modifier "Concrete" ;
@@ -449,6 +468,7 @@ usdm:AdministrableProduct-name
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215573 ;
+    skos:exactMatch obo:NCIT_C215573 ;
     skos:prefLabel "Administrable Product Definition Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the administrable product." ;
     usdm:relationshipType "Value" ;
@@ -461,6 +481,7 @@ usdm:AdministrableProduct-label
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215575 ;
+    skos:exactMatch obo:NCIT_C215575 ;
     skos:prefLabel "Administrable Product Definition Label" ;
     skos:definition "The short descriptive designation for the administrable product." ;
     usdm:relationshipType "Value" ;
@@ -473,6 +494,7 @@ usdm:AdministrableProduct-description
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215574 ;
+    skos:exactMatch obo:NCIT_C215574 ;
     skos:prefLabel "Administrable Product Definition Description" ;
     skos:definition "A narrative representation of the administrable product." ;
     usdm:relationshipType "Value" ;
@@ -485,12 +507,14 @@ usdm:AdministrableProduct-administrableDoseForm
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C215576 ;
+    skos:exactMatch obo:NCIT_C215576 ;
     skos:prefLabel "Administrable Product Dose Form" ;
     skos:definition "The physical form in which formulated ingredient(s) are presented in the administrable product." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "administrableDoseForm" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66726 ;
+    usdm:boundCodelist obo:NCIT_C66726 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66726)" .
 
 usdm:AdministrableProduct-sourcing
@@ -499,12 +523,14 @@ usdm:AdministrableProduct-sourcing
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215578 ;
+    skos:exactMatch obo:NCIT_C215578 ;
     skos:prefLabel "Administrable Product Sourcing" ;
     skos:definition "An indication as to whether the administrable product is obtained from a local or central source." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "sourcing" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215483 ;
+    usdm:boundCodelist obo:NCIT_C215483 ;
     usdm:boundCodelistNote "Y (C215483)" .
 
 usdm:AdministrableProduct-productDesignation
@@ -513,12 +539,14 @@ usdm:AdministrableProduct-productDesignation
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215579 ;
+    skos:exactMatch obo:NCIT_C215579 ;
     skos:prefLabel "Administrable Product Product Designation" ;
     skos:definition "An indication as to whether the administrable product is an investigational medicinal product or an auxiliary medicinal product." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "productDesignation" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C207418 ;
+    usdm:boundCodelist obo:NCIT_C207418 ;
     usdm:boundCodelistNote "Y (C207418)" .
 
 usdm:AdministrableProduct-pharmacologicClass
@@ -527,6 +555,7 @@ usdm:AdministrableProduct-pharmacologicClass
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215577 ;
+    skos:exactMatch obo:NCIT_C215577 ;
     skos:prefLabel "Administrable Product Pharmacologic Class" ;
     skos:definition "The pharmacological class of the administrable product." ;
     usdm:relationshipType "Value" ;
@@ -540,6 +569,7 @@ usdm:AdministrableProduct-notes
     rdfs:domain usdm:AdministrableProduct ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215580 ;
+    skos:exactMatch obo:NCIT_C215580 ;
     skos:prefLabel "Administrable Product Notes" ;
     skos:definition "A brief written record relevant to the administrable product." ;
     usdm:relationshipType "Value" ;
@@ -595,6 +625,7 @@ usdm:AdministrableProductIdentifier
     a owl:Class ;
     rdfs:label "AdministrableProductIdentifier" ;
     skos:exactMatch ncit:C215493 ;
+    skos:exactMatch obo:NCIT_C215493 ;
     skos:prefLabel "Administrable Product Identifier" ;
     skos:definition "A sequence of characters used to identify, name, or characterize the administrable product." ;
     rdfs:subClassOf usdm:Identifier ;
@@ -620,6 +651,7 @@ usdm:AdministrableProductProperty
     a owl:Class ;
     rdfs:label "AdministrableProductProperty" ;
     skos:exactMatch ncit:C215494 ;
+    skos:exactMatch obo:NCIT_C215494 ;
     skos:prefLabel "Administrable Product Property" ;
     skos:definition "A characteristic from a set of characteristics used to define an administrable product." ;
     usdm:modifier "Concrete" ;
@@ -645,6 +677,7 @@ usdm:AdministrableProductProperty-name
     rdfs:domain usdm:AdministrableProductProperty ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215582 ;
+    skos:exactMatch obo:NCIT_C215582 ;
     skos:prefLabel "Administrable Product Property Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the administrable product property." ;
     usdm:relationshipType "Value" ;
@@ -657,12 +690,14 @@ usdm:AdministrableProductProperty-type
     rdfs:domain usdm:AdministrableProductProperty ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215585 ;
+    skos:exactMatch obo:NCIT_C215585 ;
     skos:prefLabel "Administrable Product Property Type" ;
     skos:definition "A characterization or classification of the administrable product property." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215479 ;
+    usdm:boundCodelist obo:NCIT_C215479 ;
     usdm:boundCodelistNote "Y (C215479)" .
 
 usdm:AdministrableProductProperty-text
@@ -671,6 +706,7 @@ usdm:AdministrableProductProperty-text
     rdfs:domain usdm:AdministrableProductProperty ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215583 ;
+    skos:exactMatch obo:NCIT_C215583 ;
     skos:prefLabel "Administrable Product Property Text" ;
     skos:definition "An instance of structured text that represents the administrable product property." ;
     usdm:relationshipType "Value" ;
@@ -683,6 +719,7 @@ usdm:AdministrableProductProperty-quantity
     rdfs:domain usdm:AdministrableProductProperty ;
     rdfs:range usdm:Quantity ;
     skos:exactMatch ncit:C215584 ;
+    skos:exactMatch obo:NCIT_C215584 ;
     skos:prefLabel "Administrable Product Property Quantity Value" ;
     skos:definition "The numeric value associated with an administrable product property." ;
     usdm:relationshipType "Value" ;
@@ -708,6 +745,7 @@ usdm:Administration
     a owl:Class ;
     rdfs:label "Administration" ;
     skos:exactMatch ncit:C25409 ;
+    skos:exactMatch obo:NCIT_C25409 ;
     skos:prefLabel "Administration" ;
     skos:definition "The act of dispensing, applying, or tendering a product, agent, or therapy." ;
     usdm:modifier "Concrete" ;
@@ -738,6 +776,7 @@ usdm:Administration-name
     rdfs:domain usdm:Administration ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207465 ;
+    skos:exactMatch obo:NCIT_C207465 ;
     skos:prefLabel "Administration Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) for the administration of a product, agent, or therapy." ;
     usdm:relationshipType "Value" ;
@@ -750,6 +789,7 @@ usdm:Administration-label
     rdfs:domain usdm:Administration ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207464 ;
+    skos:exactMatch obo:NCIT_C207464 ;
     skos:prefLabel "Administration Label" ;
     skos:definition "The short descriptive designation for the administration of a product, agent, or therapy." ;
     usdm:relationshipType "Value" ;
@@ -762,6 +802,7 @@ usdm:Administration-description
     rdfs:domain usdm:Administration ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207463 ;
+    skos:exactMatch obo:NCIT_C207463 ;
     skos:prefLabel "Administration Description" ;
     skos:definition "A narrative representation for the administration of a product, agent, or therapy." ;
     usdm:relationshipType "Value" ;
@@ -774,6 +815,7 @@ usdm:Administration-dose
     rdfs:domain usdm:Administration ;
     rdfs:range usdm:Quantity ;
     skos:exactMatch ncit:C167190 ;
+    skos:exactMatch obo:NCIT_C167190 ;
     skos:prefLabel "Administration Dose" ;
     skos:definition "The value representing the amount of an agent given to an individual at one time." ;
     usdm:relationshipType "Value" ;
@@ -786,12 +828,14 @@ usdm:Administration-frequency
     rdfs:domain usdm:Administration ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C89081 ;
+    skos:exactMatch obo:NCIT_C89081 ;
     skos:prefLabel "Dosing Frequency" ;
     skos:definition "The number of doses administered per a specific interval." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "frequency" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C71113 ;
+    usdm:boundCodelist obo:NCIT_C71113 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C71113)" .
 
 usdm:Administration-route
@@ -800,12 +844,14 @@ usdm:Administration-route
     rdfs:domain usdm:Administration ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C38114 ;
+    skos:exactMatch obo:NCIT_C38114 ;
     skos:prefLabel "Route of Administration" ;
     skos:definition "The pathway by which a substance is administered in order to reach the site of action in the body." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "route" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66729 ;
+    usdm:boundCodelist obo:NCIT_C66729 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66729)" .
 
 usdm:Administration-duration
@@ -814,6 +860,7 @@ usdm:Administration-duration
     rdfs:domain usdm:Administration ;
     rdfs:range usdm:Duration ;
     skos:exactMatch ncit:C69282 ;
+    skos:exactMatch obo:NCIT_C69282 ;
     skos:prefLabel "Administration Duration" ;
     skos:definition "The amount of time elapsed during the administration of an agent." ;
     usdm:relationshipType "Value" ;
@@ -826,6 +873,7 @@ usdm:Administration-notes
     rdfs:domain usdm:Administration ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215544 ;
+    skos:exactMatch obo:NCIT_C215544 ;
     skos:prefLabel "Administration Notes" ;
     skos:definition "A brief written record relevant to the administration of the product, agent, or therapy." ;
     usdm:relationshipType "Value" ;
@@ -871,6 +919,7 @@ usdm:AliasCode
     a owl:Class ;
     rdfs:label "AliasCode" ;
     skos:exactMatch ncit:C201344 ;
+    skos:exactMatch obo:NCIT_C201344 ;
     skos:prefLabel "Alias Code" ;
     skos:definition "An alternative symbol or combination of symbols which is assigned to the members of a collection." ;
     usdm:modifier "Concrete" ;
@@ -893,6 +942,7 @@ usdm:AliasCode-standardCode
     rdfs:domain usdm:AliasCode ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215528 ;
+    skos:exactMatch obo:NCIT_C215528 ;
     skos:prefLabel "Standard Code" ;
     skos:definition "A combination of symbols that is used to represent the standard code." ;
     usdm:relationshipType "Value" ;
@@ -905,6 +955,7 @@ usdm:AliasCode-standardCodeAliases
     rdfs:domain usdm:AliasCode ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215529 ;
+    skos:exactMatch obo:NCIT_C215529 ;
     skos:prefLabel "Standard Code Aliases" ;
     skos:definition "Alternative combinations of symbols used to represent aliases or alternatives to the standard code." ;
     usdm:relationshipType "Value" ;
@@ -930,6 +981,7 @@ usdm:AnalysisPopulation
     a owl:Class ;
     rdfs:label "AnalysisPopulation" ;
     skos:exactMatch ncit:C188814 ;
+    skos:exactMatch obo:NCIT_C188814 ;
     skos:prefLabel "Analysis Population" ;
     skos:definition "A target study population on which an analysis is performed. These may be represented by the entire study population, a subgroup defined by a particular characteristic measured at baseline, or a principal stratum defined by the occurrence (or non-occurrence, depending on context) of a specific intercurrent event. (ICH E9 R1 Addendum)" ;
     usdm:modifier "Concrete" ;
@@ -955,6 +1007,7 @@ usdm:AnalysisPopulation-text
     rdfs:domain usdm:AnalysisPopulation ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207468 ;
+    skos:exactMatch obo:NCIT_C207468 ;
     skos:prefLabel "Analysis Population Text" ;
     skos:definition "An instance of unstructured text that represents the analysis population." ;
     usdm:relationshipType "Value" ;
@@ -967,6 +1020,7 @@ usdm:AnalysisPopulation-name
     rdfs:domain usdm:AnalysisPopulation ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207467 ;
+    skos:exactMatch obo:NCIT_C207467 ;
     skos:prefLabel "Analysis Population Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the analysis population." ;
     usdm:relationshipType "Value" ;
@@ -979,6 +1033,7 @@ usdm:AnalysisPopulation-label
     rdfs:domain usdm:AnalysisPopulation ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207466 ;
+    skos:exactMatch obo:NCIT_C207466 ;
     skos:prefLabel "Analysis Population Label" ;
     skos:definition "The short descriptive designation for the analysis population." ;
     usdm:relationshipType "Value" ;
@@ -991,6 +1046,7 @@ usdm:AnalysisPopulation-description
     rdfs:domain usdm:AnalysisPopulation ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188854 ;
+    skos:exactMatch obo:NCIT_C188854 ;
     skos:prefLabel "Analysis Population Description" ;
     skos:definition "A narrative representation of the analysis population." ;
     usdm:relationshipType "Value" ;
@@ -1003,6 +1059,7 @@ usdm:AnalysisPopulation-notes
     rdfs:domain usdm:AnalysisPopulation ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215525 ;
+    skos:exactMatch obo:NCIT_C215525 ;
     skos:prefLabel "Analysis Population Notes" ;
     skos:definition "A brief written record relevant to the analysis population." ;
     usdm:relationshipType "Value" ;
@@ -1038,6 +1095,7 @@ usdm:AssignedPerson
     a owl:Class ;
     rdfs:label "AssignedPerson" ;
     skos:exactMatch ncit:C215496 ;
+    skos:exactMatch obo:NCIT_C215496 ;
     skos:prefLabel "Assigned Person" ;
     skos:definition "An individual person who is allotted or appointed to a particular role, function, or other entity." ;
     usdm:modifier "Concrete" ;
@@ -1065,6 +1123,7 @@ usdm:AssignedPerson-name
     rdfs:domain usdm:AssignedPerson ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215596 ;
+    skos:exactMatch obo:NCIT_C215596 ;
     skos:prefLabel "Assigned Person Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the assigned person." ;
     usdm:relationshipType "Value" ;
@@ -1077,6 +1136,7 @@ usdm:AssignedPerson-label
     rdfs:domain usdm:AssignedPerson ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215598 ;
+    skos:exactMatch obo:NCIT_C215598 ;
     skos:prefLabel "Assigned Person Label" ;
     skos:definition "The short descriptive designation for the assigned person." ;
     usdm:relationshipType "Value" ;
@@ -1089,6 +1149,7 @@ usdm:AssignedPerson-description
     rdfs:domain usdm:AssignedPerson ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215597 ;
+    skos:exactMatch obo:NCIT_C215597 ;
     skos:prefLabel "Assigned Person Description" ;
     skos:definition "A narrative representation of the assigned person." ;
     usdm:relationshipType "Value" ;
@@ -1101,6 +1162,7 @@ usdm:AssignedPerson-personName
     rdfs:domain usdm:AssignedPerson ;
     rdfs:range usdm:PersonName ;
     skos:exactMatch ncit:C216993 ;
+    skos:exactMatch obo:NCIT_C216993 ;
     skos:prefLabel "Assigned Person Person Name" ;
     skos:definition "A word or group of words indicating the identity of an assigned person usually consisting of a first (personal) name and a last (family) name with an optional middle name. In some cultural traditions the family name comes first." ;
     usdm:relationshipType "Value" ;
@@ -1113,6 +1175,7 @@ usdm:AssignedPerson-jobTitle
     rdfs:domain usdm:AssignedPerson ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215599 ;
+    skos:exactMatch obo:NCIT_C215599 ;
     skos:prefLabel "Assigned Person Job Title" ;
     skos:definition "An identifying designation related to the assigned person's occupation." ;
     usdm:relationshipType "Value" ;
@@ -1148,6 +1211,7 @@ usdm:BiomedicalConcept
     a owl:Class ;
     rdfs:label "BiomedicalConcept" ;
     skos:exactMatch ncit:C201345 ;
+    skos:exactMatch obo:NCIT_C201345 ;
     skos:prefLabel "Biomedical Concept" ;
     skos:definition "A unit of biomedical knowledge created from a unique combination of characteristics that include implementation details like variables and terminologies, used as building blocks for standardized, hierarchically structured clinical research information." ;
     usdm:modifier "Concrete" ;
@@ -1173,6 +1237,7 @@ usdm:BiomedicalConcept-name
     rdfs:domain usdm:BiomedicalConcept ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201312 ;
+    skos:exactMatch obo:NCIT_C201312 ;
     skos:prefLabel "Biomedical Concept Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the biomedical concept." ;
     usdm:relationshipType "Value" ;
@@ -1185,6 +1250,7 @@ usdm:BiomedicalConcept-label
     rdfs:domain usdm:BiomedicalConcept ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207470 ;
+    skos:exactMatch obo:NCIT_C207470 ;
     skos:prefLabel "Biomedical Concept Label" ;
     skos:definition "The short descriptive designation for the biomedical concept." ;
     usdm:relationshipType "Value" ;
@@ -1197,6 +1263,7 @@ usdm:BiomedicalConcept-synonyms
     rdfs:domain usdm:BiomedicalConcept ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201314 ;
+    skos:exactMatch obo:NCIT_C201314 ;
     skos:prefLabel "Biomedical Concept Synonym" ;
     skos:definition "A word or an expression that serves as a figurative, symbolic, or exact substitute for a biomedical concept, and which has the same meaning." ;
     usdm:relationshipType "Value" ;
@@ -1209,6 +1276,7 @@ usdm:BiomedicalConcept-reference
     rdfs:domain usdm:BiomedicalConcept ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201313 ;
+    skos:exactMatch obo:NCIT_C201313 ;
     skos:prefLabel "Biomedical Concept Reference" ;
     skos:definition "A citation to an authoritative source for a biomedical concept." ;
     usdm:relationshipType "Value" ;
@@ -1221,6 +1289,7 @@ usdm:BiomedicalConcept-code
     rdfs:domain usdm:BiomedicalConcept ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C207469 ;
+    skos:exactMatch obo:NCIT_C207469 ;
     skos:prefLabel "Biomedical Concept Concept Code" ;
     skos:definition "A concept unique identifier assigned to a biomedical concept that points to the meaning of that biomedical concept." ;
     usdm:relationshipType "Value" ;
@@ -1233,6 +1302,7 @@ usdm:BiomedicalConcept-notes
     rdfs:domain usdm:BiomedicalConcept ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215530 ;
+    skos:exactMatch obo:NCIT_C215530 ;
     skos:prefLabel "Biomedical Concept Notes" ;
     skos:definition "A brief written record relevant to the biomedical concept." ;
     usdm:relationshipType "Value" ;
@@ -1268,6 +1338,7 @@ usdm:BiomedicalConceptCategory
     a owl:Class ;
     rdfs:label "BiomedicalConceptCategory" ;
     skos:exactMatch ncit:C201346 ;
+    skos:exactMatch obo:NCIT_C201346 ;
     skos:prefLabel "Biomedical Concept Category" ;
     skos:definition "A grouping of biomedical concepts based on some commonality or by user defined characteristics." ;
     usdm:modifier "Concrete" ;
@@ -1293,6 +1364,7 @@ usdm:BiomedicalConceptCategory-name
     rdfs:domain usdm:BiomedicalConceptCategory ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201317 ;
+    skos:exactMatch obo:NCIT_C201317 ;
     skos:prefLabel "Biomedical Concept Category Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the biomedical concept category." ;
     usdm:relationshipType "Value" ;
@@ -1305,6 +1377,7 @@ usdm:BiomedicalConceptCategory-label
     rdfs:domain usdm:BiomedicalConceptCategory ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207471 ;
+    skos:exactMatch obo:NCIT_C207471 ;
     skos:prefLabel "Biomedical Concept Category Label" ;
     skos:definition "The short descriptive designation for the biomedical concept category." ;
     usdm:relationshipType "Value" ;
@@ -1317,6 +1390,7 @@ usdm:BiomedicalConceptCategory-description
     rdfs:domain usdm:BiomedicalConceptCategory ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201316 ;
+    skos:exactMatch obo:NCIT_C201316 ;
     skos:prefLabel "Biomedical Concept Category Description" ;
     skos:definition "A narrative representation of the biomedical concept category." ;
     usdm:relationshipType "Value" ;
@@ -1329,6 +1403,7 @@ usdm:BiomedicalConceptCategory-code
     rdfs:domain usdm:BiomedicalConceptCategory ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C201315 ;
+    skos:exactMatch obo:NCIT_C201315 ;
     skos:prefLabel "Biomedical Concept Category Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the biomedical concept category." ;
     usdm:relationshipType "Value" ;
@@ -1341,6 +1416,7 @@ usdm:BiomedicalConceptCategory-notes
     rdfs:domain usdm:BiomedicalConceptCategory ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215533 ;
+    skos:exactMatch obo:NCIT_C215533 ;
     skos:prefLabel "Biomedical Concept Category Notes" ;
     skos:definition "A brief written record relevant to the biomedical concept category." ;
     usdm:relationshipType "Value" ;
@@ -1386,6 +1462,7 @@ usdm:BiomedicalConceptProperty
     a owl:Class ;
     rdfs:label "BiomedicalConceptProperty" ;
     skos:exactMatch ncit:C202493 ;
+    skos:exactMatch obo:NCIT_C202493 ;
     skos:prefLabel "Biomedical Concept Property" ;
     skos:definition "A characteristic from a set of characteristics used to define a biomedical concept." ;
     usdm:modifier "Concrete" ;
@@ -1413,6 +1490,7 @@ usdm:BiomedicalConceptProperty-name
     rdfs:domain usdm:BiomedicalConceptProperty ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C202494 ;
+    skos:exactMatch obo:NCIT_C202494 ;
     skos:prefLabel "Biomedical Concept Property Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the biomedical concept property." ;
     usdm:relationshipType "Value" ;
@@ -1425,6 +1503,7 @@ usdm:BiomedicalConceptProperty-label
     rdfs:domain usdm:BiomedicalConceptProperty ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207472 ;
+    skos:exactMatch obo:NCIT_C207472 ;
     skos:prefLabel "Biomedical Concept Property Label" ;
     skos:definition "The short descriptive designation for the biomedical concept property." ;
     usdm:relationshipType "Value" ;
@@ -1437,6 +1516,7 @@ usdm:BiomedicalConceptProperty-isRequired
     rdfs:domain usdm:BiomedicalConceptProperty ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C202495 ;
+    skos:exactMatch obo:NCIT_C202495 ;
     skos:prefLabel "Biomedical Concept Property Required Indicator" ;
     skos:definition "An indication as to whether the biomedical concept property is required." ;
     usdm:relationshipType "Value" ;
@@ -1449,6 +1529,7 @@ usdm:BiomedicalConceptProperty-isEnabled
     rdfs:domain usdm:BiomedicalConceptProperty ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C202496 ;
+    skos:exactMatch obo:NCIT_C202496 ;
     skos:prefLabel "Biomedical Concept Property Enabled Indicator" ;
     skos:definition "An indication as to whether the biomedical concept property is activated for use within a given usage context for a biomedical concept." ;
     usdm:relationshipType "Value" ;
@@ -1461,6 +1542,7 @@ usdm:BiomedicalConceptProperty-datatype
     rdfs:domain usdm:BiomedicalConceptProperty ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201319 ;
+    skos:exactMatch obo:NCIT_C201319 ;
     skos:prefLabel "Biomedical Concept Property Response Data Type" ;
     skos:definition "The structural format of the biomedical concept property response value. The datatype is carried in the attribute and influences the set of allowable values the attribute may assume. (After HL7)" ;
     usdm:relationshipType "Value" ;
@@ -1473,6 +1555,7 @@ usdm:BiomedicalConceptProperty-code
     rdfs:domain usdm:BiomedicalConceptProperty ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C201318 ;
+    skos:exactMatch obo:NCIT_C201318 ;
     skos:prefLabel "Biomedical Concept Property Concept Code" ;
     skos:definition "A concept unique identifier assigned to a biomedical concept property that points to the meaning of that biomedical concept property." ;
     usdm:relationshipType "Value" ;
@@ -1485,6 +1568,7 @@ usdm:BiomedicalConceptProperty-notes
     rdfs:domain usdm:BiomedicalConceptProperty ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215531 ;
+    skos:exactMatch obo:NCIT_C215531 ;
     skos:prefLabel "Biomedical Concept Property Notes" ;
     skos:definition "A brief written record relevant to the biomedical concept property." ;
     usdm:relationshipType "Value" ;
@@ -1520,6 +1604,7 @@ usdm:BiomedicalConceptSurrogate
     a owl:Class ;
     rdfs:label "BiomedicalConceptSurrogate" ;
     skos:exactMatch ncit:C207590 ;
+    skos:exactMatch obo:NCIT_C207590 ;
     skos:prefLabel "Biomedical Concept Surrogate" ;
     skos:definition "A concept that substitutes for a standard biomedical concept from the designated source." ;
     usdm:modifier "Concrete" ;
@@ -1545,6 +1630,7 @@ usdm:BiomedicalConceptSurrogate-name
     rdfs:domain usdm:BiomedicalConceptSurrogate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207474 ;
+    skos:exactMatch obo:NCIT_C207474 ;
     skos:prefLabel "Biomedical Concept Surrogate Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the biomedical concept surrogate." ;
     usdm:relationshipType "Value" ;
@@ -1557,6 +1643,7 @@ usdm:BiomedicalConceptSurrogate-label
     rdfs:domain usdm:BiomedicalConceptSurrogate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207473 ;
+    skos:exactMatch obo:NCIT_C207473 ;
     skos:prefLabel "Biomedical Concept Surrogate Label" ;
     skos:definition "The short descriptive designation for the biomedical concept surrogate." ;
     usdm:relationshipType "Value" ;
@@ -1569,6 +1656,7 @@ usdm:BiomedicalConceptSurrogate-description
     rdfs:domain usdm:BiomedicalConceptSurrogate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201320 ;
+    skos:exactMatch obo:NCIT_C201320 ;
     skos:prefLabel "Biomedical Concept Surrogate Description" ;
     skos:definition "A narrative representation of the biomedical concept surrogate." ;
     usdm:relationshipType "Value" ;
@@ -1581,6 +1669,7 @@ usdm:BiomedicalConceptSurrogate-reference
     rdfs:domain usdm:BiomedicalConceptSurrogate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201321 ;
+    skos:exactMatch obo:NCIT_C201321 ;
     skos:prefLabel "Biomedical Concept Surrogate Reference" ;
     skos:definition "A citation to an authoritative source for a biomedical concept surrogate." ;
     usdm:relationshipType "Value" ;
@@ -1593,6 +1682,7 @@ usdm:BiomedicalConceptSurrogate-notes
     rdfs:domain usdm:BiomedicalConceptSurrogate ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215532 ;
+    skos:exactMatch obo:NCIT_C215532 ;
     skos:prefLabel "Biomedical Concept Surrogate Notes" ;
     skos:definition "A brief written record relevant to the biomedical concept surrogate." ;
     usdm:relationshipType "Value" ;
@@ -1618,6 +1708,7 @@ usdm:BiospecimenRetention
     a owl:Class ;
     rdfs:label "BiospecimenRetention" ;
     skos:exactMatch ncit:C215505 ;
+    skos:exactMatch obo:NCIT_C215505 ;
     skos:prefLabel "Biospecimen Retention" ;
     skos:definition "The continued possession, cataloging, and storage of collected biological specimens beyond their initial use." ;
     usdm:modifier "Concrete" ;
@@ -1644,6 +1735,7 @@ usdm:BiospecimenRetention-name
     rdfs:domain usdm:BiospecimenRetention ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215645 ;
+    skos:exactMatch obo:NCIT_C215645 ;
     skos:prefLabel "Biospecimen Retention Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the biospecimen retention." ;
     usdm:relationshipType "Value" ;
@@ -1656,6 +1748,7 @@ usdm:BiospecimenRetention-label
     rdfs:domain usdm:BiospecimenRetention ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215646 ;
+    skos:exactMatch obo:NCIT_C215646 ;
     skos:prefLabel "Biospecimen Retention Label" ;
     skos:definition "The short descriptive designation for the biospecimen retention." ;
     usdm:relationshipType "Value" ;
@@ -1668,6 +1761,7 @@ usdm:BiospecimenRetention-description
     rdfs:domain usdm:BiospecimenRetention ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C181231 ;
+    skos:exactMatch obo:NCIT_C181231 ;
     skos:prefLabel "Biospecimen Retention Description" ;
     skos:definition "A narrative representation of the biospecimen retention." ;
     usdm:relationshipType "Value" ;
@@ -1680,6 +1774,7 @@ usdm:BiospecimenRetention-isRetained
     rdfs:domain usdm:BiospecimenRetention ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C164620 ;
+    skos:exactMatch obo:NCIT_C164620 ;
     skos:prefLabel "Biospecimen Retention Indicator" ;
     skos:definition "An indication as to whether biospecimens were retained." ;
     usdm:relationshipType "Value" ;
@@ -1692,6 +1787,7 @@ usdm:BiospecimenRetention-includesDNA
     rdfs:domain usdm:BiospecimenRetention ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C127777 ;
+    skos:exactMatch obo:NCIT_C127777 ;
     skos:prefLabel "Biospecimen Retention Includes DNA Indicator" ;
     skos:definition "An indication as to whether retained biospecimens contain DNA." ;
     usdm:relationshipType "Value" ;
@@ -1717,6 +1813,7 @@ usdm:Characteristic
     a owl:Class ;
     rdfs:label "Characteristic" ;
     skos:exactMatch ncit:C25447 ;
+    skos:exactMatch obo:NCIT_C25447 ;
     skos:prefLabel "Characteristic" ;
     skos:definition "The distinguishing qualities or prominent aspects of an entity." ;
     rdfs:subClassOf usdm:SyntaxTemplate ;
@@ -1742,6 +1839,7 @@ usdm:Code
     a owl:Class ;
     rdfs:label "Code" ;
     skos:exactMatch ncit:C25162 ;
+    skos:exactMatch obo:NCIT_C25162 ;
     skos:prefLabel "Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the members of a collection." ;
     usdm:modifier "Concrete" ;
@@ -1767,6 +1865,7 @@ usdm:Code-code
     rdfs:domain usdm:Code ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188858 ;
+    skos:exactMatch obo:NCIT_C188858 ;
     skos:prefLabel "Code Value" ;
     skos:definition "The literal value of a code." ;
     usdm:relationshipType "Value" ;
@@ -1779,6 +1878,7 @@ usdm:Code-codeSystem
     rdfs:domain usdm:Code ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188859 ;
+    skos:exactMatch obo:NCIT_C188859 ;
     skos:prefLabel "Code System Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the system used to assign and/or manage codes." ;
     usdm:relationshipType "Value" ;
@@ -1791,6 +1891,7 @@ usdm:Code-codeSystemVersion
     rdfs:domain usdm:Code ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188868 ;
+    skos:exactMatch obo:NCIT_C188868 ;
     skos:prefLabel "Code System Version" ;
     skos:definition "The version of the code system." ;
     usdm:relationshipType "Value" ;
@@ -1803,6 +1904,7 @@ usdm:Code-decode
     rdfs:domain usdm:Code ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188861 ;
+    skos:exactMatch obo:NCIT_C188861 ;
     skos:prefLabel "Decode" ;
     skos:definition "Standardized or dictionary-derived human readable text associated with a code." ;
     usdm:relationshipType "Value" ;
@@ -1828,6 +1930,7 @@ usdm:CommentAnnotation
     a owl:Class ;
     rdfs:label "CommentAnnotation" ;
     skos:exactMatch ncit:C44272 ;
+    skos:exactMatch obo:NCIT_C44272 ;
     skos:prefLabel "Comment Annotation" ;
     skos:definition "An explanatory or critical comment, or other in-context information (e.g., pattern, motif, link), that has been associated with data or other types of information." ;
     usdm:modifier "Concrete" ;
@@ -1850,6 +1953,7 @@ usdm:CommentAnnotation-text
     rdfs:domain usdm:CommentAnnotation ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215555 ;
+    skos:exactMatch obo:NCIT_C215555 ;
     skos:prefLabel "Comment Annotation Text" ;
     skos:definition "An instance of unstructured text that represents the comment annotation." ;
     usdm:relationshipType "Value" ;
@@ -1862,6 +1966,7 @@ usdm:CommentAnnotation-codes
     rdfs:domain usdm:CommentAnnotation ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215556 ;
+    skos:exactMatch obo:NCIT_C215556 ;
     skos:prefLabel "Comment Annotation Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the comment annotation." ;
     usdm:relationshipType "Value" ;
@@ -1887,6 +1992,7 @@ usdm:Condition
     a owl:Class ;
     rdfs:label "Condition" ;
     skos:exactMatch ncit:C25457 ;
+    skos:exactMatch obo:NCIT_C25457 ;
     skos:prefLabel "Condition" ;
     skos:definition "A state of being." ;
     rdfs:subClassOf usdm:SyntaxTemplate ;
@@ -1932,6 +2038,7 @@ usdm:ConditionAssignment
     a owl:Class ;
     rdfs:label "ConditionAssignment" ;
     skos:exactMatch ncit:C201335 ;
+    skos:exactMatch obo:NCIT_C201335 ;
     skos:prefLabel "Condition Assignment" ;
     skos:definition "An allotting or appointment to a condition or set of conditions that are to be met in order to make a logical decision." ;
     usdm:modifier "Concrete" ;
@@ -1955,6 +2062,7 @@ usdm:ConditionAssignment-condition
     rdfs:domain usdm:ConditionAssignment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C47953 ;
+    skos:exactMatch obo:NCIT_C47953 ;
     skos:prefLabel "Logical Condition" ;
     skos:definition "An assumption on which rests the validity or effect of something else." ;
     usdm:relationshipType "Value" ;
@@ -1990,6 +2098,7 @@ usdm:DocumentContentReference
     a owl:Class ;
     rdfs:label "DocumentContentReference" ;
     skos:exactMatch ncit:C215499 ;
+    skos:exactMatch obo:NCIT_C215499 ;
     skos:prefLabel "Document Content Reference" ;
     skos:definition "A citation pointing to the location of specific content within a document." ;
     usdm:modifier "Concrete" ;
@@ -2014,6 +2123,7 @@ usdm:DocumentContentReference-sectionNumber
     rdfs:domain usdm:DocumentContentReference ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215609 ;
+    skos:exactMatch obo:NCIT_C215609 ;
     skos:prefLabel "Document Content Reference Section Number" ;
     skos:definition "The numeric identifier of a particular section for the document content reference." ;
     usdm:relationshipType "Value" ;
@@ -2026,6 +2136,7 @@ usdm:DocumentContentReference-sectionTitle
     rdfs:domain usdm:DocumentContentReference ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215610 ;
+    skos:exactMatch obo:NCIT_C215610 ;
     skos:prefLabel "Document Content Reference Section Title" ;
     skos:definition "An identifying designation for a particular section for the document content reference." ;
     usdm:relationshipType "Value" ;
@@ -2061,6 +2172,7 @@ usdm:Duration
     a owl:Class ;
     rdfs:label "Duration" ;
     skos:exactMatch ncit:C25330 ;
+    skos:exactMatch obo:NCIT_C25330 ;
     skos:prefLabel "Duration" ;
     skos:definition "The length of time during which something continues." ;
     usdm:modifier "Concrete" ;
@@ -2086,6 +2198,7 @@ usdm:Duration-text
     rdfs:domain usdm:Duration ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C217008 ;
+    skos:exactMatch obo:NCIT_C217008 ;
     skos:prefLabel "Duration Text" ;
     skos:definition "An instance of unstructured text that represents the event duration." ;
     usdm:relationshipType "Value" ;
@@ -2098,6 +2211,7 @@ usdm:Duration-quantity
     rdfs:domain usdm:Duration ;
     rdfs:range usdm:QuantityRange ;
     skos:exactMatch ncit:C217011 ;
+    skos:exactMatch obo:NCIT_C217011 ;
     skos:prefLabel "Duration Quantity Value" ;
     skos:definition "The value representing the amount of time over which the event occurs." ;
     usdm:relationshipType "Value" ;
@@ -2110,6 +2224,7 @@ usdm:Duration-durationWillVary
     rdfs:domain usdm:Duration ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C217009 ;
+    skos:exactMatch obo:NCIT_C217009 ;
     skos:prefLabel "Duration Will Vary Indicator" ;
     skos:definition "An indication as to whether the event duration is planned to vary within and/or across subjects." ;
     usdm:relationshipType "Value" ;
@@ -2122,6 +2237,7 @@ usdm:Duration-reasonDurationWillVary
     rdfs:domain usdm:Duration ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C217010 ;
+    skos:exactMatch obo:NCIT_C217010 ;
     skos:prefLabel "Reason Duration Will Vary" ;
     skos:definition "The explanation for why the event duration will vary within and/or across subjects." ;
     usdm:relationshipType "Value" ;
@@ -2147,6 +2263,7 @@ usdm:EligibilityCriterion
     a owl:Class ;
     rdfs:label "EligibilityCriterion" ;
     skos:exactMatch ncit:C16112 ;
+    skos:exactMatch obo:NCIT_C16112 ;
     skos:prefLabel "Study Eligibility Criterion" ;
     skos:definition "Characteristics which are necessary to allow a subject to participate in a clinical study, as outlined in the study protocol. The concept covers inclusion and exclusion criteria." ;
     usdm:modifier "Concrete" ;
@@ -2176,6 +2293,7 @@ usdm:EligibilityCriterion-name
     rdfs:domain usdm:EligibilityCriterion ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207488 ;
+    skos:exactMatch obo:NCIT_C207488 ;
     skos:prefLabel "Study Eligibility Criterion Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study eligibility criterion." ;
     usdm:relationshipType "Value" ;
@@ -2188,6 +2306,7 @@ usdm:EligibilityCriterion-label
     rdfs:domain usdm:EligibilityCriterion ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207487 ;
+    skos:exactMatch obo:NCIT_C207487 ;
     skos:prefLabel "Study Eligibility Criterion Label" ;
     skos:definition "The short descriptive designation for the study eligibility criterion." ;
     usdm:relationshipType "Value" ;
@@ -2200,6 +2319,7 @@ usdm:EligibilityCriterion-description
     rdfs:domain usdm:EligibilityCriterion ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207486 ;
+    skos:exactMatch obo:NCIT_C207486 ;
     skos:prefLabel "Study Eligibility Criterion Description" ;
     skos:definition "A narrative representation of the study eligibility criterion." ;
     usdm:relationshipType "Value" ;
@@ -2212,6 +2332,7 @@ usdm:EligibilityCriterion-identifier
     rdfs:domain usdm:EligibilityCriterion ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207489 ;
+    skos:exactMatch obo:NCIT_C207489 ;
     skos:prefLabel "Study Eligibility Criterion Identifier" ;
     skos:definition "A sequence of characters used to identify, name, or characterize the inclusion or exclusion criterion." ;
     usdm:relationshipType "Value" ;
@@ -2224,12 +2345,14 @@ usdm:EligibilityCriterion-category
     rdfs:domain usdm:EligibilityCriterion ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C83016 ;
+    skos:exactMatch obo:NCIT_C83016 ;
     skos:prefLabel "Study Eligibility Criterion Category" ;
     skos:definition "A classification of the inclusion exclusion criterion." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "category" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66797 ;
+    usdm:boundCodelist obo:NCIT_C66797 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66797)" .
 
 usdm:EligibilityCriterion-notes
@@ -2238,6 +2361,7 @@ usdm:EligibilityCriterion-notes
     rdfs:domain usdm:EligibilityCriterion ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215537 ;
+    skos:exactMatch obo:NCIT_C215537 ;
     skos:prefLabel "Eligibility Criterion Notes" ;
     skos:definition "A brief written record relevant to the eligibility criterion." ;
     usdm:relationshipType "Value" ;
@@ -2293,6 +2417,7 @@ usdm:EligibilityCriterionItem
     a owl:Class ;
     rdfs:label "EligibilityCriterionItem" ;
     skos:exactMatch ncit:C215506 ;
+    skos:exactMatch obo:NCIT_C215506 ;
     skos:prefLabel "Eligibility Criterion Item" ;
     skos:definition "An individual item within the container that holds an instance of an eligibility criterion." ;
     rdfs:subClassOf usdm:SyntaxTemplate ;
@@ -2318,6 +2443,7 @@ usdm:Encounter
     a owl:Class ;
     rdfs:label "Encounter" ;
     skos:exactMatch ncit:C215488 ;
+    skos:exactMatch obo:NCIT_C215488 ;
     skos:prefLabel "Study Encounter" ;
     skos:definition "Any physical or virtual contact between two or more parties involved in a study, at which an assessment or activity takes place." ;
     usdm:modifier "Concrete" ;
@@ -2348,6 +2474,7 @@ usdm:Encounter-name
     rdfs:domain usdm:Encounter ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C171010 ;
+    skos:exactMatch obo:NCIT_C171010 ;
     skos:prefLabel "Study Encounter Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) for a protocol-defined study encounter." ;
     usdm:relationshipType "Value" ;
@@ -2360,6 +2487,7 @@ usdm:Encounter-label
     rdfs:domain usdm:Encounter ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207490 ;
+    skos:exactMatch obo:NCIT_C207490 ;
     skos:prefLabel "Study Encounter Label" ;
     skos:definition "The short descriptive designation for the study encounter." ;
     usdm:relationshipType "Value" ;
@@ -2372,6 +2500,7 @@ usdm:Encounter-description
     rdfs:domain usdm:Encounter ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188836 ;
+    skos:exactMatch obo:NCIT_C188836 ;
     skos:prefLabel "Study Encounter Description" ;
     skos:definition "A narrative representation of the protocol-defined study encounter." ;
     usdm:relationshipType "Value" ;
@@ -2384,12 +2513,14 @@ usdm:Encounter-type
     rdfs:domain usdm:Encounter ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188839 ;
+    skos:exactMatch obo:NCIT_C188839 ;
     skos:prefLabel "Study Encounter Type" ;
     skos:definition "A characterization or classification of the study encounter." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C188728 ;
+    usdm:boundCodelist obo:NCIT_C188728 ;
     usdm:boundCodelistNote "Y (C188728)" .
 
 usdm:Encounter-environmentalSettings
@@ -2398,12 +2529,14 @@ usdm:Encounter-environmentalSettings
     rdfs:domain usdm:Encounter ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188840 ;
+    skos:exactMatch obo:NCIT_C188840 ;
     skos:prefLabel "Environmental Setting" ;
     skos:definition "The environment/setting where the event, intervention, or finding occurred." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "environmentalSettings" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C127262 ;
+    usdm:boundCodelist obo:NCIT_C127262 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127262)" .
 
 usdm:Encounter-contactModes
@@ -2412,12 +2545,14 @@ usdm:Encounter-contactModes
     rdfs:domain usdm:Encounter ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188841 ;
+    skos:exactMatch obo:NCIT_C188841 ;
     skos:prefLabel "Contact Mode" ;
     skos:definition "The means by which an interaction occurs between the subject/participant and person or entity (e.g., a device)." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "contactModes" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C171445 ;
+    usdm:boundCodelist obo:NCIT_C171445 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C171445)" .
 
 usdm:Encounter-notes
@@ -2426,6 +2561,7 @@ usdm:Encounter-notes
     rdfs:domain usdm:Encounter ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215518 ;
+    skos:exactMatch obo:NCIT_C215518 ;
     skos:prefLabel "Encounter Notes" ;
     skos:definition "A brief written record relevant to the study encounter." ;
     usdm:relationshipType "Value" ;
@@ -2501,6 +2637,7 @@ usdm:Endpoint
     a owl:Class ;
     rdfs:label "Endpoint" ;
     skos:exactMatch ncit:C25212 ;
+    skos:exactMatch obo:NCIT_C25212 ;
     skos:prefLabel "Study Endpoint" ;
     skos:definition "A defined variable intended to reflect an outcome of interest that is statistically analyzed to address a particular research question. NOTE: A precise definition of an endpoint typically specifies the type of assessments made, the timing of those assessments, the assessment tools used, and possibly other details, as applicable, such as how multiple assessments within an individual are to be combined. [After BEST Resource] (CDISC Glossary)" ;
     rdfs:subClassOf usdm:SyntaxTemplate ;
@@ -2515,12 +2652,14 @@ usdm:Endpoint-level
     rdfs:domain usdm:Endpoint ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188826 ;
+    skos:exactMatch obo:NCIT_C188826 ;
     skos:prefLabel "Study Endpoint Level" ;
     skos:definition "A characterization or classification of the study endpoint that determines its category of importance relative to other study endpoints." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "level" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C188726 ;
+    usdm:boundCodelist obo:NCIT_C188726 ;
     usdm:boundCodelistNote "Y (C188726)" .
 
 usdm:Endpoint-purpose
@@ -2529,6 +2668,7 @@ usdm:Endpoint-purpose
     rdfs:domain usdm:Endpoint ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188825 ;
+    skos:exactMatch obo:NCIT_C188825 ;
     skos:prefLabel "Study Endpoint Purpose Description" ;
     skos:definition "The textual representation of the study endpoint purpose." ;
     usdm:relationshipType "Value" ;
@@ -2554,6 +2694,7 @@ usdm:Estimand
     a owl:Class ;
     rdfs:label "Estimand" ;
     skos:exactMatch ncit:C188813 ;
+    skos:exactMatch obo:NCIT_C188813 ;
     skos:prefLabel "Estimand" ;
     skos:definition "A precise description of the treatment effect reflecting the clinical question posed by a given clinical trial objective. It summarises at a population level what the outcomes would be in the same patients under different treatment conditions being compared. (ICH E9 R1 Addendum)" ;
     usdm:modifier "Concrete" ;
@@ -2583,6 +2724,7 @@ usdm:Estimand-populationSummary
     rdfs:domain usdm:Estimand ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188853 ;
+    skos:exactMatch obo:NCIT_C188853 ;
     skos:prefLabel "Population-Level Summary" ;
     skos:definition "A synopsis of the clinical endpoint of interest within the analysis target study population." ;
     usdm:relationshipType "Value" ;
@@ -2595,6 +2737,7 @@ usdm:Estimand-name
     rdfs:domain usdm:Estimand ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215522 ;
+    skos:exactMatch obo:NCIT_C215522 ;
     skos:prefLabel "Estimand Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the estimand." ;
     usdm:relationshipType "Value" ;
@@ -2607,6 +2750,7 @@ usdm:Estimand-label
     rdfs:domain usdm:Estimand ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215524 ;
+    skos:exactMatch obo:NCIT_C215524 ;
     skos:prefLabel "Estimand Label" ;
     skos:definition "The short descriptive designation for the estimand." ;
     usdm:relationshipType "Value" ;
@@ -2619,6 +2763,7 @@ usdm:Estimand-description
     rdfs:domain usdm:Estimand ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215523 ;
+    skos:exactMatch obo:NCIT_C215523 ;
     skos:prefLabel "Estimand Description" ;
     skos:definition "A narrative representation of the estimand." ;
     usdm:relationshipType "Value" ;
@@ -2631,6 +2776,7 @@ usdm:Estimand-notes
     rdfs:domain usdm:Estimand ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215521 ;
+    skos:exactMatch obo:NCIT_C215521 ;
     skos:prefLabel "Estimand Notes" ;
     skos:definition "A brief written record relevant to the study estimand." ;
     usdm:relationshipType "Value" ;
@@ -2843,6 +2989,7 @@ usdm:GeographicScope
     a owl:Class ;
     rdfs:label "GeographicScope" ;
     skos:exactMatch ncit:C207591 ;
+    skos:exactMatch obo:NCIT_C207591 ;
     skos:prefLabel "Geographic Scope" ;
     skos:definition "The extent or range related to the physical location of an entity." ;
     usdm:modifier "Concrete" ;
@@ -2866,12 +3013,14 @@ usdm:GeographicScope-type
     rdfs:domain usdm:GeographicScope ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C207495 ;
+    skos:exactMatch obo:NCIT_C207495 ;
     skos:prefLabel "Geographic Scope Type" ;
     skos:definition "A characterization or classification of the geographic scope." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C207412 ;
+    usdm:boundCodelist obo:NCIT_C207412 ;
     usdm:boundCodelistNote "Y (C207412)" .
 
 usdm:GeographicScope-code
@@ -2880,6 +3029,7 @@ usdm:GeographicScope-code
     rdfs:domain usdm:GeographicScope ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C207494 ;
+    skos:exactMatch obo:NCIT_C207494 ;
     skos:prefLabel "Geographic Scope Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the geographic scope." ;
     usdm:relationshipType "Value" ;
@@ -2906,6 +3056,7 @@ usdm:GovernanceDate
     a owl:Class ;
     rdfs:label "GovernanceDate" ;
     skos:exactMatch ncit:C207595 ;
+    skos:exactMatch obo:NCIT_C207595 ;
     skos:prefLabel "Study Governance Date" ;
     skos:definition "Any of the dates associated with event milestones within a clinical study's oversight and management framework." ;
     usdm:modifier "Concrete" ;
@@ -2933,6 +3084,7 @@ usdm:GovernanceDate-name
     rdfs:domain usdm:GovernanceDate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207499 ;
+    skos:exactMatch obo:NCIT_C207499 ;
     skos:prefLabel "Study Governance Date Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study governance date" ;
     usdm:relationshipType "Value" ;
@@ -2945,6 +3097,7 @@ usdm:GovernanceDate-label
     rdfs:domain usdm:GovernanceDate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207498 ;
+    skos:exactMatch obo:NCIT_C207498 ;
     skos:prefLabel "Study Governance Date Label" ;
     skos:definition "The short descriptive designation for the study governance date." ;
     usdm:relationshipType "Value" ;
@@ -2957,6 +3110,7 @@ usdm:GovernanceDate-description
     rdfs:domain usdm:GovernanceDate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207497 ;
+    skos:exactMatch obo:NCIT_C207497 ;
     skos:prefLabel "Study Governance Date Description" ;
     skos:definition "A narrative representation of the study governance date." ;
     usdm:relationshipType "Value" ;
@@ -2969,12 +3123,14 @@ usdm:GovernanceDate-type
     rdfs:domain usdm:GovernanceDate ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C207496 ;
+    skos:exactMatch obo:NCIT_C207496 ;
     skos:prefLabel "Study Governance Date Type" ;
     skos:definition "A characterization or classification of the study governance date." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C207413 ;
+    usdm:boundCodelist obo:NCIT_C207413 ;
     usdm:boundCodelistNote "Y (C207413)" .
 
 usdm:GovernanceDate-dateValue
@@ -2983,6 +3139,7 @@ usdm:GovernanceDate-dateValue
     rdfs:domain usdm:GovernanceDate ;
     rdfs:range xsd:date ;
     skos:exactMatch ncit:C207500 ;
+    skos:exactMatch obo:NCIT_C207500 ;
     skos:prefLabel "Study Governance Date Value" ;
     skos:definition "The information contained in the date field." ;
     usdm:relationshipType "Value" ;
@@ -3018,6 +3175,7 @@ usdm:Identifier
     a owl:Class ;
     rdfs:label "Identifier" ;
     skos:exactMatch ncit:C25364 ;
+    skos:exactMatch obo:NCIT_C25364 ;
     skos:prefLabel "Identifier" ;
     skos:definition "One or more characters used to identify, name, or characterize the nature, properties, or contents of a thing." ;
     usdm:modifier "Abstract" ;
@@ -3040,6 +3198,7 @@ usdm:Identifier-text
     rdfs:domain usdm:Identifier ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215581 ;
+    skos:exactMatch obo:NCIT_C215581 ;
     skos:prefLabel "Administrable Product Identifier Text" ;
     skos:definition "An instance of structured text that represents the administrable product." ;
     usdm:relationshipType "Value" ;
@@ -3061,6 +3220,7 @@ usdm:Indication
     a owl:Class ;
     rdfs:label "Indication" ;
     skos:exactMatch ncit:C41184 ;
+    skos:exactMatch obo:NCIT_C41184 ;
     skos:prefLabel "Disease/Condition Indication" ;
     skos:definition "The disease or condition the intervention will diagnose, treat, prevent, cure, or mitigate." ;
     usdm:modifier "Concrete" ;
@@ -3086,6 +3246,7 @@ usdm:Indication-name
     rdfs:domain usdm:Indication ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207503 ;
+    skos:exactMatch obo:NCIT_C207503 ;
     skos:prefLabel "Disease/Condition Indication Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the disease/condition indication." ;
     usdm:relationshipType "Value" ;
@@ -3098,6 +3259,7 @@ usdm:Indication-label
     rdfs:domain usdm:Indication ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207502 ;
+    skos:exactMatch obo:NCIT_C207502 ;
     skos:prefLabel "Disease/Condition Indication Label" ;
     skos:definition "The short descriptive designation for the disease/condition indication." ;
     usdm:relationshipType "Value" ;
@@ -3110,6 +3272,7 @@ usdm:Indication-description
     rdfs:domain usdm:Indication ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C112038 ;
+    skos:exactMatch obo:NCIT_C112038 ;
     skos:prefLabel "Disease/Condition Indication Description" ;
     skos:definition "A narrative representation of the condition, disease or disorder that the clinical trial is intended to investigate or address." ;
     usdm:relationshipType "Value" ;
@@ -3122,6 +3285,7 @@ usdm:Indication-isRareDisease
     rdfs:domain usdm:Indication ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C207501 ;
+    skos:exactMatch obo:NCIT_C207501 ;
     skos:prefLabel "Disease/Condition Indication Is Rare Disease Indicator" ;
     skos:definition "An indication as to whether the disease/condition indication under study is considered a rare disease." ;
     usdm:relationshipType "Value" ;
@@ -3134,6 +3298,7 @@ usdm:Indication-codes
     rdfs:domain usdm:Indication ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188822 ;
+    skos:exactMatch obo:NCIT_C188822 ;
     skos:prefLabel "Disease/Condition Indication Code" ;
     skos:definition "A short sequence of characters that represents the disease/condition indication." ;
     usdm:relationshipType "Value" ;
@@ -3147,6 +3312,7 @@ usdm:Indication-notes
     rdfs:domain usdm:Indication ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215509 ;
+    skos:exactMatch obo:NCIT_C215509 ;
     skos:prefLabel "Indication Notes" ;
     skos:definition "A brief written record relevant to the disease/condition indication." ;
     usdm:relationshipType "Value" ;
@@ -3172,6 +3338,7 @@ usdm:Ingredient
     a owl:Class ;
     rdfs:label "Ingredient" ;
     skos:exactMatch ncit:C51981 ;
+    skos:exactMatch obo:NCIT_C51981 ;
     skos:prefLabel "Ingredient" ;
     skos:definition "Any component that constitutes a part of a compounded substance or mixture." ;
     usdm:modifier "Concrete" ;
@@ -3195,6 +3362,7 @@ usdm:Ingredient-role
     rdfs:domain usdm:Ingredient ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215595 ;
+    skos:exactMatch obo:NCIT_C215595 ;
     skos:prefLabel "Ingredient Role" ;
     skos:definition "The intended use of the ingredient within the context of the compounded substance or mixture." ;
     usdm:relationshipType "Value" ;
@@ -3231,6 +3399,7 @@ usdm:IntercurrentEvent
     a owl:Class ;
     rdfs:label "IntercurrentEvent" ;
     skos:exactMatch ncit:C188815 ;
+    skos:exactMatch obo:NCIT_C188815 ;
     skos:prefLabel "Intercurrent Event" ;
     skos:definition "An event(s) occurring after treatment initiation that affects either the interpretation or the existence of the measurements associated with the clinical question of interest. (ICH E9 Addendum on Estimands)" ;
     rdfs:subClassOf usdm:SyntaxTemplate ;
@@ -3244,6 +3413,7 @@ usdm:IntercurrentEvent-strategy
     rdfs:domain usdm:IntercurrentEvent ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188857 ;
+    skos:exactMatch obo:NCIT_C188857 ;
     skos:prefLabel "Intercurrent Event Strategy" ;
     skos:definition "A textual description of the planned strategy to manage and/or mitigate intercurrent events." ;
     usdm:relationshipType "Value" ;
@@ -3269,6 +3439,7 @@ usdm:InterventionalStudyDesign
     a owl:Class ;
     rdfs:label "InterventionalStudyDesign" ;
     skos:exactMatch ncit:C215503 ;
+    skos:exactMatch obo:NCIT_C215503 ;
     skos:prefLabel "Interventional Study Design" ;
     skos:definition "The strategy that specifies the structure of an interventional trial in terms of the planned activities (including timing) and statistical analysis approach intended to meet the objectives of the study." ;
     rdfs:subClassOf usdm:StudyDesign ;
@@ -3283,12 +3454,14 @@ usdm:InterventionalStudyDesign-model
     rdfs:domain usdm:InterventionalStudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C98746 ;
+    skos:exactMatch obo:NCIT_C98746 ;
     skos:prefLabel "Intervention Model Type" ;
     skos:definition "The general design of the strategy for assigning interventions to subjects in a clinical study. (clinicaltrials.gov)" ;
     usdm:relationshipType "Value" ;
     usdm:modelName "model" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C99076 ;
+    usdm:boundCodelist obo:NCIT_C99076 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99076)" .
 
 usdm:InterventionalStudyDesign-subTypes
@@ -3297,12 +3470,14 @@ usdm:InterventionalStudyDesign-subTypes
     rdfs:domain usdm:InterventionalStudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C49660 ;
+    skos:exactMatch obo:NCIT_C49660 ;
     skos:prefLabel "Trial Type" ;
     skos:definition "The nature of the interventional study for which information is being collected." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "subTypes" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66739 ;
+    usdm:boundCodelist obo:NCIT_C66739 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66739)" .
 
 usdm:InterventionalStudyDesign-blindingSchema
@@ -3311,12 +3486,14 @@ usdm:InterventionalStudyDesign-blindingSchema
     rdfs:domain usdm:InterventionalStudyDesign ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C49658 ;
+    skos:exactMatch obo:NCIT_C49658 ;
     skos:prefLabel "Trial Blinding Schema" ;
     skos:definition "The type of experimental design used to describe the level of awareness of the study subjects and/ or study personnel as it relates to the respective intervention(s) or assessments being observed, received or administered." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "blindingSchema" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66735 ;
+    usdm:boundCodelist obo:NCIT_C66735 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66735)" .
 
 usdm:InterventionalStudyDesign-intentTypes
@@ -3325,12 +3502,14 @@ usdm:InterventionalStudyDesign-intentTypes
     rdfs:domain usdm:InterventionalStudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C49652 ;
+    skos:exactMatch obo:NCIT_C49652 ;
     skos:prefLabel "Trial Intent Type" ;
     skos:definition "The planned purpose of the therapy, device, or agent under study in the clinical trial." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "intentTypes" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66736 ;
+    usdm:boundCodelist obo:NCIT_C66736 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66736)" .
 
 usdm:InterventionalStudyDesign-extensionAttributes
@@ -3359,6 +3538,7 @@ usdm:Masking
     a owl:Class ;
     rdfs:label "Masking" ;
     skos:exactMatch ncit:C191278 ;
+    skos:exactMatch obo:NCIT_C191278 ;
     skos:prefLabel "Masking" ;
     skos:definition "The mechanism used to obscure the distinctive characteristics of the study intervention or procedure to make it indistinguishable from a comparator. (CDISC Glossary)" ;
     usdm:modifier "Concrete" ;
@@ -3382,6 +3562,7 @@ usdm:Masking-text
     rdfs:domain usdm:Masking ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215553 ;
+    skos:exactMatch obo:NCIT_C215553 ;
     skos:prefLabel "Masking Text" ;
     skos:definition "An instance of unstructured text that represents how the masking is performed and maintained." ;
     usdm:relationshipType "Value" ;
@@ -3394,6 +3575,7 @@ usdm:Masking-isMasked
     rdfs:domain usdm:Masking ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C215554 ;
+    skos:exactMatch obo:NCIT_C215554 ;
     skos:prefLabel "Masked Indicator" ;
     skos:definition "An indication as to whether the study role is masked." ;
     usdm:relationshipType "Value" ;
@@ -3419,6 +3601,7 @@ usdm:MedicalDevice
     a owl:Class ;
     rdfs:label "MedicalDevice" ;
     skos:exactMatch ncit:C16830 ;
+    skos:exactMatch obo:NCIT_C16830 ;
     skos:prefLabel "Medical Device" ;
     skos:definition "Any instrument, apparatus, implement, machine, appliance, implant, reagent for in vitro use, software, material or other similar or related article, intended by the manufacturer to be used, alone or in combination for, one or more specific medical purpose(s). [After REGULATION (EU) 2017/745 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 5 April 2017 on medical devices]" ;
     usdm:modifier "Concrete" ;
@@ -3447,6 +3630,7 @@ usdm:MedicalDevice-name
     rdfs:domain usdm:MedicalDevice ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215614 ;
+    skos:exactMatch obo:NCIT_C215614 ;
     skos:prefLabel "Medical Device Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the medical device." ;
     usdm:relationshipType "Value" ;
@@ -3459,6 +3643,7 @@ usdm:MedicalDevice-label
     rdfs:domain usdm:MedicalDevice ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215616 ;
+    skos:exactMatch obo:NCIT_C215616 ;
     skos:prefLabel "Medical Device Label" ;
     skos:definition "The short descriptive designation for the medical device." ;
     usdm:relationshipType "Value" ;
@@ -3471,6 +3656,7 @@ usdm:MedicalDevice-description
     rdfs:domain usdm:MedicalDevice ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215615 ;
+    skos:exactMatch obo:NCIT_C215615 ;
     skos:prefLabel "Medical Device Description" ;
     skos:definition "A narrative representation of the medical device." ;
     usdm:relationshipType "Value" ;
@@ -3483,6 +3669,7 @@ usdm:MedicalDevice-hardwareVersion
     rdfs:domain usdm:MedicalDevice ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215617 ;
+    skos:exactMatch obo:NCIT_C215617 ;
     skos:prefLabel "Hardware Version" ;
     skos:definition "A form or variant of hardware; one of a sequence of copies of the physical components from which a computer is constructed, each incorporating new modifications." ;
     usdm:relationshipType "Value" ;
@@ -3495,6 +3682,7 @@ usdm:MedicalDevice-softwareVersion
     rdfs:domain usdm:MedicalDevice ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C111093 ;
+    skos:exactMatch obo:NCIT_C111093 ;
     skos:prefLabel "Software Version" ;
     skos:definition "A form or variant of software; one of a sequence of copies of a software program, each incorporating new modifications. (NCI)" ;
     usdm:relationshipType "Value" ;
@@ -3507,12 +3695,14 @@ usdm:MedicalDevice-sourcing
     rdfs:domain usdm:MedicalDevice ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215619 ;
+    skos:exactMatch obo:NCIT_C215619 ;
     skos:prefLabel "Medical Device Sourcing" ;
     skos:definition "An indication as to whether the medical device is obtained from a local or central source." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "sourcing" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215482 ;
+    usdm:boundCodelist obo:NCIT_C215482 ;
     usdm:boundCodelistNote "Y (C215482)" .
 
 usdm:MedicalDevice-notes
@@ -3521,6 +3711,7 @@ usdm:MedicalDevice-notes
     rdfs:domain usdm:MedicalDevice ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215618 ;
+    skos:exactMatch obo:NCIT_C215618 ;
     skos:prefLabel "Medical Device Notes" ;
     skos:definition "A brief written record relevant to the medical device." ;
     usdm:relationshipType "Value" ;
@@ -3566,6 +3757,7 @@ usdm:MedicalDeviceIdentifier
     a owl:Class ;
     rdfs:label "MedicalDeviceIdentifier" ;
     skos:exactMatch ncit:C215501 ;
+    skos:exactMatch obo:NCIT_C215501 ;
     skos:prefLabel "Medical Device Identifier" ;
     skos:definition "A sequence of characters used to identify, name, or characterize the medical device." ;
     rdfs:subClassOf usdm:Identifier ;
@@ -3579,12 +3771,14 @@ usdm:MedicalDeviceIdentifier-type
     rdfs:domain usdm:MedicalDeviceIdentifier ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215621 ;
+    skos:exactMatch obo:NCIT_C215621 ;
     skos:prefLabel "Medical Device Identifier Type" ;
     skos:definition "A characterization or classification of the medical device identifier." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215484 ;
+    usdm:boundCodelist obo:NCIT_C215484 ;
     usdm:boundCodelistNote "Y (C215484)" .
 
 usdm:MedicalDeviceIdentifier-extensionAttributes
@@ -3606,6 +3800,7 @@ usdm:NarrativeContent
     a owl:Class ;
     rdfs:label "NarrativeContent" ;
     skos:exactMatch ncit:C207592 ;
+    skos:exactMatch obo:NCIT_C207592 ;
     skos:prefLabel "Narrative Content" ;
     skos:definition "The container that holds an instance of unstructured text and which may include objects such as tables, figures, and images." ;
     usdm:modifier "Concrete" ;
@@ -3635,6 +3830,7 @@ usdm:NarrativeContent-name
     rdfs:domain usdm:NarrativeContent ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207507 ;
+    skos:exactMatch obo:NCIT_C207507 ;
     skos:prefLabel "Narrative Content Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the narrative content." ;
     usdm:relationshipType "Value" ;
@@ -3647,6 +3843,7 @@ usdm:NarrativeContent-sectionNumber
     rdfs:domain usdm:NarrativeContent ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207509 ;
+    skos:exactMatch obo:NCIT_C207509 ;
     skos:prefLabel "Narrative Content Section Number" ;
     skos:definition "The numeric identifier assigned to a particular document section containing narrative content." ;
     usdm:relationshipType "Value" ;
@@ -3659,6 +3856,7 @@ usdm:NarrativeContent-sectionTitle
     rdfs:domain usdm:NarrativeContent ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207510 ;
+    skos:exactMatch obo:NCIT_C207510 ;
     skos:prefLabel "Narrative Content Section Title" ;
     skos:definition "An identifying designation for the document section containing narrative content." ;
     usdm:relationshipType "Value" ;
@@ -3671,6 +3869,7 @@ usdm:NarrativeContent-displaySectionTitle
     rdfs:domain usdm:NarrativeContent ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C215534 ;
+    skos:exactMatch obo:NCIT_C215534 ;
     skos:prefLabel "Narrative Content Section Title Display Indicator" ;
     skos:definition "An indication as to whether the section title is to be displayed in the document containing narrative content." ;
     usdm:relationshipType "Value" ;
@@ -3683,6 +3882,7 @@ usdm:NarrativeContent-displaySectionNumber
     rdfs:domain usdm:NarrativeContent ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C215535 ;
+    skos:exactMatch obo:NCIT_C215535 ;
     skos:prefLabel "Narrative Content Section Number Display Indicator" ;
     skos:definition "An indication as to whether the section number is to be displayed in the document containing narrative content." ;
     usdm:relationshipType "Value" ;
@@ -3748,6 +3948,7 @@ usdm:NarrativeContentItem
     a owl:Class ;
     rdfs:label "NarrativeContentItem" ;
     skos:exactMatch ncit:C215489 ;
+    skos:exactMatch obo:NCIT_C215489 ;
     skos:prefLabel "Narrative Content Item" ;
     skos:definition "An individual item within the container that holds an instance of unstructured text and which may include objects such as tables, figures, and images." ;
     usdm:modifier "Concrete" ;
@@ -3771,6 +3972,7 @@ usdm:NarrativeContentItem-name
     rdfs:domain usdm:NarrativeContentItem ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215557 ;
+    skos:exactMatch obo:NCIT_C215557 ;
     skos:prefLabel "Narrative Content Item Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the narrative content item." ;
     usdm:relationshipType "Value" ;
@@ -3783,6 +3985,7 @@ usdm:NarrativeContentItem-text
     rdfs:domain usdm:NarrativeContentItem ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215558 ;
+    skos:exactMatch obo:NCIT_C215558 ;
     skos:prefLabel "Narrative Content Item Text" ;
     skos:definition "An instance of unstructured text that represents the narrative content item." ;
     usdm:relationshipType "Value" ;
@@ -3808,6 +4011,7 @@ usdm:Objective
     a owl:Class ;
     rdfs:label "Objective" ;
     skos:exactMatch ncit:C142450 ;
+    skos:exactMatch obo:NCIT_C142450 ;
     skos:prefLabel "Study Objective" ;
     skos:definition "The reason for performing a study in terms of the scientific questions to be answered by the analysis of data collected during the study." ;
     rdfs:subClassOf usdm:SyntaxTemplate ;
@@ -3821,12 +4025,14 @@ usdm:Objective-level
     rdfs:domain usdm:Objective ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188823 ;
+    skos:exactMatch obo:NCIT_C188823 ;
     skos:prefLabel "Study Objective Level" ;
     skos:definition "A characterization or classification of the study objective that determines its category of importance relative to other study objectives." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "level" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C188725 ;
+    usdm:boundCodelist obo:NCIT_C188725 ;
     usdm:boundCodelistNote "Y (C188725)" .
 
 usdm:Objective-endpoints
@@ -3858,6 +4064,7 @@ usdm:ObservationalStudyDesign
     a owl:Class ;
     rdfs:label "ObservationalStudyDesign" ;
     skos:exactMatch ncit:C215504 ;
+    skos:exactMatch obo:NCIT_C215504 ;
     skos:prefLabel "Observational Study Design" ;
     skos:definition "The strategy that specifies the structure of an observational study in terms of the planned activities (including timing) and statistical analysis approach intended to meet the objectives of the study." ;
     rdfs:subClassOf usdm:StudyDesign ;
@@ -3873,12 +4080,14 @@ usdm:ObservationalStudyDesign-model
     rdfs:domain usdm:ObservationalStudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C147138 ;
+    skos:exactMatch obo:NCIT_C147138 ;
     skos:prefLabel "Observation Study Design Model Type" ;
     skos:definition "The general design of the strategy for identifying and following up with participants during observational studies. (clinicaltrials.gov)" ;
     usdm:relationshipType "Value" ;
     usdm:modelName "model" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C127259 ;
+    usdm:boundCodelist obo:NCIT_C127259 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127259)" .
 
 usdm:ObservationalStudyDesign-subTypes
@@ -3887,12 +4096,14 @@ usdm:ObservationalStudyDesign-subTypes
     rdfs:domain usdm:ObservationalStudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215635 ;
+    skos:exactMatch obo:NCIT_C215635 ;
     skos:prefLabel "Observational Study Type" ;
     skos:definition "The nature of the observational study for which information is being collected." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "subTypes" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215486 ;
+    usdm:boundCodelist obo:NCIT_C215486 ;
     usdm:boundCodelistNote "Y (C215486)" .
 
 usdm:ObservationalStudyDesign-timePerspective
@@ -3901,12 +4112,14 @@ usdm:ObservationalStudyDesign-timePerspective
     rdfs:domain usdm:ObservationalStudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C126065 ;
+    skos:exactMatch obo:NCIT_C126065 ;
     skos:prefLabel "Observational Time Perspective" ;
     skos:definition "The temporal relationship between the observation period and time of subject enrollment. (ClinicalTrials.gov)" ;
     usdm:relationshipType "Value" ;
     usdm:modelName "timePerspective" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C127261 ;
+    usdm:boundCodelist obo:NCIT_C127261 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127261)" .
 
 usdm:ObservationalStudyDesign-samplingMethod
@@ -3915,12 +4128,14 @@ usdm:ObservationalStudyDesign-samplingMethod
     rdfs:domain usdm:ObservationalStudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C126067 ;
+    skos:exactMatch obo:NCIT_C126067 ;
     skos:prefLabel "Observational Study Sampling Method" ;
     skos:definition "The sampling method used to assign study participants into groups or cohorts within an observational study." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "samplingMethod" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C127260 ;
+    usdm:boundCodelist obo:NCIT_C127260 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C127260)" .
 
 usdm:ObservationalStudyDesign-extensionAttributes
@@ -3949,6 +4164,7 @@ usdm:Organization
     a owl:Class ;
     rdfs:label "Organization" ;
     skos:exactMatch ncit:C19711 ;
+    skos:exactMatch obo:NCIT_C19711 ;
     skos:prefLabel "Organization" ;
     skos:definition "A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. (BRIDG)" ;
     usdm:modifier "Concrete" ;
@@ -3976,6 +4192,7 @@ usdm:Organization-name
     rdfs:domain usdm:Organization ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C93874 ;
+    skos:exactMatch obo:NCIT_C93874 ;
     skos:prefLabel "Organization Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the organization." ;
     usdm:relationshipType "Value" ;
@@ -3988,6 +4205,7 @@ usdm:Organization-label
     rdfs:domain usdm:Organization ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207514 ;
+    skos:exactMatch obo:NCIT_C207514 ;
     skos:prefLabel "Organization Label" ;
     skos:definition "The short descriptive designation for the organization." ;
     usdm:relationshipType "Value" ;
@@ -4000,6 +4218,7 @@ usdm:Organization-identifier
     rdfs:domain usdm:Organization ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C93401 ;
+    skos:exactMatch obo:NCIT_C93401 ;
     skos:prefLabel "Organization Identifier" ;
     skos:definition "A unique symbol that establishes identity of the organization. (BRIDG)" ;
     usdm:relationshipType "Value" ;
@@ -4012,6 +4231,7 @@ usdm:Organization-identifierScheme
     rdfs:domain usdm:Organization ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188819 ;
+    skos:exactMatch obo:NCIT_C188819 ;
     skos:prefLabel "Identifier Provider Organization Name" ;
     skos:definition "The name of the organization that provides the identifier for the entity." ;
     usdm:relationshipType "Value" ;
@@ -4024,12 +4244,14 @@ usdm:Organization-type
     rdfs:domain usdm:Organization ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188820 ;
+    skos:exactMatch obo:NCIT_C188820 ;
     skos:prefLabel "Organization Type" ;
     skos:definition "A characterization or classification of the formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C188724 ;
+    usdm:boundCodelist obo:NCIT_C188724 ;
     usdm:boundCodelistNote "Y (C188724)" .
 
 usdm:Organization-legalAddress
@@ -4071,6 +4293,7 @@ usdm:ParameterMap
     a owl:Class ;
     rdfs:label "ParameterMap" ;
     skos:exactMatch ncit:C207456 ;
+    skos:exactMatch obo:NCIT_C207456 ;
     skos:prefLabel "Parameter Map" ;
     skos:definition "The paired name and value for a given parameter." ;
     usdm:modifier "Concrete" ;
@@ -4094,6 +4317,7 @@ usdm:ParameterMap-tag
     rdfs:domain usdm:ParameterMap ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207515 ;
+    skos:exactMatch obo:NCIT_C207515 ;
     skos:prefLabel "Programming Tag" ;
     skos:definition "Character strings bounded by angle brackets that act as containers for programming language elements." ;
     usdm:relationshipType "Value" ;
@@ -4106,6 +4330,7 @@ usdm:ParameterMap-reference
     rdfs:domain usdm:ParameterMap ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207516 ;
+    skos:exactMatch obo:NCIT_C207516 ;
     skos:prefLabel "Programming Tag Reference" ;
     skos:definition "The reference for a tag used in programming languages, such as a markup language (e.g., HTML, XML), to store attributes and elements." ;
     usdm:relationshipType "Value" ;
@@ -4131,6 +4356,7 @@ usdm:PersonName
     a owl:Class ;
     rdfs:label "PersonName" ;
     skos:exactMatch ncit:C25191 ;
+    skos:exactMatch obo:NCIT_C25191 ;
     skos:prefLabel "Person Name" ;
     skos:definition "A word or group of words indicating the identity of a person usually consisting of a first (personal) name and a last (family) name with an optional middle name. In some cultural traditions the family name comes first." ;
     usdm:modifier "Concrete" ;
@@ -4154,6 +4380,7 @@ usdm:PersonName-text
     rdfs:domain usdm:PersonName ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C217001 ;
+    skos:exactMatch obo:NCIT_C217001 ;
     skos:prefLabel "Person Name Text" ;
     skos:definition "An instance of structured text that represents the person's full name." ;
     usdm:relationshipType "Value" ;
@@ -4166,6 +4393,7 @@ usdm:PersonName-familyName
     rdfs:domain usdm:PersonName ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C40975 ;
+    skos:exactMatch obo:NCIT_C40975 ;
     skos:prefLabel "Person Family Name" ;
     skos:definition "A word or group of words indicating a person's last (family) name." ;
     usdm:relationshipType "Value" ;
@@ -4178,6 +4406,7 @@ usdm:PersonName-givenNames
     rdfs:domain usdm:PersonName ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C40974 ;
+    skos:exactMatch obo:NCIT_C40974 ;
     skos:prefLabel "Person Given Name" ;
     skos:definition "A word or group of words indicating a person's first (personal or given) name; the name that precedes the surname." ;
     usdm:relationshipType "Value" ;
@@ -4190,6 +4419,7 @@ usdm:PersonName-prefixes
     rdfs:domain usdm:PersonName ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C217002 ;
+    skos:exactMatch obo:NCIT_C217002 ;
     skos:prefLabel "Person Name Prefix" ;
     skos:definition "An affix occurring at the start of the person name string, usually denoting a title or honorific." ;
     usdm:relationshipType "Value" ;
@@ -4202,6 +4432,7 @@ usdm:PersonName-suffixes
     rdfs:domain usdm:PersonName ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C217003 ;
+    skos:exactMatch obo:NCIT_C217003 ;
     skos:prefLabel "Person Name Suffix" ;
     skos:definition "An affix occurring at the end of the person name, usually denoting educational or professional degrees and certifications, and/or filial rank." ;
     usdm:relationshipType "Value" ;
@@ -4227,6 +4458,7 @@ usdm:PopulationDefinition
     a owl:Class ;
     rdfs:label "PopulationDefinition" ;
     skos:exactMatch ncit:C207593 ;
+    skos:exactMatch obo:NCIT_C207593 ;
     skos:prefLabel "Population Definition" ;
     skos:definition "A concise explanation of the meaning of a population." ;
     usdm:modifier "Abstract" ;
@@ -4255,6 +4487,7 @@ usdm:PopulationDefinition-name
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207544 ;
+    skos:exactMatch obo:NCIT_C207544 ;
     skos:prefLabel "Study Cohort Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study cohort." ;
     usdm:relationshipType "Value" ;
@@ -4267,6 +4500,7 @@ usdm:PopulationDefinition-label
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207543 ;
+    skos:exactMatch obo:NCIT_C207543 ;
     skos:prefLabel "Study Cohort Label" ;
     skos:definition "The short descriptive designation for the study cohort." ;
     usdm:relationshipType "Value" ;
@@ -4279,6 +4513,7 @@ usdm:PopulationDefinition-description
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207542 ;
+    skos:exactMatch obo:NCIT_C207542 ;
     skos:prefLabel "Study Cohort Description" ;
     skos:definition "A narrative representation of the study cohort." ;
     usdm:relationshipType "Value" ;
@@ -4291,12 +4526,14 @@ usdm:PopulationDefinition-plannedSex
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C207541 ;
+    skos:exactMatch obo:NCIT_C207541 ;
     skos:prefLabel "Study Cohort Planned Sex" ;
     skos:definition "The protocol-defined sex within the study cohort." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "plannedSex" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66732 ;
+    usdm:boundCodelist obo:NCIT_C66732 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66732)" .
 
 usdm:PopulationDefinition-includesHealthySubjects
@@ -4305,6 +4542,7 @@ usdm:PopulationDefinition-includesHealthySubjects
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C207480 ;
+    skos:exactMatch obo:NCIT_C207480 ;
     skos:prefLabel "Study Cohort Includes Healthy Subjects Indicator" ;
     skos:definition "An indication as to whether the study cohort includes healthy subjects, that is, subjects without the disease or condition under study." ;
     usdm:relationshipType "Value" ;
@@ -4317,6 +4555,7 @@ usdm:PopulationDefinition-plannedAge
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range usdm:Range ;
     skos:exactMatch ncit:C207545 ;
+    skos:exactMatch obo:NCIT_C207545 ;
     skos:prefLabel "Study Cohort Planned Age" ;
     skos:definition "The anticipated age of subjects within the study cohort." ;
     usdm:relationshipType "Value" ;
@@ -4329,6 +4568,7 @@ usdm:PopulationDefinition-plannedCompletionNumber
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range usdm:QuantityRange ;
     skos:exactMatch ncit:C207546 ;
+    skos:exactMatch obo:NCIT_C207546 ;
     skos:prefLabel "Study Cohort Planned Completion Number" ;
     skos:definition "The value representing the planned number of subjects that must complete the study in order to meet the objectives and endpoints of the study, within the study cohort." ;
     usdm:relationshipType "Value" ;
@@ -4341,6 +4581,7 @@ usdm:PopulationDefinition-plannedEnrollmentNumber
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range usdm:QuantityRange ;
     skos:exactMatch ncit:C207702 ;
+    skos:exactMatch obo:NCIT_C207702 ;
     skos:prefLabel "Study Cohort Planned Enrollment Number" ;
     skos:definition "The value representing the planned number of subjects to be entered in a clinical trial, within the study cohort." ;
     usdm:relationshipType "Value" ;
@@ -4353,6 +4594,7 @@ usdm:PopulationDefinition-notes
     rdfs:domain usdm:PopulationDefinition ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215547 ;
+    skos:exactMatch obo:NCIT_C215547 ;
     skos:prefLabel "Study Cohort Notes" ;
     skos:definition "A brief written record relevant to the study cohort." ;
     usdm:relationshipType "Value" ;
@@ -4374,6 +4616,7 @@ usdm:Procedure
     a owl:Class ;
     rdfs:label "Procedure" ;
     skos:exactMatch ncit:C98769 ;
+    skos:exactMatch obo:NCIT_C98769 ;
     skos:prefLabel "Procedure" ;
     skos:definition "Any activity performed by manual and/or instrumental means for the purpose of diagnosis, assessment, therapy, prevention, or palliative care." ;
     usdm:modifier "Concrete" ;
@@ -4401,6 +4644,7 @@ usdm:Procedure-name
     rdfs:domain usdm:Procedure ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201325 ;
+    skos:exactMatch obo:NCIT_C201325 ;
     skos:prefLabel "Procedure Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the procedure." ;
     usdm:relationshipType "Value" ;
@@ -4413,6 +4657,7 @@ usdm:Procedure-label
     rdfs:domain usdm:Procedure ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207524 ;
+    skos:exactMatch obo:NCIT_C207524 ;
     skos:prefLabel "Procedure Label" ;
     skos:definition "The short descriptive designation for the procedure." ;
     usdm:relationshipType "Value" ;
@@ -4425,6 +4670,7 @@ usdm:Procedure-description
     rdfs:domain usdm:Procedure ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201324 ;
+    skos:exactMatch obo:NCIT_C201324 ;
     skos:prefLabel "Procedure Description" ;
     skos:definition "A narrative representation of the procedure." ;
     usdm:relationshipType "Value" ;
@@ -4437,6 +4683,7 @@ usdm:Procedure-procedureType
     rdfs:domain usdm:Procedure ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188848 ;
+    skos:exactMatch obo:NCIT_C188848 ;
     skos:prefLabel "Procedure Type" ;
     skos:definition "A characterization or classification of the study procedure." ;
     usdm:relationshipType "Value" ;
@@ -4449,6 +4696,7 @@ usdm:Procedure-code
     rdfs:domain usdm:Procedure ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C154626 ;
+    skos:exactMatch obo:NCIT_C154626 ;
     skos:prefLabel "Procedure Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to medical procedure." ;
     usdm:relationshipType "Value" ;
@@ -4462,6 +4710,7 @@ usdm:Procedure-notes
     rdfs:domain usdm:Procedure ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215520 ;
+    skos:exactMatch obo:NCIT_C215520 ;
     skos:prefLabel "Procedure Notes" ;
     skos:definition "A brief written record relevant to the procedure." ;
     usdm:relationshipType "Value" ;
@@ -4497,6 +4746,7 @@ usdm:ProductOrganizationRole
     a owl:Class ;
     rdfs:label "ProductOrganizationRole" ;
     skos:exactMatch ncit:C215502 ;
+    skos:exactMatch obo:NCIT_C215502 ;
     skos:prefLabel "Product Organization Role" ;
     skos:definition "A designation that identifies the function of an organization within the context of the product." ;
     usdm:modifier "Concrete" ;
@@ -4523,6 +4773,7 @@ usdm:ProductOrganizationRole-name
     rdfs:domain usdm:ProductOrganizationRole ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215622 ;
+    skos:exactMatch obo:NCIT_C215622 ;
     skos:prefLabel "Product Organization Role Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the product organization role." ;
     usdm:relationshipType "Value" ;
@@ -4535,6 +4786,7 @@ usdm:ProductOrganizationRole-label
     rdfs:domain usdm:ProductOrganizationRole ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215624 ;
+    skos:exactMatch obo:NCIT_C215624 ;
     skos:prefLabel "Product Organization Role Label" ;
     skos:definition "The short descriptive designation for the product organization role." ;
     usdm:relationshipType "Value" ;
@@ -4547,6 +4799,7 @@ usdm:ProductOrganizationRole-description
     rdfs:domain usdm:ProductOrganizationRole ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215623 ;
+    skos:exactMatch obo:NCIT_C215623 ;
     skos:prefLabel "Product Organization Role Description" ;
     skos:definition "A narrative representation of the product organization role." ;
     usdm:relationshipType "Value" ;
@@ -4559,12 +4812,14 @@ usdm:ProductOrganizationRole-code
     rdfs:domain usdm:ProductOrganizationRole ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215625 ;
+    skos:exactMatch obo:NCIT_C215625 ;
     skos:prefLabel "Product Organization Role Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the product organization role." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215485 ;
+    usdm:boundCodelist obo:NCIT_C215485 ;
     usdm:boundCodelistNote "Y (C215485)" .
 
 usdm:ProductOrganizationRole-appliesToIds
@@ -4606,6 +4861,7 @@ usdm:Quantity
     a owl:Class ;
     rdfs:label "Quantity" ;
     skos:exactMatch ncit:C25256 ;
+    skos:exactMatch obo:NCIT_C25256 ;
     skos:prefLabel "Quantity" ;
     skos:definition "How much there is of something that can be measured; the total amount or number." ;
     rdfs:subClassOf usdm:QuantityRange ;
@@ -4620,6 +4876,7 @@ usdm:Quantity-value
     rdfs:domain usdm:Quantity ;
     rdfs:range xsd:float ;
     skos:exactMatch ncit:C25712 ;
+    skos:exactMatch obo:NCIT_C25712 ;
     skos:prefLabel "Quantity Value" ;
     skos:definition "A numerical quantity measured or assigned or computed." ;
     usdm:relationshipType "Value" ;
@@ -4632,12 +4889,14 @@ usdm:Quantity-unit
     rdfs:domain usdm:Quantity ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C44258 ;
+    skos:exactMatch obo:NCIT_C44258 ;
     skos:prefLabel "Quantity Unit" ;
     skos:definition "The type of unit of measure being used to express a quantity." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "unit" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C71620 ;
+    usdm:boundCodelist obo:NCIT_C71620 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C71620)" .
 
 usdm:Quantity-extensionAttributes
@@ -4659,6 +4918,7 @@ usdm:QuantityRange
     a owl:Class ;
     rdfs:label "QuantityRange" ;
     skos:exactMatch ncit:C217000 ;
+    skos:exactMatch obo:NCIT_C217000 ;
     skos:prefLabel "Quantity or Range" ;
     skos:definition "The total amount (number), or the limits (minimum and maximum) of a variation." ;
     usdm:modifier "Abstract" ;
@@ -4678,6 +4938,7 @@ usdm:Range
     a owl:Class ;
     rdfs:label "Range" ;
     skos:exactMatch ncit:C38013 ;
+    skos:exactMatch obo:NCIT_C38013 ;
     skos:prefLabel "Range" ;
     skos:definition "An expression that defines the lower and upper limits of a variation." ;
     rdfs:subClassOf usdm:QuantityRange ;
@@ -4693,6 +4954,7 @@ usdm:Range-minValue
     rdfs:domain usdm:Range ;
     rdfs:range usdm:Quantity ;
     skos:exactMatch ncit:C25570 ;
+    skos:exactMatch obo:NCIT_C25570 ;
     skos:prefLabel "Minimum Value" ;
     skos:definition "The smallest value in quantity or degree in a set of values." ;
     usdm:relationshipType "Value" ;
@@ -4705,6 +4967,7 @@ usdm:Range-maxValue
     rdfs:domain usdm:Range ;
     rdfs:range usdm:Quantity ;
     skos:exactMatch ncit:C25564 ;
+    skos:exactMatch obo:NCIT_C25564 ;
     skos:prefLabel "Maximum Value" ;
     skos:definition "The largest value in quantity or degree in a set of values." ;
     usdm:relationshipType "Value" ;
@@ -4717,6 +4980,7 @@ usdm:Range-isApproximate
     rdfs:domain usdm:Range ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C207525 ;
+    skos:exactMatch obo:NCIT_C207525 ;
     skos:prefLabel "Value Range is Approximate Indicator" ;
     skos:definition "An indication as to whether the value range is almost, but not quite, exact." ;
     usdm:relationshipType "Value" ;
@@ -4742,6 +5006,7 @@ usdm:ReferenceIdentifier
     a owl:Class ;
     rdfs:label "ReferenceIdentifier" ;
     skos:exactMatch ncit:C82531 ;
+    skos:exactMatch obo:NCIT_C82531 ;
     skos:prefLabel "Reference Identifier" ;
     skos:definition "A sequence of characters used to identify, name, or characterize the reference." ;
     rdfs:subClassOf usdm:Identifier ;
@@ -4755,12 +5020,14 @@ usdm:ReferenceIdentifier-type
     rdfs:domain usdm:ReferenceIdentifier ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215571 ;
+    skos:exactMatch obo:NCIT_C215571 ;
     skos:prefLabel "Reference Identifier Type" ;
     skos:definition "A characterization or classification of the reference identifier." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215478 ;
+    usdm:boundCodelist obo:NCIT_C215478 ;
     usdm:boundCodelistNote "Y (C215478)" .
 
 usdm:ReferenceIdentifier-extensionAttributes
@@ -4782,6 +5049,7 @@ usdm:ResponseCode
     a owl:Class ;
     rdfs:label "ResponseCode" ;
     skos:exactMatch ncit:C201347 ;
+    skos:exactMatch obo:NCIT_C201347 ;
     skos:prefLabel "Response Code" ;
     skos:definition "A symbol or combination of symbols representing the response to the question." ;
     usdm:modifier "Concrete" ;
@@ -4807,6 +5075,7 @@ usdm:ResponseCode-name
     rdfs:domain usdm:ResponseCode ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C216998 ;
+    skos:exactMatch obo:NCIT_C216998 ;
     skos:prefLabel "Response Code Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the response code." ;
     usdm:relationshipType "Value" ;
@@ -4819,6 +5088,7 @@ usdm:ResponseCode-label
     rdfs:domain usdm:ResponseCode ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C216999 ;
+    skos:exactMatch obo:NCIT_C216999 ;
     skos:prefLabel "Response Code Label" ;
     skos:definition "The short descriptive designation for the response code." ;
     usdm:relationshipType "Value" ;
@@ -4831,6 +5101,7 @@ usdm:ResponseCode-isEnabled
     rdfs:domain usdm:ResponseCode ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C201330 ;
+    skos:exactMatch obo:NCIT_C201330 ;
     skos:prefLabel "Response Code Enabled Indicator" ;
     skos:definition "An indication as to whether the response code is activated for use within a given usage context." ;
     usdm:relationshipType "Value" ;
@@ -4843,6 +5114,7 @@ usdm:ResponseCode-code
     rdfs:domain usdm:ResponseCode ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C217013 ;
+    skos:exactMatch obo:NCIT_C217013 ;
     skos:prefLabel "Response Code Value" ;
     skos:definition "The literal value of a response code." ;
     usdm:relationshipType "Value" ;
@@ -4868,6 +5140,7 @@ usdm:ScheduleTimeline
     a owl:Class ;
     rdfs:label "ScheduleTimeline" ;
     skos:exactMatch ncit:C201348 ;
+    skos:exactMatch obo:NCIT_C201348 ;
     skos:prefLabel "Schedule Timeline" ;
     skos:definition "A chronological schedule of planned temporal events." ;
     usdm:modifier "Concrete" ;
@@ -4896,6 +5169,7 @@ usdm:ScheduleTimeline-name
     rdfs:domain usdm:ScheduleTimeline ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201334 ;
+    skos:exactMatch obo:NCIT_C201334 ;
     skos:prefLabel "Schedule Timeline Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the schedule timeline." ;
     usdm:relationshipType "Value" ;
@@ -4908,6 +5182,7 @@ usdm:ScheduleTimeline-label
     rdfs:domain usdm:ScheduleTimeline ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207530 ;
+    skos:exactMatch obo:NCIT_C207530 ;
     skos:prefLabel "Schedule Timeline Label" ;
     skos:definition "The short descriptive designation for the schedule timeline." ;
     usdm:relationshipType "Value" ;
@@ -4920,6 +5195,7 @@ usdm:ScheduleTimeline-description
     rdfs:domain usdm:ScheduleTimeline ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201332 ;
+    skos:exactMatch obo:NCIT_C201332 ;
     skos:prefLabel "Schedule Timeline Description" ;
     skos:definition "A narrative representation of the schedule timeline." ;
     usdm:relationshipType "Value" ;
@@ -4932,6 +5208,7 @@ usdm:ScheduleTimeline-entryCondition
     rdfs:domain usdm:ScheduleTimeline ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201333 ;
+    skos:exactMatch obo:NCIT_C201333 ;
     skos:prefLabel "Schedule Timeline Entry Condition" ;
     skos:definition "A logical evaluation on which rests the validity of entry into a schedule timeline." ;
     usdm:relationshipType "Value" ;
@@ -4944,6 +5221,7 @@ usdm:ScheduleTimeline-mainTimeline
     rdfs:domain usdm:ScheduleTimeline ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C201331 ;
+    skos:exactMatch obo:NCIT_C201331 ;
     skos:prefLabel "Main Timeline Indicator" ;
     skos:definition "An indication as to whether the timeline or timeline component is part of the central or principal timeline." ;
     usdm:relationshipType "Value" ;
@@ -4956,6 +5234,7 @@ usdm:ScheduleTimeline-plannedDuration
     rdfs:domain usdm:ScheduleTimeline ;
     rdfs:range usdm:Duration ;
     skos:exactMatch ncit:C217012 ;
+    skos:exactMatch obo:NCIT_C217012 ;
     skos:prefLabel "Schedule Timeline Planned Duration" ;
     skos:definition "The period of time over which the scheduled timeline is intended to take place." ;
     usdm:relationshipType "Value" ;
@@ -5021,6 +5300,7 @@ usdm:ScheduleTimelineExit
     a owl:Class ;
     rdfs:label "ScheduleTimelineExit" ;
     skos:exactMatch ncit:C201349 ;
+    skos:exactMatch obo:NCIT_C201349 ;
     skos:prefLabel "Schedule Timeline Exit" ;
     skos:definition "To go out of or leave the schedule timeline." ;
     usdm:modifier "Concrete" ;
@@ -5055,6 +5335,7 @@ usdm:ScheduledActivityInstance
     a owl:Class ;
     rdfs:label "ScheduledActivityInstance" ;
     skos:exactMatch ncit:C201350 ;
+    skos:exactMatch obo:NCIT_C201350 ;
     skos:prefLabel "Scheduled Activity Instance" ;
     skos:definition "A scheduled occurrence of an activity event." ;
     rdfs:subClassOf usdm:ScheduledInstance ;
@@ -5123,6 +5404,7 @@ usdm:ScheduledDecisionInstance
     a owl:Class ;
     rdfs:label "ScheduledDecisionInstance" ;
     skos:exactMatch ncit:C201351 ;
+    skos:exactMatch obo:NCIT_C201351 ;
     skos:prefLabel "Scheduled Decision Instance" ;
     skos:definition "A scheduled occurrence of a decision event." ;
     rdfs:subClassOf usdm:ScheduledInstance ;
@@ -5159,6 +5441,7 @@ usdm:ScheduledInstance
     a owl:Class ;
     rdfs:label "ScheduledInstance" ;
     skos:exactMatch ncit:C201299 ;
+    skos:exactMatch obo:NCIT_C201299 ;
     skos:prefLabel "Scheduled Instance" ;
     skos:definition "A scheduled occurrence of a temporal event." ;
     usdm:modifier "Abstract" ;
@@ -5184,6 +5467,7 @@ usdm:ScheduledInstance-name
     rdfs:domain usdm:ScheduledInstance ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207533 ;
+    skos:exactMatch obo:NCIT_C207533 ;
     skos:prefLabel "Scheduled Activity Instance Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the scheduled activity instance." ;
     usdm:relationshipType "Value" ;
@@ -5196,6 +5480,7 @@ usdm:ScheduledInstance-label
     rdfs:domain usdm:ScheduledInstance ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207532 ;
+    skos:exactMatch obo:NCIT_C207532 ;
     skos:prefLabel "Scheduled Activity Instance Label" ;
     skos:definition "The short descriptive designation for the scheduled activity instance." ;
     usdm:relationshipType "Value" ;
@@ -5208,6 +5493,7 @@ usdm:ScheduledInstance-description
     rdfs:domain usdm:ScheduledInstance ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207531 ;
+    skos:exactMatch obo:NCIT_C207531 ;
     skos:prefLabel "Scheduled Activity Instance Description" ;
     skos:definition "A narrative representation of the scheduled activity instance." ;
     usdm:relationshipType "Value" ;
@@ -5239,6 +5525,7 @@ usdm:Strength
     a owl:Class ;
     rdfs:label "Strength" ;
     skos:exactMatch ncit:C215495 ;
+    skos:exactMatch obo:NCIT_C215495 ;
     skos:prefLabel "Substance Strength" ;
     skos:definition "The content of an substance expressed quantitatively per dosage unit, per unit of volume, or per unit of weight, according to the pharmaceutical dose form of the product." ;
     usdm:modifier "Concrete" ;
@@ -5265,6 +5552,7 @@ usdm:Strength-name
     rdfs:domain usdm:Strength ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215590 ;
+    skos:exactMatch obo:NCIT_C215590 ;
     skos:prefLabel "Substance Strength Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the substance strength." ;
     usdm:relationshipType "Value" ;
@@ -5277,6 +5565,7 @@ usdm:Strength-label
     rdfs:domain usdm:Strength ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215592 ;
+    skos:exactMatch obo:NCIT_C215592 ;
     skos:prefLabel "Substance Strength Label" ;
     skos:definition "The short descriptive designation for the substance strength." ;
     usdm:relationshipType "Value" ;
@@ -5289,6 +5578,7 @@ usdm:Strength-description
     rdfs:domain usdm:Strength ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215591 ;
+    skos:exactMatch obo:NCIT_C215591 ;
     skos:prefLabel "Substance Strength Description" ;
     skos:definition "A narrative representation of the substance strength." ;
     usdm:relationshipType "Value" ;
@@ -5301,6 +5591,7 @@ usdm:Strength-numerator
     rdfs:domain usdm:Strength ;
     rdfs:range usdm:QuantityRange ;
     skos:exactMatch ncit:C80490 ;
+    skos:exactMatch obo:NCIT_C80490 ;
     skos:prefLabel "Numerator" ;
     skos:definition "The dividend of a fraction." ;
     usdm:relationshipType "Value" ;
@@ -5313,6 +5604,7 @@ usdm:Strength-denominator
     rdfs:domain usdm:Strength ;
     rdfs:range usdm:Quantity ;
     skos:exactMatch ncit:C80489 ;
+    skos:exactMatch obo:NCIT_C80489 ;
     skos:prefLabel "Denominator" ;
     skos:definition "The divisor of a fraction." ;
     usdm:relationshipType "Value" ;
@@ -5338,6 +5630,7 @@ usdm:Study
     a owl:Class ;
     rdfs:label "Study" ;
     skos:exactMatch ncit:C15206 ;
+    skos:exactMatch obo:NCIT_C15206 ;
     skos:prefLabel "Clinical Study" ;
     skos:definition "A clinical study involves research using human volunteers (also called participants) that is intended to add to medical knowledge. There are two main types of clinical studies: clinical trials (also called interventional studies) and observational studies. (CDISC Glossary)" ;
     usdm:modifier "Concrete" ;
@@ -5362,6 +5655,7 @@ usdm:Study-name
     rdfs:domain usdm:Study ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C68631 ;
+    skos:exactMatch obo:NCIT_C68631 ;
     skos:prefLabel "Clinical Study Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the clinical study." ;
     usdm:relationshipType "Value" ;
@@ -5374,6 +5668,7 @@ usdm:Study-label
     rdfs:domain usdm:Study ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207479 ;
+    skos:exactMatch obo:NCIT_C207479 ;
     skos:prefLabel "Clinical Study Label" ;
     skos:definition "The short descriptive designation for the clinical study." ;
     usdm:relationshipType "Value" ;
@@ -5386,6 +5681,7 @@ usdm:Study-description
     rdfs:domain usdm:Study ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C142704 ;
+    skos:exactMatch obo:NCIT_C142704 ;
     skos:prefLabel "Clinical Study Description" ;
     skos:definition "A narrative representation of the clinical study." ;
     usdm:relationshipType "Value" ;
@@ -5431,6 +5727,7 @@ usdm:StudyAmendment
     a owl:Class ;
     rdfs:label "StudyAmendment" ;
     skos:exactMatch ncit:C207594 ;
+    skos:exactMatch obo:NCIT_C207594 ;
     skos:prefLabel "Study Amendment" ;
     skos:definition "A written description of a change(s) to, or formal clarification of, a study." ;
     usdm:modifier "Concrete" ;
@@ -5461,6 +5758,7 @@ usdm:StudyAmendment-name
     rdfs:domain usdm:StudyAmendment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C216995 ;
+    skos:exactMatch obo:NCIT_C216995 ;
     skos:prefLabel "Study Amendment Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study amendment." ;
     usdm:relationshipType "Value" ;
@@ -5473,6 +5771,7 @@ usdm:StudyAmendment-label
     rdfs:domain usdm:StudyAmendment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C216997 ;
+    skos:exactMatch obo:NCIT_C216997 ;
     skos:prefLabel "Study Amendment Label" ;
     skos:definition "The short descriptive designation for the study amendment." ;
     usdm:relationshipType "Value" ;
@@ -5485,6 +5784,7 @@ usdm:StudyAmendment-description
     rdfs:domain usdm:StudyAmendment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C216996 ;
+    skos:exactMatch obo:NCIT_C216996 ;
     skos:prefLabel "Study Amendment Description" ;
     skos:definition "A narrative representation of the study amendment." ;
     usdm:relationshipType "Value" ;
@@ -5497,6 +5797,7 @@ usdm:StudyAmendment-number
     rdfs:domain usdm:StudyAmendment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207537 ;
+    skos:exactMatch obo:NCIT_C207537 ;
     skos:prefLabel "Study Amendment Number" ;
     skos:definition "A string of numerals that uniquely identifies a protocol amendment." ;
     usdm:relationshipType "Value" ;
@@ -5509,6 +5810,7 @@ usdm:StudyAmendment-notes
     rdfs:domain usdm:StudyAmendment ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215538 ;
+    skos:exactMatch obo:NCIT_C215538 ;
     skos:prefLabel "Study Amendment Notes" ;
     skos:definition "A brief written record relevant to the study amendment." ;
     usdm:relationshipType "Value" ;
@@ -5521,6 +5823,7 @@ usdm:StudyAmendment-summary
     rdfs:domain usdm:StudyAmendment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C115627 ;
+    skos:exactMatch obo:NCIT_C115627 ;
     skos:prefLabel "Study Amendment Summary" ;
     skos:definition "A short narrative representation describing the changes introduced in the current version of the protocol." ;
     usdm:relationshipType "Value" ;
@@ -5626,6 +5929,7 @@ usdm:StudyAmendmentImpact
     a owl:Class ;
     rdfs:label "StudyAmendmentImpact" ;
     skos:exactMatch ncit:C215500 ;
+    skos:exactMatch obo:NCIT_C215500 ;
     skos:prefLabel "Study Amendment Impact" ;
     skos:definition "The effect or consequence of an amendment on some aspect of the study." ;
     usdm:modifier "Concrete" ;
@@ -5650,6 +5954,7 @@ usdm:StudyAmendmentImpact-text
     rdfs:domain usdm:StudyAmendmentImpact ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215611 ;
+    skos:exactMatch obo:NCIT_C215611 ;
     skos:prefLabel "Study Amendment Impact Text" ;
     skos:definition "An instance of unstructured text that represents the study amendment impact." ;
     usdm:relationshipType "Value" ;
@@ -5662,6 +5967,7 @@ usdm:StudyAmendmentImpact-isSubstantial
     rdfs:domain usdm:StudyAmendmentImpact ;
     rdfs:range xsd:boolean ;
     skos:exactMatch ncit:C207538 ;
+    skos:exactMatch obo:NCIT_C207538 ;
     skos:prefLabel "Study Amendment Impact Substantial Indicator" ;
     skos:definition "An indication as to whether the study amendment's impact on the study is substantial." ;
     usdm:relationshipType "Value" ;
@@ -5674,12 +5980,14 @@ usdm:StudyAmendmentImpact-type
     rdfs:domain usdm:StudyAmendmentImpact ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215612 ;
+    skos:exactMatch obo:NCIT_C215612 ;
     skos:prefLabel "Study Amendment Impact Type" ;
     skos:definition "A characterization or classification of the study amendment impact." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215481 ;
+    usdm:boundCodelist obo:NCIT_C215481 ;
     usdm:boundCodelistNote "Y (C215481)" .
 
 usdm:StudyAmendmentImpact-notes
@@ -5688,6 +5996,7 @@ usdm:StudyAmendmentImpact-notes
     rdfs:domain usdm:StudyAmendmentImpact ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215613 ;
+    skos:exactMatch obo:NCIT_C215613 ;
     skos:prefLabel "Study Amendment Impact Notes" ;
     skos:definition "A brief written record relevant to the study amendment impact." ;
     usdm:relationshipType "Value" ;
@@ -5713,6 +6022,7 @@ usdm:StudyAmendmentReason
     a owl:Class ;
     rdfs:label "StudyAmendmentReason" ;
     skos:exactMatch ncit:C207457 ;
+    skos:exactMatch obo:NCIT_C207457 ;
     skos:prefLabel "Study Amendment Reason" ;
     skos:definition "The rationale for the change(s) to, or formal clarification of, a protocol." ;
     usdm:modifier "Concrete" ;
@@ -5736,6 +6046,7 @@ usdm:StudyAmendmentReason-otherReason
     rdfs:domain usdm:StudyAmendmentReason ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207539 ;
+    skos:exactMatch obo:NCIT_C207539 ;
     skos:prefLabel "Other Reason for Study Amendment" ;
     skos:definition "The rationale for the change(s) to, or formal clarification of, a protocol that is not otherwise specified." ;
     usdm:relationshipType "Value" ;
@@ -5748,12 +6059,14 @@ usdm:StudyAmendmentReason-code
     rdfs:domain usdm:StudyAmendmentReason ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C207540 ;
+    skos:exactMatch obo:NCIT_C207540 ;
     skos:prefLabel "Study Amendment Reason Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the study amendment reason." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C207415 ;
+    usdm:boundCodelist obo:NCIT_C207415 ;
     usdm:boundCodelistNote "Y (C207415)" .
 
 usdm:StudyAmendmentReason-extensionAttributes
@@ -5775,6 +6088,7 @@ usdm:StudyArm
     a owl:Class ;
     rdfs:label "StudyArm" ;
     skos:exactMatch ncit:C174447 ;
+    skos:exactMatch obo:NCIT_C174447 ;
     skos:prefLabel "Study Arm" ;
     skos:definition "A planned pathway assigned to the subject as they progress through the study, usually referred to by a name that reflects one or more treatments, exposures, and/or controls included in the path." ;
     usdm:modifier "Concrete" ;
@@ -5802,6 +6116,7 @@ usdm:StudyArm-name
     rdfs:domain usdm:StudyArm ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C170984 ;
+    skos:exactMatch obo:NCIT_C170984 ;
     skos:prefLabel "Study Arm Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study arm." ;
     usdm:relationshipType "Value" ;
@@ -5814,6 +6129,7 @@ usdm:StudyArm-label
     rdfs:domain usdm:StudyArm ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C172456 ;
+    skos:exactMatch obo:NCIT_C172456 ;
     skos:prefLabel "Study Arm Label" ;
     skos:definition "The short descriptive designation for the study arm." ;
     usdm:relationshipType "Value" ;
@@ -5826,6 +6142,7 @@ usdm:StudyArm-description
     rdfs:domain usdm:StudyArm ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C93728 ;
+    skos:exactMatch obo:NCIT_C93728 ;
     skos:prefLabel "Study Arm Description" ;
     skos:definition "A narrative representation of the study arm." ;
     usdm:relationshipType "Value" ;
@@ -5838,12 +6155,14 @@ usdm:StudyArm-type
     rdfs:domain usdm:StudyArm ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C172457 ;
+    skos:exactMatch obo:NCIT_C172457 ;
     skos:prefLabel "Study Arm Type" ;
     skos:definition "A characterization or classification of the study arm." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C174222 ;
+    usdm:boundCodelist obo:NCIT_C174222 ;
     usdm:boundCodelistNote "Y (Protocol Terminology Codelist C174222)" .
 
 usdm:StudyArm-dataOriginType
@@ -5852,12 +6171,14 @@ usdm:StudyArm-dataOriginType
     rdfs:domain usdm:StudyArm ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188829 ;
+    skos:exactMatch obo:NCIT_C188829 ;
     skos:prefLabel "Study Arm Data Origin Type" ;
     skos:definition "A characterization or classification of the study arm with respect to where the study arm data originates." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "dataOriginType" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C188727 ;
+    usdm:boundCodelist obo:NCIT_C188727 ;
     usdm:boundCodelistNote "Y (C188727)" .
 
 usdm:StudyArm-dataOriginDescription
@@ -5866,6 +6187,7 @@ usdm:StudyArm-dataOriginDescription
     rdfs:domain usdm:StudyArm ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188828 ;
+    skos:exactMatch obo:NCIT_C188828 ;
     skos:prefLabel "Study Arm Data Origin Description" ;
     skos:definition "The textual representation of the study arm data origin." ;
     usdm:relationshipType "Value" ;
@@ -5878,6 +6200,7 @@ usdm:StudyArm-notes
     rdfs:domain usdm:StudyArm ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215515 ;
+    skos:exactMatch obo:NCIT_C215515 ;
     skos:prefLabel "Study Arm Notes" ;
     skos:definition "A brief written record relevant to the study arm." ;
     usdm:relationshipType "Value" ;
@@ -5913,6 +6236,7 @@ usdm:StudyCell
     a owl:Class ;
     rdfs:label "StudyCell" ;
     skos:exactMatch ncit:C188810 ;
+    skos:exactMatch obo:NCIT_C188810 ;
     skos:prefLabel "Study Design Cell" ;
     skos:definition "A partitioning of a study arm into individual pieces, which are associated with an epoch and any number of sequential elements within that epoch." ;
     usdm:modifier "Concrete" ;
@@ -5980,6 +6304,7 @@ usdm:StudyChange
     a owl:Class ;
     rdfs:label "StudyChange" ;
     skos:exactMatch ncit:C215498 ;
+    skos:exactMatch obo:NCIT_C215498 ;
     skos:prefLabel "Study Change" ;
     skos:definition "The act of alteration or modification to a study." ;
     usdm:modifier "Concrete" ;
@@ -6007,6 +6332,7 @@ usdm:StudyChange-name
     rdfs:domain usdm:StudyChange ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215604 ;
+    skos:exactMatch obo:NCIT_C215604 ;
     skos:prefLabel "Study Change Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study change." ;
     usdm:relationshipType "Value" ;
@@ -6019,6 +6345,7 @@ usdm:StudyChange-label
     rdfs:domain usdm:StudyChange ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215606 ;
+    skos:exactMatch obo:NCIT_C215606 ;
     skos:prefLabel "Study Change Label" ;
     skos:definition "The short descriptive designation for the study change." ;
     usdm:relationshipType "Value" ;
@@ -6031,6 +6358,7 @@ usdm:StudyChange-description
     rdfs:domain usdm:StudyChange ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215605 ;
+    skos:exactMatch obo:NCIT_C215605 ;
     skos:prefLabel "Study Change Description" ;
     skos:definition "A narrative representation of the study change." ;
     usdm:relationshipType "Value" ;
@@ -6043,6 +6371,7 @@ usdm:StudyChange-rationale
     rdfs:domain usdm:StudyChange ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215608 ;
+    skos:exactMatch obo:NCIT_C215608 ;
     skos:prefLabel "Study Change Rationale" ;
     skos:definition "An explanation as to the logical reasons for why a study change has occurred." ;
     usdm:relationshipType "Value" ;
@@ -6055,6 +6384,7 @@ usdm:StudyChange-summary
     rdfs:domain usdm:StudyChange ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215607 ;
+    skos:exactMatch obo:NCIT_C215607 ;
     skos:prefLabel "Study Change Summary" ;
     skos:definition "A short narrative representation describing the changes introduced in the current version of the study." ;
     usdm:relationshipType "Value" ;
@@ -6090,6 +6420,7 @@ usdm:StudyCohort
     a owl:Class ;
     rdfs:label "StudyCohort" ;
     skos:exactMatch ncit:C61512 ;
+    skos:exactMatch obo:NCIT_C61512 ;
     skos:prefLabel "Study Cohort" ;
     skos:definition "A group of individuals who share a set of characteristics (e.g., exposures, experiences, attributes), which logically defines a population under study." ;
     rdfs:subClassOf usdm:PopulationDefinition ;
@@ -6135,6 +6466,7 @@ usdm:StudyDefinitionDocument
     a owl:Class ;
     rdfs:label "StudyDefinitionDocument" ;
     skos:exactMatch ncit:C215490 ;
+    skos:exactMatch obo:NCIT_C215490 ;
     skos:prefLabel "Study Definition Document" ;
     skos:definition "Any physical or electronic document that is related to defining a study or part of a study." ;
     usdm:modifier "Concrete" ;
@@ -6162,6 +6494,7 @@ usdm:StudyDefinitionDocument-name
     rdfs:domain usdm:StudyDefinitionDocument ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215559 ;
+    skos:exactMatch obo:NCIT_C215559 ;
     skos:prefLabel "Study Definition Document Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study definition document." ;
     usdm:relationshipType "Value" ;
@@ -6174,6 +6507,7 @@ usdm:StudyDefinitionDocument-label
     rdfs:domain usdm:StudyDefinitionDocument ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215561 ;
+    skos:exactMatch obo:NCIT_C215561 ;
     skos:prefLabel "Study Definition Document Label" ;
     skos:definition "The short descriptive designation for the study definition document." ;
     usdm:relationshipType "Value" ;
@@ -6186,6 +6520,7 @@ usdm:StudyDefinitionDocument-description
     rdfs:domain usdm:StudyDefinitionDocument ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215560 ;
+    skos:exactMatch obo:NCIT_C215560 ;
     skos:prefLabel "Study Definition Document Description" ;
     skos:definition "A narrative representation of the study definition document." ;
     usdm:relationshipType "Value" ;
@@ -6198,12 +6533,14 @@ usdm:StudyDefinitionDocument-type
     rdfs:domain usdm:StudyDefinitionDocument ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215564 ;
+    skos:exactMatch obo:NCIT_C215564 ;
     skos:prefLabel "Study Definition Document Type" ;
     skos:definition "A characterization or classification of the study definition document." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215477 ;
+    usdm:boundCodelist obo:NCIT_C215477 ;
     usdm:boundCodelistNote "Y (C215477)" .
 
 usdm:StudyDefinitionDocument-templateName
@@ -6212,6 +6549,7 @@ usdm:StudyDefinitionDocument-templateName
     rdfs:domain usdm:StudyDefinitionDocument ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215562 ;
+    skos:exactMatch obo:NCIT_C215562 ;
     skos:prefLabel "Study Definition Document Template Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study definition document template." ;
     usdm:relationshipType "Value" ;
@@ -6224,6 +6562,7 @@ usdm:StudyDefinitionDocument-language
     rdfs:domain usdm:StudyDefinitionDocument ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215563 ;
+    skos:exactMatch obo:NCIT_C215563 ;
     skos:prefLabel "Study Definition Document Language" ;
     skos:definition "The language in which the study definition document is written." ;
     usdm:relationshipType "Value" ;
@@ -6237,6 +6576,7 @@ usdm:StudyDefinitionDocument-notes
     rdfs:domain usdm:StudyDefinitionDocument ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215565 ;
+    skos:exactMatch obo:NCIT_C215565 ;
     skos:prefLabel "Study Definition Document Notes" ;
     skos:definition "A brief written record relevant to the study definition document." ;
     usdm:relationshipType "Value" ;
@@ -6282,6 +6622,7 @@ usdm:StudyDefinitionDocumentVersion
     a owl:Class ;
     rdfs:label "StudyDefinitionDocumentVersion" ;
     skos:exactMatch ncit:C215491 ;
+    skos:exactMatch obo:NCIT_C215491 ;
     skos:prefLabel "Study Definition Document Version" ;
     skos:definition "A representation of a particular edition or snapshot of the study definition document as it exists at a particular point in time." ;
     usdm:modifier "Concrete" ;
@@ -6305,12 +6646,14 @@ usdm:StudyDefinitionDocumentVersion-status
     rdfs:domain usdm:StudyDefinitionDocumentVersion ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215567 ;
+    skos:exactMatch obo:NCIT_C215567 ;
     skos:prefLabel "Study Definition Document Status" ;
     skos:definition "A condition of the study definition document at a point in time with respect to its state of readiness for implementation." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "status" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C188723 ;
+    usdm:boundCodelist obo:NCIT_C188723 ;
     usdm:boundCodelistNote "Y (C188723)" .
 
 usdm:StudyDefinitionDocumentVersion-version
@@ -6319,6 +6662,7 @@ usdm:StudyDefinitionDocumentVersion-version
     rdfs:domain usdm:StudyDefinitionDocumentVersion ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215566 ;
+    skos:exactMatch obo:NCIT_C215566 ;
     skos:prefLabel "Study Definition Document Version Identifier" ;
     skos:definition "A sequence of characters used to identify the version of the study definition document." ;
     usdm:relationshipType "Value" ;
@@ -6331,6 +6675,7 @@ usdm:StudyDefinitionDocumentVersion-notes
     rdfs:domain usdm:StudyDefinitionDocumentVersion ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215568 ;
+    skos:exactMatch obo:NCIT_C215568 ;
     skos:prefLabel "Study Definition Document Version Notes" ;
     skos:definition "A brief written record relevant to the study definition document version." ;
     usdm:relationshipType "Value" ;
@@ -6376,6 +6721,7 @@ usdm:StudyDesign
     a owl:Class ;
     rdfs:label "StudyDesign" ;
     skos:exactMatch ncit:C15320 ;
+    skos:exactMatch obo:NCIT_C15320 ;
     skos:prefLabel "Study Design" ;
     skos:definition "A plan detailing how a study will be performed in order to represent the phenomenon under examination, to answer the research questions that have been asked, and informing the statistical approach." ;
     usdm:modifier "Abstract" ;
@@ -6407,6 +6753,7 @@ usdm:StudyDesign-name
     rdfs:domain usdm:StudyDesign ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215626 ;
+    skos:exactMatch obo:NCIT_C215626 ;
     skos:prefLabel "Interventional Study Design Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the interventional study design." ;
     usdm:relationshipType "Value" ;
@@ -6419,6 +6766,7 @@ usdm:StudyDesign-label
     rdfs:domain usdm:StudyDesign ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215628 ;
+    skos:exactMatch obo:NCIT_C215628 ;
     skos:prefLabel "Interventional Study Design Label" ;
     skos:definition "The short descriptive designation for the interventional study design." ;
     usdm:relationshipType "Value" ;
@@ -6431,6 +6779,7 @@ usdm:StudyDesign-description
     rdfs:domain usdm:StudyDesign ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215627 ;
+    skos:exactMatch obo:NCIT_C215627 ;
     skos:prefLabel "Interventional Study Design Description" ;
     skos:definition "A narrative representation of the interventional study design." ;
     usdm:relationshipType "Value" ;
@@ -6443,6 +6792,7 @@ usdm:StudyDesign-rationale
     rdfs:domain usdm:StudyDesign ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215629 ;
+    skos:exactMatch obo:NCIT_C215629 ;
     skos:prefLabel "Interventional Study Design Rationale" ;
     skos:definition "Reason(s) for choosing the interventional study design. This may include reasons for the choice of control or comparator, as well as the scientific rationale for the study design." ;
     usdm:relationshipType "Value" ;
@@ -6455,6 +6805,7 @@ usdm:StudyDesign-therapeuticAreas
     rdfs:domain usdm:StudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215633 ;
+    skos:exactMatch obo:NCIT_C215633 ;
     skos:prefLabel "Interventional Study Design Therapeutic Areas" ;
     skos:definition "A categorization of a disease, disorder, or other condition based on common characteristics and often associated with a medical specialty focusing on research and development of specific therapeutic interventions for the purpose of treatment and prevention, which is associated with the interventional study design." ;
     usdm:relationshipType "Value" ;
@@ -6468,12 +6819,14 @@ usdm:StudyDesign-studyType
     rdfs:domain usdm:StudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215631 ;
+    skos:exactMatch obo:NCIT_C215631 ;
     skos:prefLabel "Interventional Study Design Study Type" ;
     skos:definition "The study type associated with the interventional study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "studyType" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C99077 ;
+    usdm:boundCodelist obo:NCIT_C99077 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99077)" .
 
 usdm:StudyDesign-characteristics
@@ -6482,12 +6835,14 @@ usdm:StudyDesign-characteristics
     rdfs:domain usdm:StudyDesign ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215632 ;
+    skos:exactMatch obo:NCIT_C215632 ;
     skos:prefLabel "Interventional Study Design Characteristics" ;
     skos:definition "The distinguishing qualities or prominent aspects of an interventional study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "characteristics" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C207416 ;
+    usdm:boundCodelist obo:NCIT_C207416 ;
     usdm:boundCodelistNote "Y (C207416)" .
 
 usdm:StudyDesign-studyPhase
@@ -6496,12 +6851,14 @@ usdm:StudyDesign-studyPhase
     rdfs:domain usdm:StudyDesign ;
     rdfs:range usdm:AliasCode ;
     skos:exactMatch ncit:C215630 ;
+    skos:exactMatch obo:NCIT_C215630 ;
     skos:prefLabel "Interventional Study Design Study Phase" ;
     skos:definition "The study phase associated with the interventional study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "studyPhase" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C66737 ;
+    usdm:boundCodelist obo:NCIT_C66737 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C66737)" .
 
 usdm:StudyDesign-notes
@@ -6510,6 +6867,7 @@ usdm:StudyDesign-notes
     rdfs:domain usdm:StudyDesign ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215634 ;
+    skos:exactMatch obo:NCIT_C215634 ;
     skos:prefLabel "Interventional Study Design Notes" ;
     skos:definition "A brief written record relevant to the interventional study design." ;
     usdm:relationshipType "Value" ;
@@ -6678,6 +7036,7 @@ usdm:StudyDesignPopulation
     a owl:Class ;
     rdfs:label "StudyDesignPopulation" ;
     skos:exactMatch ncit:C142728 ;
+    skos:exactMatch obo:NCIT_C142728 ;
     skos:prefLabel "Study Design Population" ;
     skos:definition "The population within the general population to which the study results can be generalized." ;
     rdfs:subClassOf usdm:PopulationDefinition ;
@@ -6713,6 +7072,7 @@ usdm:StudyElement
     a owl:Class ;
     rdfs:label "StudyElement" ;
     skos:exactMatch ncit:C142735 ;
+    skos:exactMatch obo:NCIT_C142735 ;
     skos:prefLabel "Study Design Element" ;
     skos:definition "A basic building block for time within a clinical study comprising the following characteristics: a description of what happens to the subject during the element; a definition of the start of the element; a rule for ending the element." ;
     usdm:modifier "Concrete" ;
@@ -6739,6 +7099,7 @@ usdm:StudyElement-name
     rdfs:domain usdm:StudyElement ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188833 ;
+    skos:exactMatch obo:NCIT_C188833 ;
     skos:prefLabel "Study Design Element Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study design element." ;
     usdm:relationshipType "Value" ;
@@ -6751,6 +7112,7 @@ usdm:StudyElement-label
     rdfs:domain usdm:StudyElement ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207554 ;
+    skos:exactMatch obo:NCIT_C207554 ;
     skos:prefLabel "Study Design Element Label" ;
     skos:definition "The short descriptive designation for the study design element." ;
     usdm:relationshipType "Value" ;
@@ -6763,6 +7125,7 @@ usdm:StudyElement-description
     rdfs:domain usdm:StudyElement ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188834 ;
+    skos:exactMatch obo:NCIT_C188834 ;
     skos:prefLabel "Study Design Element Description" ;
     skos:definition "A narrative representation of the study design element." ;
     usdm:relationshipType "Value" ;
@@ -6775,6 +7138,7 @@ usdm:StudyElement-notes
     rdfs:domain usdm:StudyElement ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215517 ;
+    skos:exactMatch obo:NCIT_C215517 ;
     skos:prefLabel "Study Element Notes" ;
     skos:definition "A brief written record relevant to the study element." ;
     usdm:relationshipType "Value" ;
@@ -6830,6 +7194,7 @@ usdm:StudyEpoch
     a owl:Class ;
     rdfs:label "StudyEpoch" ;
     skos:exactMatch ncit:C71738 ;
+    skos:exactMatch obo:NCIT_C71738 ;
     skos:prefLabel "Study Epoch" ;
     skos:definition "A named time period defined in the protocol, wherein a study activity is specified and unchanging throughout the interval, to support a study-specific purpose." ;
     usdm:modifier "Concrete" ;
@@ -6857,6 +7222,7 @@ usdm:StudyEpoch-name
     rdfs:domain usdm:StudyEpoch ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C93825 ;
+    skos:exactMatch obo:NCIT_C93825 ;
     skos:prefLabel "Study Epoch Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study epoch, i.e., the named time period defined in the protocol, wherein a study activity is specified and unchanging throughout the interval, to support a study-specific purpose." ;
     usdm:relationshipType "Value" ;
@@ -6869,6 +7235,7 @@ usdm:StudyEpoch-label
     rdfs:domain usdm:StudyEpoch ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207555 ;
+    skos:exactMatch obo:NCIT_C207555 ;
     skos:prefLabel "Study Epoch Label" ;
     skos:definition "The short descriptive designation for the study epoch." ;
     usdm:relationshipType "Value" ;
@@ -6881,6 +7248,7 @@ usdm:StudyEpoch-description
     rdfs:domain usdm:StudyEpoch ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C93824 ;
+    skos:exactMatch obo:NCIT_C93824 ;
     skos:prefLabel "Study Epoch Description" ;
     skos:definition "A narrative representation of the study epoch." ;
     usdm:relationshipType "Value" ;
@@ -6893,12 +7261,14 @@ usdm:StudyEpoch-type
     rdfs:domain usdm:StudyEpoch ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C188830 ;
+    skos:exactMatch obo:NCIT_C188830 ;
     skos:prefLabel "Study Epoch Type" ;
     skos:definition "A characterization or classification of the study epoch, i.e., the named time period defined in the protocol, wherein a study activity is specified and unchanging throughout the interval, to support a study-specific purpose." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C99079 ;
+    usdm:boundCodelist obo:NCIT_C99079 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99079)" .
 
 usdm:StudyEpoch-notes
@@ -6907,6 +7277,7 @@ usdm:StudyEpoch-notes
     rdfs:domain usdm:StudyEpoch ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215516 ;
+    skos:exactMatch obo:NCIT_C215516 ;
     skos:prefLabel "Study Epoch Notes" ;
     skos:definition "A brief written record relevant to the study epoch." ;
     usdm:relationshipType "Value" ;
@@ -6952,6 +7323,7 @@ usdm:StudyIdentifier
     a owl:Class ;
     rdfs:label "StudyIdentifier" ;
     skos:exactMatch ncit:C83082 ;
+    skos:exactMatch obo:NCIT_C83082 ;
     skos:prefLabel "Study Identifier" ;
     skos:definition "A sequence of characters used to identify, name, or characterize the study." ;
     rdfs:subClassOf usdm:Identifier ;
@@ -6977,6 +7349,7 @@ usdm:StudyIntervention
     a owl:Class ;
     rdfs:label "StudyIntervention" ;
     skos:exactMatch ncit:C207649 ;
+    skos:exactMatch obo:NCIT_C207649 ;
     skos:prefLabel "Study Intervention" ;
     skos:definition "Any agent, device, or procedure being tested or used as a reference or comparator in the conduct of a clinical trial." ;
     usdm:modifier "Concrete" ;
@@ -7004,6 +7377,7 @@ usdm:StudyIntervention-name
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207558 ;
+    skos:exactMatch obo:NCIT_C207558 ;
     skos:prefLabel "Study Intervention Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study intervention." ;
     usdm:relationshipType "Value" ;
@@ -7016,6 +7390,7 @@ usdm:StudyIntervention-label
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207556 ;
+    skos:exactMatch obo:NCIT_C207556 ;
     skos:prefLabel "Study Intervention Label" ;
     skos:definition "The short descriptive designation for the study intervention." ;
     usdm:relationshipType "Value" ;
@@ -7028,6 +7403,7 @@ usdm:StudyIntervention-description
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207647 ;
+    skos:exactMatch obo:NCIT_C207647 ;
     skos:prefLabel "Study Intervention Description" ;
     skos:definition "A narrative representation of the study intervention." ;
     usdm:relationshipType "Value" ;
@@ -7040,12 +7416,14 @@ usdm:StudyIntervention-role
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C207560 ;
+    skos:exactMatch obo:NCIT_C207560 ;
     skos:prefLabel "Study Intervention Role" ;
     skos:definition "The intended use of the trial intervention within the context of the study design." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "role" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C207417 ;
+    usdm:boundCodelist obo:NCIT_C207417 ;
     usdm:boundCodelistNote "Y (C207417)" .
 
 usdm:StudyIntervention-type
@@ -7054,12 +7432,14 @@ usdm:StudyIntervention-type
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C98747 ;
+    skos:exactMatch obo:NCIT_C98747 ;
     skos:prefLabel "Study Intervention Type" ;
     skos:definition "The kind of product or procedure studied in a trial." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C99078 ;
+    usdm:boundCodelist obo:NCIT_C99078 ;
     usdm:boundCodelistNote "Y (SDTM Terminology Codelist C99078)" .
 
 usdm:StudyIntervention-codes
@@ -7068,6 +7448,7 @@ usdm:StudyIntervention-codes
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C207648 ;
+    skos:exactMatch obo:NCIT_C207648 ;
     skos:prefLabel "Study Intervention Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the study intervention." ;
     usdm:relationshipType "Value" ;
@@ -7081,6 +7462,7 @@ usdm:StudyIntervention-minimumResponseDuration
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range usdm:Quantity ;
     skos:exactMatch ncit:C207557 ;
+    skos:exactMatch obo:NCIT_C207557 ;
     skos:prefLabel "Study Intervention Minimum Response Duration" ;
     skos:definition "The value representing the minimum amount of time required to meet the criteria for response to study intervention." ;
     usdm:relationshipType "Value" ;
@@ -7093,6 +7475,7 @@ usdm:StudyIntervention-notes
     rdfs:domain usdm:StudyIntervention ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215543 ;
+    skos:exactMatch obo:NCIT_C215543 ;
     skos:prefLabel "Study Intervention Notes" ;
     skos:definition "A brief written record relevant to the study intervention." ;
     usdm:relationshipType "Value" ;
@@ -7128,6 +7511,7 @@ usdm:StudyRole
     a owl:Class ;
     rdfs:label "StudyRole" ;
     skos:exactMatch ncit:C215497 ;
+    skos:exactMatch obo:NCIT_C215497 ;
     skos:prefLabel "Study Role" ;
     skos:definition "A designation that identifies the function of study personnel or an organization within the context of the study." ;
     usdm:modifier "Concrete" ;
@@ -7154,6 +7538,7 @@ usdm:StudyRole-name
     rdfs:domain usdm:StudyRole ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215600 ;
+    skos:exactMatch obo:NCIT_C215600 ;
     skos:prefLabel "Study Role Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study role." ;
     usdm:relationshipType "Value" ;
@@ -7166,6 +7551,7 @@ usdm:StudyRole-label
     rdfs:domain usdm:StudyRole ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215602 ;
+    skos:exactMatch obo:NCIT_C215602 ;
     skos:prefLabel "Study Role Label" ;
     skos:definition "The short descriptive designation for the study role." ;
     usdm:relationshipType "Value" ;
@@ -7178,6 +7564,7 @@ usdm:StudyRole-description
     rdfs:domain usdm:StudyRole ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215601 ;
+    skos:exactMatch obo:NCIT_C215601 ;
     skos:prefLabel "Study Role Description" ;
     skos:definition "A narrative representation of the study role." ;
     usdm:relationshipType "Value" ;
@@ -7190,12 +7577,14 @@ usdm:StudyRole-code
     rdfs:domain usdm:StudyRole ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215603 ;
+    skos:exactMatch obo:NCIT_C215603 ;
     skos:prefLabel "Study Role Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the study role." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "code" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C215480 ;
+    usdm:boundCodelist obo:NCIT_C215480 ;
     usdm:boundCodelistNote "Y (C215480)" .
 
 usdm:StudyRole-notes
@@ -7204,6 +7593,7 @@ usdm:StudyRole-notes
     rdfs:domain usdm:StudyRole ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C216994 ;
+    skos:exactMatch obo:NCIT_C216994 ;
     skos:prefLabel "Study Role Notes" ;
     skos:definition "A brief written record relevant to the study role." ;
     usdm:relationshipType "Value" ;
@@ -7269,6 +7659,7 @@ usdm:StudySite
     a owl:Class ;
     rdfs:label "StudySite" ;
     skos:exactMatch ncit:C80403 ;
+    skos:exactMatch obo:NCIT_C80403 ;
     skos:prefLabel "Study Site" ;
     skos:definition "The location at which a study investigator conducts study activities." ;
     usdm:modifier "Concrete" ;
@@ -7294,6 +7685,7 @@ usdm:StudySite-name
     rdfs:domain usdm:StudySite ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207566 ;
+    skos:exactMatch obo:NCIT_C207566 ;
     skos:prefLabel "Study Site Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the study site." ;
     usdm:relationshipType "Value" ;
@@ -7306,6 +7698,7 @@ usdm:StudySite-label
     rdfs:domain usdm:StudySite ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207565 ;
+    skos:exactMatch obo:NCIT_C207565 ;
     skos:prefLabel "Study Site Label" ;
     skos:definition "The short descriptive designation for the study site." ;
     usdm:relationshipType "Value" ;
@@ -7318,6 +7711,7 @@ usdm:StudySite-description
     rdfs:domain usdm:StudySite ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207564 ;
+    skos:exactMatch obo:NCIT_C207564 ;
     skos:prefLabel "Study Site Description" ;
     skos:definition "A narrative representation of the study site." ;
     usdm:relationshipType "Value" ;
@@ -7330,6 +7724,7 @@ usdm:StudySite-country
     rdfs:domain usdm:StudySite ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C170990 ;
+    skos:exactMatch obo:NCIT_C170990 ;
     skos:prefLabel "Country of Study Site" ;
     skos:definition "The country in which the study site is located." ;
     usdm:relationshipType "Value" ;
@@ -7356,6 +7751,7 @@ usdm:StudyTitle
     a owl:Class ;
     rdfs:label "StudyTitle" ;
     skos:exactMatch ncit:C49802 ;
+    skos:exactMatch obo:NCIT_C49802 ;
     skos:prefLabel "Study Title" ;
     skos:definition "The sponsor-defined name of the clinical study." ;
     usdm:modifier "Concrete" ;
@@ -7379,12 +7775,14 @@ usdm:StudyTitle-type
     rdfs:domain usdm:StudyTitle ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C207568 ;
+    skos:exactMatch obo:NCIT_C207568 ;
     skos:prefLabel "Study Title Type" ;
     skos:definition "A characterization or classification of the study title." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C207419 ;
+    usdm:boundCodelist obo:NCIT_C207419 ;
     usdm:boundCodelistNote "Y (C207419)" .
 
 usdm:StudyTitle-text
@@ -7393,6 +7791,7 @@ usdm:StudyTitle-text
     rdfs:domain usdm:StudyTitle ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207567 ;
+    skos:exactMatch obo:NCIT_C207567 ;
     skos:prefLabel "Study Title Text" ;
     skos:definition "An instance of unstructured text that represents the study title." ;
     usdm:relationshipType "Value" ;
@@ -7418,6 +7817,7 @@ usdm:StudyVersion
     a owl:Class ;
     rdfs:label "StudyVersion" ;
     skos:exactMatch ncit:C188816 ;
+    skos:exactMatch obo:NCIT_C188816 ;
     skos:prefLabel "Study Version" ;
     skos:definition "A plan at a particular point in time for a study." ;
     usdm:modifier "Concrete" ;
@@ -7443,6 +7843,7 @@ usdm:StudyVersion-versionIdentifier
     rdfs:domain usdm:StudyVersion ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207570 ;
+    skos:exactMatch obo:NCIT_C207570 ;
     skos:prefLabel "Study Version Identifier" ;
     skos:definition "A sequence of characters used to identify, name, or characterize the study version." ;
     usdm:relationshipType "Value" ;
@@ -7455,6 +7856,7 @@ usdm:StudyVersion-businessTherapeuticAreas
     rdfs:domain usdm:StudyVersion ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C201322 ;
+    skos:exactMatch obo:NCIT_C201322 ;
     skos:prefLabel "Business Therapeutic Areas" ;
     skos:definition "A therapeutic area classification based on the structure and operations of the business unit." ;
     usdm:relationshipType "Value" ;
@@ -7468,6 +7870,7 @@ usdm:StudyVersion-rationale
     rdfs:domain usdm:StudyVersion ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C94122 ;
+    skos:exactMatch obo:NCIT_C94122 ;
     skos:prefLabel "Study Rationale" ;
     skos:definition "A statement describing the overall rationale of the study. This field describes the contribution of this study to product development, i.e., what knowledge is being contributed from the conduct of this study." ;
     usdm:relationshipType "Value" ;
@@ -7480,6 +7883,7 @@ usdm:StudyVersion-notes
     rdfs:domain usdm:StudyVersion ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215539 ;
+    skos:exactMatch obo:NCIT_C215539 ;
     skos:prefLabel "Study Version Notes" ;
     skos:definition "A brief written record relevant to the study version." ;
     usdm:relationshipType "Value" ;
@@ -7676,6 +8080,7 @@ usdm:SubjectEnrollment
     a owl:Class ;
     rdfs:label "SubjectEnrollment" ;
     skos:exactMatch ncit:C37948 ;
+    skos:exactMatch obo:NCIT_C37948 ;
     skos:prefLabel "Subject Enrollment" ;
     skos:definition "The act of enrolling subjects into a study. The subject will have met the inclusion/exclusion criteria to participate in the trial and will have signed an informed consent form. (CDISC Glossary)" ;
     usdm:modifier "Concrete" ;
@@ -7704,6 +8109,7 @@ usdm:SubjectEnrollment-name
     rdfs:domain usdm:SubjectEnrollment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215540 ;
+    skos:exactMatch obo:NCIT_C215540 ;
     skos:prefLabel "Subject Enrollment Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the subject enrollment." ;
     usdm:relationshipType "Value" ;
@@ -7716,6 +8122,7 @@ usdm:SubjectEnrollment-label
     rdfs:domain usdm:SubjectEnrollment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215542 ;
+    skos:exactMatch obo:NCIT_C215542 ;
     skos:prefLabel "Subject Enrollment Label" ;
     skos:definition "The short descriptive designation for the subject enrollment.." ;
     usdm:relationshipType "Value" ;
@@ -7728,6 +8135,7 @@ usdm:SubjectEnrollment-description
     rdfs:domain usdm:SubjectEnrollment ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215541 ;
+    skos:exactMatch obo:NCIT_C215541 ;
     skos:prefLabel "Subject Enrollment Description" ;
     skos:definition "A narrative representation of the subject enrollment." ;
     usdm:relationshipType "Value" ;
@@ -7740,6 +8148,7 @@ usdm:SubjectEnrollment-quantity
     rdfs:domain usdm:SubjectEnrollment ;
     rdfs:range usdm:Quantity ;
     skos:exactMatch ncit:C207573 ;
+    skos:exactMatch obo:NCIT_C207573 ;
     skos:prefLabel "Subject Enrollment Quantity Value" ;
     skos:definition "The value representing the number of individuals enrolled in a study." ;
     usdm:relationshipType "Value" ;
@@ -7795,6 +8204,7 @@ usdm:Substance
     a owl:Class ;
     rdfs:label "Substance" ;
     skos:exactMatch ncit:C45306 ;
+    skos:exactMatch obo:NCIT_C45306 ;
     skos:prefLabel "Substance" ;
     skos:definition "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical." ;
     usdm:modifier "Concrete" ;
@@ -7821,6 +8231,7 @@ usdm:Substance-name
     rdfs:domain usdm:Substance ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215586 ;
+    skos:exactMatch obo:NCIT_C215586 ;
     skos:prefLabel "Substance Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the substance." ;
     usdm:relationshipType "Value" ;
@@ -7833,6 +8244,7 @@ usdm:Substance-label
     rdfs:domain usdm:Substance ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215588 ;
+    skos:exactMatch obo:NCIT_C215588 ;
     skos:prefLabel "Substance Label" ;
     skos:definition "The short descriptive designation for the substance." ;
     usdm:relationshipType "Value" ;
@@ -7845,6 +8257,7 @@ usdm:Substance-description
     rdfs:domain usdm:Substance ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C215587 ;
+    skos:exactMatch obo:NCIT_C215587 ;
     skos:prefLabel "Substance Description" ;
     skos:definition "A narrative representation of the substance." ;
     usdm:relationshipType "Value" ;
@@ -7857,6 +8270,7 @@ usdm:Substance-codes
     rdfs:domain usdm:Substance ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C215589 ;
+    skos:exactMatch obo:NCIT_C215589 ;
     skos:prefLabel "Substance Code" ;
     skos:definition "A symbol or combination of symbols which is assigned to the substance." ;
     usdm:relationshipType "Value" ;
@@ -7903,6 +8317,7 @@ usdm:SyntaxTemplate
     a owl:Class ;
     rdfs:label "SyntaxTemplate" ;
     skos:exactMatch ncit:C207596 ;
+    skos:exactMatch obo:NCIT_C207596 ;
     skos:prefLabel "Syntax Template" ;
     skos:definition "A standardized pattern used for the arrangement of words and phrases to create well-formed, structured sentences." ;
     usdm:modifier "Abstract" ;
@@ -7928,6 +8343,7 @@ usdm:SyntaxTemplate-name
     rdfs:domain usdm:SyntaxTemplate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207477 ;
+    skos:exactMatch obo:NCIT_C207477 ;
     skos:prefLabel "Characteristic Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the characteristic." ;
     usdm:relationshipType "Value" ;
@@ -7940,6 +8356,7 @@ usdm:SyntaxTemplate-label
     rdfs:domain usdm:SyntaxTemplate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207476 ;
+    skos:exactMatch obo:NCIT_C207476 ;
     skos:prefLabel "Characteristic Label" ;
     skos:definition "The short descriptive designation for the characteristic." ;
     usdm:relationshipType "Value" ;
@@ -7952,6 +8369,7 @@ usdm:SyntaxTemplate-description
     rdfs:domain usdm:SyntaxTemplate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207475 ;
+    skos:exactMatch obo:NCIT_C207475 ;
     skos:prefLabel "Characteristic Description" ;
     skos:definition "A narrative representation of the characteristic." ;
     usdm:relationshipType "Value" ;
@@ -7964,6 +8382,7 @@ usdm:SyntaxTemplate-text
     rdfs:domain usdm:SyntaxTemplate ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207478 ;
+    skos:exactMatch obo:NCIT_C207478 ;
     skos:prefLabel "Characteristic Text" ;
     skos:definition "An instance of structured text that represents the characteristic." ;
     usdm:relationshipType "Value" ;
@@ -7976,6 +8395,7 @@ usdm:SyntaxTemplate-notes
     rdfs:domain usdm:SyntaxTemplate ;
     rdfs:range usdm:CommentAnnotation ;
     skos:exactMatch ncit:C215548 ;
+    skos:exactMatch obo:NCIT_C215548 ;
     skos:prefLabel "Characteristic Notes" ;
     skos:definition "A brief written record relevant to the characteristic." ;
     usdm:relationshipType "Value" ;
@@ -7997,6 +8417,7 @@ usdm:SyntaxTemplateDictionary
     a owl:Class ;
     rdfs:label "SyntaxTemplateDictionary" ;
     skos:exactMatch ncit:C207597 ;
+    skos:exactMatch obo:NCIT_C207597 ;
     skos:prefLabel "Syntax Template Dictionary" ;
     skos:definition "A reference source that provides a listing of valid parameter names and values used in syntax template text strings." ;
     usdm:modifier "Concrete" ;
@@ -8022,6 +8443,7 @@ usdm:SyntaxTemplateDictionary-name
     rdfs:domain usdm:SyntaxTemplateDictionary ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207581 ;
+    skos:exactMatch obo:NCIT_C207581 ;
     skos:prefLabel "Syntax Template Dictionary Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the syntax template dictionary." ;
     usdm:relationshipType "Value" ;
@@ -8034,6 +8456,7 @@ usdm:SyntaxTemplateDictionary-label
     rdfs:domain usdm:SyntaxTemplateDictionary ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207580 ;
+    skos:exactMatch obo:NCIT_C207580 ;
     skos:prefLabel "Syntax Template Dictionary Label" ;
     skos:definition "The short descriptive designation for the syntax template dictionary." ;
     usdm:relationshipType "Value" ;
@@ -8046,6 +8469,7 @@ usdm:SyntaxTemplateDictionary-description
     rdfs:domain usdm:SyntaxTemplateDictionary ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207579 ;
+    skos:exactMatch obo:NCIT_C207579 ;
     skos:prefLabel "Syntax Template Dictionary Description" ;
     skos:definition "A narrative representation of the syntax template dictionary." ;
     usdm:relationshipType "Value" ;
@@ -8081,6 +8505,7 @@ usdm:Timing
     a owl:Class ;
     rdfs:label "Timing" ;
     skos:exactMatch ncit:C80484 ;
+    skos:exactMatch obo:NCIT_C80484 ;
     skos:prefLabel "Timing" ;
     skos:definition "The chronological relationship between temporal events." ;
     usdm:modifier "Concrete" ;
@@ -8114,6 +8539,7 @@ usdm:Timing-name
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207584 ;
+    skos:exactMatch obo:NCIT_C207584 ;
     skos:prefLabel "Timing Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the timing." ;
     usdm:relationshipType "Value" ;
@@ -8126,6 +8552,7 @@ usdm:Timing-label
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207583 ;
+    skos:exactMatch obo:NCIT_C207583 ;
     skos:prefLabel "Timing Label" ;
     skos:definition "The short descriptive designation for the timing." ;
     usdm:relationshipType "Value" ;
@@ -8138,6 +8565,7 @@ usdm:Timing-description
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C164648 ;
+    skos:exactMatch obo:NCIT_C164648 ;
     skos:prefLabel "Timing Description" ;
     skos:definition "A narrative representation of the chronological relationship between temporal events." ;
     usdm:relationshipType "Value" ;
@@ -8150,12 +8578,14 @@ usdm:Timing-type
     rdfs:domain usdm:Timing ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C201298 ;
+    skos:exactMatch obo:NCIT_C201298 ;
     skos:prefLabel "Timing Type" ;
     skos:definition "A characterization or classification of the chronological relationship between temporal events." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "type" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C201264 ;
+    usdm:boundCodelist obo:NCIT_C201264 ;
     usdm:boundCodelistNote "Y (C201264)" .
 
 usdm:Timing-relativeToFrom
@@ -8164,12 +8594,14 @@ usdm:Timing-relativeToFrom
     rdfs:domain usdm:Timing ;
     rdfs:range usdm:Code ;
     skos:exactMatch ncit:C201297 ;
+    skos:exactMatch obo:NCIT_C201297 ;
     skos:prefLabel "Timing Relative To From" ;
     skos:definition "The name of the reference event used to define the temporal relationship with another event." ;
     usdm:relationshipType "Value" ;
     usdm:modelName "relativeToFrom" ;
     usdm:modelRepresentation "Attribute" ;
     usdm:boundCodelist ncit:C201265 ;
+    usdm:boundCodelist obo:NCIT_C201265 ;
     usdm:boundCodelistNote "Y (C201265)" .
 
 usdm:Timing-value
@@ -8178,6 +8610,7 @@ usdm:Timing-value
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201341 ;
+    skos:exactMatch obo:NCIT_C201341 ;
     skos:prefLabel "Timing Value" ;
     skos:definition "The temporal value of the chronological relationship between temporal events." ;
     usdm:relationshipType "Value" ;
@@ -8190,6 +8623,7 @@ usdm:Timing-valueLabel
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207585 ;
+    skos:exactMatch obo:NCIT_C207585 ;
     skos:prefLabel "Timing Value Label" ;
     skos:definition "The short descriptive designation for the timing value." ;
     usdm:relationshipType "Value" ;
@@ -8202,6 +8636,7 @@ usdm:Timing-windowLabel
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207586 ;
+    skos:exactMatch obo:NCIT_C207586 ;
     skos:prefLabel "Timing Window Label" ;
     skos:definition "The short descriptive designation for a time period, or other type of interval, during which a temporal event may be achieved, obtained, or observed." ;
     usdm:relationshipType "Value" ;
@@ -8214,6 +8649,7 @@ usdm:Timing-windowLower
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201342 ;
+    skos:exactMatch obo:NCIT_C201342 ;
     skos:prefLabel "Timing Window, Lower" ;
     skos:definition "The earliest chronological value of an allowable period of time during which a temporal event takes place." ;
     usdm:relationshipType "Value" ;
@@ -8226,6 +8662,7 @@ usdm:Timing-windowUpper
     rdfs:domain usdm:Timing ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C201343 ;
+    skos:exactMatch obo:NCIT_C201343 ;
     skos:prefLabel "Timing Window, Upper" ;
     skos:definition "The latest chronological value of an allowable period of time during which a temporal event takes place." ;
     usdm:relationshipType "Value" ;
@@ -8271,6 +8708,7 @@ usdm:TransitionRule
     a owl:Class ;
     rdfs:label "TransitionRule" ;
     skos:exactMatch ncit:C82567 ;
+    skos:exactMatch obo:NCIT_C82567 ;
     skos:prefLabel "Transition Rule" ;
     skos:definition "A guide that governs the allocation of subjects to operational options at a discrete decision point or branch (e.g., assignment to a particular arm, discontinuation) within a clinical trial plan." ;
     usdm:modifier "Concrete" ;
@@ -8296,6 +8734,7 @@ usdm:TransitionRule-name
     rdfs:domain usdm:TransitionRule ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207588 ;
+    skos:exactMatch obo:NCIT_C207588 ;
     skos:prefLabel "Transition Rule Name" ;
     skos:definition "The literal identifier (i.e., distinctive designation) of the transition rule." ;
     usdm:relationshipType "Value" ;
@@ -8308,6 +8747,7 @@ usdm:TransitionRule-label
     rdfs:domain usdm:TransitionRule ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207587 ;
+    skos:exactMatch obo:NCIT_C207587 ;
     skos:prefLabel "Transition Rule Label" ;
     skos:definition "The short descriptive designation for the transition rule." ;
     usdm:relationshipType "Value" ;
@@ -8320,6 +8760,7 @@ usdm:TransitionRule-description
     rdfs:domain usdm:TransitionRule ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C188835 ;
+    skos:exactMatch obo:NCIT_C188835 ;
     skos:prefLabel "Transition Rule Description" ;
     skos:definition "A narrative representation of the transition rule." ;
     usdm:relationshipType "Value" ;
@@ -8332,6 +8773,7 @@ usdm:TransitionRule-text
     rdfs:domain usdm:TransitionRule ;
     rdfs:range xsd:string ;
     skos:exactMatch ncit:C207589 ;
+    skos:exactMatch obo:NCIT_C207589 ;
     skos:prefLabel "Transition Rule Text" ;
     skos:definition "An instance of unstructured text that represents the transition rule." ;
     usdm:relationshipType "Value" ;

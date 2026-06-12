@@ -27,6 +27,7 @@ from rdflib.namespace import OWL, RDF, SKOS
 
 USDM_NS = "https://w3id.org/cdisc/usdm/v4/"
 NCIT_NS = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#"
+OBO_NS  = "http://purl.obolibrary.org/obo/"
 
 USDM = rdflib.Namespace(USDM_NS)
 
@@ -39,6 +40,36 @@ def one(g, s, p):
     return vals[0] if vals else None
 
 
+def ncit_pair(g, s, p):
+    """Return (ccode, evs_iri, obo_iri) for a dual-anchored NCIt reference,
+    or None if absent. Since v0.4.0 every NCIt reference carries exactly two
+    values: the EVS identifier (host dead, kept because NCI Thesaurus still
+    declares the namespace) and the resolvable OBO PURL. Decision D4.
+    Raise on any other shape."""
+    vals = [v for v in g.objects(s, p) if isinstance(v, rdflib.URIRef)]
+    if not vals:
+        return None
+    evs = [v for v in vals if str(v).startswith(NCIT_NS)]
+    obo = [v for v in vals if str(v).startswith(OBO_NS + "NCIT_")]
+    if len(vals) != 2 or len(evs) != 1 or len(obo) != 1:
+        raise ValueError(f"expected EVS+OBO pair for {s} {p}, got: {vals}")
+    ccode_evs = str(evs[0])[len(NCIT_NS):]
+    ccode_obo = str(obo[0])[len(OBO_NS) + len("NCIT_"):]
+    if ccode_evs != ccode_obo:
+        raise ValueError(f"C-code mismatch for {s} {p}: EVS={ccode_evs} OBO={ccode_obo}")
+    return ccode_evs, str(evs[0]), str(obo[0])
+
+
+def ncit_link(ccode, evs_iri, obo_iri):
+    """Render the NCIt reference: hyperlink to the resolvable OBO PURL,
+    EVS identifier preserved in the tooltip."""
+    return (
+        f'<a href="{html.escape(obo_iri)}" '
+        f'title="EVS identifier: {html.escape(evs_iri)}">'
+        f'ncit:{html.escape(ccode)}</a>'
+    )
+
+
 def render_metadata(g, local_name, kind, iri):
     """Build the <dl class="usdm-metadata"> block for one entity."""
     rows = []
@@ -47,10 +78,9 @@ def render_metadata(g, local_name, kind, iri):
     if pref is not None:
         rows.append(("preferred term", html.escape(str(pref))))
 
-    exact = one(g, iri, SKOS.exactMatch)
-    if exact is not None and isinstance(exact, rdflib.URIRef) and str(exact).startswith(NCIT_NS):
-        ccode = str(exact)[len(NCIT_NS):]
-        rows.append(("NCIt anchor", f'<a href="{html.escape(str(exact))}">ncit:{html.escape(ccode)}</a>'))
+    exact = ncit_pair(g, iri, SKOS.exactMatch)
+    if exact is not None:
+        rows.append(("NCIt anchor", ncit_link(*exact)))
 
     if kind == "class":
         mod = one(g, iri, USDM["modifier"])
@@ -66,10 +96,9 @@ def render_metadata(g, local_name, kind, iri):
         mr = one(g, iri, USDM["modelRepresentation"])
         if mr is not None:
             rows.append(("model representation", html.escape(str(mr))))
-        bc = one(g, iri, USDM["boundCodelist"])
-        if bc is not None and isinstance(bc, rdflib.URIRef) and str(bc).startswith(NCIT_NS):
-            ccode = str(bc)[len(NCIT_NS):]
-            rows.append(("codelist binding", f'<a href="{html.escape(str(bc))}">ncit:{html.escape(ccode)}</a>'))
+        bc = ncit_pair(g, iri, USDM["boundCodelist"])
+        if bc is not None:
+            rows.append(("codelist binding", ncit_link(*bc)))
         bcn = one(g, iri, USDM["boundCodelistNote"])
         if bcn is not None:
             rows.append(("codelist binding (raw)", f'<pre>{html.escape(str(bcn))}</pre>'))
