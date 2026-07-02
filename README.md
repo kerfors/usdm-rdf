@@ -7,7 +7,8 @@ YAML source CDISC publishes in [cdisc-org/DDF-RA](https://github.com/cdisc-org/D
 `https://w3id.org/cdisc/usdm/v4/` (slash semantics, adopted in v0.3 —
 the v0.2 hash form is superseded; see
 [docs/v0.2-to-v0.3-migration.md](docs/v0.2-to-v0.3-migration.md)).
-The v0.3 w3id `.htaccess` is live (PR perma-id/w3id.org#6012 merged
+The w3id `.htaccess` is live and pinned to the v0.4.0 release (PR
+perma-id/w3id.org#6190 merged 2026-06-12; original registration #6012,
 2026-05-04), so IRIs in this namespace dereference via content negotiation. See
 [docs/iri-and-governance.md](docs/iri-and-governance.md) for the IRI
 scheme rationale and the CDISC governance handoff plan.
@@ -30,12 +31,13 @@ So the gap between published USDM and a queryable RDF/OWL view is mechanical,
 not semantic. This repo closes that gap with a small, reproducible pipeline
 (three notebooks + a single Turtle deliverable).
 
-## What's in v0.1
+## What the deliverable contains
 
 - `usdm_v4.ttl` at repo root — the deliverable, ontology-repo convention.
 - Mechanical conversion `dataStructure.yml → usdm_v4.ttl`.
-- NCIt anchoring via `skos:exactMatch` to NCI EVS Thesaurus IRIs (the same form
-  CDISC Library RDF uses).
+- NCIt anchoring via `skos:exactMatch` — dual anchor since v0.4.0 (decision
+  D4): the NCI EVS Thesaurus identifier (the same form CDISC Library RDF
+  uses) plus the resolvable OBO PURL, always both.
 - Inheritance, cardinality (`owl:Restriction`), Value/Ref distinction
   (annotation property), Model Name (annotation property).
 - Polymorphic associations (multi-`$ref` `Type` attributes) rendered as
@@ -51,18 +53,15 @@ not semantic. This repo closes that gap with a small, reproducible pipeline
 - Validation pipeline: `rdflib` parse + SPARQL sanity queries + a CSV report
   in `reports/`.
 
-## What's explicitly **out** of v0.1
+## What's explicitly **out** (known gaps)
 
 These are known gaps, not oversights. Do not infer that they are coming soon.
 
 - SULO or other upper-ontology alignment.
 - `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
-  permitted Code values per codelist). Only codelist-level anchors are emitted
-  in v0.1.
+  permitted Code values per codelist). Only codelist-level anchors are emitted.
 - Alignment to the existing CDISC Library RDF (Administered Item vocabulary).
 - SHACL shapes for instance validation.
-- Multiple format publication. Turtle only for v0.1 — no RDF/XML, JSON-LD, or
-  NTriples.
 
 ## Mechanical mapping (summary)
 
@@ -107,7 +106,8 @@ usdm-rdf/
 │   ├── 01_model_navigation.ipynb    # USDM v4 as a queryable data dictionary
 │   ├── 02_codelist_bindings.ipynb   # binding inventory + inheritance-aware reverse lookup
 │   ├── 03_coverage_gap_analysis.ipynb  # Code-typed property coverage + gap report
-│   └── 04_resolve_permitted_terms.ipynb  # resolve permitted Code values via NCI EVS
+│   ├── 04_resolve_permitted_terms.ipynb  # resolve permitted Code values via NCI EVS
+│   └── 05_polymorphic_associations.ipynb # polymorphic ranges + reverse range lookup
 ├── reports/                         # CSV reports from validation runs
 ├── docs/                            # design decisions, IRI scheme, future work
 ├── queries/                         # reusable standalone SPARQL files (none yet)
