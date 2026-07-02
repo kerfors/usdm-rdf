@@ -1,4 +1,4 @@
-# Reference copy of the v0.4.0 .htaccess submitted to perma-id/w3id.org
+# Reference copy of the v0.4.0 .htaccess merged into perma-id/w3id.org (PR #6190, 2026-06-12)
 #
 # Authoritative source: https://github.com/perma-id/w3id.org/blob/master/cdisc/usdm/v4/.htaccess
 #

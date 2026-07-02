@@ -11,11 +11,9 @@ NCIt anchor prefix question. Resolution is dual anchoring (decision D4
 in iri-and-governance.md) rather than a switch — every NCIt reference
 carries both the EVS identifier and the resolvable OBO PURL.
 
-Deferred from the v0.4.0 release: re-running the `examples/` notebooks.
-The forward binding inventory (notebook 02) returns two rows per bound
-property under dual anchoring, and the committed example CSVs predate
-it. The notebooks are pinned warn-not-fail on drift, so nothing breaks;
-refresh is a follow-up task.
+Closed 2026-07-02 (commit 67a1d24): the `examples/` refresh for dual
+anchoring. All five notebooks reworked to paired `_evs` / `_obo`
+columns and rerun against the 8,641-triple graph; CSVs regenerated.
 
 - SULO or other upper-ontology alignment.
 - `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
@@ -25,6 +23,10 @@ refresh is a follow-up task.
 - SHACL shapes for instance validation.
 - Multiple format publication. Turtle only — no RDF/XML, JSON-LD, or
   NTriples.
+- Concept lifecycle annotations (`owl:deprecated`, replacement links) —
+  parked; position recorded in `iri-and-governance.md` ("Concept
+  lifecycle across versions"). Requires an authoritative decision
+  source that does not yet exist.
 
 ## v0.1 — codelist binding annotations
 

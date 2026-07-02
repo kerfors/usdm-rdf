@@ -140,6 +140,48 @@ IRI as a tooltip. `usdm:boundCodelist` is consequently multi-valued
 (two IRIs per bound property) from v0.4.0 — consumers joining on a
 single value should filter by namespace prefix.
 
+### Concept lifecycle across versions (position recorded 2026-07-02, mechanism parked)
+
+The version identity story above covers rendering releases: every
+release resolves immutably via its `owl:versionIRI`, so a reference
+can be pinned and never drifts. It does not answer a harder question,
+raised publicly in response to the announcement article: what happens
+to a minted IRI when the underlying USDM concept changes meaning, is
+deprecated, is split into multiple concepts, or disappears in a later
+model version?
+
+The question decomposes into three layers, recorded here so the
+eventual mechanism is designed rather than improvised:
+
+- **Detection is mechanical.** On a DDF-RA tag bump, diffing
+  `dataStructure.yml` across tags surfaces added, removed, and
+  re-coded classes and attributes. This extends the existing
+  convention of documenting baseline deltas in `docs/` on every tag
+  bump. Not built: only one source tag (v4.0.0) exists, so there is
+  nothing to diff against yet.
+- **Annotation is mechanical, given a decision.** The generator could
+  emit `owl:deprecated true` plus a replacement link (e.g.
+  `dcterms:isReplacedBy`, one-to-many for splits) as mechanically as
+  it emits everything else — but only from an authoritative decision
+  source. No such source exists in DDF-RA today, and this repo will
+  not infer lifecycle events from a diff. A removal and a rename look
+  identical in a diff; only a human assertion distinguishes them.
+- **The assertion is governance.** Someone must say, out loud and on
+  the record: this concept is gone, replaced by that one; this concept
+  split into those two. That is a decision about what CDISC's names
+  mean over time, and the natural asserting body is the USDM
+  Governance Group. This is part of what the governance handoff
+  (below) offers to transfer.
+
+The per-version path (`/v4/`) bounds the problem but does not solve
+it: a future USDM v5 mints its own namespace, so v4 IRIs never break —
+but cross-version continuity links (which v5 concept continues this
+v4 concept?) are the same governance question in namespace form.
+
+Nothing in this section is implemented. It is the design position the
+repo will follow when a second source tag or a UGG lifecycle decision
+makes it actual.
+
 ## Property naming
 
 Class-scoped: `{ClassName}-{attributeName}`, hyphen-separated.
