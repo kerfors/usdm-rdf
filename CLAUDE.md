@@ -2,11 +2,12 @@
 
 ## Scope
 
-This repo produces two generated deliverables: `usdm_v4.ttl` and
-`usdm_v4.context.jsonld` (JSON-LD 1.1 instance context, since v0.5.0). The
-pipeline is four notebooks. There is no application code, no service, no
-API. Resist scope creep — if a task starts to look like "let's also do X",
-flag it before implementing.
+This repo produces four generated deliverables: `usdm_v4.ttl`,
+`usdm_v4.context.jsonld` (JSON-LD 1.1 instance context, since v0.5.0), and
+`usdm_v4.shapes.ttl` + `usdm_v4.shapes-ct.ttl` (SHACL structural +
+terminology shapes, since v0.6.0). The pipeline is five notebooks. There is
+no application code, no service, no API. Resist scope creep — if a task
+starts to look like "let's also do X", flag it before implementing.
 
 ## Code style
 
@@ -74,9 +75,11 @@ The pipeline was built in this order, with explicit review at each step:
 4. `20_generate_turtle.ipynb` → run → confirm `usdm_v4.ttl` at repo root
 5. `40_generate_context.ipynb` → run → confirm `usdm_v4.context.jsonld` at
    repo root (added v0.5.0; same outline → review → generate pattern)
-6. `30_validate.ipynb` → run → confirm CSV reports match baselines within
+6. `50_generate_shapes.ipynb` → run → confirm `usdm_v4.shapes.ttl` +
+   `usdm_v4.shapes-ct.ttl` at repo root (added v0.6.0; same pattern)
+7. `30_validate.ipynb` → run → confirm CSV reports match baselines within
    tolerance for source changes
-7. Stage for commit, propose commit message, do not push without confirmation
+8. Stage for commit, propose commit message, do not push without confirmation
 
 Future structural changes follow the same pattern: propose → review → generate.
 
@@ -85,15 +88,17 @@ Future structural changes follow the same pattern: propose → review → genera
 Do not, unless the user explicitly opens the scope:
 
 - Propose SULO or upper-ontology alignment.
-- Propose binding `USDM_CT.xlsx` enumerated codelist *values* (sheet 2 of
-  USDM_CT — permitted Code values per codelist). Codelist-level anchoring
-  is in scope; per-value binding is not.
+- Propose value binding for codelists backed by external terminology
+  packages (SDTM/Protocol Terminology members, free-text dictionary
+  references). Pulling SDTM CT in would be a third source file with a
+  decoupled release cadence. The 25 DDF-native value sets in sheet 2 of
+  `USDM_CT.xlsx` are in scope since v0.6.0 (`usdm_v4.shapes-ct.ttl`).
 - Propose alignment to the CDISC Library RDF Administered Item vocabulary.
 
 These are documented in `README.md` as known gaps. Scope openings so far:
 multiple-format publication shipped in v0.3 (w3id content negotiation);
 the JSON-LD instance context shipped in v0.5.0 (decision D5); SHACL shapes
-were opened 2026-07-03 and are scheduled for v0.6.0.
+shipped in v0.6.0 (decision D6, design in `docs/shacl-design.md`).
 
 ## IRI scheme
 
@@ -119,6 +124,6 @@ Ask. Especially:
 - Before changing the property-naming convention.
 - Before deviating from the mechanical mapping in `README.md`.
 - Before adding a dependency beyond `pyyaml` + `rdflib` + `openpyxl` +
-  standard library.
+  `pyshacl` + standard library.
 - Before adding a third source file beyond `dataStructure.yml` and
   `USDM_CT.xlsx`.

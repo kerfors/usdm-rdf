@@ -210,6 +210,21 @@ IRIs.
   property IRIs (148 of 693) never appear in context-derived instance
   graphs — node identity and `rdf:type` carry that information.
 
+### SHACL shape IRIs (v0.6.0, decision D6)
+
+- Structural shapes: `usdm:{ClassName}-shape`; terminology shapes:
+  `usdm:{DeclaringClass}-{attributeName}-ct-shape`. Same namespace as
+  the ontology — collision-free because no attribute is named `shape`
+  and attribute names contain no hyphens (verified at generation).
+- Shapes graph IRIs: `https://w3id.org/cdisc/usdm/v4/shapes` and
+  `https://w3id.org/cdisc/usdm/v4/shapes-ct`, in-namespace paths (no
+  class bears those lowercase names). `owl:versionInfo` tracks the
+  repo release.
+- Serving the shapes files under w3id follows the `context.jsonld`
+  fixed-path pattern at the next re-pin.
+- Design rationale (flatten, closed, standalone, severity from
+  extensibility, source boundary) in `docs/shacl-design.md`.
+
 ## Property naming
 
 Class-scoped: `{ClassName}-{attributeName}`, hyphen-separated.

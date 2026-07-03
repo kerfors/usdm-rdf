@@ -2,11 +2,16 @@
 
 ## v0.1 exclusions (deliberate, documented in README.md)
 
-Status as of v0.5.0: multiple-format publication shipped in v0.3 (five
-formats via w3id content negotiation). SHACL shapes are scheduled for
-v0.6.0 (scope explicitly opened 2026-07-03). The remaining three items
-— SULO alignment, per-value codelist binding, CDISC Library RDF
-alignment — are still out of scope.
+Status as of v0.6.0: multiple-format publication shipped in v0.3 (five
+formats via w3id content negotiation). SHACL shapes shipped in v0.6.0
+(two layers: structural `usdm_v4.shapes.ttl` + terminology
+`usdm_v4.shapes-ct.ttl`; design in `shacl-design.md`). The per-value
+codelist exclusion is refined by the v0.6.0 source boundary: the 25
+DDF-native value sets published in sheet 2 of `USDM_CT.xlsx` are now
+used (they were always inside the pinned sources); external
+terminology packages stay out. The remaining items — SULO alignment,
+external-CT value binding, CDISC Library RDF alignment — are still out
+of scope.
 
 Added in v0.5.0 (was on the original exclusion list as part of the
 JSON-LD question): `usdm_v4.context.jsonld`, a JSON-LD 1.1 instance
@@ -23,12 +28,14 @@ anchoring. All five notebooks reworked to paired `_evs` / `_obo`
 columns and rerun against the 8,641-triple graph; CSVs regenerated.
 
 - SULO or other upper-ontology alignment.
-- `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
-  permitted Code values per codelist). Codelist-level anchoring is in v0.1;
-  per-value binding is out.
+- Value binding for codelists backed by external terminology packages:
+  the 20 bindings referencing SDTM/Protocol Terminology codelists
+  (members live in the quarterly NCI EVS CT publications — a third
+  source with a decoupled release cadence) and the 12 free-text
+  external dictionary references (ISO 3166, ISO 639, MedDRA, SNOMEDCT,
+  etc.). The 25 DDF-native value sets in sheet 2 of `USDM_CT.xlsx` are
+  *in* since v0.6.0 (`usdm_v4.shapes-ct.ttl`).
 - Alignment to the existing CDISC Library RDF (Administered Item vocabulary).
-- SHACL shapes for instance validation — scope opened 2026-07-03,
-  scheduled for v0.6.0.
 - Multiple format publication. Turtle only — no RDF/XML, JSON-LD, or
   NTriples.
 - Concept lifecycle annotations (`owl:deprecated`, replacement links) —
@@ -92,6 +99,7 @@ alignment when CDISC Library RDF alignment lands.
 | v0.3.1   | 8,200   | +16 vs v0.3 | owl:versionIRI + 15 owl:AnnotationProperty declarations for dcterms/vann/skos/widoco predicates (decisions D1–D3; header fix — created reverted to 2026-04-27). |
 | v0.4.0   | 8,641   | +441 vs v0.3.1 | Dual NCIt anchoring (decision D4): OBO PURL twin on every NCIt reference — 396 skos:exactMatch + 45 usdm:boundCodelist. EVS host found NXDOMAIN 2026-06-12; EVS form kept as identifier (NCI Thesaurus 26.05d still declares it). |
 | v0.5.0   | 8,642   | +1 vs v0.4.0 | `xsd:date a rdfs:Datatype` declaration (aligns the source Turtle with OWLAPI-derived representations). Second deliverable added outside the triple count: `usdm_v4.context.jsonld` — JSON-LD 1.1 instance context (decision D5). |
+| v0.6.0   | 8,642   | 0 vs v0.5.0 | Ontology unchanged. Two SHACL deliverables added outside the triple count: `usdm_v4.shapes.ttl` (structural, 80 closed NodeShapes) + `usdm_v4.shapes-ct.ttl` (terminology, 25 value-set shapes, severity from extensibility). Design in `shacl-design.md`, decision D6. |
 
 All structural counts match exactly across v0/v0.1 (the new layer is purely
 additive on property IRIs):

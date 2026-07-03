@@ -1,0 +1,163 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix usdm: <https://w3id.org/cdisc/usdm/v4/> .
+
+<https://w3id.org/cdisc/usdm/v4/shapes-ct>
+    a owl:Ontology ;
+    dcterms:title "CDISC USDM v4 terminology SHACL shapes (DDF value sets)" ;
+    dcterms:source <https://w3id.org/cdisc/usdm/v4/> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "v0.6.0" .
+
+# codelist C207418, extensible: No
+usdm:AdministrableProduct-productDesignation-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:AdministrableProduct-productDesignation ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C202579" "C156473" ) ; sh:severity sh:Violation ] .
+
+# codelist C215483, extensible: Yes
+usdm:AdministrableProduct-sourcing-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:AdministrableProduct-sourcing ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C215659" "C215660" ) ; sh:severity sh:Warning ] .
+
+# codelist C215479, extensible: Yes
+usdm:AdministrableProductProperty-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:AdministrableProductProperty-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C45997" ) ; sh:severity sh:Warning ] .
+
+# codelist C188728, extensible: Yes
+usdm:Encounter-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Encounter-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C25716" ) ; sh:severity sh:Warning ] .
+
+# codelist C188726, extensible: No
+usdm:Endpoint-level-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Endpoint-level ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C170559" "C94496" "C139173" ) ; sh:severity sh:Violation ] .
+
+# codelist C207412, extensible: No
+usdm:GeographicScope-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:GeographicScope-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C25464" "C68846" "C41129" ) ; sh:severity sh:Violation ] .
+
+# codelist C207413, extensible: Yes
+usdm:GovernanceDate-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:GovernanceDate-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C71476" "C215663" "C215664" ) ; sh:severity sh:Warning ] .
+
+# codelist C215482, extensible: Yes
+usdm:MedicalDevice-sourcing-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:MedicalDevice-sourcing ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C215659" "C215660" ) ; sh:severity sh:Warning ] .
+
+# codelist C215484, extensible: Yes
+usdm:MedicalDeviceIdentifier-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:MedicalDeviceIdentifier-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C104504" "C112279" "C70848" "C99285" ) ; sh:severity sh:Warning ] .
+
+# codelist C188725, extensible: No
+usdm:Objective-level-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Objective-level ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C163559" "C85826" "C85827" ) ; sh:severity sh:Violation ] .
+
+# codelist C215486, extensible: Yes
+usdm:ObservationalStudyDesign-subTypes-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:ObservationalStudyDesign-subTypes ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C215675" "C215653" "C215654" "C215655" "C215656" "C49667" "C215657" "C215658" ) ; sh:severity sh:Warning ] .
+
+# codelist C188724, extensible: Yes
+usdm:Organization-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Organization-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C93453" "C188863" "C21541" "C54149" "C37984" "C54148" "C199144" "C18240" "C215661" ) ; sh:severity sh:Warning ] .
+
+# codelist C215485, extensible: Yes
+usdm:ProductOrganizationRole-code-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:ProductOrganizationRole-code ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C25392" "C43530" ) ; sh:severity sh:Warning ] .
+
+# codelist C215478, extensible: Yes
+usdm:ReferenceIdentifier-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:ReferenceIdentifier-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C215674" "C142424" ) ; sh:severity sh:Warning ] .
+
+# codelist C215481, extensible: Yes
+usdm:StudyAmendmentImpact-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyAmendmentImpact-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C215665" "C215666" "C215667" "C215668" ) ; sh:severity sh:Warning ] .
+
+# codelist C207415, extensible: Yes
+usdm:StudyAmendmentReason-code-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyAmendmentReason-code ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C207600" "C207601" "C207602" "C207603" "C207604" "C207605" "C207606" "C207607" "C207608" "C207609" "C207610" "C207611" "C207612" "C17649" "C48660" ) ; sh:severity sh:Warning ] .
+
+# codelist C188727, extensible: Yes
+usdm:StudyArm-dataOriginType-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyArm-dataOriginType ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C188866" "C188864" "C165830" "C176263" ) ; sh:severity sh:Warning ] .
+
+# codelist C215477, extensible: Yes
+usdm:StudyDefinitionDocument-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyDefinitionDocument-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C70817" ) ; sh:severity sh:Warning ] .
+
+# codelist C188723, extensible: No
+usdm:StudyDefinitionDocumentVersion-status-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyDefinitionDocumentVersion-status ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C25425" "C85255" "C25508" "C63553" "C188862" ) ; sh:severity sh:Violation ] .
+
+# codelist C207416, extensible: Yes
+usdm:StudyDesign-characteristics-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyDesign-characteristics ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C98704" "C207613" "C46079" "C217004" "C217005" "C217006" "C217007" "C25689" "C147145" ) ; sh:severity sh:Warning ] .
+
+# codelist C207417, extensible: No
+usdm:StudyIntervention-role-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyIntervention-role ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C207614" "C165822" "C158128" "C18020" "C41161" "C753" "C165835" "C68609" ) ; sh:severity sh:Violation ] .
+
+# codelist C215480, extensible: Yes
+usdm:StudyRole-code-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyRole-code ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C17445" "C25936" "C207599" "C70793" "C41189" "C78726" "C215669" "C25392" "C215670" "C188863" "C51876" "C142578" "C215671" "C142489" "C19924" "C215672" "C51851" "C37984" "C215673" "C215662" "C80403" "C51877" ) ; sh:severity sh:Warning ] .
+
+# codelist C207419, extensible: No
+usdm:StudyTitle-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyTitle-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C207615" "C207616" "C207617" "C207618" "C94108" ) ; sh:severity sh:Violation ] .
+
+# codelist C201265, extensible: No
+usdm:Timing-relativeToFrom-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Timing-relativeToFrom ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C201352" "C201353" "C201354" "C201355" ) ; sh:severity sh:Violation ] .
+
+# codelist C201264, extensible: No
+usdm:Timing-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Timing-type ;
+    sh:property [ sh:path usdm:Code-code ; sh:in ( "C201356" "C201357" "C201358" ) ; sh:severity sh:Violation ] .

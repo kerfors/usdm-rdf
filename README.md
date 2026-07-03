@@ -56,8 +56,18 @@ not semantic. This repo closes that gap with a small, reproducible pipeline
   Type-scoped contexts map serialization keys to class-scoped property IRIs;
   `Ref` attributes become graph links. Validated against the CDISC Pilot
   example study published in DDF-RA at the pinned tag.
+- `usdm_v4.shapes.ttl` + `usdm_v4.shapes-ct.ttl` at repo root — SHACL
+  shapes (since v0.6.0, decision D6; design in
+  [docs/shacl-design.md](docs/shacl-design.md)). Structural layer: one
+  closed NodeShape per concrete class, flattened, validating a bare
+  instance graph with no ontology merge or inference. Terminology layer:
+  the 25 DDF-native value sets from sheet 2 of `USDM_CT.xlsx` as `sh:in`
+  checks, severity from the published extensibility flag (non-extensible →
+  Violation, extensible → Warning). The CDISC Pilot study conforms
+  structurally; the terminology layer surfaces 14 real findings in it.
 - Validation pipeline: `rdflib` parse + SPARQL sanity queries + instance
-  context check against the CDISC Pilot example + CSV reports in `reports/`.
+  context check + two-layer SHACL conformance check against the CDISC
+  Pilot example + CSV reports in `reports/`.
 
 ## What's explicitly **out** (known gaps)
 
@@ -67,8 +77,10 @@ These are known gaps, not oversights. Do not infer that they are coming soon.
 - `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
   permitted Code values per codelist). Only codelist-level anchors are emitted.
 - Alignment to the existing CDISC Library RDF (Administered Item vocabulary).
-- SHACL shapes for instance validation — scope opened 2026-07-03, scheduled
-  for v0.6.0.
+- Value binding for codelists backed by external terminology packages
+  (SDTM/Protocol Terminology members, free-text dictionary references).
+  The DDF-native value sets in sheet 2 of `USDM_CT.xlsx` are covered by
+  `usdm_v4.shapes-ct.ttl` since v0.6.0.
 
 ## Mechanical mapping (summary)
 
@@ -104,12 +116,16 @@ usdm-rdf/
 ├── .gitignore
 ├── usdm_v4.ttl                      # the ontology deliverable
 ├── usdm_v4.context.jsonld           # the JSON-LD 1.1 instance context deliverable (v0.5.0, D5)
+├── usdm_v4.shapes.ttl               # SHACL structural shapes deliverable (v0.6.0, D6)
+├── usdm_v4.shapes-ct.ttl            # SHACL terminology shapes deliverable (v0.6.0, D6)
 ├── downloads/                       # gitignored — dataStructure.yml + USDM_CT.xlsx fetched here (+ CDISC_Pilot_Study.json test data)
 ├── notebooks/
 │   ├── 10_fetch_yaml.ipynb          # pin DDF-RA release tag, fetch dataStructure.yml + USDM_CT.xlsx
 │   ├── 20_generate_turtle.ipynb     # YAML + USDM_CT → Turtle conversion
-│   ├── 30_validate.ipynb            # rdflib parse + SPARQL sanity + binding cross-check + instance context check + reports
-│   └── 40_generate_context.ipynb    # YAML → JSON-LD 1.1 instance context
+│   ├── 30_validate.ipynb            # rdflib parse + SPARQL sanity + binding cross-check + instance context check + SHACL check + reports
+│   ├── 40_generate_context.ipynb    # YAML → JSON-LD 1.1 instance context
+│   ├── 50_generate_shapes.ipynb     # YAML + USDM_CT sheet 2 → SHACL shapes (two layers)
+│   └── 60_validate_study.ipynb      # check any USDM v4 study JSON (optional checker, not pipeline)
 ├── examples/                        # demo notebooks — see examples/README.md
 │   ├── README.md
 │   ├── 01_model_navigation.ipynb    # USDM v4 as a queryable data dictionary
@@ -120,7 +136,7 @@ usdm-rdf/
 ├── reports/                         # CSV reports from validation runs
 ├── docs/                            # design decisions, IRI scheme, future work
 ├── queries/                         # reusable standalone SPARQL files (none yet)
-└── versions/                        # usdm_v4.ttl + usdm_v4.context.jsonld snapshots per DDF-RA tag bump (none yet — single source tag v4.0.0 so far)
+└── versions/                        # deliverable snapshots per DDF-RA tag bump (none yet — single source tag v4.0.0 so far)
 ```
 
 ## Reproduce
@@ -132,14 +148,26 @@ usdm-rdf/
    appears at the repo root.
 3. Open `notebooks/40_generate_context.ipynb`. Run all cells.
    `usdm_v4.context.jsonld` appears at the repo root.
-4. Open `notebooks/30_validate.ipynb`. Run all cells. CSV reports are written
+4. Open `notebooks/50_generate_shapes.ipynb`. Run all cells.
+   `usdm_v4.shapes.ttl` and `usdm_v4.shapes-ct.ttl` appear at the repo root.
+5. Open `notebooks/30_validate.ipynb`. Run all cells. CSV reports are written
    to `reports/`. Compare against the baseline numbers below. The instance
-   context check fetches `CDISC_Pilot_Study.json` (test data, not a modelling
-   source) into `downloads/` at the pinned tag.
+   context and SHACL checks fetch `CDISC_Pilot_Study.json` (test data, not a
+   modelling source) into `downloads/` at the pinned tag.
 
 Bumping the DDF-RA tag is a deliberate action, not a default — edit the pinned
-tag in `10_fetch_yaml.ipynb` and re-run all four notebooks. Both source files
+tag in `10_fetch_yaml.ipynb` and re-run all five notebooks. Both source files
 live at the same tag, so a bump refreshes them in lockstep.
+
+## Check your own study definition
+
+Open `notebooks/60_validate_study.ipynb`, set `STUDY_JSON` to your USDM v4
+study definition (the JSON that DDF-compliant systems exchange), and run all
+cells. It reports context conformance (every key and type resolves, every
+cross-reference lands) and both SHACL layers — structural violations plus
+terminology findings with severity from CDISC's published extensibility
+flags. Findings carry the object's `id` so they trace back to your JSON.
+It reports; it does not judge protocol quality.
 
 ## Expected baselines (current DDF-RA tag `v4.0.0`)
 
@@ -150,6 +178,12 @@ live at the same tag, so a bump refreshes them in lockstep.
 - 57 properties with `usdm:boundCodelistNote`; 45 of those also with `usdm:boundCodelist`
 - Instance context check (CDISC Pilot example, DDF-RA `v4.0.0`): 11,811
   triples; 1,953 typed nodes; 1,257 Ref links, 0 dangling; 0 unmapped keys
+- SHACL shapes: 80 closed NodeShapes, 619 property shapes, 20 `sh:or`
+  (structural); 25 value-set shapes, 125 permitted values, 9 Violation +
+  16 Warning severities (terminology)
+- SHACL conformance (CDISC Pilot): structural conforms; terminology
+  reports 3 Violations + 11 Warnings (placeholder/extension codes in the
+  published example — findings, not pipeline errors)
 
 Deviation from a fresh DDF-RA release indicates either a source change (likely
 benign — document the delta in `docs/`) or a generation bug (investigate).
@@ -164,8 +198,9 @@ benign — document the delta in `docs/`) or a generation bug (investigate).
 ## License
 
 - Code: MIT (see `LICENSE`).
-- Generated content (`usdm_v4.ttl`, `usdm_v4.context.jsonld`, files in
-  `versions/`, derived reports): CC-BY-4.0, mirroring the DDF-RA source.
+- Generated content (`usdm_v4.ttl`, `usdm_v4.context.jsonld`,
+  `usdm_v4.shapes.ttl`, `usdm_v4.shapes-ct.ttl`, files in `versions/`,
+  derived reports): CC-BY-4.0, mirroring the DDF-RA source.
 
 ## Acknowledgements
 

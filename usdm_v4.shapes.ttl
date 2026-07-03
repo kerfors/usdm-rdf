@@ -1,0 +1,1112 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix usdm: <https://w3id.org/cdisc/usdm/v4/> .
+
+<https://w3id.org/cdisc/usdm/v4/shapes>
+    a owl:Ontology ;
+    dcterms:title "CDISC USDM v4 structural SHACL shapes" ;
+    dcterms:source <https://w3id.org/cdisc/usdm/v4/> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "v0.6.0" .
+
+usdm:Abbreviation-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Abbreviation ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Abbreviation-abbreviatedText ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Abbreviation-expandedText ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Abbreviation-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Abbreviation-notes ; sh:class usdm:CommentAnnotation ] .
+
+usdm:Activity-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Activity ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Activity-bcCategoryIds ; sh:nodeKind sh:IRI ; sh:class usdm:BiomedicalConceptCategory ] ;
+    sh:property [ sh:path usdm:Activity-bcSurrogateIds ; sh:nodeKind sh:IRI ; sh:class usdm:BiomedicalConceptSurrogate ] ;
+    sh:property [ sh:path usdm:Activity-biomedicalConceptIds ; sh:nodeKind sh:IRI ; sh:class usdm:BiomedicalConcept ] ;
+    sh:property [ sh:path usdm:Activity-childIds ; sh:nodeKind sh:IRI ; sh:class usdm:Activity ] ;
+    sh:property [ sh:path usdm:Activity-definedProcedures ; sh:class usdm:Procedure ] ;
+    sh:property [ sh:path usdm:Activity-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Activity-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Activity-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Activity-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Activity-nextId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Activity ] ;
+    sh:property [ sh:path usdm:Activity-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:Activity-previousId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Activity ] ;
+    sh:property [ sh:path usdm:Activity-timelineId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:ScheduleTimeline ] .
+
+usdm:Address-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Address ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Address-city ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Address-country ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Address-district ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Address-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Address-lines ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Address-postalCode ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Address-state ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Address-text ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:AdministrableProduct-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:AdministrableProduct ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:AdministrableProduct-administrableDoseForm ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-identifiers ; sh:class usdm:AdministrableProductIdentifier ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-ingredients ; sh:class usdm:Ingredient ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-pharmacologicClass ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-productDesignation ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-properties ; sh:class usdm:AdministrableProductProperty ] ;
+    sh:property [ sh:path usdm:AdministrableProduct-sourcing ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:AdministrableProductIdentifier-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:AdministrableProductIdentifier ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:AdministrableProductIdentifier-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Identifier-scopeId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Organization ] ;
+    sh:property [ sh:path usdm:Identifier-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:AdministrableProductProperty-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:AdministrableProductProperty ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:AdministrableProductProperty-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:AdministrableProductProperty-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AdministrableProductProperty-quantity ; sh:maxCount 1 ; sh:class usdm:Quantity ] ;
+    sh:property [ sh:path usdm:AdministrableProductProperty-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AdministrableProductProperty-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:Administration-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Administration ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Administration-administrableProductId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:AdministrableProduct ] ;
+    sh:property [ sh:path usdm:Administration-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Administration-dose ; sh:maxCount 1 ; sh:class usdm:Quantity ] ;
+    sh:property [ sh:path usdm:Administration-duration ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Duration ] ;
+    sh:property [ sh:path usdm:Administration-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Administration-frequency ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:Administration-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Administration-medicalDeviceId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:MedicalDevice ] ;
+    sh:property [ sh:path usdm:Administration-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Administration-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:Administration-route ; sh:maxCount 1 ; sh:class usdm:AliasCode ] .
+
+usdm:AliasCode-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:AliasCode ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:AliasCode-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:AliasCode-standardCode ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:AliasCode-standardCodeAliases ; sh:class usdm:Code ] .
+
+usdm:AnalysisPopulation-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:AnalysisPopulation ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:AnalysisPopulation-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AnalysisPopulation-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:AnalysisPopulation-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AnalysisPopulation-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AnalysisPopulation-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:AnalysisPopulation-subsetOfIds ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:StudyCohort ] [ sh:class usdm:StudyDesignPopulation ] ) ] ;
+    sh:property [ sh:path usdm:AnalysisPopulation-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:AssignedPerson-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:AssignedPerson ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:AssignedPerson-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AssignedPerson-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:AssignedPerson-jobTitle ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AssignedPerson-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AssignedPerson-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:AssignedPerson-organizationId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Organization ] ;
+    sh:property [ sh:path usdm:AssignedPerson-personName ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:PersonName ] .
+
+usdm:BiomedicalConcept-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:BiomedicalConcept ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:BiomedicalConcept-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:BiomedicalConcept-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:BiomedicalConcept-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConcept-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConcept-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:BiomedicalConcept-properties ; sh:class usdm:BiomedicalConceptProperty ] ;
+    sh:property [ sh:path usdm:BiomedicalConcept-reference ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConcept-synonyms ; sh:datatype xsd:string ] .
+
+usdm:BiomedicalConceptCategory-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:BiomedicalConceptCategory ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-childIds ; sh:nodeKind sh:IRI ; sh:class usdm:BiomedicalConceptCategory ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-code ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-memberIds ; sh:nodeKind sh:IRI ; sh:class usdm:BiomedicalConcept ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptCategory-notes ; sh:class usdm:CommentAnnotation ] .
+
+usdm:BiomedicalConceptProperty-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:BiomedicalConceptProperty ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-datatype ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-isEnabled ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-isRequired ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptProperty-responseCodes ; sh:class usdm:ResponseCode ] .
+
+usdm:BiomedicalConceptSurrogate-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:BiomedicalConceptSurrogate ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:BiomedicalConceptSurrogate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptSurrogate-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptSurrogate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptSurrogate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptSurrogate-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:BiomedicalConceptSurrogate-reference ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:BiospecimenRetention-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:BiospecimenRetention ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:BiospecimenRetention-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiospecimenRetention-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:BiospecimenRetention-includesDNA ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:BiospecimenRetention-isRetained ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:BiospecimenRetention-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:BiospecimenRetention-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Characteristic-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Characteristic ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:SyntaxTemplate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-dictionaryId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:SyntaxTemplateDictionary ] ;
+    sh:property [ sh:path usdm:Characteristic-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Code-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Code ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Code-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Code-codeSystem ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Code-codeSystemVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Code-decode ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Code-extensionAttributes ; sh:class usdm:ExtensionAttribute ] .
+
+usdm:CommentAnnotation-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:CommentAnnotation ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:CommentAnnotation-codes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:CommentAnnotation-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:CommentAnnotation-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Condition-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Condition ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Condition-appliesToIds ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:BiomedicalConceptCategory ] [ sh:class usdm:Procedure ] [ sh:class usdm:Activity ] [ sh:class usdm:BiomedicalConcept ] [ sh:class usdm:BiomedicalConceptSurrogate ] ) ] ;
+    sh:property [ sh:path usdm:Condition-contextIds ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:Activity ] [ sh:class usdm:ScheduledActivityInstance ] ) ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-dictionaryId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:SyntaxTemplateDictionary ] ;
+    sh:property [ sh:path usdm:Condition-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:ConditionAssignment-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ConditionAssignment ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ConditionAssignment-condition ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ConditionAssignment-conditionTargetId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:ScheduledActivityInstance ] [ sh:class usdm:ScheduledDecisionInstance ] ) ] ;
+    sh:property [ sh:path usdm:ConditionAssignment-extensionAttributes ; sh:class usdm:ExtensionAttribute ] .
+
+usdm:DocumentContentReference-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:DocumentContentReference ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:DocumentContentReference-appliesToId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyDefinitionDocument ] ;
+    sh:property [ sh:path usdm:DocumentContentReference-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:DocumentContentReference-sectionNumber ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:DocumentContentReference-sectionTitle ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Duration-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Duration ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Duration-durationWillVary ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:Duration-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Duration-quantity ; sh:maxCount 1 ; sh:or ( [ sh:class usdm:Quantity ] [ sh:class usdm:Range ] ) ] ;
+    sh:property [ sh:path usdm:Duration-reasonDurationWillVary ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Duration-text ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:EligibilityCriterion-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:EligibilityCriterion ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:EligibilityCriterion-category ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-criterionItemId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:EligibilityCriterionItem ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-identifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-nextId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:EligibilityCriterion ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:EligibilityCriterion-previousId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:EligibilityCriterion ] .
+
+usdm:EligibilityCriterionItem-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:EligibilityCriterionItem ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:SyntaxTemplate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-dictionaryId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:SyntaxTemplateDictionary ] ;
+    sh:property [ sh:path usdm:EligibilityCriterionItem-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Encounter-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Encounter ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Encounter-contactModes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Encounter-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Encounter-environmentalSettings ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Encounter-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Encounter-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Encounter-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Encounter-nextId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Encounter ] ;
+    sh:property [ sh:path usdm:Encounter-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:Encounter-previousId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Encounter ] ;
+    sh:property [ sh:path usdm:Encounter-scheduledAtId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Timing ] ;
+    sh:property [ sh:path usdm:Encounter-transitionEndRule ; sh:maxCount 1 ; sh:class usdm:TransitionRule ] ;
+    sh:property [ sh:path usdm:Encounter-transitionStartRule ; sh:maxCount 1 ; sh:class usdm:TransitionRule ] ;
+    sh:property [ sh:path usdm:Encounter-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:Endpoint-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Endpoint ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:SyntaxTemplate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-dictionaryId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:SyntaxTemplateDictionary ] ;
+    sh:property [ sh:path usdm:Endpoint-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Endpoint-level ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:Endpoint-purpose ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Estimand-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Estimand ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Estimand-analysisPopulationId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:AnalysisPopulation ] ;
+    sh:property [ sh:path usdm:Estimand-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Estimand-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Estimand-intercurrentEvents ; sh:minCount 1 ; sh:class usdm:IntercurrentEvent ] ;
+    sh:property [ sh:path usdm:Estimand-interventionIds ; sh:minCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyIntervention ] ;
+    sh:property [ sh:path usdm:Estimand-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Estimand-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Estimand-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:Estimand-populationSummary ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Estimand-variableOfInterestId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Endpoint ] .
+
+usdm:ExtensionAttribute-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ExtensionAttribute ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ExtensionAttribute-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-url ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueAliasCode ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueBoolean ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueCode ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueExtensionClass ; sh:maxCount 1 ; sh:class usdm:ExtensionClass ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueId ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueInteger ; sh:maxCount 1 ; sh:datatype xsd:integer ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueQuantity ; sh:maxCount 1 ; sh:class usdm:Quantity ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueRange ; sh:maxCount 1 ; sh:class usdm:Range ] ;
+    sh:property [ sh:path usdm:ExtensionAttribute-valueString ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:ExtensionClass-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ExtensionClass ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ExtensionClass-extensionAttributes ; sh:minCount 1 ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ExtensionClass-url ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:GeographicScope-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:GeographicScope ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:GeographicScope-code ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:GeographicScope-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:GeographicScope-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:GovernanceDate-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:GovernanceDate ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:GovernanceDate-dateValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path usdm:GovernanceDate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:GovernanceDate-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:GovernanceDate-geographicScopes ; sh:minCount 1 ; sh:class usdm:GeographicScope ] ;
+    sh:property [ sh:path usdm:GovernanceDate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:GovernanceDate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:GovernanceDate-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:Indication-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Indication ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Indication-codes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Indication-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Indication-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Indication-isRareDisease ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:Indication-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Indication-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Indication-notes ; sh:class usdm:CommentAnnotation ] .
+
+usdm:Ingredient-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Ingredient ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Ingredient-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Ingredient-role ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Ingredient-substance ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Substance ] .
+
+usdm:IntercurrentEvent-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:IntercurrentEvent ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:SyntaxTemplate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-dictionaryId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:SyntaxTemplateDictionary ] ;
+    sh:property [ sh:path usdm:IntercurrentEvent-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:IntercurrentEvent-strategy ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:InterventionalStudyDesign-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:InterventionalStudyDesign ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyDesign-activities ; sh:class usdm:Activity ] ;
+    sh:property [ sh:path usdm:InterventionalStudyDesign-analysisPopulations ; sh:class usdm:AnalysisPopulation ] ;
+    sh:property [ sh:path usdm:StudyDesign-arms ; sh:minCount 1 ; sh:class usdm:StudyArm ] ;
+    sh:property [ sh:path usdm:StudyDesign-biospecimenRetentions ; sh:class usdm:BiospecimenRetention ] ;
+    sh:property [ sh:path usdm:InterventionalStudyDesign-blindingSchema ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:StudyDesign-characteristics ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDesign-documentVersionIds ; sh:nodeKind sh:IRI ; sh:class usdm:StudyDefinitionDocumentVersion ] ;
+    sh:property [ sh:path usdm:StudyDesign-elements ; sh:class usdm:StudyElement ] ;
+    sh:property [ sh:path usdm:StudyDesign-eligibilityCriteria ; sh:minCount 1 ; sh:class usdm:EligibilityCriterion ] ;
+    sh:property [ sh:path usdm:StudyDesign-encounters ; sh:class usdm:Encounter ] ;
+    sh:property [ sh:path usdm:StudyDesign-epochs ; sh:minCount 1 ; sh:class usdm:StudyEpoch ] ;
+    sh:property [ sh:path usdm:StudyDesign-estimands ; sh:class usdm:Estimand ] ;
+    sh:property [ sh:path usdm:InterventionalStudyDesign-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyDesign-indications ; sh:class usdm:Indication ] ;
+    sh:property [ sh:path usdm:InterventionalStudyDesign-intentTypes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:InterventionalStudyDesign-model ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDesign-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyDesign-objectives ; sh:class usdm:Objective ] ;
+    sh:property [ sh:path usdm:StudyDesign-population ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:StudyDesignPopulation ] ;
+    sh:property [ sh:path usdm:StudyDesign-rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDesign-scheduleTimelines ; sh:class usdm:ScheduleTimeline ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyCells ; sh:minCount 1 ; sh:class usdm:StudyCell ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyInterventionIds ; sh:nodeKind sh:IRI ; sh:class usdm:StudyIntervention ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyPhase ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyType ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:InterventionalStudyDesign-subTypes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-therapeuticAreas ; sh:class usdm:Code ] .
+
+usdm:Masking-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Masking ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Masking-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Masking-isMasked ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:Masking-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:MedicalDevice-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:MedicalDevice ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:MedicalDevice-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:MedicalDevice-embeddedProductId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:AdministrableProduct ] ;
+    sh:property [ sh:path usdm:MedicalDevice-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:MedicalDevice-hardwareVersion ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:MedicalDevice-identifiers ; sh:class usdm:MedicalDeviceIdentifier ] ;
+    sh:property [ sh:path usdm:MedicalDevice-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:MedicalDevice-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:MedicalDevice-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:MedicalDevice-softwareVersion ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:MedicalDevice-sourcing ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:MedicalDeviceIdentifier-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:MedicalDeviceIdentifier ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:MedicalDeviceIdentifier-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Identifier-scopeId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Organization ] ;
+    sh:property [ sh:path usdm:Identifier-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:MedicalDeviceIdentifier-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:NarrativeContent-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:NarrativeContent ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:NarrativeContent-childIds ; sh:nodeKind sh:IRI ; sh:class usdm:NarrativeContent ] ;
+    sh:property [ sh:path usdm:NarrativeContent-contentItemId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:NarrativeContentItem ] ;
+    sh:property [ sh:path usdm:NarrativeContent-displaySectionNumber ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:NarrativeContent-displaySectionTitle ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:NarrativeContent-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:NarrativeContent-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:NarrativeContent-nextId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:NarrativeContent ] ;
+    sh:property [ sh:path usdm:NarrativeContent-previousId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:NarrativeContent ] ;
+    sh:property [ sh:path usdm:NarrativeContent-sectionNumber ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:NarrativeContent-sectionTitle ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:NarrativeContentItem-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:NarrativeContentItem ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:NarrativeContentItem-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:NarrativeContentItem-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:NarrativeContentItem-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Objective-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Objective ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:SyntaxTemplate-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-dictionaryId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:SyntaxTemplateDictionary ] ;
+    sh:property [ sh:path usdm:Objective-endpoints ; sh:class usdm:Endpoint ] ;
+    sh:property [ sh:path usdm:Objective-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Objective-level ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:SyntaxTemplate-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:ObservationalStudyDesign-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ObservationalStudyDesign ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyDesign-activities ; sh:class usdm:Activity ] ;
+    sh:property [ sh:path usdm:ObservationalStudyDesign-analysisPopulations ; sh:class usdm:AnalysisPopulation ] ;
+    sh:property [ sh:path usdm:StudyDesign-arms ; sh:minCount 1 ; sh:class usdm:StudyArm ] ;
+    sh:property [ sh:path usdm:StudyDesign-biospecimenRetentions ; sh:class usdm:BiospecimenRetention ] ;
+    sh:property [ sh:path usdm:StudyDesign-characteristics ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDesign-documentVersionIds ; sh:nodeKind sh:IRI ; sh:class usdm:StudyDefinitionDocumentVersion ] ;
+    sh:property [ sh:path usdm:StudyDesign-elements ; sh:class usdm:StudyElement ] ;
+    sh:property [ sh:path usdm:StudyDesign-eligibilityCriteria ; sh:minCount 1 ; sh:class usdm:EligibilityCriterion ] ;
+    sh:property [ sh:path usdm:StudyDesign-encounters ; sh:class usdm:Encounter ] ;
+    sh:property [ sh:path usdm:StudyDesign-epochs ; sh:minCount 1 ; sh:class usdm:StudyEpoch ] ;
+    sh:property [ sh:path usdm:StudyDesign-estimands ; sh:class usdm:Estimand ] ;
+    sh:property [ sh:path usdm:ObservationalStudyDesign-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyDesign-indications ; sh:class usdm:Indication ] ;
+    sh:property [ sh:path usdm:StudyDesign-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ObservationalStudyDesign-model ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDesign-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyDesign-objectives ; sh:class usdm:Objective ] ;
+    sh:property [ sh:path usdm:StudyDesign-population ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:StudyDesignPopulation ] ;
+    sh:property [ sh:path usdm:StudyDesign-rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ObservationalStudyDesign-samplingMethod ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-scheduleTimelines ; sh:class usdm:ScheduleTimeline ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyCells ; sh:minCount 1 ; sh:class usdm:StudyCell ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyInterventionIds ; sh:nodeKind sh:IRI ; sh:class usdm:StudyIntervention ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyPhase ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:StudyDesign-studyType ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:ObservationalStudyDesign-subTypes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDesign-therapeuticAreas ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:ObservationalStudyDesign-timePerspective ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:Organization-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Organization ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Organization-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Organization-identifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Organization-identifierScheme ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Organization-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Organization-legalAddress ; sh:maxCount 1 ; sh:class usdm:Address ] ;
+    sh:property [ sh:path usdm:Organization-managedSites ; sh:class usdm:StudySite ] ;
+    sh:property [ sh:path usdm:Organization-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Organization-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:ParameterMap-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ParameterMap ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ParameterMap-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ParameterMap-reference ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ParameterMap-tag ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:PersonName-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:PersonName ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:PersonName-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:PersonName-familyName ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PersonName-givenNames ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PersonName-prefixes ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PersonName-suffixes ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PersonName-text ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Procedure-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Procedure ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Procedure-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Procedure-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Procedure-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Procedure-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Procedure-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Procedure-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:Procedure-procedureType ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Procedure-studyInterventionId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyIntervention ] .
+
+usdm:ProductOrganizationRole-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ProductOrganizationRole ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ProductOrganizationRole-appliesToIds ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:AdministrableProduct ] [ sh:class usdm:MedicalDevice ] ) ] ;
+    sh:property [ sh:path usdm:ProductOrganizationRole-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:ProductOrganizationRole-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ProductOrganizationRole-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ProductOrganizationRole-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ProductOrganizationRole-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ProductOrganizationRole-organizationId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Organization ] .
+
+usdm:Quantity-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Quantity ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Quantity-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Quantity-unit ; sh:maxCount 1 ; sh:class usdm:AliasCode ] ;
+    sh:property [ sh:path usdm:Quantity-value ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:float ] .
+
+usdm:Range-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Range ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Range-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Range-isApproximate ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:Range-maxValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Quantity ] ;
+    sh:property [ sh:path usdm:Range-minValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Quantity ] .
+
+usdm:ReferenceIdentifier-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ReferenceIdentifier ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ReferenceIdentifier-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Identifier-scopeId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Organization ] ;
+    sh:property [ sh:path usdm:Identifier-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ReferenceIdentifier-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:ResponseCode-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ResponseCode ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ResponseCode-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:ResponseCode-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ResponseCode-isEnabled ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:ResponseCode-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ResponseCode-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:ScheduleTimeline-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ScheduleTimeline ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ScheduleTimeline-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-entryCondition ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-entryId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:ScheduledActivityInstance ] [ sh:class usdm:ScheduledDecisionInstance ] ) ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-exits ; sh:class usdm:ScheduleTimelineExit ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-instances ; sh:or ( [ sh:class usdm:ScheduledActivityInstance ] [ sh:class usdm:ScheduledDecisionInstance ] ) ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-mainTimeline ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-plannedDuration ; sh:maxCount 1 ; sh:class usdm:Duration ] ;
+    sh:property [ sh:path usdm:ScheduleTimeline-timings ; sh:class usdm:Timing ] .
+
+usdm:ScheduleTimelineExit-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ScheduleTimelineExit ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ScheduleTimelineExit-extensionAttributes ; sh:class usdm:ExtensionAttribute ] .
+
+usdm:ScheduledActivityInstance-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ScheduledActivityInstance ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ScheduledActivityInstance-activityIds ; sh:nodeKind sh:IRI ; sh:class usdm:Activity ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-defaultConditionId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:ScheduledActivityInstance ] [ sh:class usdm:ScheduledDecisionInstance ] ) ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduledActivityInstance-encounterId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Encounter ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-epochId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyEpoch ] ;
+    sh:property [ sh:path usdm:ScheduledActivityInstance-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduledActivityInstance-timelineExitId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:ScheduleTimelineExit ] ;
+    sh:property [ sh:path usdm:ScheduledActivityInstance-timelineId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:ScheduleTimeline ] .
+
+usdm:ScheduledDecisionInstance-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:ScheduledDecisionInstance ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:ScheduledDecisionInstance-conditionAssignments ; sh:minCount 1 ; sh:class usdm:ConditionAssignment ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-defaultConditionId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:ScheduledActivityInstance ] [ sh:class usdm:ScheduledDecisionInstance ] ) ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-epochId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyEpoch ] ;
+    sh:property [ sh:path usdm:ScheduledDecisionInstance-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:ScheduledInstance-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:Strength-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Strength ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Strength-denominator ; sh:maxCount 1 ; sh:class usdm:Quantity ] ;
+    sh:property [ sh:path usdm:Strength-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Strength-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Strength-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Strength-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Strength-numerator ; sh:minCount 1 ; sh:maxCount 1 ; sh:or ( [ sh:class usdm:Quantity ] [ sh:class usdm:Range ] ) ] .
+
+usdm:Study-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Study ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Study-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Study-documentedBy ; sh:class usdm:StudyDefinitionDocument ] ;
+    sh:property [ sh:path usdm:Study-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Study-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Study-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Study-versions ; sh:class usdm:StudyVersion ] .
+
+usdm:StudyAmendment-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyAmendment ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyAmendment-changes ; sh:minCount 1 ; sh:class usdm:StudyChange ] ;
+    sh:property [ sh:path usdm:StudyAmendment-dateValues ; sh:class usdm:GovernanceDate ] ;
+    sh:property [ sh:path usdm:StudyAmendment-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyAmendment-enrollments ; sh:class usdm:SubjectEnrollment ] ;
+    sh:property [ sh:path usdm:StudyAmendment-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyAmendment-geographicScopes ; sh:minCount 1 ; sh:class usdm:GeographicScope ] ;
+    sh:property [ sh:path usdm:StudyAmendment-impacts ; sh:class usdm:StudyAmendmentImpact ] ;
+    sh:property [ sh:path usdm:StudyAmendment-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyAmendment-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyAmendment-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyAmendment-number ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyAmendment-previousId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyAmendment ] ;
+    sh:property [ sh:path usdm:StudyAmendment-primaryReason ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:StudyAmendmentReason ] ;
+    sh:property [ sh:path usdm:StudyAmendment-secondaryReasons ; sh:class usdm:StudyAmendmentReason ] ;
+    sh:property [ sh:path usdm:StudyAmendment-summary ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:StudyAmendmentImpact-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyAmendmentImpact ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyAmendmentImpact-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyAmendmentImpact-isSubstantial ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:StudyAmendmentImpact-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyAmendmentImpact-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyAmendmentImpact-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:StudyAmendmentReason-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyAmendmentReason ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyAmendmentReason-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyAmendmentReason-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyAmendmentReason-otherReason ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:StudyArm-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyArm ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyArm-dataOriginDescription ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyArm-dataOriginType ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyArm-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyArm-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyArm-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyArm-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyArm-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyArm-populationIds ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:StudyCohort ] [ sh:class usdm:StudyDesignPopulation ] ) ] ;
+    sh:property [ sh:path usdm:StudyArm-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:StudyCell-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyCell ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyCell-armId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyArm ] ;
+    sh:property [ sh:path usdm:StudyCell-elementIds ; sh:minCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyElement ] ;
+    sh:property [ sh:path usdm:StudyCell-epochId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyEpoch ] ;
+    sh:property [ sh:path usdm:StudyCell-extensionAttributes ; sh:class usdm:ExtensionAttribute ] .
+
+usdm:StudyChange-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyChange ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyChange-changedSections ; sh:minCount 1 ; sh:class usdm:DocumentContentReference ] ;
+    sh:property [ sh:path usdm:StudyChange-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyChange-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyChange-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyChange-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyChange-rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyChange-summary ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:StudyCohort-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyCohort ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyCohort-characteristics ; sh:class usdm:Characteristic ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-criterionIds ; sh:nodeKind sh:IRI ; sh:class usdm:EligibilityCriterion ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyCohort-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-includesHealthySubjects ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:StudyCohort-indicationIds ; sh:nodeKind sh:IRI ; sh:class usdm:Indication ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedAge ; sh:maxCount 1 ; sh:class usdm:Range ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedCompletionNumber ; sh:maxCount 1 ; sh:or ( [ sh:class usdm:Quantity ] [ sh:class usdm:Range ] ) ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedEnrollmentNumber ; sh:maxCount 1 ; sh:or ( [ sh:class usdm:Quantity ] [ sh:class usdm:Range ] ) ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedSex ; sh:maxCount 2 ; sh:class usdm:Code ] .
+
+usdm:StudyDefinitionDocument-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyDefinitionDocument ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-childIds ; sh:nodeKind sh:IRI ; sh:class usdm:StudyDefinitionDocument ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-language ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-templateName ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocument-versions ; sh:class usdm:StudyDefinitionDocumentVersion ] .
+
+usdm:StudyDefinitionDocumentVersion-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyDefinitionDocumentVersion ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyDefinitionDocumentVersion-contents ; sh:class usdm:NarrativeContent ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocumentVersion-dateValues ; sh:class usdm:GovernanceDate ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocumentVersion-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocumentVersion-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocumentVersion-status ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyDefinitionDocumentVersion-version ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:StudyDesignPopulation-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyDesignPopulation ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyDesignPopulation-cohorts ; sh:class usdm:StudyCohort ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-criterionIds ; sh:nodeKind sh:IRI ; sh:class usdm:EligibilityCriterion ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyDesignPopulation-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-includesHealthySubjects ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedAge ; sh:maxCount 1 ; sh:class usdm:Range ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedCompletionNumber ; sh:maxCount 1 ; sh:or ( [ sh:class usdm:Quantity ] [ sh:class usdm:Range ] ) ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedEnrollmentNumber ; sh:maxCount 1 ; sh:or ( [ sh:class usdm:Quantity ] [ sh:class usdm:Range ] ) ] ;
+    sh:property [ sh:path usdm:PopulationDefinition-plannedSex ; sh:maxCount 2 ; sh:class usdm:Code ] .
+
+usdm:StudyElement-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyElement ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyElement-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyElement-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyElement-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyElement-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyElement-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyElement-studyInterventionIds ; sh:nodeKind sh:IRI ; sh:class usdm:StudyIntervention ] ;
+    sh:property [ sh:path usdm:StudyElement-transitionEndRule ; sh:maxCount 1 ; sh:class usdm:TransitionRule ] ;
+    sh:property [ sh:path usdm:StudyElement-transitionStartRule ; sh:maxCount 1 ; sh:class usdm:TransitionRule ] .
+
+usdm:StudyEpoch-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyEpoch ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyEpoch-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyEpoch-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyEpoch-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyEpoch-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyEpoch-nextId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyEpoch ] ;
+    sh:property [ sh:path usdm:StudyEpoch-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyEpoch-previousId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyEpoch ] ;
+    sh:property [ sh:path usdm:StudyEpoch-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:StudyIdentifier-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyIdentifier ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyIdentifier-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Identifier-scopeId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:Organization ] ;
+    sh:property [ sh:path usdm:Identifier-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:StudyIntervention-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyIntervention ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyIntervention-administrations ; sh:class usdm:Administration ] ;
+    sh:property [ sh:path usdm:StudyIntervention-codes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyIntervention-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyIntervention-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyIntervention-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyIntervention-minimumResponseDuration ; sh:maxCount 1 ; sh:class usdm:Quantity ] ;
+    sh:property [ sh:path usdm:StudyIntervention-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyIntervention-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyIntervention-role ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyIntervention-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:StudyRole-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyRole ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyRole-appliesToIds ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:StudyVersion ] [ sh:class usdm:InterventionalStudyDesign ] [ sh:class usdm:ObservationalStudyDesign ] ) ] ;
+    sh:property [ sh:path usdm:StudyRole-assignedPersons ; sh:class usdm:AssignedPerson ] ;
+    sh:property [ sh:path usdm:StudyRole-code ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyRole-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyRole-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyRole-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyRole-masking ; sh:maxCount 1 ; sh:class usdm:Masking ] ;
+    sh:property [ sh:path usdm:StudyRole-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyRole-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyRole-organizationIds ; sh:nodeKind sh:IRI ; sh:class usdm:Organization ] .
+
+usdm:StudySite-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudySite ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudySite-country ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudySite-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudySite-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudySite-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudySite-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:StudyTitle-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyTitle ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyTitle-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyTitle-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyTitle-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] .
+
+usdm:StudyVersion-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:StudyVersion ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:StudyVersion-abbreviations ; sh:class usdm:Abbreviation ] ;
+    sh:property [ sh:path usdm:StudyVersion-administrableProducts ; sh:class usdm:AdministrableProduct ] ;
+    sh:property [ sh:path usdm:StudyVersion-amendments ; sh:class usdm:StudyAmendment ] ;
+    sh:property [ sh:path usdm:StudyVersion-bcCategories ; sh:class usdm:BiomedicalConceptCategory ] ;
+    sh:property [ sh:path usdm:StudyVersion-bcSurrogates ; sh:class usdm:BiomedicalConceptSurrogate ] ;
+    sh:property [ sh:path usdm:StudyVersion-biomedicalConcepts ; sh:class usdm:BiomedicalConcept ] ;
+    sh:property [ sh:path usdm:StudyVersion-businessTherapeuticAreas ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:StudyVersion-conditions ; sh:class usdm:Condition ] ;
+    sh:property [ sh:path usdm:StudyVersion-dateValues ; sh:class usdm:GovernanceDate ] ;
+    sh:property [ sh:path usdm:StudyVersion-dictionaries ; sh:class usdm:SyntaxTemplateDictionary ] ;
+    sh:property [ sh:path usdm:StudyVersion-documentVersionIds ; sh:nodeKind sh:IRI ; sh:class usdm:StudyDefinitionDocumentVersion ] ;
+    sh:property [ sh:path usdm:StudyVersion-eligibilityCriterionItems ; sh:class usdm:EligibilityCriterionItem ] ;
+    sh:property [ sh:path usdm:StudyVersion-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:StudyVersion-medicalDevices ; sh:class usdm:MedicalDevice ] ;
+    sh:property [ sh:path usdm:StudyVersion-narrativeContentItems ; sh:class usdm:NarrativeContentItem ] ;
+    sh:property [ sh:path usdm:StudyVersion-notes ; sh:class usdm:CommentAnnotation ] ;
+    sh:property [ sh:path usdm:StudyVersion-organizations ; sh:class usdm:Organization ] ;
+    sh:property [ sh:path usdm:StudyVersion-productOrganizationRoles ; sh:class usdm:ProductOrganizationRole ] ;
+    sh:property [ sh:path usdm:StudyVersion-rationale ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:StudyVersion-referenceIdentifiers ; sh:class usdm:ReferenceIdentifier ] ;
+    sh:property [ sh:path usdm:StudyVersion-roles ; sh:class usdm:StudyRole ] ;
+    sh:property [ sh:path usdm:StudyVersion-studyDesigns ; sh:or ( [ sh:class usdm:InterventionalStudyDesign ] [ sh:class usdm:ObservationalStudyDesign ] ) ] ;
+    sh:property [ sh:path usdm:StudyVersion-studyIdentifiers ; sh:minCount 1 ; sh:class usdm:StudyIdentifier ] ;
+    sh:property [ sh:path usdm:StudyVersion-studyInterventions ; sh:class usdm:StudyIntervention ] ;
+    sh:property [ sh:path usdm:StudyVersion-titles ; sh:minCount 1 ; sh:class usdm:StudyTitle ] ;
+    sh:property [ sh:path usdm:StudyVersion-versionIdentifier ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:SubjectEnrollment-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:SubjectEnrollment ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:SubjectEnrollment-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SubjectEnrollment-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SubjectEnrollment-forGeographicScope ; sh:maxCount 1 ; sh:class usdm:GeographicScope ] ;
+    sh:property [ sh:path usdm:SubjectEnrollment-forStudyCohortId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudyCohort ] ;
+    sh:property [ sh:path usdm:SubjectEnrollment-forStudySiteId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class usdm:StudySite ] ;
+    sh:property [ sh:path usdm:SubjectEnrollment-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SubjectEnrollment-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SubjectEnrollment-quantity ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Quantity ] .
+
+usdm:Substance-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Substance ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Substance-codes ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Substance-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Substance-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Substance-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Substance-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Substance-referenceSubstance ; sh:maxCount 1 ; sh:class usdm:Substance ] ;
+    sh:property [ sh:path usdm:Substance-strengths ; sh:minCount 1 ; sh:class usdm:Strength ] .
+
+usdm:SyntaxTemplateDictionary-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:SyntaxTemplateDictionary ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:SyntaxTemplateDictionary-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplateDictionary-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:SyntaxTemplateDictionary-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplateDictionary-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:SyntaxTemplateDictionary-parameterMaps ; sh:minCount 1 ; sh:class usdm:ParameterMap ] .
+
+usdm:Timing-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:Timing ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:Timing-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Timing-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:Timing-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Timing-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Timing-relativeFromScheduledInstanceId ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:ScheduledActivityInstance ] [ sh:class usdm:ScheduledDecisionInstance ] ) ] ;
+    sh:property [ sh:path usdm:Timing-relativeToFrom ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Timing-relativeToScheduledInstanceId ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:or ( [ sh:class usdm:ScheduledActivityInstance ] [ sh:class usdm:ScheduledDecisionInstance ] ) ] ;
+    sh:property [ sh:path usdm:Timing-type ; sh:minCount 1 ; sh:maxCount 1 ; sh:class usdm:Code ] ;
+    sh:property [ sh:path usdm:Timing-value ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Timing-valueLabel ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Timing-windowLabel ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Timing-windowLower ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:Timing-windowUpper ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+usdm:TransitionRule-shape
+    a sh:NodeShape ;
+    sh:targetClass usdm:TransitionRule ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:path usdm:TransitionRule-description ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:TransitionRule-extensionAttributes ; sh:class usdm:ExtensionAttribute ] ;
+    sh:property [ sh:path usdm:TransitionRule-label ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:TransitionRule-name ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path usdm:TransitionRule-text ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
