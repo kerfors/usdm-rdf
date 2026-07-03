@@ -2,10 +2,11 @@
 
 ## Scope
 
-This repo produces a single Turtle file: `usdm_v4.ttl`. The pipeline is three
-notebooks. There is no application code, no service, no API. Resist scope
-creep — if a task starts to look like "let's also do X", flag it before
-implementing.
+This repo produces two generated deliverables: `usdm_v4.ttl` and
+`usdm_v4.context.jsonld` (JSON-LD 1.1 instance context, since v0.5.0). The
+pipeline is four notebooks. There is no application code, no service, no
+API. Resist scope creep — if a task starts to look like "let's also do X",
+flag it before implementing.
 
 ## Code style
 
@@ -54,9 +55,13 @@ implementing.
 - Both source files (`dataStructure.yml` and `USDM_CT.xlsx`) live at the
   same tag — bumping refreshes them in lockstep. Each gets its own SHA-256
   sidecar (`.fetch_meta.json` and `.fetch_meta_ct.json`).
-- When the tag is bumped, re-run all three notebooks and update the
-  baseline numbers in `30_validate.ipynb` and `README.md` if they drift —
-  document the delta in `docs/`.
+- `30_validate.ipynb` additionally fetches `CDISC_Pilot_Study.json` at the
+  same tag (sidecar `.fetch_meta_pilot.json`). It is test data for the
+  instance context check, not a modelling source — `10_fetch_yaml.ipynb`
+  holds sources of truth only.
+- When the tag is bumped, re-run all four notebooks and update the
+  baseline numbers in `30_validate.ipynb`, `40_generate_context.ipynb`,
+  and `README.md` if they drift — document the delta in `docs/`.
 
 ## Review gates
 
@@ -67,26 +72,28 @@ The pipeline was built in this order, with explicit review at each step:
    review → ok to generate notebooks
 3. `10_fetch_yaml.ipynb` → run → confirm `downloads/dataStructure.yml`
 4. `20_generate_turtle.ipynb` → run → confirm `usdm_v4.ttl` at repo root
-5. `30_validate.ipynb` → run → confirm CSV report matches baseline within
+5. `40_generate_context.ipynb` → run → confirm `usdm_v4.context.jsonld` at
+   repo root (added v0.5.0; same outline → review → generate pattern)
+6. `30_validate.ipynb` → run → confirm CSV reports match baselines within
    tolerance for source changes
-6. Stage for commit, propose commit message, do not push without confirmation
+7. Stage for commit, propose commit message, do not push without confirmation
 
 Future structural changes follow the same pattern: propose → review → generate.
 
-## What v0.1 is **not** for
+## Out of scope
 
-Do not, in this iteration:
+Do not, unless the user explicitly opens the scope:
 
 - Propose SULO or upper-ontology alignment.
 - Propose binding `USDM_CT.xlsx` enumerated codelist *values* (sheet 2 of
   USDM_CT — permitted Code values per codelist). Codelist-level anchoring
   is in scope; per-value binding is not.
 - Propose alignment to the CDISC Library RDF Administered Item vocabulary.
-- Propose SHACL shapes.
-- Propose RDF/XML, JSON-LD, or NTriples publication.
 
-These are documented in `README.md` as known gaps. Treat them as out-of-scope
-unless the user explicitly opens that scope.
+These are documented in `README.md` as known gaps. Scope openings so far:
+multiple-format publication shipped in v0.3 (w3id content negotiation);
+the JSON-LD instance context shipped in v0.5.0 (decision D5); SHACL shapes
+were opened 2026-07-03 and are scheduled for v0.6.0.
 
 ## IRI scheme
 

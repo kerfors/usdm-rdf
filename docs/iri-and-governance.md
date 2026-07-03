@@ -182,6 +182,34 @@ Nothing in this section is implemented. It is the design position the
 repo will follow when a second source tag or a UGG lifecycle decision
 makes it actual.
 
+### JSON-LD instance context (v0.5.0, decision D5)
+
+`usdm_v4.context.jsonld` is a JSON-LD 1.1 context generated from the
+same `dataStructure.yml` as the ontology. Applied to USDM API instance
+JSON (the wire format exchanged by DDF-compliant systems), it yields
+an RDF graph whose predicates and types are exactly the ontology's
+IRIs.
+
+- **`id` → `@id`, `instanceType` → `@type`.** Every typed object in
+  published USDM instances carries both (verified: 1,953 of 1,953 in
+  the DDF-RA v4.0.0 CDISC Pilot example). Class names are context
+  terms resolving to `usdm:{ClassName}`.
+- **Type-scoped contexts (JSON-LD 1.1) reconcile flat instance keys
+  with class-scoped property IRIs.** Each class term embeds a context
+  mapping each serialization key to
+  `usdm:{DeclaringClass}-{attributeName}`, following the YAML
+  `Inherited From` chain — the same declaring-class rule
+  `20_generate_turtle.ipynb` applies.
+- **`Relationship Type: Ref` attributes coerce to `"@type": "@id"`**,
+  so id-string cross-references become graph links. In the pilot
+  example all 1,257 links resolve to typed nodes, 0 dangling.
+- **No `@base` in the published context.** `id` values are
+  document-scoped; they expand relative to the consuming document's
+  location. A shared context must not fix a base.
+- **Consequence:** the `{Class}-id` and `{Class}-instanceType`
+  property IRIs (148 of 693) never appear in context-derived instance
+  graphs — node identity and `rdf:type` carry that information.
+
 ## Property naming
 
 Class-scoped: `{ClassName}-{attributeName}`, hyphen-separated.

@@ -1,0 +1,2786 @@
+{
+ "@context": {
+  "@version": 1.1,
+  "usdm": "https://w3id.org/cdisc/usdm/v4/",
+  "xsd": "http://www.w3.org/2001/XMLSchema#",
+  "id": "@id",
+  "instanceType": "@type",
+  "Abbreviation": {
+   "@id": "usdm:Abbreviation",
+   "@context": {
+    "abbreviatedText": {
+     "@id": "usdm:Abbreviation-abbreviatedText"
+    },
+    "expandedText": {
+     "@id": "usdm:Abbreviation-expandedText"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Abbreviation-extensionAttributes",
+     "@container": "@set"
+    },
+    "notes": {
+     "@id": "usdm:Abbreviation-notes",
+     "@container": "@set"
+    }
+   }
+  },
+  "Activity": {
+   "@id": "usdm:Activity",
+   "@context": {
+    "bcCategoryIds": {
+     "@id": "usdm:Activity-bcCategoryIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "bcSurrogateIds": {
+     "@id": "usdm:Activity-bcSurrogateIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "biomedicalConceptIds": {
+     "@id": "usdm:Activity-biomedicalConceptIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "childIds": {
+     "@id": "usdm:Activity-childIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "definedProcedures": {
+     "@id": "usdm:Activity-definedProcedures",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:Activity-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Activity-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Activity-label"
+    },
+    "name": {
+     "@id": "usdm:Activity-name"
+    },
+    "nextId": {
+     "@id": "usdm:Activity-nextId",
+     "@type": "@id"
+    },
+    "notes": {
+     "@id": "usdm:Activity-notes",
+     "@container": "@set"
+    },
+    "previousId": {
+     "@id": "usdm:Activity-previousId",
+     "@type": "@id"
+    },
+    "timelineId": {
+     "@id": "usdm:Activity-timelineId",
+     "@type": "@id"
+    }
+   }
+  },
+  "Address": {
+   "@id": "usdm:Address",
+   "@context": {
+    "city": {
+     "@id": "usdm:Address-city"
+    },
+    "country": {
+     "@id": "usdm:Address-country"
+    },
+    "district": {
+     "@id": "usdm:Address-district"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Address-extensionAttributes",
+     "@container": "@set"
+    },
+    "lines": {
+     "@id": "usdm:Address-lines",
+     "@container": "@set"
+    },
+    "postalCode": {
+     "@id": "usdm:Address-postalCode"
+    },
+    "state": {
+     "@id": "usdm:Address-state"
+    },
+    "text": {
+     "@id": "usdm:Address-text"
+    }
+   }
+  },
+  "AdministrableProduct": {
+   "@id": "usdm:AdministrableProduct",
+   "@context": {
+    "administrableDoseForm": {
+     "@id": "usdm:AdministrableProduct-administrableDoseForm"
+    },
+    "description": {
+     "@id": "usdm:AdministrableProduct-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:AdministrableProduct-extensionAttributes",
+     "@container": "@set"
+    },
+    "identifiers": {
+     "@id": "usdm:AdministrableProduct-identifiers",
+     "@container": "@set"
+    },
+    "ingredients": {
+     "@id": "usdm:AdministrableProduct-ingredients",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:AdministrableProduct-label"
+    },
+    "name": {
+     "@id": "usdm:AdministrableProduct-name"
+    },
+    "notes": {
+     "@id": "usdm:AdministrableProduct-notes",
+     "@container": "@set"
+    },
+    "pharmacologicClass": {
+     "@id": "usdm:AdministrableProduct-pharmacologicClass"
+    },
+    "productDesignation": {
+     "@id": "usdm:AdministrableProduct-productDesignation"
+    },
+    "properties": {
+     "@id": "usdm:AdministrableProduct-properties",
+     "@container": "@set"
+    },
+    "sourcing": {
+     "@id": "usdm:AdministrableProduct-sourcing"
+    }
+   }
+  },
+  "AdministrableProductIdentifier": {
+   "@id": "usdm:AdministrableProductIdentifier",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:AdministrableProductIdentifier-extensionAttributes",
+     "@container": "@set"
+    },
+    "scopeId": {
+     "@id": "usdm:Identifier-scopeId",
+     "@type": "@id"
+    },
+    "text": {
+     "@id": "usdm:Identifier-text"
+    }
+   }
+  },
+  "AdministrableProductProperty": {
+   "@id": "usdm:AdministrableProductProperty",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:AdministrableProductProperty-extensionAttributes",
+     "@container": "@set"
+    },
+    "name": {
+     "@id": "usdm:AdministrableProductProperty-name"
+    },
+    "quantity": {
+     "@id": "usdm:AdministrableProductProperty-quantity"
+    },
+    "text": {
+     "@id": "usdm:AdministrableProductProperty-text"
+    },
+    "type": {
+     "@id": "usdm:AdministrableProductProperty-type"
+    }
+   }
+  },
+  "Administration": {
+   "@id": "usdm:Administration",
+   "@context": {
+    "administrableProductId": {
+     "@id": "usdm:Administration-administrableProductId",
+     "@type": "@id"
+    },
+    "description": {
+     "@id": "usdm:Administration-description"
+    },
+    "dose": {
+     "@id": "usdm:Administration-dose"
+    },
+    "duration": {
+     "@id": "usdm:Administration-duration"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Administration-extensionAttributes",
+     "@container": "@set"
+    },
+    "frequency": {
+     "@id": "usdm:Administration-frequency"
+    },
+    "label": {
+     "@id": "usdm:Administration-label"
+    },
+    "medicalDeviceId": {
+     "@id": "usdm:Administration-medicalDeviceId",
+     "@type": "@id"
+    },
+    "name": {
+     "@id": "usdm:Administration-name"
+    },
+    "notes": {
+     "@id": "usdm:Administration-notes",
+     "@container": "@set"
+    },
+    "route": {
+     "@id": "usdm:Administration-route"
+    }
+   }
+  },
+  "AliasCode": {
+   "@id": "usdm:AliasCode",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:AliasCode-extensionAttributes",
+     "@container": "@set"
+    },
+    "standardCode": {
+     "@id": "usdm:AliasCode-standardCode"
+    },
+    "standardCodeAliases": {
+     "@id": "usdm:AliasCode-standardCodeAliases",
+     "@container": "@set"
+    }
+   }
+  },
+  "AnalysisPopulation": {
+   "@id": "usdm:AnalysisPopulation",
+   "@context": {
+    "description": {
+     "@id": "usdm:AnalysisPopulation-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:AnalysisPopulation-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:AnalysisPopulation-label"
+    },
+    "name": {
+     "@id": "usdm:AnalysisPopulation-name"
+    },
+    "notes": {
+     "@id": "usdm:AnalysisPopulation-notes",
+     "@container": "@set"
+    },
+    "subsetOfIds": {
+     "@id": "usdm:AnalysisPopulation-subsetOfIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:AnalysisPopulation-text"
+    }
+   }
+  },
+  "AssignedPerson": {
+   "@id": "usdm:AssignedPerson",
+   "@context": {
+    "description": {
+     "@id": "usdm:AssignedPerson-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:AssignedPerson-extensionAttributes",
+     "@container": "@set"
+    },
+    "jobTitle": {
+     "@id": "usdm:AssignedPerson-jobTitle"
+    },
+    "label": {
+     "@id": "usdm:AssignedPerson-label"
+    },
+    "name": {
+     "@id": "usdm:AssignedPerson-name"
+    },
+    "organizationId": {
+     "@id": "usdm:AssignedPerson-organizationId",
+     "@type": "@id"
+    },
+    "personName": {
+     "@id": "usdm:AssignedPerson-personName"
+    }
+   }
+  },
+  "BiomedicalConcept": {
+   "@id": "usdm:BiomedicalConcept",
+   "@context": {
+    "code": {
+     "@id": "usdm:BiomedicalConcept-code"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:BiomedicalConcept-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:BiomedicalConcept-label"
+    },
+    "name": {
+     "@id": "usdm:BiomedicalConcept-name"
+    },
+    "notes": {
+     "@id": "usdm:BiomedicalConcept-notes",
+     "@container": "@set"
+    },
+    "properties": {
+     "@id": "usdm:BiomedicalConcept-properties",
+     "@container": "@set"
+    },
+    "reference": {
+     "@id": "usdm:BiomedicalConcept-reference"
+    },
+    "synonyms": {
+     "@id": "usdm:BiomedicalConcept-synonyms",
+     "@container": "@set"
+    }
+   }
+  },
+  "BiomedicalConceptCategory": {
+   "@id": "usdm:BiomedicalConceptCategory",
+   "@context": {
+    "childIds": {
+     "@id": "usdm:BiomedicalConceptCategory-childIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "code": {
+     "@id": "usdm:BiomedicalConceptCategory-code"
+    },
+    "description": {
+     "@id": "usdm:BiomedicalConceptCategory-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:BiomedicalConceptCategory-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:BiomedicalConceptCategory-label"
+    },
+    "memberIds": {
+     "@id": "usdm:BiomedicalConceptCategory-memberIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "name": {
+     "@id": "usdm:BiomedicalConceptCategory-name"
+    },
+    "notes": {
+     "@id": "usdm:BiomedicalConceptCategory-notes",
+     "@container": "@set"
+    }
+   }
+  },
+  "BiomedicalConceptProperty": {
+   "@id": "usdm:BiomedicalConceptProperty",
+   "@context": {
+    "code": {
+     "@id": "usdm:BiomedicalConceptProperty-code"
+    },
+    "datatype": {
+     "@id": "usdm:BiomedicalConceptProperty-datatype"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:BiomedicalConceptProperty-extensionAttributes",
+     "@container": "@set"
+    },
+    "isEnabled": {
+     "@id": "usdm:BiomedicalConceptProperty-isEnabled"
+    },
+    "isRequired": {
+     "@id": "usdm:BiomedicalConceptProperty-isRequired"
+    },
+    "label": {
+     "@id": "usdm:BiomedicalConceptProperty-label"
+    },
+    "name": {
+     "@id": "usdm:BiomedicalConceptProperty-name"
+    },
+    "notes": {
+     "@id": "usdm:BiomedicalConceptProperty-notes",
+     "@container": "@set"
+    },
+    "responseCodes": {
+     "@id": "usdm:BiomedicalConceptProperty-responseCodes",
+     "@container": "@set"
+    }
+   }
+  },
+  "BiomedicalConceptSurrogate": {
+   "@id": "usdm:BiomedicalConceptSurrogate",
+   "@context": {
+    "description": {
+     "@id": "usdm:BiomedicalConceptSurrogate-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:BiomedicalConceptSurrogate-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:BiomedicalConceptSurrogate-label"
+    },
+    "name": {
+     "@id": "usdm:BiomedicalConceptSurrogate-name"
+    },
+    "notes": {
+     "@id": "usdm:BiomedicalConceptSurrogate-notes",
+     "@container": "@set"
+    },
+    "reference": {
+     "@id": "usdm:BiomedicalConceptSurrogate-reference"
+    }
+   }
+  },
+  "BiospecimenRetention": {
+   "@id": "usdm:BiospecimenRetention",
+   "@context": {
+    "description": {
+     "@id": "usdm:BiospecimenRetention-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:BiospecimenRetention-extensionAttributes",
+     "@container": "@set"
+    },
+    "includesDNA": {
+     "@id": "usdm:BiospecimenRetention-includesDNA"
+    },
+    "isRetained": {
+     "@id": "usdm:BiospecimenRetention-isRetained"
+    },
+    "label": {
+     "@id": "usdm:BiospecimenRetention-label"
+    },
+    "name": {
+     "@id": "usdm:BiospecimenRetention-name"
+    }
+   }
+  },
+  "Characteristic": {
+   "@id": "usdm:Characteristic",
+   "@context": {
+    "description": {
+     "@id": "usdm:SyntaxTemplate-description"
+    },
+    "dictionaryId": {
+     "@id": "usdm:SyntaxTemplate-dictionaryId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Characteristic-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplate-label"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplate-name"
+    },
+    "notes": {
+     "@id": "usdm:SyntaxTemplate-notes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:SyntaxTemplate-text"
+    }
+   }
+  },
+  "Code": {
+   "@id": "usdm:Code",
+   "@context": {
+    "code": {
+     "@id": "usdm:Code-code"
+    },
+    "codeSystem": {
+     "@id": "usdm:Code-codeSystem"
+    },
+    "codeSystemVersion": {
+     "@id": "usdm:Code-codeSystemVersion"
+    },
+    "decode": {
+     "@id": "usdm:Code-decode"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Code-extensionAttributes",
+     "@container": "@set"
+    }
+   }
+  },
+  "CommentAnnotation": {
+   "@id": "usdm:CommentAnnotation",
+   "@context": {
+    "codes": {
+     "@id": "usdm:CommentAnnotation-codes",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:CommentAnnotation-extensionAttributes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:CommentAnnotation-text"
+    }
+   }
+  },
+  "Condition": {
+   "@id": "usdm:Condition",
+   "@context": {
+    "appliesToIds": {
+     "@id": "usdm:Condition-appliesToIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "contextIds": {
+     "@id": "usdm:Condition-contextIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:SyntaxTemplate-description"
+    },
+    "dictionaryId": {
+     "@id": "usdm:SyntaxTemplate-dictionaryId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Condition-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplate-label"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplate-name"
+    },
+    "notes": {
+     "@id": "usdm:SyntaxTemplate-notes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:SyntaxTemplate-text"
+    }
+   }
+  },
+  "ConditionAssignment": {
+   "@id": "usdm:ConditionAssignment",
+   "@context": {
+    "condition": {
+     "@id": "usdm:ConditionAssignment-condition"
+    },
+    "conditionTargetId": {
+     "@id": "usdm:ConditionAssignment-conditionTargetId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:ConditionAssignment-extensionAttributes",
+     "@container": "@set"
+    }
+   }
+  },
+  "DocumentContentReference": {
+   "@id": "usdm:DocumentContentReference",
+   "@context": {
+    "appliesToId": {
+     "@id": "usdm:DocumentContentReference-appliesToId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:DocumentContentReference-extensionAttributes",
+     "@container": "@set"
+    },
+    "sectionNumber": {
+     "@id": "usdm:DocumentContentReference-sectionNumber"
+    },
+    "sectionTitle": {
+     "@id": "usdm:DocumentContentReference-sectionTitle"
+    }
+   }
+  },
+  "Duration": {
+   "@id": "usdm:Duration",
+   "@context": {
+    "durationWillVary": {
+     "@id": "usdm:Duration-durationWillVary"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Duration-extensionAttributes",
+     "@container": "@set"
+    },
+    "quantity": {
+     "@id": "usdm:Duration-quantity"
+    },
+    "reasonDurationWillVary": {
+     "@id": "usdm:Duration-reasonDurationWillVary"
+    },
+    "text": {
+     "@id": "usdm:Duration-text"
+    }
+   }
+  },
+  "EligibilityCriterion": {
+   "@id": "usdm:EligibilityCriterion",
+   "@context": {
+    "category": {
+     "@id": "usdm:EligibilityCriterion-category"
+    },
+    "criterionItemId": {
+     "@id": "usdm:EligibilityCriterion-criterionItemId",
+     "@type": "@id"
+    },
+    "description": {
+     "@id": "usdm:EligibilityCriterion-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:EligibilityCriterion-extensionAttributes",
+     "@container": "@set"
+    },
+    "identifier": {
+     "@id": "usdm:EligibilityCriterion-identifier"
+    },
+    "label": {
+     "@id": "usdm:EligibilityCriterion-label"
+    },
+    "name": {
+     "@id": "usdm:EligibilityCriterion-name"
+    },
+    "nextId": {
+     "@id": "usdm:EligibilityCriterion-nextId",
+     "@type": "@id"
+    },
+    "notes": {
+     "@id": "usdm:EligibilityCriterion-notes",
+     "@container": "@set"
+    },
+    "previousId": {
+     "@id": "usdm:EligibilityCriterion-previousId",
+     "@type": "@id"
+    }
+   }
+  },
+  "EligibilityCriterionItem": {
+   "@id": "usdm:EligibilityCriterionItem",
+   "@context": {
+    "description": {
+     "@id": "usdm:SyntaxTemplate-description"
+    },
+    "dictionaryId": {
+     "@id": "usdm:SyntaxTemplate-dictionaryId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:EligibilityCriterionItem-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplate-label"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplate-name"
+    },
+    "notes": {
+     "@id": "usdm:SyntaxTemplate-notes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:SyntaxTemplate-text"
+    }
+   }
+  },
+  "Encounter": {
+   "@id": "usdm:Encounter",
+   "@context": {
+    "contactModes": {
+     "@id": "usdm:Encounter-contactModes",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:Encounter-description"
+    },
+    "environmentalSettings": {
+     "@id": "usdm:Encounter-environmentalSettings",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Encounter-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Encounter-label"
+    },
+    "name": {
+     "@id": "usdm:Encounter-name"
+    },
+    "nextId": {
+     "@id": "usdm:Encounter-nextId",
+     "@type": "@id"
+    },
+    "notes": {
+     "@id": "usdm:Encounter-notes",
+     "@container": "@set"
+    },
+    "previousId": {
+     "@id": "usdm:Encounter-previousId",
+     "@type": "@id"
+    },
+    "scheduledAtId": {
+     "@id": "usdm:Encounter-scheduledAtId",
+     "@type": "@id"
+    },
+    "transitionEndRule": {
+     "@id": "usdm:Encounter-transitionEndRule"
+    },
+    "transitionStartRule": {
+     "@id": "usdm:Encounter-transitionStartRule"
+    },
+    "type": {
+     "@id": "usdm:Encounter-type"
+    }
+   }
+  },
+  "Endpoint": {
+   "@id": "usdm:Endpoint",
+   "@context": {
+    "description": {
+     "@id": "usdm:SyntaxTemplate-description"
+    },
+    "dictionaryId": {
+     "@id": "usdm:SyntaxTemplate-dictionaryId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Endpoint-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplate-label"
+    },
+    "level": {
+     "@id": "usdm:Endpoint-level"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplate-name"
+    },
+    "notes": {
+     "@id": "usdm:SyntaxTemplate-notes",
+     "@container": "@set"
+    },
+    "purpose": {
+     "@id": "usdm:Endpoint-purpose"
+    },
+    "text": {
+     "@id": "usdm:SyntaxTemplate-text"
+    }
+   }
+  },
+  "Estimand": {
+   "@id": "usdm:Estimand",
+   "@context": {
+    "analysisPopulationId": {
+     "@id": "usdm:Estimand-analysisPopulationId",
+     "@type": "@id"
+    },
+    "description": {
+     "@id": "usdm:Estimand-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Estimand-extensionAttributes",
+     "@container": "@set"
+    },
+    "intercurrentEvents": {
+     "@id": "usdm:Estimand-intercurrentEvents",
+     "@container": "@set"
+    },
+    "interventionIds": {
+     "@id": "usdm:Estimand-interventionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Estimand-label"
+    },
+    "name": {
+     "@id": "usdm:Estimand-name"
+    },
+    "notes": {
+     "@id": "usdm:Estimand-notes",
+     "@container": "@set"
+    },
+    "populationSummary": {
+     "@id": "usdm:Estimand-populationSummary"
+    },
+    "variableOfInterestId": {
+     "@id": "usdm:Estimand-variableOfInterestId",
+     "@type": "@id"
+    }
+   }
+  },
+  "ExtensionAttribute": {
+   "@id": "usdm:ExtensionAttribute",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:ExtensionAttribute-extensionAttributes",
+     "@container": "@set"
+    },
+    "url": {
+     "@id": "usdm:ExtensionAttribute-url"
+    },
+    "valueAliasCode": {
+     "@id": "usdm:ExtensionAttribute-valueAliasCode"
+    },
+    "valueBoolean": {
+     "@id": "usdm:ExtensionAttribute-valueBoolean"
+    },
+    "valueCode": {
+     "@id": "usdm:ExtensionAttribute-valueCode"
+    },
+    "valueExtensionClass": {
+     "@id": "usdm:ExtensionAttribute-valueExtensionClass"
+    },
+    "valueId": {
+     "@id": "usdm:ExtensionAttribute-valueId"
+    },
+    "valueInteger": {
+     "@id": "usdm:ExtensionAttribute-valueInteger"
+    },
+    "valueQuantity": {
+     "@id": "usdm:ExtensionAttribute-valueQuantity"
+    },
+    "valueRange": {
+     "@id": "usdm:ExtensionAttribute-valueRange"
+    },
+    "valueString": {
+     "@id": "usdm:ExtensionAttribute-valueString"
+    }
+   }
+  },
+  "ExtensionClass": {
+   "@id": "usdm:ExtensionClass",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:ExtensionClass-extensionAttributes",
+     "@container": "@set"
+    },
+    "url": {
+     "@id": "usdm:ExtensionClass-url"
+    }
+   }
+  },
+  "GeographicScope": {
+   "@id": "usdm:GeographicScope",
+   "@context": {
+    "code": {
+     "@id": "usdm:GeographicScope-code"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:GeographicScope-extensionAttributes",
+     "@container": "@set"
+    },
+    "type": {
+     "@id": "usdm:GeographicScope-type"
+    }
+   }
+  },
+  "GovernanceDate": {
+   "@id": "usdm:GovernanceDate",
+   "@context": {
+    "dateValue": {
+     "@id": "usdm:GovernanceDate-dateValue",
+     "@type": "xsd:date"
+    },
+    "description": {
+     "@id": "usdm:GovernanceDate-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:GovernanceDate-extensionAttributes",
+     "@container": "@set"
+    },
+    "geographicScopes": {
+     "@id": "usdm:GovernanceDate-geographicScopes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:GovernanceDate-label"
+    },
+    "name": {
+     "@id": "usdm:GovernanceDate-name"
+    },
+    "type": {
+     "@id": "usdm:GovernanceDate-type"
+    }
+   }
+  },
+  "Identifier": {
+   "@id": "usdm:Identifier",
+   "@context": {
+    "scopeId": {
+     "@id": "usdm:Identifier-scopeId",
+     "@type": "@id"
+    },
+    "text": {
+     "@id": "usdm:Identifier-text"
+    }
+   }
+  },
+  "Indication": {
+   "@id": "usdm:Indication",
+   "@context": {
+    "codes": {
+     "@id": "usdm:Indication-codes",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:Indication-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Indication-extensionAttributes",
+     "@container": "@set"
+    },
+    "isRareDisease": {
+     "@id": "usdm:Indication-isRareDisease"
+    },
+    "label": {
+     "@id": "usdm:Indication-label"
+    },
+    "name": {
+     "@id": "usdm:Indication-name"
+    },
+    "notes": {
+     "@id": "usdm:Indication-notes",
+     "@container": "@set"
+    }
+   }
+  },
+  "Ingredient": {
+   "@id": "usdm:Ingredient",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:Ingredient-extensionAttributes",
+     "@container": "@set"
+    },
+    "role": {
+     "@id": "usdm:Ingredient-role"
+    },
+    "substance": {
+     "@id": "usdm:Ingredient-substance"
+    }
+   }
+  },
+  "IntercurrentEvent": {
+   "@id": "usdm:IntercurrentEvent",
+   "@context": {
+    "description": {
+     "@id": "usdm:SyntaxTemplate-description"
+    },
+    "dictionaryId": {
+     "@id": "usdm:SyntaxTemplate-dictionaryId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:IntercurrentEvent-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplate-label"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplate-name"
+    },
+    "notes": {
+     "@id": "usdm:SyntaxTemplate-notes",
+     "@container": "@set"
+    },
+    "strategy": {
+     "@id": "usdm:IntercurrentEvent-strategy"
+    },
+    "text": {
+     "@id": "usdm:SyntaxTemplate-text"
+    }
+   }
+  },
+  "InterventionalStudyDesign": {
+   "@id": "usdm:InterventionalStudyDesign",
+   "@context": {
+    "activities": {
+     "@id": "usdm:StudyDesign-activities",
+     "@container": "@set"
+    },
+    "analysisPopulations": {
+     "@id": "usdm:InterventionalStudyDesign-analysisPopulations",
+     "@container": "@set"
+    },
+    "arms": {
+     "@id": "usdm:StudyDesign-arms",
+     "@container": "@set"
+    },
+    "biospecimenRetentions": {
+     "@id": "usdm:StudyDesign-biospecimenRetentions",
+     "@container": "@set"
+    },
+    "blindingSchema": {
+     "@id": "usdm:InterventionalStudyDesign-blindingSchema"
+    },
+    "characteristics": {
+     "@id": "usdm:StudyDesign-characteristics",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:StudyDesign-description"
+    },
+    "documentVersionIds": {
+     "@id": "usdm:StudyDesign-documentVersionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "elements": {
+     "@id": "usdm:StudyDesign-elements",
+     "@container": "@set"
+    },
+    "eligibilityCriteria": {
+     "@id": "usdm:StudyDesign-eligibilityCriteria",
+     "@container": "@set"
+    },
+    "encounters": {
+     "@id": "usdm:StudyDesign-encounters",
+     "@container": "@set"
+    },
+    "epochs": {
+     "@id": "usdm:StudyDesign-epochs",
+     "@container": "@set"
+    },
+    "estimands": {
+     "@id": "usdm:StudyDesign-estimands",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:InterventionalStudyDesign-extensionAttributes",
+     "@container": "@set"
+    },
+    "indications": {
+     "@id": "usdm:StudyDesign-indications",
+     "@container": "@set"
+    },
+    "intentTypes": {
+     "@id": "usdm:InterventionalStudyDesign-intentTypes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyDesign-label"
+    },
+    "model": {
+     "@id": "usdm:InterventionalStudyDesign-model"
+    },
+    "name": {
+     "@id": "usdm:StudyDesign-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyDesign-notes",
+     "@container": "@set"
+    },
+    "objectives": {
+     "@id": "usdm:StudyDesign-objectives",
+     "@container": "@set"
+    },
+    "population": {
+     "@id": "usdm:StudyDesign-population"
+    },
+    "rationale": {
+     "@id": "usdm:StudyDesign-rationale"
+    },
+    "scheduleTimelines": {
+     "@id": "usdm:StudyDesign-scheduleTimelines",
+     "@container": "@set"
+    },
+    "studyCells": {
+     "@id": "usdm:StudyDesign-studyCells",
+     "@container": "@set"
+    },
+    "studyInterventionIds": {
+     "@id": "usdm:StudyDesign-studyInterventionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "studyPhase": {
+     "@id": "usdm:StudyDesign-studyPhase"
+    },
+    "studyType": {
+     "@id": "usdm:StudyDesign-studyType"
+    },
+    "subTypes": {
+     "@id": "usdm:InterventionalStudyDesign-subTypes",
+     "@container": "@set"
+    },
+    "therapeuticAreas": {
+     "@id": "usdm:StudyDesign-therapeuticAreas",
+     "@container": "@set"
+    }
+   }
+  },
+  "Masking": {
+   "@id": "usdm:Masking",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:Masking-extensionAttributes",
+     "@container": "@set"
+    },
+    "isMasked": {
+     "@id": "usdm:Masking-isMasked"
+    },
+    "text": {
+     "@id": "usdm:Masking-text"
+    }
+   }
+  },
+  "MedicalDevice": {
+   "@id": "usdm:MedicalDevice",
+   "@context": {
+    "description": {
+     "@id": "usdm:MedicalDevice-description"
+    },
+    "embeddedProductId": {
+     "@id": "usdm:MedicalDevice-embeddedProductId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:MedicalDevice-extensionAttributes",
+     "@container": "@set"
+    },
+    "hardwareVersion": {
+     "@id": "usdm:MedicalDevice-hardwareVersion"
+    },
+    "identifiers": {
+     "@id": "usdm:MedicalDevice-identifiers",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:MedicalDevice-label"
+    },
+    "name": {
+     "@id": "usdm:MedicalDevice-name"
+    },
+    "notes": {
+     "@id": "usdm:MedicalDevice-notes",
+     "@container": "@set"
+    },
+    "softwareVersion": {
+     "@id": "usdm:MedicalDevice-softwareVersion"
+    },
+    "sourcing": {
+     "@id": "usdm:MedicalDevice-sourcing"
+    }
+   }
+  },
+  "MedicalDeviceIdentifier": {
+   "@id": "usdm:MedicalDeviceIdentifier",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:MedicalDeviceIdentifier-extensionAttributes",
+     "@container": "@set"
+    },
+    "scopeId": {
+     "@id": "usdm:Identifier-scopeId",
+     "@type": "@id"
+    },
+    "text": {
+     "@id": "usdm:Identifier-text"
+    },
+    "type": {
+     "@id": "usdm:MedicalDeviceIdentifier-type"
+    }
+   }
+  },
+  "NarrativeContent": {
+   "@id": "usdm:NarrativeContent",
+   "@context": {
+    "childIds": {
+     "@id": "usdm:NarrativeContent-childIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "contentItemId": {
+     "@id": "usdm:NarrativeContent-contentItemId",
+     "@type": "@id"
+    },
+    "displaySectionNumber": {
+     "@id": "usdm:NarrativeContent-displaySectionNumber"
+    },
+    "displaySectionTitle": {
+     "@id": "usdm:NarrativeContent-displaySectionTitle"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:NarrativeContent-extensionAttributes",
+     "@container": "@set"
+    },
+    "name": {
+     "@id": "usdm:NarrativeContent-name"
+    },
+    "nextId": {
+     "@id": "usdm:NarrativeContent-nextId",
+     "@type": "@id"
+    },
+    "previousId": {
+     "@id": "usdm:NarrativeContent-previousId",
+     "@type": "@id"
+    },
+    "sectionNumber": {
+     "@id": "usdm:NarrativeContent-sectionNumber"
+    },
+    "sectionTitle": {
+     "@id": "usdm:NarrativeContent-sectionTitle"
+    }
+   }
+  },
+  "NarrativeContentItem": {
+   "@id": "usdm:NarrativeContentItem",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:NarrativeContentItem-extensionAttributes",
+     "@container": "@set"
+    },
+    "name": {
+     "@id": "usdm:NarrativeContentItem-name"
+    },
+    "text": {
+     "@id": "usdm:NarrativeContentItem-text"
+    }
+   }
+  },
+  "Objective": {
+   "@id": "usdm:Objective",
+   "@context": {
+    "description": {
+     "@id": "usdm:SyntaxTemplate-description"
+    },
+    "dictionaryId": {
+     "@id": "usdm:SyntaxTemplate-dictionaryId",
+     "@type": "@id"
+    },
+    "endpoints": {
+     "@id": "usdm:Objective-endpoints",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Objective-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplate-label"
+    },
+    "level": {
+     "@id": "usdm:Objective-level"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplate-name"
+    },
+    "notes": {
+     "@id": "usdm:SyntaxTemplate-notes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:SyntaxTemplate-text"
+    }
+   }
+  },
+  "ObservationalStudyDesign": {
+   "@id": "usdm:ObservationalStudyDesign",
+   "@context": {
+    "activities": {
+     "@id": "usdm:StudyDesign-activities",
+     "@container": "@set"
+    },
+    "analysisPopulations": {
+     "@id": "usdm:ObservationalStudyDesign-analysisPopulations",
+     "@container": "@set"
+    },
+    "arms": {
+     "@id": "usdm:StudyDesign-arms",
+     "@container": "@set"
+    },
+    "biospecimenRetentions": {
+     "@id": "usdm:StudyDesign-biospecimenRetentions",
+     "@container": "@set"
+    },
+    "characteristics": {
+     "@id": "usdm:StudyDesign-characteristics",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:StudyDesign-description"
+    },
+    "documentVersionIds": {
+     "@id": "usdm:StudyDesign-documentVersionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "elements": {
+     "@id": "usdm:StudyDesign-elements",
+     "@container": "@set"
+    },
+    "eligibilityCriteria": {
+     "@id": "usdm:StudyDesign-eligibilityCriteria",
+     "@container": "@set"
+    },
+    "encounters": {
+     "@id": "usdm:StudyDesign-encounters",
+     "@container": "@set"
+    },
+    "epochs": {
+     "@id": "usdm:StudyDesign-epochs",
+     "@container": "@set"
+    },
+    "estimands": {
+     "@id": "usdm:StudyDesign-estimands",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:ObservationalStudyDesign-extensionAttributes",
+     "@container": "@set"
+    },
+    "indications": {
+     "@id": "usdm:StudyDesign-indications",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyDesign-label"
+    },
+    "model": {
+     "@id": "usdm:ObservationalStudyDesign-model"
+    },
+    "name": {
+     "@id": "usdm:StudyDesign-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyDesign-notes",
+     "@container": "@set"
+    },
+    "objectives": {
+     "@id": "usdm:StudyDesign-objectives",
+     "@container": "@set"
+    },
+    "population": {
+     "@id": "usdm:StudyDesign-population"
+    },
+    "rationale": {
+     "@id": "usdm:StudyDesign-rationale"
+    },
+    "samplingMethod": {
+     "@id": "usdm:ObservationalStudyDesign-samplingMethod"
+    },
+    "scheduleTimelines": {
+     "@id": "usdm:StudyDesign-scheduleTimelines",
+     "@container": "@set"
+    },
+    "studyCells": {
+     "@id": "usdm:StudyDesign-studyCells",
+     "@container": "@set"
+    },
+    "studyInterventionIds": {
+     "@id": "usdm:StudyDesign-studyInterventionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "studyPhase": {
+     "@id": "usdm:StudyDesign-studyPhase"
+    },
+    "studyType": {
+     "@id": "usdm:StudyDesign-studyType"
+    },
+    "subTypes": {
+     "@id": "usdm:ObservationalStudyDesign-subTypes",
+     "@container": "@set"
+    },
+    "therapeuticAreas": {
+     "@id": "usdm:StudyDesign-therapeuticAreas",
+     "@container": "@set"
+    },
+    "timePerspective": {
+     "@id": "usdm:ObservationalStudyDesign-timePerspective"
+    }
+   }
+  },
+  "Organization": {
+   "@id": "usdm:Organization",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:Organization-extensionAttributes",
+     "@container": "@set"
+    },
+    "identifier": {
+     "@id": "usdm:Organization-identifier"
+    },
+    "identifierScheme": {
+     "@id": "usdm:Organization-identifierScheme"
+    },
+    "label": {
+     "@id": "usdm:Organization-label"
+    },
+    "legalAddress": {
+     "@id": "usdm:Organization-legalAddress"
+    },
+    "managedSites": {
+     "@id": "usdm:Organization-managedSites",
+     "@container": "@set"
+    },
+    "name": {
+     "@id": "usdm:Organization-name"
+    },
+    "type": {
+     "@id": "usdm:Organization-type"
+    }
+   }
+  },
+  "ParameterMap": {
+   "@id": "usdm:ParameterMap",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:ParameterMap-extensionAttributes",
+     "@container": "@set"
+    },
+    "reference": {
+     "@id": "usdm:ParameterMap-reference"
+    },
+    "tag": {
+     "@id": "usdm:ParameterMap-tag"
+    }
+   }
+  },
+  "PersonName": {
+   "@id": "usdm:PersonName",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:PersonName-extensionAttributes",
+     "@container": "@set"
+    },
+    "familyName": {
+     "@id": "usdm:PersonName-familyName"
+    },
+    "givenNames": {
+     "@id": "usdm:PersonName-givenNames",
+     "@container": "@set"
+    },
+    "prefixes": {
+     "@id": "usdm:PersonName-prefixes",
+     "@container": "@set"
+    },
+    "suffixes": {
+     "@id": "usdm:PersonName-suffixes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:PersonName-text"
+    }
+   }
+  },
+  "PopulationDefinition": {
+   "@id": "usdm:PopulationDefinition",
+   "@context": {
+    "criterionIds": {
+     "@id": "usdm:PopulationDefinition-criterionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:PopulationDefinition-description"
+    },
+    "includesHealthySubjects": {
+     "@id": "usdm:PopulationDefinition-includesHealthySubjects"
+    },
+    "label": {
+     "@id": "usdm:PopulationDefinition-label"
+    },
+    "name": {
+     "@id": "usdm:PopulationDefinition-name"
+    },
+    "notes": {
+     "@id": "usdm:PopulationDefinition-notes",
+     "@container": "@set"
+    },
+    "plannedAge": {
+     "@id": "usdm:PopulationDefinition-plannedAge"
+    },
+    "plannedCompletionNumber": {
+     "@id": "usdm:PopulationDefinition-plannedCompletionNumber"
+    },
+    "plannedEnrollmentNumber": {
+     "@id": "usdm:PopulationDefinition-plannedEnrollmentNumber"
+    },
+    "plannedSex": {
+     "@id": "usdm:PopulationDefinition-plannedSex"
+    }
+   }
+  },
+  "Procedure": {
+   "@id": "usdm:Procedure",
+   "@context": {
+    "code": {
+     "@id": "usdm:Procedure-code"
+    },
+    "description": {
+     "@id": "usdm:Procedure-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Procedure-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Procedure-label"
+    },
+    "name": {
+     "@id": "usdm:Procedure-name"
+    },
+    "notes": {
+     "@id": "usdm:Procedure-notes",
+     "@container": "@set"
+    },
+    "procedureType": {
+     "@id": "usdm:Procedure-procedureType"
+    },
+    "studyInterventionId": {
+     "@id": "usdm:Procedure-studyInterventionId",
+     "@type": "@id"
+    }
+   }
+  },
+  "ProductOrganizationRole": {
+   "@id": "usdm:ProductOrganizationRole",
+   "@context": {
+    "appliesToIds": {
+     "@id": "usdm:ProductOrganizationRole-appliesToIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "code": {
+     "@id": "usdm:ProductOrganizationRole-code"
+    },
+    "description": {
+     "@id": "usdm:ProductOrganizationRole-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:ProductOrganizationRole-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:ProductOrganizationRole-label"
+    },
+    "name": {
+     "@id": "usdm:ProductOrganizationRole-name"
+    },
+    "organizationId": {
+     "@id": "usdm:ProductOrganizationRole-organizationId",
+     "@type": "@id"
+    }
+   }
+  },
+  "Quantity": {
+   "@id": "usdm:Quantity",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:Quantity-extensionAttributes",
+     "@container": "@set"
+    },
+    "unit": {
+     "@id": "usdm:Quantity-unit"
+    },
+    "value": {
+     "@id": "usdm:Quantity-value",
+     "@type": "xsd:float"
+    }
+   }
+  },
+  "QuantityRange": {
+   "@id": "usdm:QuantityRange",
+   "@context": {}
+  },
+  "Range": {
+   "@id": "usdm:Range",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:Range-extensionAttributes",
+     "@container": "@set"
+    },
+    "isApproximate": {
+     "@id": "usdm:Range-isApproximate"
+    },
+    "maxValue": {
+     "@id": "usdm:Range-maxValue"
+    },
+    "minValue": {
+     "@id": "usdm:Range-minValue"
+    }
+   }
+  },
+  "ReferenceIdentifier": {
+   "@id": "usdm:ReferenceIdentifier",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:ReferenceIdentifier-extensionAttributes",
+     "@container": "@set"
+    },
+    "scopeId": {
+     "@id": "usdm:Identifier-scopeId",
+     "@type": "@id"
+    },
+    "text": {
+     "@id": "usdm:Identifier-text"
+    },
+    "type": {
+     "@id": "usdm:ReferenceIdentifier-type"
+    }
+   }
+  },
+  "ResponseCode": {
+   "@id": "usdm:ResponseCode",
+   "@context": {
+    "code": {
+     "@id": "usdm:ResponseCode-code"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:ResponseCode-extensionAttributes",
+     "@container": "@set"
+    },
+    "isEnabled": {
+     "@id": "usdm:ResponseCode-isEnabled"
+    },
+    "label": {
+     "@id": "usdm:ResponseCode-label"
+    },
+    "name": {
+     "@id": "usdm:ResponseCode-name"
+    }
+   }
+  },
+  "ScheduleTimeline": {
+   "@id": "usdm:ScheduleTimeline",
+   "@context": {
+    "description": {
+     "@id": "usdm:ScheduleTimeline-description"
+    },
+    "entryCondition": {
+     "@id": "usdm:ScheduleTimeline-entryCondition"
+    },
+    "entryId": {
+     "@id": "usdm:ScheduleTimeline-entryId",
+     "@type": "@id"
+    },
+    "exits": {
+     "@id": "usdm:ScheduleTimeline-exits",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:ScheduleTimeline-extensionAttributes",
+     "@container": "@set"
+    },
+    "instances": {
+     "@id": "usdm:ScheduleTimeline-instances",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:ScheduleTimeline-label"
+    },
+    "mainTimeline": {
+     "@id": "usdm:ScheduleTimeline-mainTimeline"
+    },
+    "name": {
+     "@id": "usdm:ScheduleTimeline-name"
+    },
+    "plannedDuration": {
+     "@id": "usdm:ScheduleTimeline-plannedDuration"
+    },
+    "timings": {
+     "@id": "usdm:ScheduleTimeline-timings",
+     "@container": "@set"
+    }
+   }
+  },
+  "ScheduleTimelineExit": {
+   "@id": "usdm:ScheduleTimelineExit",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:ScheduleTimelineExit-extensionAttributes",
+     "@container": "@set"
+    }
+   }
+  },
+  "ScheduledActivityInstance": {
+   "@id": "usdm:ScheduledActivityInstance",
+   "@context": {
+    "activityIds": {
+     "@id": "usdm:ScheduledActivityInstance-activityIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "defaultConditionId": {
+     "@id": "usdm:ScheduledInstance-defaultConditionId",
+     "@type": "@id"
+    },
+    "description": {
+     "@id": "usdm:ScheduledInstance-description"
+    },
+    "encounterId": {
+     "@id": "usdm:ScheduledActivityInstance-encounterId",
+     "@type": "@id"
+    },
+    "epochId": {
+     "@id": "usdm:ScheduledInstance-epochId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:ScheduledActivityInstance-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:ScheduledInstance-label"
+    },
+    "name": {
+     "@id": "usdm:ScheduledInstance-name"
+    },
+    "timelineExitId": {
+     "@id": "usdm:ScheduledActivityInstance-timelineExitId",
+     "@type": "@id"
+    },
+    "timelineId": {
+     "@id": "usdm:ScheduledActivityInstance-timelineId",
+     "@type": "@id"
+    }
+   }
+  },
+  "ScheduledDecisionInstance": {
+   "@id": "usdm:ScheduledDecisionInstance",
+   "@context": {
+    "conditionAssignments": {
+     "@id": "usdm:ScheduledDecisionInstance-conditionAssignments",
+     "@container": "@set"
+    },
+    "defaultConditionId": {
+     "@id": "usdm:ScheduledInstance-defaultConditionId",
+     "@type": "@id"
+    },
+    "description": {
+     "@id": "usdm:ScheduledInstance-description"
+    },
+    "epochId": {
+     "@id": "usdm:ScheduledInstance-epochId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:ScheduledDecisionInstance-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:ScheduledInstance-label"
+    },
+    "name": {
+     "@id": "usdm:ScheduledInstance-name"
+    }
+   }
+  },
+  "ScheduledInstance": {
+   "@id": "usdm:ScheduledInstance",
+   "@context": {
+    "defaultConditionId": {
+     "@id": "usdm:ScheduledInstance-defaultConditionId",
+     "@type": "@id"
+    },
+    "description": {
+     "@id": "usdm:ScheduledInstance-description"
+    },
+    "epochId": {
+     "@id": "usdm:ScheduledInstance-epochId",
+     "@type": "@id"
+    },
+    "label": {
+     "@id": "usdm:ScheduledInstance-label"
+    },
+    "name": {
+     "@id": "usdm:ScheduledInstance-name"
+    }
+   }
+  },
+  "Strength": {
+   "@id": "usdm:Strength",
+   "@context": {
+    "denominator": {
+     "@id": "usdm:Strength-denominator"
+    },
+    "description": {
+     "@id": "usdm:Strength-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Strength-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Strength-label"
+    },
+    "name": {
+     "@id": "usdm:Strength-name"
+    },
+    "numerator": {
+     "@id": "usdm:Strength-numerator"
+    }
+   }
+  },
+  "Study": {
+   "@id": "usdm:Study",
+   "@context": {
+    "description": {
+     "@id": "usdm:Study-description"
+    },
+    "documentedBy": {
+     "@id": "usdm:Study-documentedBy",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Study-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Study-label"
+    },
+    "name": {
+     "@id": "usdm:Study-name"
+    },
+    "versions": {
+     "@id": "usdm:Study-versions",
+     "@container": "@set"
+    }
+   }
+  },
+  "StudyAmendment": {
+   "@id": "usdm:StudyAmendment",
+   "@context": {
+    "changes": {
+     "@id": "usdm:StudyAmendment-changes",
+     "@container": "@set"
+    },
+    "dateValues": {
+     "@id": "usdm:StudyAmendment-dateValues",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:StudyAmendment-description"
+    },
+    "enrollments": {
+     "@id": "usdm:StudyAmendment-enrollments",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyAmendment-extensionAttributes",
+     "@container": "@set"
+    },
+    "geographicScopes": {
+     "@id": "usdm:StudyAmendment-geographicScopes",
+     "@container": "@set"
+    },
+    "impacts": {
+     "@id": "usdm:StudyAmendment-impacts",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyAmendment-label"
+    },
+    "name": {
+     "@id": "usdm:StudyAmendment-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyAmendment-notes",
+     "@container": "@set"
+    },
+    "number": {
+     "@id": "usdm:StudyAmendment-number"
+    },
+    "previousId": {
+     "@id": "usdm:StudyAmendment-previousId",
+     "@type": "@id"
+    },
+    "primaryReason": {
+     "@id": "usdm:StudyAmendment-primaryReason"
+    },
+    "secondaryReasons": {
+     "@id": "usdm:StudyAmendment-secondaryReasons",
+     "@container": "@set"
+    },
+    "summary": {
+     "@id": "usdm:StudyAmendment-summary"
+    }
+   }
+  },
+  "StudyAmendmentImpact": {
+   "@id": "usdm:StudyAmendmentImpact",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:StudyAmendmentImpact-extensionAttributes",
+     "@container": "@set"
+    },
+    "isSubstantial": {
+     "@id": "usdm:StudyAmendmentImpact-isSubstantial"
+    },
+    "notes": {
+     "@id": "usdm:StudyAmendmentImpact-notes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:StudyAmendmentImpact-text"
+    },
+    "type": {
+     "@id": "usdm:StudyAmendmentImpact-type"
+    }
+   }
+  },
+  "StudyAmendmentReason": {
+   "@id": "usdm:StudyAmendmentReason",
+   "@context": {
+    "code": {
+     "@id": "usdm:StudyAmendmentReason-code"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyAmendmentReason-extensionAttributes",
+     "@container": "@set"
+    },
+    "otherReason": {
+     "@id": "usdm:StudyAmendmentReason-otherReason"
+    }
+   }
+  },
+  "StudyArm": {
+   "@id": "usdm:StudyArm",
+   "@context": {
+    "dataOriginDescription": {
+     "@id": "usdm:StudyArm-dataOriginDescription"
+    },
+    "dataOriginType": {
+     "@id": "usdm:StudyArm-dataOriginType"
+    },
+    "description": {
+     "@id": "usdm:StudyArm-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyArm-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyArm-label"
+    },
+    "name": {
+     "@id": "usdm:StudyArm-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyArm-notes",
+     "@container": "@set"
+    },
+    "populationIds": {
+     "@id": "usdm:StudyArm-populationIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "type": {
+     "@id": "usdm:StudyArm-type"
+    }
+   }
+  },
+  "StudyCell": {
+   "@id": "usdm:StudyCell",
+   "@context": {
+    "armId": {
+     "@id": "usdm:StudyCell-armId",
+     "@type": "@id"
+    },
+    "elementIds": {
+     "@id": "usdm:StudyCell-elementIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "epochId": {
+     "@id": "usdm:StudyCell-epochId",
+     "@type": "@id"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyCell-extensionAttributes",
+     "@container": "@set"
+    }
+   }
+  },
+  "StudyChange": {
+   "@id": "usdm:StudyChange",
+   "@context": {
+    "changedSections": {
+     "@id": "usdm:StudyChange-changedSections",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:StudyChange-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyChange-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyChange-label"
+    },
+    "name": {
+     "@id": "usdm:StudyChange-name"
+    },
+    "rationale": {
+     "@id": "usdm:StudyChange-rationale"
+    },
+    "summary": {
+     "@id": "usdm:StudyChange-summary"
+    }
+   }
+  },
+  "StudyCohort": {
+   "@id": "usdm:StudyCohort",
+   "@context": {
+    "characteristics": {
+     "@id": "usdm:StudyCohort-characteristics",
+     "@container": "@set"
+    },
+    "criterionIds": {
+     "@id": "usdm:PopulationDefinition-criterionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:PopulationDefinition-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyCohort-extensionAttributes",
+     "@container": "@set"
+    },
+    "includesHealthySubjects": {
+     "@id": "usdm:PopulationDefinition-includesHealthySubjects"
+    },
+    "indicationIds": {
+     "@id": "usdm:StudyCohort-indicationIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:PopulationDefinition-label"
+    },
+    "name": {
+     "@id": "usdm:PopulationDefinition-name"
+    },
+    "notes": {
+     "@id": "usdm:PopulationDefinition-notes",
+     "@container": "@set"
+    },
+    "plannedAge": {
+     "@id": "usdm:PopulationDefinition-plannedAge"
+    },
+    "plannedCompletionNumber": {
+     "@id": "usdm:PopulationDefinition-plannedCompletionNumber"
+    },
+    "plannedEnrollmentNumber": {
+     "@id": "usdm:PopulationDefinition-plannedEnrollmentNumber"
+    },
+    "plannedSex": {
+     "@id": "usdm:PopulationDefinition-plannedSex"
+    }
+   }
+  },
+  "StudyDefinitionDocument": {
+   "@id": "usdm:StudyDefinitionDocument",
+   "@context": {
+    "childIds": {
+     "@id": "usdm:StudyDefinitionDocument-childIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:StudyDefinitionDocument-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyDefinitionDocument-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyDefinitionDocument-label"
+    },
+    "language": {
+     "@id": "usdm:StudyDefinitionDocument-language"
+    },
+    "name": {
+     "@id": "usdm:StudyDefinitionDocument-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyDefinitionDocument-notes",
+     "@container": "@set"
+    },
+    "templateName": {
+     "@id": "usdm:StudyDefinitionDocument-templateName"
+    },
+    "type": {
+     "@id": "usdm:StudyDefinitionDocument-type"
+    },
+    "versions": {
+     "@id": "usdm:StudyDefinitionDocument-versions",
+     "@container": "@set"
+    }
+   }
+  },
+  "StudyDefinitionDocumentVersion": {
+   "@id": "usdm:StudyDefinitionDocumentVersion",
+   "@context": {
+    "contents": {
+     "@id": "usdm:StudyDefinitionDocumentVersion-contents",
+     "@container": "@set"
+    },
+    "dateValues": {
+     "@id": "usdm:StudyDefinitionDocumentVersion-dateValues",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyDefinitionDocumentVersion-extensionAttributes",
+     "@container": "@set"
+    },
+    "notes": {
+     "@id": "usdm:StudyDefinitionDocumentVersion-notes",
+     "@container": "@set"
+    },
+    "status": {
+     "@id": "usdm:StudyDefinitionDocumentVersion-status"
+    },
+    "version": {
+     "@id": "usdm:StudyDefinitionDocumentVersion-version"
+    }
+   }
+  },
+  "StudyDesign": {
+   "@id": "usdm:StudyDesign",
+   "@context": {
+    "activities": {
+     "@id": "usdm:StudyDesign-activities",
+     "@container": "@set"
+    },
+    "analysisPopulations": {
+     "@id": "usdm:StudyDesign-analysisPopulations",
+     "@container": "@set"
+    },
+    "arms": {
+     "@id": "usdm:StudyDesign-arms",
+     "@container": "@set"
+    },
+    "biospecimenRetentions": {
+     "@id": "usdm:StudyDesign-biospecimenRetentions",
+     "@container": "@set"
+    },
+    "characteristics": {
+     "@id": "usdm:StudyDesign-characteristics",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:StudyDesign-description"
+    },
+    "documentVersionIds": {
+     "@id": "usdm:StudyDesign-documentVersionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "elements": {
+     "@id": "usdm:StudyDesign-elements",
+     "@container": "@set"
+    },
+    "eligibilityCriteria": {
+     "@id": "usdm:StudyDesign-eligibilityCriteria",
+     "@container": "@set"
+    },
+    "encounters": {
+     "@id": "usdm:StudyDesign-encounters",
+     "@container": "@set"
+    },
+    "epochs": {
+     "@id": "usdm:StudyDesign-epochs",
+     "@container": "@set"
+    },
+    "estimands": {
+     "@id": "usdm:StudyDesign-estimands",
+     "@container": "@set"
+    },
+    "indications": {
+     "@id": "usdm:StudyDesign-indications",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyDesign-label"
+    },
+    "name": {
+     "@id": "usdm:StudyDesign-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyDesign-notes",
+     "@container": "@set"
+    },
+    "objectives": {
+     "@id": "usdm:StudyDesign-objectives",
+     "@container": "@set"
+    },
+    "population": {
+     "@id": "usdm:StudyDesign-population"
+    },
+    "rationale": {
+     "@id": "usdm:StudyDesign-rationale"
+    },
+    "scheduleTimelines": {
+     "@id": "usdm:StudyDesign-scheduleTimelines",
+     "@container": "@set"
+    },
+    "studyCells": {
+     "@id": "usdm:StudyDesign-studyCells",
+     "@container": "@set"
+    },
+    "studyInterventionIds": {
+     "@id": "usdm:StudyDesign-studyInterventionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "studyPhase": {
+     "@id": "usdm:StudyDesign-studyPhase"
+    },
+    "studyType": {
+     "@id": "usdm:StudyDesign-studyType"
+    },
+    "therapeuticAreas": {
+     "@id": "usdm:StudyDesign-therapeuticAreas",
+     "@container": "@set"
+    }
+   }
+  },
+  "StudyDesignPopulation": {
+   "@id": "usdm:StudyDesignPopulation",
+   "@context": {
+    "cohorts": {
+     "@id": "usdm:StudyDesignPopulation-cohorts",
+     "@container": "@set"
+    },
+    "criterionIds": {
+     "@id": "usdm:PopulationDefinition-criterionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:PopulationDefinition-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyDesignPopulation-extensionAttributes",
+     "@container": "@set"
+    },
+    "includesHealthySubjects": {
+     "@id": "usdm:PopulationDefinition-includesHealthySubjects"
+    },
+    "label": {
+     "@id": "usdm:PopulationDefinition-label"
+    },
+    "name": {
+     "@id": "usdm:PopulationDefinition-name"
+    },
+    "notes": {
+     "@id": "usdm:PopulationDefinition-notes",
+     "@container": "@set"
+    },
+    "plannedAge": {
+     "@id": "usdm:PopulationDefinition-plannedAge"
+    },
+    "plannedCompletionNumber": {
+     "@id": "usdm:PopulationDefinition-plannedCompletionNumber"
+    },
+    "plannedEnrollmentNumber": {
+     "@id": "usdm:PopulationDefinition-plannedEnrollmentNumber"
+    },
+    "plannedSex": {
+     "@id": "usdm:PopulationDefinition-plannedSex"
+    }
+   }
+  },
+  "StudyElement": {
+   "@id": "usdm:StudyElement",
+   "@context": {
+    "description": {
+     "@id": "usdm:StudyElement-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyElement-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyElement-label"
+    },
+    "name": {
+     "@id": "usdm:StudyElement-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyElement-notes",
+     "@container": "@set"
+    },
+    "studyInterventionIds": {
+     "@id": "usdm:StudyElement-studyInterventionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "transitionEndRule": {
+     "@id": "usdm:StudyElement-transitionEndRule"
+    },
+    "transitionStartRule": {
+     "@id": "usdm:StudyElement-transitionStartRule"
+    }
+   }
+  },
+  "StudyEpoch": {
+   "@id": "usdm:StudyEpoch",
+   "@context": {
+    "description": {
+     "@id": "usdm:StudyEpoch-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyEpoch-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyEpoch-label"
+    },
+    "name": {
+     "@id": "usdm:StudyEpoch-name"
+    },
+    "nextId": {
+     "@id": "usdm:StudyEpoch-nextId",
+     "@type": "@id"
+    },
+    "notes": {
+     "@id": "usdm:StudyEpoch-notes",
+     "@container": "@set"
+    },
+    "previousId": {
+     "@id": "usdm:StudyEpoch-previousId",
+     "@type": "@id"
+    },
+    "type": {
+     "@id": "usdm:StudyEpoch-type"
+    }
+   }
+  },
+  "StudyIdentifier": {
+   "@id": "usdm:StudyIdentifier",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:StudyIdentifier-extensionAttributes",
+     "@container": "@set"
+    },
+    "scopeId": {
+     "@id": "usdm:Identifier-scopeId",
+     "@type": "@id"
+    },
+    "text": {
+     "@id": "usdm:Identifier-text"
+    }
+   }
+  },
+  "StudyIntervention": {
+   "@id": "usdm:StudyIntervention",
+   "@context": {
+    "administrations": {
+     "@id": "usdm:StudyIntervention-administrations",
+     "@container": "@set"
+    },
+    "codes": {
+     "@id": "usdm:StudyIntervention-codes",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:StudyIntervention-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyIntervention-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyIntervention-label"
+    },
+    "minimumResponseDuration": {
+     "@id": "usdm:StudyIntervention-minimumResponseDuration"
+    },
+    "name": {
+     "@id": "usdm:StudyIntervention-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyIntervention-notes",
+     "@container": "@set"
+    },
+    "role": {
+     "@id": "usdm:StudyIntervention-role"
+    },
+    "type": {
+     "@id": "usdm:StudyIntervention-type"
+    }
+   }
+  },
+  "StudyRole": {
+   "@id": "usdm:StudyRole",
+   "@context": {
+    "appliesToIds": {
+     "@id": "usdm:StudyRole-appliesToIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "assignedPersons": {
+     "@id": "usdm:StudyRole-assignedPersons",
+     "@container": "@set"
+    },
+    "code": {
+     "@id": "usdm:StudyRole-code"
+    },
+    "description": {
+     "@id": "usdm:StudyRole-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyRole-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudyRole-label"
+    },
+    "masking": {
+     "@id": "usdm:StudyRole-masking"
+    },
+    "name": {
+     "@id": "usdm:StudyRole-name"
+    },
+    "notes": {
+     "@id": "usdm:StudyRole-notes",
+     "@container": "@set"
+    },
+    "organizationIds": {
+     "@id": "usdm:StudyRole-organizationIds",
+     "@type": "@id",
+     "@container": "@set"
+    }
+   }
+  },
+  "StudySite": {
+   "@id": "usdm:StudySite",
+   "@context": {
+    "country": {
+     "@id": "usdm:StudySite-country"
+    },
+    "description": {
+     "@id": "usdm:StudySite-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudySite-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:StudySite-label"
+    },
+    "name": {
+     "@id": "usdm:StudySite-name"
+    }
+   }
+  },
+  "StudyTitle": {
+   "@id": "usdm:StudyTitle",
+   "@context": {
+    "extensionAttributes": {
+     "@id": "usdm:StudyTitle-extensionAttributes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:StudyTitle-text"
+    },
+    "type": {
+     "@id": "usdm:StudyTitle-type"
+    }
+   }
+  },
+  "StudyVersion": {
+   "@id": "usdm:StudyVersion",
+   "@context": {
+    "abbreviations": {
+     "@id": "usdm:StudyVersion-abbreviations",
+     "@container": "@set"
+    },
+    "administrableProducts": {
+     "@id": "usdm:StudyVersion-administrableProducts",
+     "@container": "@set"
+    },
+    "amendments": {
+     "@id": "usdm:StudyVersion-amendments",
+     "@container": "@set"
+    },
+    "bcCategories": {
+     "@id": "usdm:StudyVersion-bcCategories",
+     "@container": "@set"
+    },
+    "bcSurrogates": {
+     "@id": "usdm:StudyVersion-bcSurrogates",
+     "@container": "@set"
+    },
+    "biomedicalConcepts": {
+     "@id": "usdm:StudyVersion-biomedicalConcepts",
+     "@container": "@set"
+    },
+    "businessTherapeuticAreas": {
+     "@id": "usdm:StudyVersion-businessTherapeuticAreas",
+     "@container": "@set"
+    },
+    "conditions": {
+     "@id": "usdm:StudyVersion-conditions",
+     "@container": "@set"
+    },
+    "dateValues": {
+     "@id": "usdm:StudyVersion-dateValues",
+     "@container": "@set"
+    },
+    "dictionaries": {
+     "@id": "usdm:StudyVersion-dictionaries",
+     "@container": "@set"
+    },
+    "documentVersionIds": {
+     "@id": "usdm:StudyVersion-documentVersionIds",
+     "@type": "@id",
+     "@container": "@set"
+    },
+    "eligibilityCriterionItems": {
+     "@id": "usdm:StudyVersion-eligibilityCriterionItems",
+     "@container": "@set"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:StudyVersion-extensionAttributes",
+     "@container": "@set"
+    },
+    "medicalDevices": {
+     "@id": "usdm:StudyVersion-medicalDevices",
+     "@container": "@set"
+    },
+    "narrativeContentItems": {
+     "@id": "usdm:StudyVersion-narrativeContentItems",
+     "@container": "@set"
+    },
+    "notes": {
+     "@id": "usdm:StudyVersion-notes",
+     "@container": "@set"
+    },
+    "organizations": {
+     "@id": "usdm:StudyVersion-organizations",
+     "@container": "@set"
+    },
+    "productOrganizationRoles": {
+     "@id": "usdm:StudyVersion-productOrganizationRoles",
+     "@container": "@set"
+    },
+    "rationale": {
+     "@id": "usdm:StudyVersion-rationale"
+    },
+    "referenceIdentifiers": {
+     "@id": "usdm:StudyVersion-referenceIdentifiers",
+     "@container": "@set"
+    },
+    "roles": {
+     "@id": "usdm:StudyVersion-roles",
+     "@container": "@set"
+    },
+    "studyDesigns": {
+     "@id": "usdm:StudyVersion-studyDesigns",
+     "@container": "@set"
+    },
+    "studyIdentifiers": {
+     "@id": "usdm:StudyVersion-studyIdentifiers",
+     "@container": "@set"
+    },
+    "studyInterventions": {
+     "@id": "usdm:StudyVersion-studyInterventions",
+     "@container": "@set"
+    },
+    "titles": {
+     "@id": "usdm:StudyVersion-titles",
+     "@container": "@set"
+    },
+    "versionIdentifier": {
+     "@id": "usdm:StudyVersion-versionIdentifier"
+    }
+   }
+  },
+  "SubjectEnrollment": {
+   "@id": "usdm:SubjectEnrollment",
+   "@context": {
+    "description": {
+     "@id": "usdm:SubjectEnrollment-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:SubjectEnrollment-extensionAttributes",
+     "@container": "@set"
+    },
+    "forGeographicScope": {
+     "@id": "usdm:SubjectEnrollment-forGeographicScope"
+    },
+    "forStudyCohortId": {
+     "@id": "usdm:SubjectEnrollment-forStudyCohortId",
+     "@type": "@id"
+    },
+    "forStudySiteId": {
+     "@id": "usdm:SubjectEnrollment-forStudySiteId",
+     "@type": "@id"
+    },
+    "label": {
+     "@id": "usdm:SubjectEnrollment-label"
+    },
+    "name": {
+     "@id": "usdm:SubjectEnrollment-name"
+    },
+    "quantity": {
+     "@id": "usdm:SubjectEnrollment-quantity"
+    }
+   }
+  },
+  "Substance": {
+   "@id": "usdm:Substance",
+   "@context": {
+    "codes": {
+     "@id": "usdm:Substance-codes",
+     "@container": "@set"
+    },
+    "description": {
+     "@id": "usdm:Substance-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Substance-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Substance-label"
+    },
+    "name": {
+     "@id": "usdm:Substance-name"
+    },
+    "referenceSubstance": {
+     "@id": "usdm:Substance-referenceSubstance"
+    },
+    "strengths": {
+     "@id": "usdm:Substance-strengths",
+     "@container": "@set"
+    }
+   }
+  },
+  "SyntaxTemplate": {
+   "@id": "usdm:SyntaxTemplate",
+   "@context": {
+    "description": {
+     "@id": "usdm:SyntaxTemplate-description"
+    },
+    "dictionaryId": {
+     "@id": "usdm:SyntaxTemplate-dictionaryId",
+     "@type": "@id"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplate-label"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplate-name"
+    },
+    "notes": {
+     "@id": "usdm:SyntaxTemplate-notes",
+     "@container": "@set"
+    },
+    "text": {
+     "@id": "usdm:SyntaxTemplate-text"
+    }
+   }
+  },
+  "SyntaxTemplateDictionary": {
+   "@id": "usdm:SyntaxTemplateDictionary",
+   "@context": {
+    "description": {
+     "@id": "usdm:SyntaxTemplateDictionary-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:SyntaxTemplateDictionary-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:SyntaxTemplateDictionary-label"
+    },
+    "name": {
+     "@id": "usdm:SyntaxTemplateDictionary-name"
+    },
+    "parameterMaps": {
+     "@id": "usdm:SyntaxTemplateDictionary-parameterMaps",
+     "@container": "@set"
+    }
+   }
+  },
+  "Timing": {
+   "@id": "usdm:Timing",
+   "@context": {
+    "description": {
+     "@id": "usdm:Timing-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:Timing-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:Timing-label"
+    },
+    "name": {
+     "@id": "usdm:Timing-name"
+    },
+    "relativeFromScheduledInstanceId": {
+     "@id": "usdm:Timing-relativeFromScheduledInstanceId",
+     "@type": "@id"
+    },
+    "relativeToFrom": {
+     "@id": "usdm:Timing-relativeToFrom"
+    },
+    "relativeToScheduledInstanceId": {
+     "@id": "usdm:Timing-relativeToScheduledInstanceId",
+     "@type": "@id"
+    },
+    "type": {
+     "@id": "usdm:Timing-type"
+    },
+    "value": {
+     "@id": "usdm:Timing-value"
+    },
+    "valueLabel": {
+     "@id": "usdm:Timing-valueLabel"
+    },
+    "windowLabel": {
+     "@id": "usdm:Timing-windowLabel"
+    },
+    "windowLower": {
+     "@id": "usdm:Timing-windowLower"
+    },
+    "windowUpper": {
+     "@id": "usdm:Timing-windowUpper"
+    }
+   }
+  },
+  "TransitionRule": {
+   "@id": "usdm:TransitionRule",
+   "@context": {
+    "description": {
+     "@id": "usdm:TransitionRule-description"
+    },
+    "extensionAttributes": {
+     "@id": "usdm:TransitionRule-extensionAttributes",
+     "@container": "@set"
+    },
+    "label": {
+     "@id": "usdm:TransitionRule-label"
+    },
+    "name": {
+     "@id": "usdm:TransitionRule-name"
+    },
+    "text": {
+     "@id": "usdm:TransitionRule-text"
+    }
+   }
+  }
+ }
+}

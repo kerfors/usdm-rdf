@@ -29,11 +29,11 @@ release. It already carries:
 
 So the gap between published USDM and a queryable RDF/OWL view is mechanical,
 not semantic. This repo closes that gap with a small, reproducible pipeline
-(three notebooks + a single Turtle deliverable).
+(four notebooks + two generated deliverables).
 
-## What the deliverable contains
+## What the deliverables contain
 
-- `usdm_v4.ttl` at repo root — the deliverable, ontology-repo convention.
+- `usdm_v4.ttl` at repo root — the ontology deliverable, ontology-repo convention.
 - Mechanical conversion `dataStructure.yml → usdm_v4.ttl`.
 - NCIt anchoring via `skos:exactMatch` — dual anchor since v0.4.0 (decision
   D4): the NCI EVS Thesaurus identifier (the same form CDISC Library RDF
@@ -50,8 +50,14 @@ not semantic. This repo closes that gap with a small, reproducible pipeline
   (ISO 3166, ISO 639, MedDRA, SNOMEDCT, FHIR, etc.) preserved verbatim.
 - Two-source pipeline: model from `dataStructure.yml`; bindings from
   `USDM_CT.xlsx`. Both source files co-pinned at the same DDF-RA release tag.
-- Validation pipeline: `rdflib` parse + SPARQL sanity queries + a CSV report
-  in `reports/`.
+- `usdm_v4.context.jsonld` at repo root — a JSON-LD 1.1 instance context
+  (since v0.5.0, decision D5): applied to USDM API instance JSON, it yields
+  an RDF graph whose predicates and types are the ontology's IRIs.
+  Type-scoped contexts map serialization keys to class-scoped property IRIs;
+  `Ref` attributes become graph links. Validated against the CDISC Pilot
+  example study published in DDF-RA at the pinned tag.
+- Validation pipeline: `rdflib` parse + SPARQL sanity queries + instance
+  context check against the CDISC Pilot example + CSV reports in `reports/`.
 
 ## What's explicitly **out** (known gaps)
 
@@ -61,7 +67,8 @@ These are known gaps, not oversights. Do not infer that they are coming soon.
 - `USDM_CT.xlsx` enumerated codelist *value* binding (sheet 2 of USDM_CT —
   permitted Code values per codelist). Only codelist-level anchors are emitted.
 - Alignment to the existing CDISC Library RDF (Administered Item vocabulary).
-- SHACL shapes for instance validation.
+- SHACL shapes for instance validation — scope opened 2026-07-03, scheduled
+  for v0.6.0.
 
 ## Mechanical mapping (summary)
 
@@ -95,12 +102,14 @@ usdm-rdf/
 ├── CLAUDE.md
 ├── LICENSE                          # MIT for code; content under CC-BY-4.0 (mirrors DDF-RA)
 ├── .gitignore
-├── usdm_v4.ttl                      # the deliverable
-├── downloads/                       # gitignored — dataStructure.yml + USDM_CT.xlsx fetched here
+├── usdm_v4.ttl                      # the ontology deliverable
+├── usdm_v4.context.jsonld           # the JSON-LD 1.1 instance context deliverable (v0.5.0, D5)
+├── downloads/                       # gitignored — dataStructure.yml + USDM_CT.xlsx fetched here (+ CDISC_Pilot_Study.json test data)
 ├── notebooks/
 │   ├── 10_fetch_yaml.ipynb          # pin DDF-RA release tag, fetch dataStructure.yml + USDM_CT.xlsx
 │   ├── 20_generate_turtle.ipynb     # YAML + USDM_CT → Turtle conversion
-│   └── 30_validate.ipynb            # rdflib parse + SPARQL sanity + binding cross-check + report
+│   ├── 30_validate.ipynb            # rdflib parse + SPARQL sanity + binding cross-check + instance context check + reports
+│   └── 40_generate_context.ipynb    # YAML → JSON-LD 1.1 instance context
 ├── examples/                        # demo notebooks — see examples/README.md
 │   ├── README.md
 │   ├── 01_model_navigation.ipynb    # USDM v4 as a queryable data dictionary
@@ -111,7 +120,7 @@ usdm-rdf/
 ├── reports/                         # CSV reports from validation runs
 ├── docs/                            # design decisions, IRI scheme, future work
 ├── queries/                         # reusable standalone SPARQL files (none yet)
-└── versions/                        # usdm_v4.ttl snapshots per DDF-RA tag bump (none yet — single source tag v4.0.0 so far)
+└── versions/                        # usdm_v4.ttl + usdm_v4.context.jsonld snapshots per DDF-RA tag bump (none yet — single source tag v4.0.0 so far)
 ```
 
 ## Reproduce
@@ -121,20 +130,26 @@ usdm-rdf/
    land in `downloads/`.
 2. Open `notebooks/20_generate_turtle.ipynb`. Run all cells. `usdm_v4.ttl`
    appears at the repo root.
-3. Open `notebooks/30_validate.ipynb`. Run all cells. A CSV report is written
-   to `reports/`. Compare against the baseline numbers below.
+3. Open `notebooks/40_generate_context.ipynb`. Run all cells.
+   `usdm_v4.context.jsonld` appears at the repo root.
+4. Open `notebooks/30_validate.ipynb`. Run all cells. CSV reports are written
+   to `reports/`. Compare against the baseline numbers below. The instance
+   context check fetches `CDISC_Pilot_Study.json` (test data, not a modelling
+   source) into `downloads/` at the pinned tag.
 
 Bumping the DDF-RA tag is a deliberate action, not a default — edit the pinned
-tag in `10_fetch_yaml.ipynb` and re-run all three notebooks. Both source files
+tag in `10_fetch_yaml.ipynb` and re-run all four notebooks. Both source files
 live at the same tag, so a bump refreshes them in lockstep.
 
 ## Expected baselines (current DDF-RA tag `v4.0.0`)
 
-- 8,641 triples in v0.4.0 (v0.3.1: 8,200; v0.3: 8,184; v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples; v0.3.1 adds `owl:versionIRI` + 15 `owl:AnnotationProperty` declarations; v0.4.0 adds 441 OBO PURL twins — 396 `skos:exactMatch` + 45 `usdm:boundCodelist` — dual NCIt anchoring per decision D4)
+- 8,642 triples in v0.5.0 (v0.4.0: 8,641; v0.3.1: 8,200; v0.3: 8,184; v0.1: 8,173 with codelist binding annotations; v0.3 adds 11 ontology-header metadata triples; v0.3.1 adds `owl:versionIRI` + 15 `owl:AnnotationProperty` declarations; v0.4.0 adds 441 OBO PURL twins — 396 `skos:exactMatch` + 45 `usdm:boundCodelist` — dual NCIt anchoring per decision D4; v0.5.0 adds the `xsd:date a rdfs:Datatype` declaration)
 - 86 `owl:Class` (84 NCIt-anchored; 2 Extension classes by design)
 - 693 properties (datatype + object combined)
 - 312 properties NCIt-anchored
 - 57 properties with `usdm:boundCodelistNote`; 45 of those also with `usdm:boundCodelist`
+- Instance context check (CDISC Pilot example, DDF-RA `v4.0.0`): 11,811
+  triples; 1,953 typed nodes; 1,257 Ref links, 0 dangling; 0 unmapped keys
 
 Deviation from a fresh DDF-RA release indicates either a source change (likely
 benign — document the delta in `docs/`) or a generation bug (investigate).
@@ -149,8 +164,8 @@ benign — document the delta in `docs/`) or a generation bug (investigate).
 ## License
 
 - Code: MIT (see `LICENSE`).
-- Generated content (`usdm_v4.ttl`, files in `versions/`, derived reports):
-  CC-BY-4.0, mirroring the DDF-RA source.
+- Generated content (`usdm_v4.ttl`, `usdm_v4.context.jsonld`, files in
+  `versions/`, derived reports): CC-BY-4.0, mirroring the DDF-RA source.
 
 ## Acknowledgements
 
