@@ -5,3 +5,5 @@ run_at_utc,ddf_ra_tag,layer,conforms,violations,warnings
 2026-07-03T18:46:07.765851+00:00,v4.0.0,terminology,False,3,11
 2026-07-04T05:21:51.960302+00:00,v4.0.0,structural,True,0,0
 2026-07-04T05:21:51.960317+00:00,v4.0.0,terminology,False,3,11
+2026-07-04T13:08:31.424174+00:00,v4.0.0,structural,True,0,0
+2026-07-04T13:08:31.424187+00:00,v4.0.0,terminology,False,3,11
