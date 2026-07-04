@@ -1,9 +1,11 @@
 # examples/
 
-Demonstration notebooks for the v0.4.0 USDM-RDF Turtle file (`../usdm_v4.ttl`).
-Each notebook is self-contained — open in JupyterLab, run all cells. All five
-are pinned to v0.4.0 anchor shape; the triple-count sanity check warns (does
-not fail) on drift, so a future DDF-RA tag bump won't break the examples.
+Demonstration notebooks for the USDM-RDF deliverables (`../usdm_v4.ttl`,
+`../usdm_v4.context.jsonld`, `../usdm_v4.shapes.ttl`,
+`../usdm_v4.shapes-ct.ttl`). Each notebook is self-contained — open in
+JupyterLab, run all cells. All seven are pinned to the v0.5.0 baseline
+(8,642 triples); the triple-count sanity check warns (does not fail) on
+drift, so a future DDF-RA tag bump won't break the examples.
 
 Since v0.4.0 every NCIt reference carries two IRI forms (EVS identifier and
 OBO PURL — decision D4 in `../docs/iri-and-governance.md`). Tabular outputs
@@ -68,11 +70,49 @@ v0.4.0.
 Output: `polymorphic_reverse_index.csv` — 341 rows (330 direct + 11 via union),
 80 distinct target classes.
 
+### `06_query_instance_data.ipynb`
+
+Multi-study SPARQL over instance data — the basics. Loads four real
+protocols from `data4knowledge/usdm_data` (USDM Excel-to-JSON renderings,
+pinned commit; a fifth file without a `usdmVersion` envelope is skipped by
+the load gate) as named graphs in one Dataset. This works because the
+instance context sets no `@base` (decision D5): document-scoped ids get
+per-file base IRIs, so identical ids never collide and `GRAPH ?study`
+doubles as provenance. Queries build up from one-row-per-study basics
+(study code, brief title) through orientation (titles, design types,
+phases) to a corpus census: which USDM classes real E2J outputs
+instantiate, counts per study, decorated with `skos:definition` and the
+paired NCIt anchors from the model graph — model and data share IRIs, so
+the join needs no mapping table.
+
+No CSV output.
+
+### `07_validation_audit.ipynb`
+
+The extended case: model, shapes, and instance data combined. Same corpus
+as notebook 06, plus both SHACL layers, validated per study with pyshacl.
+The validation reports are themselves RDF and load as named graphs
+(`<study>#shacl-structural`, `<study>#shacl-ct`), so one SELECT decorates
+every finding with the focus node's class (study graph), the violated
+property's definition (model graph), and the expected cardinality
+(structural shapes graph). A terminology closeup assembles actual code,
+decode, permitted values (`sh:in`), and bound codelist from four graph
+kinds in one query. Findings in this corpus: a systemic
+empty-required-collection pattern across three studies, one dangling-ref
+data error, and one codelist-drift specimen (C207646 vs C94108 on
+`StudyTitle-type`).
+
+Output: `validation_audit.csv` — 12 rows × 10 columns.
+
 ## Dependencies
 
 - Notebooks 01–03, 05: `rdflib`, `pandas`. No network.
 - Notebook 04: same plus `requests`. Calls `https://api-evsrest.nci.nih.gov/`
   — open API, no key or membership required.
+- Notebook 06: `rdflib`, `pandas`. Network on first run only — fetches the
+  study JSONs from the pinned `data4knowledge/usdm_data` commit into
+  `../downloads/d4k/` (SHA-256 sidecar `.fetch_meta_examples.json`).
+- Notebook 07: same plus `pyshacl`. Shares the notebook 06 downloads.
 
 ## Outputs
 
