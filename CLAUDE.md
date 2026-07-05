@@ -62,7 +62,8 @@ starts to look like "let's also do X", flag it before implementing.
   holds sources of truth only.
 - When the tag is bumped, re-run all four notebooks and update the
   baseline numbers in `30_validate.ipynb`, `40_generate_context.ipynb`,
-  and `README.md` if they drift — document the delta in `docs/`.
+  `README.md`, and `scripts/ci_check.py` if they drift — document the
+  delta in `docs/`.
 
 ## Review gates
 
