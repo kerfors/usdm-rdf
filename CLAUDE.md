@@ -60,7 +60,7 @@ starts to look like "let's also do X", flag it before implementing.
   same tag (sidecar `.fetch_meta_pilot.json`). It is test data for the
   instance context check, not a modelling source — `10_fetch_yaml.ipynb`
   holds sources of truth only.
-- When the tag is bumped, re-run all four notebooks and update the
+- When the tag is bumped, re-run all five notebooks and update the
   baseline numbers in `30_validate.ipynb`, `40_generate_context.ipynb`,
   `README.md`, and `scripts/ci_check.py` if they drift — document the
   delta in `docs/`.

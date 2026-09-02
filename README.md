@@ -7,8 +7,8 @@ YAML source CDISC publishes in [cdisc-org/DDF-RA](https://github.com/cdisc-org/D
 `https://w3id.org/cdisc/usdm/v4/` (slash semantics, adopted in v0.3 —
 the v0.2 hash form is superseded; see
 [docs/v0.2-to-v0.3-migration.md](docs/v0.2-to-v0.3-migration.md)).
-The w3id `.htaccess` is live and pinned to the v0.4.0 release (PR
-perma-id/w3id.org#6190 merged 2026-06-12; original registration #6012,
+The w3id `.htaccess` is live and pinned to the v0.6.0 release (PR
+perma-id/w3id.org#6303 merged 2026-07-04; original registration #6012,
 2026-05-04), so IRIs in this namespace dereference via content negotiation. See
 [docs/iri-and-governance.md](docs/iri-and-governance.md) for the IRI
 scheme rationale and the CDISC governance handoff plan.
@@ -29,7 +29,7 @@ release. It already carries:
 
 So the gap between published USDM and a queryable RDF/OWL view is mechanical,
 not semantic. This repo closes that gap with a small, reproducible pipeline
-(four notebooks + two generated deliverables).
+(five notebooks + four generated deliverables).
 
 ## What the deliverables contain
 
@@ -132,7 +132,9 @@ usdm-rdf/
 │   ├── 02_codelist_bindings.ipynb   # binding inventory + inheritance-aware reverse lookup
 │   ├── 03_coverage_gap_analysis.ipynb  # Code-typed property coverage + gap report
 │   ├── 04_resolve_permitted_terms.ipynb  # resolve permitted Code values via NCI EVS
-│   └── 05_polymorphic_associations.ipynb # polymorphic ranges + reverse range lookup
+│   ├── 05_polymorphic_associations.ipynb # polymorphic ranges + reverse range lookup
+│   ├── 06_query_instance_data.ipynb      # multi-study corpus as named graphs (d4k usdm_data, pinned commit)
+│   └── 07_validation_audit.ipynb         # SHACL findings as a graph, joined to model definitions
 ├── reports/                         # CSV reports from validation runs
 ├── docs/                            # design decisions, IRI scheme, future work
 ├── queries/                         # reusable standalone SPARQL files (none yet)
@@ -181,9 +183,10 @@ It reports; it does not judge protocol quality.
 - SHACL shapes: 80 closed NodeShapes, 619 property shapes, 20 `sh:or`
   (structural); 25 value-set shapes, 125 permitted values, 9 Violation +
   16 Warning severities (terminology)
-- SHACL conformance (CDISC Pilot): structural conforms; terminology
-  reports 3 Violations + 11 Warnings (placeholder/extension codes in the
-  published example — findings, not pipeline errors)
+- SHACL conformance (CDISC Pilot example as published in DDF-RA at the
+  pinned tag): structural conforms; terminology reports 3 Violations +
+  11 Warnings (placeholder/extension codes in the published example —
+  findings, not pipeline errors)
 
 Deviation from a fresh DDF-RA release indicates either a source change (likely
 benign — document the delta in `docs/`) or a generation bug (investigate).
