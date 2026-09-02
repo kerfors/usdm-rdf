@@ -71,6 +71,53 @@ offer is explicit: adopt as much or as little as wanted, from "CDISC
 hosts and governs everything" down to "the community maintains it and
 CDISC merely knows it exists."
 
+## Precedent inside CDISC, and the LinkML question
+
+The practice this dossier proposes is not foreign to CDISC — a sibling
+standard already runs it in production. COSMoS
+(`github.com/cdisc-org/COSMoS`, Biomedical Concepts and SDTM Dataset
+Specializations) publishes its model as one LinkML schema per artifact
+type (`model/cosmos_bc_model.yaml` and siblings), publishes every
+concept as an instance YAML file in dated release packages, generates
+JSON Schema, Python classes, diagrams, and documentation from the
+schema with standard generators, and validates every instance file
+against the schema in scripted checks. Model as data, artifacts
+generated rather than hand-written, conformance checks falling out of
+the schema — for Biomedical Concepts this is CDISC's current practice,
+not a proposal. What COSMoS does not have, and what this dossier
+offers for USDM, is the naming layer: persistent, resolvable, governed
+identifiers for the concepts themselves. (COSMoS instances point at
+NCI Thesaurus by href; the concepts have no dereferenceable CDISC
+namespace of their own.)
+
+The obvious question is then why usdm-rdf is not itself built on
+LinkML. The answer: the offer is toolchain-neutral, and the value is
+not in the format conversion. A generic schema-to-OWL or
+schema-to-SHACL generator is a mechanical mapping; nothing in it
+produces the decisions recorded in this dossier — dual NCIt anchoring,
+declaring-class property identifiers, severity derived from codelist
+extensibility, the version-identity conventions D1–D3. Those are
+semantic and governance decisions, and someone had to make them
+regardless of toolchain. If CDISC implements an official USDM pipeline
+the COSMoS way — a LinkML rendering of the model with generated
+artifacts — nothing in this offer stands in the way: the decision log
+becomes the acceptance criteria, and the w3id redirect lets the
+published identifiers survive a toolchain swap unchanged. For the
+record, the maintainer has followed LinkML since Solbrig and Mungall
+introduced it in 2021 and publicly welcomed CDISC's adoption of it in
+April 2023
+(<https://kerfors.github.io/tweetsreborn/2023/04/1651485700213145600.html>)
+— the direct-generator route for USDM was chosen with LinkML on the
+table, not in ignorance of it.
+
+One more reason this section exists now: independent semantic
+renderings of USDM keep appearing — this repository, the Fuseki/SPARQL
+demonstrator shown at a d4k deep-dive, and a third-party LinkML
+documentation site whose generated pages are already being mistaken
+for an official CDISC artifact. Each new derivative restates the same
+fact: the tooling is available to everyone, and the names still have
+no owner. That is the situation the proposal asks UGG to resolve.
+
 ## Decision log D1–D6
 
 What UGG would inherit, one entry per recorded decision. Full rationale
@@ -189,5 +236,11 @@ published artifacts and is not the governance venue.
   articles published on LinkedIn.
 - As of 2026-07-05: no response and no confirmation of receipt on the
   UGG proposal.
+- 2026-08-03 — section "Precedent inside CDISC, and the LinkML
+  question" added, after verifying that COSMoS runs a full
+  LinkML-based model-as-data pipeline (schema, generated artifacts,
+  scripted instance validation) — a CDISC-internal precedent for what
+  this dossier proposes. Prompted by community attention to LinkML
+  following Lex Jansen's passing.
 
 Append new events above this line as they happen.
