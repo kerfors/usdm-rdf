@@ -75,6 +75,22 @@ not arbitrate. Such a Violation is a finding about the two CDISC
 publications, reported as one, and the divergence itself is a
 governance item for CDISC, not a defect in the document.
 
+## What structural conformance does not say
+
+The instance graph is produced by the JSON-LD context, and the context
+maps only the serialization keys the model declares, scoped by the
+object's `instanceType`. A key the model does not declare, or a declared
+key placed on a class that does not carry it, yields no triple - that is
+JSON-LD 1.1 behaviour with no `@vocab`, not a choice made here. The closed
+structural shapes therefore never see such keys, and `conforms=True` is a
+statement about the graph, not about the JSON. The context-conformance
+check (step 1 of `60_validate_study.ipynb`, "unmapped keys") is the only
+detector for this class of defect, which is why it runs before lifting.
+Specimen: `previousId`/`nextId` written on `StudyArm` by a generator that
+assumed the epoch/element chaining pattern generalises - real attribute
+names, absent from that class - pass both SHACL layers and are caught
+only by the context check.
+
 ## Evidence: CDISC Pilot findings
 
 Against the pilot study (DDF-RA v4.0.0): the structural layer
@@ -88,3 +104,13 @@ Sponsor on `Organization-type`; `C132352` Sponsor Approval Date on
 `GovernanceDate-type`). The severity split behaving differently on
 placeholder codes versus plausible extensions is the design working as
 intended.
+
+A second run (2026-09-03) used five USDM v4 documents from an independent
+generator that had never seen the shapes - study shells and SoA-only
+documents for two protocols, 37 to 687 objects each, 6,620 triples in
+total, one author. All five pass both SHACL layers with zero findings,
+and all five trip the context check on the same attribute pair (the
+`StudyArm` specimen above). Every finding on those documents was a real
+defect in the input; the shapes produced no false positives. The
+documents themselves are not committed - four derive from protocols under
+copyright or marked confidential - so the claim rests on this record.
