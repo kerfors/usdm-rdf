@@ -225,6 +225,41 @@ IRIs.
 - Design rationale (flatten, closed, standalone, severity from
   extensibility, source boundary) in `docs/shacl-design.md`.
 
+### Instance IRIs (2026-09-03, decision D7)
+
+D5 leaves the base IRI to the consuming document. Two facts make that
+the only workable option; one convention completes it.
+
+- **`@base` in a remote context is ignored.** JSON-LD 1.1 applies
+  `@base` only from a context embedded in the document itself (Context
+  Processing algorithm: the `@base` step runs only when the context
+  being processed is not a remote context). Declaring one in
+  `usdm_v4.context.jsonld` would take effect for consumers who inline
+  the context and be silently dropped for everyone who references
+  `https://w3id.org/cdisc/usdm/v4/context.jsonld` by IRI — the intended
+  use.
+- **Parse location is not identity.** Without an explicit base, `id`
+  values resolve against whatever the parser has: a file path, a
+  download URL, or nothing. The same study lifted from two locations
+  yields two disjoint graphs; merging them doubles every node instead
+  of merging anything (measured 2026-09-03: 7,106 triples from two
+  lifts of one 3,553-triple study).
+- **D7 — the caller mints the instance namespace.** Whoever lifts a
+  study supplies the base IRI; it is part of the study's identity, not
+  of this repo's. Convention: `<sponsor namespace>/<study identifier>/`
+  with a trailing slash, so `"id": "StudyArm_1"` becomes
+  `<base>StudyArm_1`. Nothing under `https://w3id.org/cdisc/usdm/v4/`
+  is ever an instance IRI: that namespace names the model, and the
+  handoff offer below covers the model only.
+  `notebooks/60_validate_study.ipynb` takes the base as `BASE_IRI` and
+  refuses to run without one.
+- **Object ids must be unique per document before lifting.** JSON
+  tolerates two objects with the same `id` in different arrays; RDF
+  merges them into one node, and the structural layer then reports a
+  `maxCount` violation on that node that reads nothing like "duplicate
+  id". The checker scans for duplicates before lifting and stops with
+  both locations named.
+
 ## Property naming
 
 Class-scoped: `{ClassName}-{attributeName}`, hyphen-separated.
