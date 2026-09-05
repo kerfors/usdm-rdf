@@ -4,160 +4,371 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix usdm: <https://w3id.org/cdisc/usdm/v4/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <https://w3id.org/cdisc/usdm/v4/shapes-ct>
     a owl:Ontology ;
     dcterms:title "CDISC USDM v4 terminology SHACL shapes (DDF value sets)" ;
     dcterms:source <https://w3id.org/cdisc/usdm/v4/> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo "v0.6.0" .
+    owl:versionInfo "v0.7.0" .
 
 # codelist C207418, extensible: No
 usdm:AdministrableProduct-productDesignation-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:AdministrableProduct-productDesignation ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C207418> ;
+    rdfs:comment "Bound to codelist C207418 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C202579" "C156473" ) ; sh:severity sh:Violation ] .
 
 # codelist C215483, extensible: Yes
 usdm:AdministrableProduct-sourcing-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:AdministrableProduct-sourcing ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215483> ;
+    rdfs:comment "Bound to codelist C215483 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C215659" "C215660" ) ; sh:severity sh:Warning ] .
 
 # codelist C215479, extensible: Yes
 usdm:AdministrableProductProperty-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:AdministrableProductProperty-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215479> ;
+    rdfs:comment "Bound to codelist C215479 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C45997" ) ; sh:severity sh:Warning ] .
 
 # codelist C188728, extensible: Yes
 usdm:Encounter-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:Encounter-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C188728> ;
+    rdfs:comment "Bound to codelist C188728 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C25716" ) ; sh:severity sh:Warning ] .
 
 # codelist C188726, extensible: No
 usdm:Endpoint-level-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:Endpoint-level ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C188726> ;
+    rdfs:comment "Bound to codelist C188726 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C170559" "C94496" "C139173" ) ; sh:severity sh:Violation ] .
 
 # codelist C207412, extensible: No
 usdm:GeographicScope-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:GeographicScope-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C207412> ;
+    rdfs:comment "Bound to codelist C207412 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C25464" "C68846" "C41129" ) ; sh:severity sh:Violation ] .
 
 # codelist C207413, extensible: Yes
 usdm:GovernanceDate-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:GovernanceDate-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C207413> ;
+    rdfs:comment "Bound to codelist C207413 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C71476" "C215663" "C215664" ) ; sh:severity sh:Warning ] .
 
 # codelist C215482, extensible: Yes
 usdm:MedicalDevice-sourcing-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:MedicalDevice-sourcing ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215482> ;
+    rdfs:comment "Bound to codelist C215482 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C215659" "C215660" ) ; sh:severity sh:Warning ] .
 
 # codelist C215484, extensible: Yes
 usdm:MedicalDeviceIdentifier-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:MedicalDeviceIdentifier-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215484> ;
+    rdfs:comment "Bound to codelist C215484 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C104504" "C112279" "C70848" "C99285" ) ; sh:severity sh:Warning ] .
 
 # codelist C188725, extensible: No
 usdm:Objective-level-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:Objective-level ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C188725> ;
+    rdfs:comment "Bound to codelist C188725 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C163559" "C85826" "C85827" ) ; sh:severity sh:Violation ] .
 
 # codelist C215486, extensible: Yes
 usdm:ObservationalStudyDesign-subTypes-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:ObservationalStudyDesign-subTypes ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215486> ;
+    rdfs:comment "Bound to codelist C215486 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C215675" "C215653" "C215654" "C215655" "C215656" "C49667" "C215657" "C215658" ) ; sh:severity sh:Warning ] .
 
 # codelist C188724, extensible: Yes
 usdm:Organization-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:Organization-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C188724> ;
+    rdfs:comment "Bound to codelist C188724 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C93453" "C188863" "C21541" "C54149" "C37984" "C54148" "C199144" "C18240" "C215661" ) ; sh:severity sh:Warning ] .
 
 # codelist C215485, extensible: Yes
 usdm:ProductOrganizationRole-code-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:ProductOrganizationRole-code ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215485> ;
+    rdfs:comment "Bound to codelist C215485 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C25392" "C43530" ) ; sh:severity sh:Warning ] .
 
 # codelist C215478, extensible: Yes
 usdm:ReferenceIdentifier-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:ReferenceIdentifier-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215478> ;
+    rdfs:comment "Bound to codelist C215478 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C215674" "C142424" ) ; sh:severity sh:Warning ] .
 
 # codelist C215481, extensible: Yes
 usdm:StudyAmendmentImpact-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyAmendmentImpact-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215481> ;
+    rdfs:comment "Bound to codelist C215481 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C215665" "C215666" "C215667" "C215668" ) ; sh:severity sh:Warning ] .
 
 # codelist C207415, extensible: Yes
 usdm:StudyAmendmentReason-code-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyAmendmentReason-code ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C207415> ;
+    rdfs:comment "Bound to codelist C207415 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C207600" "C207601" "C207602" "C207603" "C207604" "C207605" "C207606" "C207607" "C207608" "C207609" "C207610" "C207611" "C207612" "C17649" "C48660" ) ; sh:severity sh:Warning ] .
 
 # codelist C188727, extensible: Yes
 usdm:StudyArm-dataOriginType-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyArm-dataOriginType ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C188727> ;
+    rdfs:comment "Bound to codelist C188727 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C188866" "C188864" "C165830" "C176263" ) ; sh:severity sh:Warning ] .
 
 # codelist C215477, extensible: Yes
 usdm:StudyDefinitionDocument-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyDefinitionDocument-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215477> ;
+    rdfs:comment "Bound to codelist C215477 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C70817" ) ; sh:severity sh:Warning ] .
 
 # codelist C188723, extensible: No
 usdm:StudyDefinitionDocumentVersion-status-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyDefinitionDocumentVersion-status ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C188723> ;
+    rdfs:comment "Bound to codelist C188723 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C25425" "C85255" "C25508" "C63553" "C188862" ) ; sh:severity sh:Violation ] .
 
 # codelist C207416, extensible: Yes
 usdm:StudyDesign-characteristics-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyDesign-characteristics ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C207416> ;
+    rdfs:comment "Bound to codelist C207416 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C98704" "C207613" "C46079" "C217004" "C217005" "C217006" "C217007" "C25689" "C147145" ) ; sh:severity sh:Warning ] .
 
 # codelist C207417, extensible: No
 usdm:StudyIntervention-role-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyIntervention-role ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C207417> ;
+    rdfs:comment "Bound to codelist C207417 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C207614" "C165822" "C158128" "C18020" "C41161" "C753" "C165835" "C68609" ) ; sh:severity sh:Violation ] .
 
 # codelist C215480, extensible: Yes
 usdm:StudyRole-code-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyRole-code ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C215480> ;
+    rdfs:comment "Bound to codelist C215480 (DDF, extensible: Yes). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C17445" "C25936" "C207599" "C70793" "C41189" "C78726" "C215669" "C25392" "C215670" "C188863" "C51876" "C142578" "C215671" "C142489" "C19924" "C215672" "C51851" "C37984" "C215673" "C215662" "C80403" "C51877" ) ; sh:severity sh:Warning ] .
 
 # codelist C207419, extensible: No
 usdm:StudyTitle-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:StudyTitle-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C207419> ;
+    rdfs:comment "Bound to codelist C207419 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C207615" "C207616" "C207617" "C207618" "C94108" ) ; sh:severity sh:Violation ] .
 
 # codelist C201265, extensible: No
 usdm:Timing-relativeToFrom-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:Timing-relativeToFrom ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C201265> ;
+    rdfs:comment "Bound to codelist C201265 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C201352" "C201353" "C201354" "C201355" ) ; sh:severity sh:Violation ] .
 
 # codelist C201264, extensible: No
 usdm:Timing-type-ct-shape
     a sh:NodeShape ;
     sh:targetObjectsOf usdm:Timing-type ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C201264> ;
+    rdfs:comment "Bound to codelist C201264 (DDF, extensible: No). Members published in USDM_CT.xlsx sheet 2; checked here." ;
     sh:property [ sh:path usdm:Code-code ; sh:in ( "C201356" "C201357" "C201358" ) ; sh:severity sh:Violation ] .
+
+# codelist C66726, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:AdministrableProduct-administrableDoseForm-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:AdministrableProduct-administrableDoseForm ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66726> ;
+    rdfs:comment "Bound to codelist C66726 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C71113, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:Administration-frequency-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Administration-frequency ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C71113> ;
+    rdfs:comment "Bound to codelist C71113 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C66729, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:Administration-route-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Administration-route ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66729> ;
+    rdfs:comment "Bound to codelist C66729 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C66797, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:EligibilityCriterion-category-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:EligibilityCriterion-category ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66797> ;
+    rdfs:comment "Bound to codelist C66797 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C171445, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:Encounter-contactModes-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Encounter-contactModes ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C171445> ;
+    rdfs:comment "Bound to codelist C171445 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C127262, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:Encounter-environmentalSettings-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Encounter-environmentalSettings ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C127262> ;
+    rdfs:comment "Bound to codelist C127262 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C66735, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:InterventionalStudyDesign-blindingSchema-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:InterventionalStudyDesign-blindingSchema ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66735> ;
+    rdfs:comment "Bound to codelist C66735 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C66736, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:InterventionalStudyDesign-intentTypes-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:InterventionalStudyDesign-intentTypes ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66736> ;
+    rdfs:comment "Bound to codelist C66736 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C99076, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:InterventionalStudyDesign-model-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:InterventionalStudyDesign-model ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C99076> ;
+    rdfs:comment "Bound to codelist C99076 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C66739, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:InterventionalStudyDesign-subTypes-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:InterventionalStudyDesign-subTypes ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66739> ;
+    rdfs:comment "Bound to codelist C66739 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C127259, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:ObservationalStudyDesign-model-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:ObservationalStudyDesign-model ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C127259> ;
+    rdfs:comment "Bound to codelist C127259 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C127260, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:ObservationalStudyDesign-samplingMethod-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:ObservationalStudyDesign-samplingMethod ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C127260> ;
+    rdfs:comment "Bound to codelist C127260 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C127261, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:ObservationalStudyDesign-timePerspective-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:ObservationalStudyDesign-timePerspective ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C127261> ;
+    rdfs:comment "Bound to codelist C127261 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C66732, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:PopulationDefinition-plannedSex-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:PopulationDefinition-plannedSex ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66732> ;
+    rdfs:comment "Bound to codelist C66732 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C71620, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:Quantity-unit-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:Quantity-unit ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C71620> ;
+    rdfs:comment "Bound to codelist C71620 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C174222, Protocol Terminology: members not in the USDM deliverables - deactivated
+usdm:StudyArm-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyArm-type ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C174222> ;
+    rdfs:comment "Bound to codelist C174222 (Protocol Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C66737, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:StudyDesign-studyPhase-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyDesign-studyPhase ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C66737> ;
+    rdfs:comment "Bound to codelist C66737 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C99077, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:StudyDesign-studyType-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyDesign-studyType ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C99077> ;
+    rdfs:comment "Bound to codelist C99077 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C99079, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:StudyEpoch-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyEpoch-type ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C99079> ;
+    rdfs:comment "Bound to codelist C99079 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .
+
+# codelist C99078, SDTM Terminology: members not in the USDM deliverables - deactivated
+usdm:StudyIntervention-type-ct-shape
+    a sh:NodeShape ;
+    sh:targetObjectsOf usdm:StudyIntervention-type ;
+    sh:deactivated true ;
+    rdfs:seeAlso <https://evsexplore.semantics.cancer.gov/evsexplore/subset/ncit/C99078> ;
+    rdfs:comment "Bound to codelist C99078 (SDTM Terminology). Members published in NCI EVS, not in the USDM deliverables; this shape is deactivated and its values pass no check here." .

@@ -15,14 +15,15 @@ Run from repo root: python scripts/ci_check.py
 import json
 import sys
 
-from rdflib import Graph, URIRef
+from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import OWL, RDF, SH
 
-# Operational baselines (DDF-RA v4.0.0, repo v0.6.0).
+# Operational baselines (DDF-RA v4.0.0, repo v0.7.0).
 EXPECTED_ONTOLOGY_TRIPLES = 8642
 EXPECTED_NAMED_CLASSES = 86
 EXPECTED_STRUCTURAL_NODESHAPES = 80
-EXPECTED_CT_NODESHAPES = 25
+EXPECTED_CT_NODESHAPES_ACTIVE = 25
+EXPECTED_CT_NODESHAPES_DEACTIVATED = 20
 EXPECTED_JSONLD_VERSION = 1.1
 
 failures = []
@@ -53,10 +54,22 @@ check(
     EXPECTED_STRUCTURAL_NODESHAPES,
 )
 
-# 3. Terminology shapes parse; NodeShape count matches baseline.
+# 3. Terminology shapes parse; active and deactivated NodeShape counts
+#    match baseline (deactivated = bound codelist, members not in the
+#    USDM deliverables, no check).
 ct = Graph().parse("usdm_v4.shapes-ct.ttl", format="turtle")
-ct_shapes = sum(1 for _ in ct.subjects(RDF.type, SH.NodeShape))
-check("usdm_v4.shapes-ct.ttl sh:NodeShape count", ct_shapes, EXPECTED_CT_NODESHAPES)
+ct_shapes = set(ct.subjects(RDF.type, SH.NodeShape))
+ct_deactivated = {s for s in ct_shapes if (s, SH.deactivated, Literal(True)) in ct}
+check(
+    "usdm_v4.shapes-ct.ttl active sh:NodeShape count",
+    len(ct_shapes - ct_deactivated),
+    EXPECTED_CT_NODESHAPES_ACTIVE,
+)
+check(
+    "usdm_v4.shapes-ct.ttl deactivated sh:NodeShape count",
+    len(ct_deactivated),
+    EXPECTED_CT_NODESHAPES_DEACTIVATED,
+)
 
 # 4. Instance context is valid JSON with a single top-level @context,
 #    declares JSON-LD 1.1, and its type-scoped context count matches the

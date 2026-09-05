@@ -93,7 +93,9 @@ Do not, unless the user explicitly opens the scope:
   packages (SDTM/Protocol Terminology members, free-text dictionary
   references). Pulling SDTM CT in would be a third source file with a
   decoupled release cadence. The 25 DDF-native value sets in sheet 2 of
-  `USDM_CT.xlsx` are in scope since v0.6.0 (`usdm_v4.shapes-ct.ttl`).
+  `USDM_CT.xlsx` are in scope since v0.6.0 (`usdm_v4.shapes-ct.ttl`); the
+  other 20 bindings are `sh:deactivated` shapes there since v0.7.0 — the
+  binding stated, no members, no check. Do not activate them.
 - Propose alignment to the CDISC Library RDF Administered Item vocabulary.
 
 These are documented in `README.md` as known gaps. Scope openings so far:

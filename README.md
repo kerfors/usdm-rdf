@@ -61,10 +61,14 @@ not semantic. This repo closes that gap with a small, reproducible pipeline
   [docs/shacl-design.md](docs/shacl-design.md)). Structural layer: one
   closed NodeShape per concrete class, flattened, validating a bare
   instance graph with no ontology merge or inference. Terminology layer:
-  the 25 DDF-native value sets from sheet 2 of `USDM_CT.xlsx` as `sh:in`
-  checks, severity from the published extensibility flag (non-extensible →
-  Violation, extensible → Warning). The CDISC Pilot study conforms
-  structurally; the terminology layer surfaces 14 real findings in it.
+  one shape per codelist binding in sheet 1 of `USDM_CT.xlsx` (45, each
+  with the EVS subset URL as `rdfs:seeAlso`) — the 25 DDF-native value
+  sets from sheet 2 as `sh:in` checks, severity from the published
+  extensibility flag (non-extensible → Violation, extensible → Warning);
+  the 20 bindings to SDTM/Protocol Terminology codelists as
+  `sh:deactivated` shapes, stating the binding and checking nothing (since
+  v0.7.0). The CDISC Pilot study conforms structurally; the terminology
+  layer surfaces 14 real findings in it.
 - Validation pipeline: `rdflib` parse + SPARQL sanity queries + instance
   context check + two-layer SHACL conformance check against the CDISC
   Pilot example + CSV reports in `reports/`.
@@ -80,7 +84,8 @@ These are known gaps, not oversights. Do not infer that they are coming soon.
 - Value binding for codelists backed by external terminology packages
   (SDTM/Protocol Terminology members, free-text dictionary references).
   The DDF-native value sets in sheet 2 of `USDM_CT.xlsx` are covered by
-  `usdm_v4.shapes-ct.ttl` since v0.6.0.
+  `usdm_v4.shapes-ct.ttl` since v0.6.0; the 20 external-package bindings
+  are declared there as deactivated shapes since v0.7.0.
 
 ## Mechanical mapping (summary)
 
@@ -181,8 +186,10 @@ It reports; it does not judge protocol quality.
 - Instance context check (CDISC Pilot example, DDF-RA `v4.0.0`): 11,811
   triples; 1,953 typed nodes; 1,257 Ref links, 0 dangling; 0 unmapped keys
 - SHACL shapes: 80 closed NodeShapes, 619 property shapes, 20 `sh:or`
-  (structural); 25 value-set shapes, 125 permitted values, 9 Violation +
-  16 Warning severities (terminology)
+  (structural); 45 codelist-binding shapes = 25 active value-set shapes
+  (125 permitted values, 9 Violation + 16 Warning severities) + 20
+  `sh:deactivated` shapes for bindings whose members are not in the USDM
+  deliverables (terminology)
 - SHACL conformance (CDISC Pilot example as published in DDF-RA at the
   pinned tag): structural conforms; terminology reports 3 Violations +
   11 Warnings (placeholder/extension codes in the published example —

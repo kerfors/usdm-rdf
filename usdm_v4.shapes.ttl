@@ -10,7 +10,7 @@
     dcterms:title "CDISC USDM v4 structural SHACL shapes" ;
     dcterms:source <https://w3id.org/cdisc/usdm/v4/> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo "v0.6.0" .
+    owl:versionInfo "v0.7.0" .
 
 usdm:Abbreviation-shape
     a sh:NodeShape ;

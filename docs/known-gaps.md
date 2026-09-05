@@ -34,7 +34,9 @@ columns and rerun against the 8,641-triple graph; CSVs regenerated.
   source with a decoupled release cadence) and the 12 free-text
   external dictionary references (ISO 3166, ISO 639, MedDRA, SNOMEDCT,
   etc.). The 25 DDF-native value sets in sheet 2 of `USDM_CT.xlsx` are
-  *in* since v0.6.0 (`usdm_v4.shapes-ct.ttl`).
+  *in* since v0.6.0 (`usdm_v4.shapes-ct.ttl`); the 20 external-package
+  bindings are *declared* there as `sh:deactivated` shapes since v0.7.0
+  — binding and EVS subset URL stated, members and check absent.
 - Alignment to the existing CDISC Library RDF (Administered Item vocabulary).
 - Multiple format publication. Turtle only — no RDF/XML, JSON-LD, or
   NTriples.
@@ -68,6 +70,12 @@ USDM_CT lists 67 Y-rows (rows where `Has Value List` starts with `Y`):
 - 14 free-text references to external dictionaries (ISO 3166, ISO 639,
   MedDRA, SNOMEDCT, FHIR, etc.)
 
+One source defect in the 53: the `Codelist URL` cell for
+`Encounter.environmentalSettings` (C127262) ends in a stray `)`.
+`50_generate_shapes.ipynb` strips exactly that character for exactly
+that row before emitting `rdfs:seeAlso`, and fails if the cleaned URL
+does not end in the same C-code as `Has Value List`.
+
 Of the 67, **10 are inherited duplicates** of a parent's binding (e.g.
 `InterventionalStudyDesign.studyType` is an inherited row that duplicates
 `StudyDesign.studyType`). v0.1 emits one annotation pair per *declaring*
@@ -100,6 +108,7 @@ alignment when CDISC Library RDF alignment lands.
 | v0.4.0   | 8,641   | +441 vs v0.3.1 | Dual NCIt anchoring (decision D4): OBO PURL twin on every NCIt reference — 396 skos:exactMatch + 45 usdm:boundCodelist. EVS host found NXDOMAIN 2026-06-12; EVS form kept as identifier (NCI Thesaurus 26.05d still declares it). |
 | v0.5.0   | 8,642   | +1 vs v0.4.0 | `xsd:date a rdfs:Datatype` declaration (aligns the source Turtle with OWLAPI-derived representations). Second deliverable added outside the triple count: `usdm_v4.context.jsonld` — JSON-LD 1.1 instance context (decision D5). |
 | v0.6.0   | 8,642   | 0 vs v0.5.0 | Ontology unchanged. Two SHACL deliverables added outside the triple count: `usdm_v4.shapes.ttl` (structural, 80 closed NodeShapes) + `usdm_v4.shapes-ct.ttl` (terminology, 25 value-set shapes, severity from extensibility). Design in `shacl-design.md`, decision D6. |
+| v0.7.0   | 8,642   | 0 vs v0.6.0 | Ontology unchanged. `usdm_v4.shapes-ct.ttl` gains 20 `sh:deactivated` shapes (one per SDTM/Protocol Terminology binding in sheet 1) and `rdfs:seeAlso` (EVS subset URL) + `rdfs:comment` on all 45; `sh:NodeShape` count 25 → 45, active 25. No `conforms` result changes. Coverage statement in `shacl-design.md`. |
 
 All structural counts match exactly across v0/v0.1 (the new layer is purely
 additive on property IRIs):

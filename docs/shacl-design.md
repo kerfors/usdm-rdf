@@ -1,13 +1,14 @@
-# SHACL shapes design (v0.6.0)
+# SHACL shapes design (v0.7.0)
 
 Two deliverables, two conformance claims:
 
 - `usdm_v4.shapes.ttl` — **structural layer**: class membership,
   cardinality, datatypes, ranges, closedness. Changes when the model
   changes (per DDF-RA release).
-- `usdm_v4.shapes-ct.ttl` — **terminology layer**: permitted `Code`
-  values for the DDF-native value sets. Changes when CDISC's value sets
-  change. Consumers opt in separately.
+- `usdm_v4.shapes-ct.ttl` — **terminology layer**: one shape per
+  codelist binding USDM states; permitted `Code` values for the
+  DDF-native value sets, deactivated shapes for the rest. Changes when
+  CDISC's bindings or value sets change. Consumers opt in separately.
 
 ## Structural layer: flatten, closed, standalone
 
@@ -53,15 +54,56 @@ legitimate use flagged for review, not an error. Codelist C-codes are
 cross-checked against the sheet-1 bindings; disagreement fails
 generation.
 
+## Terminology coverage: 25 checked, 20 declared and deactivated
+
+Sheet 1 of `USDM_CT.xlsx` binds 45 declaring-class attributes to a
+codelist C-code (67 `Has Value List` rows; 45 distinct properties after
+collapsing inherited rows to the declaring class; 12 further properties
+reference free-text external dictionaries and carry no C-code). The
+ontology publishes every one of the 45 as `usdm:boundCodelist` on the
+property IRI. Only 25 of them have a value set in sheet 2, so only 25
+carry a `sh:in` check. The other 20 — 19 SDTM Terminology codelists
+(`StudyEpoch.type` C99079, `InterventionalStudyDesign.model` C99076,
+`StudyDesign.studyType` C99077, `StudyDesign.studyPhase` C66737,
+`InterventionalStudyDesign.blindingSchema` C66735,
+`PopulationDefinition.plannedSex` C66732, `Quantity.unit` C71620,
+`Administration.route` C66729, `EligibilityCriterion.category` C66797,
+…) and `StudyArm.type` C174222 (Protocol Terminology) — have their
+members in NCI EVS, not in the USDM deliverables.
+
+Since v0.7.0 each of those 20 is a `sh:NodeShape` with
+`sh:targetObjectsOf` the bound property, `sh:deactivated true`, no
+constraint, and the EVS subset URL as `rdfs:seeAlso` (the 25 active
+shapes carry the same `rdfs:seeAlso`). Validators skip deactivated
+shapes, so every `conforms` result is unchanged from v0.6.0. What
+changes is that "not checked here" is now a positive assertion in the
+shapes graph rather than an inference from a shape's absence:
+
+    SELECT ?property ?codelist WHERE {
+      ?shape a sh:NodeShape ; sh:deactivated true ;
+             sh:targetObjectsOf ?property ; rdfs:seeAlso ?codelist }
+
+Extensibility is published for the 25 (as severity) and not for the 20
+— sheet 2 does not list them, and the NCI EVS package is not a source
+of this repo. `terminology conforms=True` therefore reads: no finding
+among the 25 checked codelists. `60_validate_study.ipynb` prints that
+scope on the result line and lists the coded values in the document
+that fall under a deactivated shape, so a consumer sees what was not
+looked at rather than only what passed. On the CDISC Pilot that table
+holds 88 coded values on 16 of the 20 deactivated bindings — 31
+`EligibilityCriterion-category`, 16 `Encounter-contactModes`, 5
+`StudyEpoch-type`, … — next to the 14 findings on the checked side.
+
 ## Source boundary
 
 Everything derivable from the two pinned source files is used fully;
-nothing new is fetched. Out, deliberately: the 20 bindings backed by
-SDTM/Protocol Terminology codelists (their members live in the
+nothing new is fetched. Out, deliberately: the members of the 20
+codelists backed by SDTM/Protocol Terminology (they live in the
 quarterly NCI EVS CT publications — a third source with a decoupled
-release cadence) and the 12 free-text external dictionary references
-(ISO 3166, ISO 639, MedDRA, SNOMEDCT, etc.). Their values pass no
-check — documented as out of scope, not as a pass.
+release cadence; the bindings themselves are in, as deactivated shapes)
+and the 12 free-text external dictionary references (ISO 3166, ISO 639,
+MedDRA, SNOMEDCT, etc.). Their values pass no check — documented as out
+of scope, not as a pass.
 
 The terminology layer has one source of truth: sheet 2 of
 `USDM_CT.xlsx` at the pinned tag. The NCI EVS publication of the same
