@@ -7,8 +7,8 @@ YAML source CDISC publishes in [cdisc-org/DDF-RA](https://github.com/cdisc-org/D
 `https://w3id.org/cdisc/usdm/v4/` (slash semantics, adopted in v0.3 —
 the v0.2 hash form is superseded; see
 [docs/v0.2-to-v0.3-migration.md](docs/v0.2-to-v0.3-migration.md)).
-The w3id `.htaccess` is live and pinned to the v0.6.0 release (PR
-perma-id/w3id.org#6303 merged 2026-07-04; original registration #6012,
+The w3id `.htaccess` is live and pinned to the v0.7.0 release (PR
+perma-id/w3id.org#6651 merged 2026-09-06; original registration #6012,
 2026-05-04), so IRIs in this namespace dereference via content negotiation. See
 [docs/iri-and-governance.md](docs/iri-and-governance.md) for the IRI
 scheme rationale and the CDISC governance handoff plan.
@@ -137,13 +137,9 @@ usdm-rdf/
 │   ├── 02_codelist_bindings.ipynb   # binding inventory + inheritance-aware reverse lookup
 │   ├── 03_coverage_gap_analysis.ipynb  # Code-typed property coverage + gap report
 │   ├── 04_resolve_permitted_terms.ipynb  # resolve permitted Code values via NCI EVS
-│   ├── 05_polymorphic_associations.ipynb # polymorphic ranges + reverse range lookup
-│   ├── 06_query_instance_data.ipynb      # multi-study corpus as named graphs (d4k usdm_data, pinned commit)
-│   └── 07_validation_audit.ipynb         # SHACL findings as a graph, joined to model definitions
+│   └── 05_polymorphic_associations.ipynb # polymorphic ranges + reverse range lookup
 ├── reports/                         # CSV reports from validation runs
-├── docs/                            # design decisions, IRI scheme, future work
-├── queries/                         # reusable standalone SPARQL files (none yet)
-└── versions/                        # deliverable snapshots per DDF-RA tag bump (none yet — single source tag v4.0.0 so far)
+└── docs/                            # design decisions, IRI scheme
 ```
 
 ## Reproduce
@@ -209,8 +205,8 @@ benign — document the delta in `docs/`) or a generation bug (investigate).
 
 - Code: MIT (see `LICENSE`).
 - Generated content (`usdm_v4.ttl`, `usdm_v4.context.jsonld`,
-  `usdm_v4.shapes.ttl`, `usdm_v4.shapes-ct.ttl`, files in `versions/`,
-  derived reports): CC-BY-4.0, mirroring the DDF-RA source.
+  `usdm_v4.shapes.ttl`, `usdm_v4.shapes-ct.ttl`, derived reports):
+  CC-BY-4.0, mirroring the DDF-RA source.
 
 ## Acknowledgements
 

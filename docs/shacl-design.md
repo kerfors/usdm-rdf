@@ -128,10 +128,6 @@ structural shapes therefore never see such keys, and `conforms=True` is a
 statement about the graph, not about the JSON. The context-conformance
 check (step 1 of `60_validate_study.ipynb`, "unmapped keys") is the only
 detector for this class of defect, which is why it runs before lifting.
-Specimen: `previousId`/`nextId` written on `StudyArm` by a generator that
-assumed the epoch/element chaining pattern generalises - real attribute
-names, absent from that class - pass both SHACL layers and are caught
-only by the context check.
 
 ## Evidence: CDISC Pilot findings
 
@@ -146,13 +142,3 @@ Sponsor on `Organization-type`; `C132352` Sponsor Approval Date on
 `GovernanceDate-type`). The severity split behaving differently on
 placeholder codes versus plausible extensions is the design working as
 intended.
-
-A second run (2026-09-03) used five USDM v4 documents from an independent
-generator that had never seen the shapes - study shells and SoA-only
-documents for two protocols, 37 to 687 objects each, 6,620 triples in
-total, one author. All five pass both SHACL layers with zero findings,
-and all five trip the context check on the same attribute pair (the
-`StudyArm` specimen above). Every finding on those documents was a real
-defect in the input; the shapes produced no false positives. The
-documents themselves are not committed - four derive from protocols under
-copyright or marked confidential - so the claim rests on this record.
