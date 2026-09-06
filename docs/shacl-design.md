@@ -111,7 +111,7 @@ codelists is a second source, and the two can disagree. Known case:
 for `StudyTitle.type`, EVS subset `C207419` lists `C207646` (Study
 Acronym) where sheet 2 lists `C94108` (Study Protocol Version
 Acronym). The codelist is non-extensible, so a document built against
-EVS gets a Violation here (see `examples/validation_audit.csv`). The
+EVS gets a Violation here. The
 shapes encode the xlsx side because that is the pinned source; they do
 not arbitrate. Such a Violation is a finding about the two CDISC
 publications, reported as one, and the divergence itself is a
